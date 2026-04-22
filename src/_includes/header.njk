@@ -1,0 +1,24 @@
+<header class="site-header sticky top-4 z-50">
+  <div class="container-custom">
+    <div class="site-header-surface flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between px-4 py-3 sm:px-5 sm:py-3.5">
+      <a href="{{ '/' | url }}" class="font-semibold text-lg flex items-center gap-2" aria-label="{% if site and site.brand %}{{ site.brand.name }}{% else %}Home{% endif %}">
+        <span class="text-ink">{% if site and site.brand %}{{ site.brand.name }}{% else %}Valeto{% endif %}</span>
+      </a>
+
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6 sm:justify-end">
+        <nav class="flex flex-wrap items-center gap-x-4 gap-y-2 sm:gap-x-5" aria-label="Main">
+          {% for item in site.nav.header %}
+            <a href="{{ item.url }}" class="text-slate-700 hover:text-brand-primary text-sm sm:text-base whitespace-nowrap">{{ item.label }}</a>
+          {% endfor %}
+        </nav>
+
+        {% if site.nav.headerCta %}
+          <a href="{{ site.nav.headerCta.url }}" class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 shrink-0">
+            {{ site.nav.headerCta.label }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</header>
+

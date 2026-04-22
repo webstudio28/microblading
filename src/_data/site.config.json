@@ -1,0 +1,24 @@
+{
+  "brand": {
+    "name": "Valeto",
+    "language": "en"
+  },
+  "colors": {
+    "primary": "#2563eb",
+    "secondary": "#64748b",
+    "accent": "#f59e0b"
+  },
+  "seo": {
+    "siteUrl": "https://example.com",
+    "defaultTitle": "Valeto",
+    "defaultDescription": "One-page website.",
+    "twitterCard": "summary_large_image"
+  },
+  "nav": {
+    "header": [
+      { "label": "Home", "url": "#hero" }
+    ],
+    "headerCta": { "label": "Contact", "url": "#hero" }
+  }
+}
+

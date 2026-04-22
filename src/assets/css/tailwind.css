@@ -1,0 +1,40 @@
+:root {
+  --color-page: #ffffff;
+  --color-ink: #0f172a;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 7.5rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply min-h-screen bg-page text-ink antialiased;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+      "Apple Color Emoji", "Segoe UI Emoji";
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-screen-xl mx-auto px-4 md:px-6;
+  }
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .site-header-surface {
+    @apply rounded-2xl border border-slate-200/70 bg-white shadow-sm;
+  }
+}
+

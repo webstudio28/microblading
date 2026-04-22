@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{% if site and site.brand %}{{ site.brand.language }}{% else %}en{% endif %}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }}{% elif site and site.seo %}{{ site.seo.defaultTitle }}{% else %}Valeto{% endif %}</title>
+  <meta name="description" content="{% if description %}{{ description }}{% elif site and site.seo %}{{ site.seo.defaultDescription }}{% endif %}">
+  {% if site and site.seo and site.seo.siteUrl %}
+  <link rel="canonical" href="{{ site.seo.siteUrl }}{{ page.url | url }}">
+  {% endif %}
+
+  <meta name="theme-color" content="{% if site and site.colors %}{{ site.colors.primary }}{% else %}#0f172a{% endif %}">
+
+  <style>
+    :root{
+      --color-brand-primary: {% if site and site.colors %}{{ site.colors.primary }}{% else %}#2563eb{% endif %};
+      --color-brand-secondary: {% if site and site.colors %}{{ site.colors.secondary }}{% else %}#64748b{% endif %};
+      --color-brand-accent: {% if site and site.colors %}{{ site.colors.accent }}{% else %}#f59e0b{% endif %};
+    }
+  </style>
+
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | url }}">
+</head>
+<body>
+  {% include "header.njk" %}
+  {{ content | safe }}
+</body>
+</html>
+
