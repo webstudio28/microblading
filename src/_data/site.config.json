@@ -1,24 +1,29 @@
 {
   "brand": {
     "name": "Valeto",
-    "language": "en"
+    "logo": "/assets/images/logo.png",
+    "logoAlt": "Valeto",
+    "language": "bg"
   },
   "colors": {
-    "primary": "#2563eb",
-    "secondary": "#64748b",
-    "accent": "#f59e0b"
+    "primary": "#2c1a0e",
+    "secondary": "#7a6558",
+    "accent": "#c9a98a"
   },
   "seo": {
     "siteUrl": "https://example.com",
     "defaultTitle": "Valeto",
-    "defaultDescription": "One-page website.",
+    "defaultDescription": "Микроблейдинг и ламиниране в Пловдив.",
     "twitterCard": "summary_large_image"
   },
   "nav": {
     "header": [
-      { "label": "Home", "url": "#hero" }
-    ],
-    "headerCta": { "label": "Contact", "url": "#hero" }
+      { "label": "Начало",        "url": "#hero" },
+      { "label": "За мен",        "url": "#about" },
+      { "label": "Микроблейдинг", "url": "#microblading" },
+      { "label": "Ламиниране",    "url": "#laminating" },
+      { "label": "Контакти",      "url": "#contact" }
+    ]
   }
 }
 

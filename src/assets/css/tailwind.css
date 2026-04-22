@@ -1,6 +1,26 @@
+/* MAK typeface — used for headings */
+@font-face {
+  font-family: "MAK";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/MAK.otf") format("opentype");
+}
+@font-face {
+  font-family: "MAK";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/MAK-bold.otf") format("opentype");
+}
+
 :root {
-  --color-page: #ffffff;
-  --color-ink: #0f172a;
+  --color-page:           #efe4ce;
+  --color-ink:            #2c1a0e;
+  --color-muted:          #7a6558;
+  --color-brand-primary:  #2c1a0e;
+  --color-brand-secondary:#7a6558;
+  --color-brand-accent:   #c9a98a;
 }
 
 @tailwind base;
@@ -10,18 +30,21 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 7.5rem;
+    scroll-padding-top: 7rem;
   }
   @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
+    html { scroll-behavior: auto; }
   }
 
   body {
-    @apply min-h-screen bg-page text-ink antialiased;
-    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
-      "Apple Color Emoji", "Segoe UI Emoji";
+    @apply min-h-screen antialiased;
+    background: linear-gradient(to right, #efe4ce, #fffbf4);
+    color: var(--color-ink);
+    font-family: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: "MAK", Georgia, serif;
   }
 }
 
@@ -33,8 +56,63 @@
     @apply py-16 md:py-24;
   }
 
+  /* Full-page texture overlay */
+  .site-bg-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background-image: url("/assets/images/site-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.30;
+    pointer-events: none;
+  }
+
+  /* Header: pill-shaped floating island */
   .site-header-surface {
-    @apply rounded-2xl border border-slate-200/70 bg-white shadow-sm;
+    @apply flex items-center justify-between gap-6
+           bg-white rounded-full
+           px-6 py-3
+           shadow-sm border border-white/60;
+  }
+
+  /* Hero badge pill */
+  .hero-badge {
+    @apply inline-flex items-center gap-1.5
+           rounded-full border border-[#c9a98a]/60
+           bg-[#f0e2d2] px-4 py-1.5
+           text-xs font-semibold tracking-wide;
+    color: var(--color-ink);
+  }
+
+  /* Hero photo card */
+  .hero-photo-wrap {
+    @apply relative rounded-3xl overflow-hidden shadow-md;
+    background-color: #e8d9cc;
+    max-width: 460px;
+    width: 100%;
+  }
+  .hero-photo {
+    @apply block w-full h-auto object-cover;
+    display: block;
+  }
+
+  /* CTA buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center
+           rounded-full px-7 py-3
+           text-sm font-semibold text-white
+           bg-[#1a1105] hover:bg-[#2c1a0e]
+           transition-colors duration-200;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center
+           rounded-full px-7 py-3
+           text-sm font-semibold
+           bg-white border border-[#d4c5b8]
+           hover:bg-[#f0e8e0]
+           transition-colors duration-200;
+    color: var(--color-ink);
   }
 }
-

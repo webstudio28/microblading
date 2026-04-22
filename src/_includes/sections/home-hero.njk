@@ -1,32 +1,57 @@
 {% set h = home.hero if home and home.hero else {} %}
-<section class="section-padding" id="hero">
+<section class="hero-section section-padding" id="hero">
   <div class="container-custom">
-    <div class="rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 px-6 py-14 md:px-12 md:py-20">
-      <div class="max-w-3xl">
-        <p class="text-sm font-semibold tracking-wide text-brand-secondary">One-page skeleton</p>
-        <h1 class="mt-4 text-4xl md:text-5xl font-black leading-tight text-slate-900">
-          {{ h.headline | default('Valeto landing page') }}
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+      {# ── Left: text ── #}
+      <div class="flex flex-col items-start gap-5">
+
+        {# Badge pill #}
+        {% if h.badge %}
+        <span class="hero-badge">{{ h.badge }}</span>
+        {% endif %}
+
+        {# Headline — MAK font #}
+        <h1 class="font-mak text-4xl md:text-5xl xl:text-[3.5rem] leading-[1.15] text-ink">
+          {{ h.headline | default("Микроблейдинг и ламиниране в Пловдив") }}
         </h1>
+
+        {# Sub-text — Montserrat #}
         {% if h.subheadline %}
-        <p class="mt-5 text-lg md:text-xl text-slate-700">
+        <p class="text-muted text-sm md:text-base leading-relaxed max-w-md">
           {{ h.subheadline }}
         </p>
         {% endif %}
 
-        <div class="mt-8 flex flex-wrap gap-4">
+        {# CTAs #}
+        <div class="flex flex-wrap gap-3 mt-1">
           {% if h.ctaPrimary %}
-          <a href="{{ h.ctaPrimary.url }}" class="px-6 py-3 rounded-xl bg-slate-900 text-white font-semibold hover:bg-slate-800">
+          <a href="{{ h.ctaPrimary.url }}" class="btn-primary">
             {{ h.ctaPrimary.label }}
           </a>
           {% endif %}
           {% if h.ctaSecondary %}
-          <a href="{{ h.ctaSecondary.url }}" class="px-6 py-3 rounded-xl border-2 border-slate-900/15 text-slate-900 font-semibold hover:bg-slate-900/5">
+          <a href="{{ h.ctaSecondary.url }}" class="btn-secondary">
             {{ h.ctaSecondary.label }}
           </a>
           {% endif %}
         </div>
+
       </div>
+
+      {# ── Right: photo card ── #}
+      <div class="flex justify-center lg:justify-end">
+        <div class="hero-photo-wrap">
+          <img
+            src="{{ h.image | default('/assets/images/hero-img.jpeg') | url }}"
+            alt="{{ h.imageAlt | default('Hero image') }}"
+            class="hero-photo"
+            width="460" height="540"
+            loading="eager"
+          >
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
-

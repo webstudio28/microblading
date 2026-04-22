@@ -1,9 +1,12 @@
 {
   "hero": {
-    "headline": "Build something great with Valeto.",
-    "subheadline": "A clean Eleventy + Tailwind one-page skeleton with a progressive-enhancement header island.",
-    "ctaPrimary": { "label": "Get started", "url": "#hero" },
-    "ctaSecondary": { "label": "Contact", "url": "#hero" }
+    "badge": "Микроблейдинг",
+    "headline": "Микроблейдинг и ламиниране в Пловдив",
+    "subheadline": "Микроблейдинг и ламиниране в Пловдив. Професионална грижа за вашата красота с индивидуален подход.",
+    "image": "/assets/images/hero-img.jpeg",
+    "imageAlt": "Валето — микроблейдинг и ламиниране",
+    "ctaPrimary":   { "label": "Запази час",  "url": "#contact" },
+    "ctaSecondary": { "label": "Контакти",    "url": "#contact" }
   }
 }
 

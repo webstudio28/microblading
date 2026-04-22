@@ -19,11 +19,19 @@
     }
   </style>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/styles.css' | url }}">
 </head>
 <body>
-  {% include "header.njk" %}
-  {{ content | safe }}
+  {# Full-page texture overlay — sits above gradient, below all content #}
+  <div class="site-bg-overlay" aria-hidden="true"></div>
+
+  <div class="relative z-10">
+    {% include "header.njk" %}
+    {{ content | safe }}
+  </div>
 </body>
 </html>
 
