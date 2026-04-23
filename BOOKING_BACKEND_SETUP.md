@@ -27,6 +27,11 @@ Required values:
 - `CAL_EVENT_TYPE_SLUG`
 - `CAL_USERNAME` (or `CAL_TEAM_SLUG`)
 
+Recommended values:
+
+- `CAL_DEFAULT_TIMEZONE` (example: `Europe/Sofia`)
+- `CAL_ATTENDEE_LANGUAGE` (set `bg` for Bulgarian booking emails)
+
 ## 2) Keep frontend endpoint enabled
 
 In `src/_data/home.json`:

@@ -30,7 +30,8 @@ function load_private_config(): array
         "CAL_USERNAME" => getenv("CAL_USERNAME") ?: "",
         "CAL_TEAM_SLUG" => getenv("CAL_TEAM_SLUG") ?: "",
         "CAL_ORGANIZATION_SLUG" => getenv("CAL_ORGANIZATION_SLUG") ?: "",
-        "CAL_DEFAULT_TIMEZONE" => getenv("CAL_DEFAULT_TIMEZONE") ?: "Europe/Sofia"
+        "CAL_DEFAULT_TIMEZONE" => getenv("CAL_DEFAULT_TIMEZONE") ?: "Europe/Sofia",
+        "CAL_ATTENDEE_LANGUAGE" => getenv("CAL_ATTENDEE_LANGUAGE") ?: "bg"
     ];
 
     $candidateFiles = [];
@@ -111,13 +112,16 @@ if ($username === "" && $teamSlug === "") {
 }
 
 $attendeeTimeZone = trim((string)($input["timeZone"] ?? $config["CAL_DEFAULT_TIMEZONE"]));
+$attendeeLanguage = trim((string)($input["language"] ?? $config["CAL_ATTENDEE_LANGUAGE"]));
+$attendeePhone = $phone !== "" ? $phone : null;
 $bookingPayload = [
     "start" => $slotStartIso,
     "eventTypeSlug" => $eventTypeSlug,
     "attendee" => [
         "name" => $fullName,
         "email" => $email,
-        "timeZone" => $attendeeTimeZone
+        "timeZone" => $attendeeTimeZone,
+        "language" => $attendeeLanguage
     ],
     "metadata" => [
         "source" => $sourceValue,
@@ -127,6 +131,10 @@ $bookingPayload = [
         "preferredTime" => $timeValue
     ]
 ];
+
+if ($attendeePhone !== null) {
+    $bookingPayload["attendee"]["phoneNumber"] = $attendeePhone;
+}
 
 if ($username !== "") {
     $bookingPayload["username"] = $username;

@@ -11,5 +11,6 @@ return [
     "CAL_USERNAME" => "andon-goshev-cymjwp",
     "CAL_TEAM_SLUG" => "",
     "CAL_ORGANIZATION_SLUG" => "",
-    "CAL_DEFAULT_TIMEZONE" => "Europe/Sofia"
+    "CAL_DEFAULT_TIMEZONE" => "Europe/Sofia",
+    "CAL_ATTENDEE_LANGUAGE" => "bg"
 ];

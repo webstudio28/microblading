@@ -103,6 +103,12 @@
             <label class="booking-field-label" for="booking-email">Имейл</label>
             <input id="booking-email" name="email" type="email" class="booking-field-input" required>
           </div>
+
+          <details class="booking-debug">
+            <summary class="booking-debug__summary">Debug payload preview</summary>
+            <p class="booking-debug__meta" data-booking-debug-target></p>
+            <pre class="booking-debug__code" data-booking-debug-output></pre>
+          </details>
         </div>
 
         <p class="booking-form__feedback" data-booking-feedback aria-live="polite"></p>
@@ -157,6 +163,8 @@
       var dayListEl = modal.querySelector("[data-booking-day-list]");
       var slotListEl = modal.querySelector("[data-booking-slot-list]");
       var slotStatusEl = modal.querySelector("[data-booking-slot-status]");
+      var debugTargetEl = modal.querySelector("[data-booking-debug-target]");
+      var debugOutputEl = modal.querySelector("[data-booking-debug-output]");
       var previousFocusedElement = null;
       var currentStep = 0;
       var isSubmitting = false;
@@ -168,6 +176,7 @@
 
       var locale = "bg-BG";
       var userTimeZone = "Europe/Sofia";
+      var attendeeLanguage = "bg";
       try {
         if (
           typeof Intl !== "undefined" &&
@@ -226,6 +235,47 @@
               ? "booking-availability__status--muted"
               : "booking-availability__status--error"
         );
+      };
+
+      var buildBookingPayload = function () {
+        if (!bookingForm) return null;
+        var serviceInput = bookingForm.querySelector(
+          "input[name='serviceType']:checked"
+        );
+        var fullNameInput = bookingForm.querySelector("input[name='fullName']");
+        var phoneInput = bookingForm.querySelector("input[name='phone']");
+        var emailInput = bookingForm.querySelector("input[name='email']");
+        var serviceLabels = {
+          microblading: "Микроблейдинг",
+          lamination: "Ламиниране"
+        };
+
+        var serviceValue = serviceInput ? serviceInput.value : "";
+        return {
+          source: "valeto-site",
+          service: serviceValue,
+          serviceLabel: serviceLabels[serviceValue] || serviceValue,
+          date: selectedDateInput ? selectedDateInput.value : "",
+          time: selectedTimeInput ? selectedTimeInput.value : "",
+          slotStartIso: selectedSlotIso || "",
+          fullName: fullNameInput ? fullNameInput.value.trim() : "",
+          phone: phoneInput ? phoneInput.value.trim() : "",
+          email: emailInput ? emailInput.value.trim() : "",
+          timeZone: userTimeZone,
+          language: attendeeLanguage
+        };
+      };
+
+      var updateDebugPreview = function () {
+        if (debugTargetEl) {
+          debugTargetEl.textContent = submitEndpoint
+            ? "POST " + submitEndpoint
+            : "Fallback redirect: " + calBookingUrl;
+        }
+        if (debugOutputEl) {
+          var payload = buildBookingPayload();
+          debugOutputEl.textContent = JSON.stringify(payload, null, 2);
+        }
       };
 
       var parseCalBookingConfig = function () {
@@ -295,6 +345,7 @@
             }
             renderSlotButtons();
             setSlotStatus("Избран час: " + formatTimeLabel(slotIso), "success");
+            updateDebugPreview();
           });
 
           slotListEl.appendChild(btn);
@@ -465,6 +516,7 @@
         if (currentStep === 1 && calBookingUrl && !availabilityDays.length) {
           loadAvailability();
         }
+        updateDebugPreview();
       };
 
       var setSubmitting = function (value) {
@@ -611,6 +663,9 @@
       }
 
       if (bookingForm) {
+        bookingForm.addEventListener("input", updateDebugPreview);
+        bookingForm.addEventListener("change", updateDebugPreview);
+
         bookingForm.addEventListener("submit", async function (event) {
           event.preventDefault();
           setFeedback("");
@@ -639,29 +694,18 @@
             return;
           }
 
-          var serviceLabels = {
-            microblading: "Микроблейдинг",
-            lamination: "Ламиниране"
-          };
-          var serviceLabel =
-            serviceLabels[serviceInput.value] || serviceInput.value;
+          var payload = buildBookingPayload();
+          if (!payload) {
+            setFeedback("Липсват данни от формата.");
+            return;
+          }
+
+          var serviceLabel = payload.serviceLabel;
           var dateValue = dateInput.value;
           var timeValue = timeInput.value;
           var fullNameValue = fullNameInput.value.trim();
           var phoneValue = phoneInput.value.trim();
           var emailValue = emailInput.value.trim();
-
-          var payload = {
-            source: "valeto-site",
-            service: serviceInput.value,
-            serviceLabel: serviceLabel,
-            date: dateValue,
-            time: timeValue,
-            slotStartIso: selectedSlotIso,
-            fullName: fullNameValue,
-            phone: phoneValue,
-            email: emailValue
-          };
 
           setSubmitting(true);
 

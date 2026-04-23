@@ -472,6 +472,40 @@
     color: #1c6b45;
   }
 
+  .booking-debug {
+    margin-top: 0.55rem;
+    border: 1px dashed rgba(44, 26, 14, 0.22);
+    border-radius: 0.8rem;
+    background: rgba(255, 255, 255, 0.55);
+    padding: 0.55rem 0.65rem;
+  }
+
+  .booking-debug__summary {
+    cursor: pointer;
+    font-size: 0.84rem;
+    color: rgba(44, 26, 14, 0.78);
+    font-weight: 600;
+  }
+
+  .booking-debug__meta {
+    margin-top: 0.4rem;
+    margin-bottom: 0.32rem;
+    font-size: 0.78rem;
+    color: rgba(44, 26, 14, 0.7);
+    word-break: break-all;
+  }
+
+  .booking-debug__code {
+    margin: 0;
+    font-size: 0.74rem;
+    line-height: 1.35;
+    color: #2c1a0e;
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-height: 9.5rem;
+    overflow: auto;
+  }
+
   .booking-form__actions {
     margin-top: 0.25rem;
     display: flex;
