@@ -120,12 +120,12 @@
     }
   }
 
-  /* Hero badge pill */
+  /* Hero badge pill — frosted glass, clearly see-through */
   .hero-badge {
     @apply inline-flex items-center gap-1.5
-           rounded-full border border-[#c9a98a]/60
-           bg-[#f0e2d2] px-4 py-1.5
-           text-xs font-semibold tracking-wide;
+           rounded-full border border-white/55
+           bg-white/55 px-5 py-2 backdrop-blur-md
+           text-sm font-semibold tracking-wide shadow-sm;
     color: var(--color-ink);
   }
 
@@ -144,17 +144,18 @@
   /* CTA buttons */
   .btn-primary {
     @apply inline-flex items-center justify-center
-           rounded-full px-7 py-3
-           text-sm font-semibold text-white
+           rounded-full px-7 py-2.5
+           text-base font-semibold text-white
            bg-[#1a1105] hover:bg-[#2c1a0e]
            transition-colors duration-200;
   }
+  /* Same frosted white as .hero-badge — see-through, not a solid chip */
   .btn-secondary {
     @apply inline-flex items-center justify-center
-           rounded-full px-7 py-3
-           text-sm font-semibold
-           bg-white border border-[#d4c5b8]
-           hover:bg-[#f0e8e0]
+           rounded-full border border-white/55
+           bg-white/55 px-7 py-2.5 backdrop-blur-md
+           text-base font-semibold shadow-sm
+           hover:border-white/70 hover:bg-white/65
            transition-colors duration-200;
     color: var(--color-ink);
   }

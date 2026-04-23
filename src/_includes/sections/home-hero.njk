@@ -4,7 +4,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
       {# ── Left: text ── #}
-      <div class="flex flex-col items-start gap-5">
+      <div class="flex w-full min-w-0 flex-col items-start gap-5">
 
         {# Badge pill #}
         {% if h.badge %}
@@ -12,26 +12,26 @@
         {% endif %}
 
         {# Headline — MAK font #}
-        <h1 class="font-mak text-4xl md:text-5xl xl:text-[3.5rem] leading-[1.15] text-ink">
+        <h1 class="font-mak text-5xl leading-[1.12] text-ink md:text-6xl md:leading-[1.1] xl:text-[4.25rem] xl:leading-[1.08]">
           {{ h.headline | default("Микроблейдинг и ламиниране в Пловдив") }}
         </h1>
 
         {# Sub-text — Montserrat #}
         {% if h.subheadline %}
-        <p class="text-muted text-sm md:text-base leading-relaxed max-w-md">
+        <p class="text-muted max-w-xl text-base leading-relaxed md:text-lg md:leading-relaxed">
           {{ h.subheadline }}
         </p>
         {% endif %}
 
-        {# CTAs #}
-        <div class="flex flex-wrap gap-3 mt-1">
+        {# CTAs — full width of column; buttons share row equally on sm+ #}
+        <div class="mt-1 flex w-full min-w-0 flex-col gap-3 sm:flex-row sm:flex-nowrap">
           {% if h.ctaPrimary %}
-          <a href="{{ h.ctaPrimary.url }}" class="btn-primary">
+          <a href="{{ h.ctaPrimary.url }}" class="btn-primary w-full min-w-0 sm:flex-1">
             {{ h.ctaPrimary.label }}
           </a>
           {% endif %}
           {% if h.ctaSecondary %}
-          <a href="{{ h.ctaSecondary.url }}" class="btn-secondary">
+          <a href="{{ h.ctaSecondary.url }}" class="btn-secondary w-full min-w-0 sm:flex-1">
             {{ h.ctaSecondary.label }}
           </a>
           {% endif %}

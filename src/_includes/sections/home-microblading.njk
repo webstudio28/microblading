@@ -1,0 +1,27 @@
+{% set m = home.microblading if home and home.microblading else {} %}
+<section
+  id="microblading"
+  class="scroll-mt-20 section-padding"
+  aria-labelledby="microblading-heading"
+>
+  <div class="container-custom">
+
+    {% if m.eyebrow %}
+    <p class="font-sans text-[11px] font-medium tracking-wide text-[#713f12]">
+      {{ m.eyebrow }}
+    </p>
+    {% endif %}
+
+    <h2
+      id="microblading-heading"
+      class="font-mak mt-2 text-2xl font-bold leading-8 tracking-wider text-yellow-900 md:text-[2rem] md:leading-9"
+    >{{ m.title | default("Микроблейдинг") }}</h2>
+
+    {% if m.lead %}
+    <p class="font-sans mt-4 max-w-2xl text-sm font-normal leading-relaxed text-[#4a3728] md:text-base md:leading-7">
+      {{ m.lead }}
+    </p>
+    {% endif %}
+
+  </div>
+</section>
