@@ -1,0 +1,65 @@
+{% set a = home.about if home and home.about else {} %}
+<section
+  id="about"
+  class="scroll-mt-20 section-padding bg-gradient-to-br from-[#A48C77] to-[#C1AE9A]"
+  aria-labelledby="about-heading"
+>
+  <div class="container-custom">
+
+    {# Row 1: section heading + intro (full width of container) #}
+    <header>
+      <h2
+        id="about-heading"
+        class="font-mak text-[2.25rem] font-bold leading-10 tracking-wider text-white md:text-[2.5rem] md:leading-[2.75rem]"
+      >{{ a.title | default("За мен") }}</h2>
+
+      {% if a.intro %}
+      <p class="mt-3 font-['Montserrat_Alternates'] text-sm font-light leading-6 tracking-wide text-white md:text-base md:leading-7">
+        {{ a.intro }}
+      </p>
+      {% endif %}
+    </header>
+
+    {# Row 2: image | right rail (text + CTA = 90% of space beside image, flush right) #}
+    <div class="mt-8 flex flex-col gap-6 md:flex-row md:items-start">
+
+      {# Left: photo #}
+      <img
+        src="{{ a.image | default('/assets/images/about-me.jpg') | url }}"
+        alt="{{ a.imageAlt | default('') }}"
+        class="h-[420px] w-full max-w-[320px] shrink-0 self-start rounded-[20px] object-cover object-top md:w-[320px]"
+        width="320"
+        height="420"
+        loading="lazy"
+        decoding="async"
+      >
+
+      {# Fills space to the right of the image; inner column is 90% wide and right-aligned #}
+      <div class="flex min-w-0 flex-1 justify-end">
+        <div class="flex w-full min-w-0 flex-col min-h-0 md:min-h-[420px] md:w-[90%]">
+
+          <p class="font-['Montserrat_Alternates'] text-sm font-light leading-6 tracking-wide text-white md:text-base md:leading-7">
+            {{ a.body | default("") }}
+          </p>
+
+          {% if a.body2 %}
+          <p class="mt-5 font-['Montserrat_Alternates'] text-sm font-light leading-6 tracking-wide text-white md:text-base md:leading-7">
+            {{ a.body2 }}
+          </p>
+          {% endif %}
+
+          {% if a.cta %}
+          <div class="mt-auto w-full pt-8">
+            <a
+              href="{{ a.cta.url }}"
+              class="block w-full rounded-3xl bg-zinc-800 py-3.5 text-center font-['Montserrat_Alternates'] text-base font-medium tracking-wide text-white shadow-[0px_4px_4px_0px_rgba(0,0,0,0.21)] transition-colors hover:bg-zinc-700"
+            >{{ a.cta.label }}</a>
+          </div>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

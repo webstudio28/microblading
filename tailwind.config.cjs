@@ -4,8 +4,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        mak:       ['"MAK"', "Georgia", "serif"],
-        sans:      ['"Montserrat"', "ui-sans-serif", "system-ui", "sans-serif"],
+        mak:              ['"MAK"', "Georgia", "serif"],
+        sans:             ['"Montserrat"', "ui-sans-serif", "system-ui", "sans-serif"],
+        "montserrat-alt": ['"Montserrat Alternates"', '"Montserrat"', "ui-sans-serif", "system-ui", "sans-serif"],
       },
       colors: {
         page:  "var(--color-page)",

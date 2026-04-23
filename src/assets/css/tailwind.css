@@ -21,6 +21,10 @@
   --color-brand-primary:  #2c1a0e;
   --color-brand-secondary:#7a6558;
   --color-brand-accent:   #c9a98a;
+
+  /* Section vertical rhythm — mirrors .section-padding (py-16 / md:py-24) */
+  --section-padding-y:     4rem;
+  --section-padding-y-md:  6rem;
 }
 
 @tailwind base;
@@ -52,8 +56,20 @@
   .container-custom {
     @apply max-w-screen-xl mx-auto px-4 md:px-6;
   }
+
+  /*
+   * Homepage sections: use .section-padding on every major <section>
+   * so vertical spacing matches the hero (py-16 → md:py-24).
+   */
   .section-padding {
-    @apply py-16 md:py-24;
+    padding-top: var(--section-padding-y);
+    padding-bottom: var(--section-padding-y);
+  }
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: var(--section-padding-y-md);
+      padding-bottom: var(--section-padding-y-md);
+    }
   }
 
   /* Full-page texture overlay */
@@ -71,10 +87,37 @@
 
   /* Header: pill-shaped floating island */
   .site-header-surface {
-    @apply flex items-center justify-between gap-6
+    @apply flex items-center justify-between gap-4
            bg-white rounded-full
-           px-6 py-3
+           px-5 py-2.5 sm:px-6 sm:py-3
            shadow-sm border border-white/60;
+  }
+
+  /* Header “Запази час” — soft blush, warm accents */
+  .header-book-cta {
+    font-family: "Montserrat Alternates", "Montserrat", ui-sans-serif, system-ui, sans-serif;
+    @apply inline-flex shrink-0 items-center justify-center whitespace-nowrap
+           rounded-full px-4 py-2 text-[13px] font-medium tracking-wide
+           transition-[box-shadow,transform,background-color] duration-200;
+    color: #fdf4f2;
+    background: linear-gradient(145deg, #5c4349 0%, #4a363d 45%, #3b2a30 100%);
+    border: 1px solid rgba(201, 169, 138, 0.35);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.06) inset,
+      0 2px 6px rgba(20, 10, 12, 0.35),
+      0 6px 18px rgba(60, 35, 42, 0.28);
+  }
+  .header-book-cta:hover {
+    background: linear-gradient(145deg, #664c53 0%, #523d44 45%, #423033 100%);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.08) inset,
+      0 3px 8px rgba(20, 10, 12, 0.4),
+      0 8px 22px rgba(60, 35, 42, 0.32);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .header-book-cta:hover {
+      transform: translateY(-1px);
+    }
   }
 
   /* Hero badge pill */

@@ -1,3 +1,4 @@
+{% set headerCta = home.hero.ctaPrimary if home and home.hero and home.hero.ctaPrimary else { "label": "Запази час", "url": "#contact" } %}
 <header class="sticky top-4 z-50">
   <div class="container-custom">
     <div class="site-header-surface">
@@ -17,15 +18,22 @@
         {% endif %}
       </a>
 
-      {# Nav #}
-      <nav class="flex items-center gap-6 xl:gap-8" aria-label="Main">
-        {% for item in site.nav.header %}
-          <a
-            href="{{ item.url }}"
-            class="text-[13px] font-medium text-[#4a3728] hover:text-brand-primary whitespace-nowrap transition-colors duration-150"
-          >{{ item.label }}</a>
-        {% endfor %}
-      </nav>
+      <div class="flex min-w-0 flex-1 items-center justify-end gap-3 sm:gap-4 lg:gap-6">
+        {# Nav #}
+        <nav class="flex min-w-0 items-center gap-3 overflow-x-auto whitespace-nowrap sm:gap-5 xl:gap-8" aria-label="Main">
+          {% for item in site.nav.header %}
+            <a
+              href="{{ item.url }}"
+              class="text-[13px] font-medium text-[#4a3728] hover:text-brand-primary transition-colors duration-150"
+            >{{ item.label }}</a>
+          {% endfor %}
+        </nav>
+
+        <a
+          href="{{ headerCta.url }}"
+          class="header-book-cta"
+        >{{ headerCta.label }}</a>
+      </div>
 
     </div>
   </div>
