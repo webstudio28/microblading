@@ -33,11 +33,31 @@ function load_private_config(): array
         "CAL_DEFAULT_TIMEZONE" => getenv("CAL_DEFAULT_TIMEZONE") ?: "Europe/Sofia"
     ];
 
-    $privateFile = dirname(__DIR__, 2) . "/cal-booking-config.php";
-    if (is_readable($privateFile)) {
+    $candidateFiles = [];
+
+    $explicitPath = trim((string)(getenv("CAL_BOOKING_CONFIG_PATH") ?: ""));
+    if ($explicitPath !== "") {
+        $candidateFiles[] = $explicitPath;
+    }
+
+    // Local/dev convenience (project root)
+    $candidateFiles[] = dirname(__DIR__, 2) . "/cal-booking-config.php";
+
+    // Sibling folder to project root, e.g. ../backend-functions/cal-booking-config.php
+    $candidateFiles[] = dirname(__DIR__, 3) . "/backend-functions/cal-booking-config.php";
+
+    // Parent of project root, e.g. ../cal-booking-config.php
+    $candidateFiles[] = dirname(__DIR__, 3) . "/cal-booking-config.php";
+
+    foreach ($candidateFiles as $privateFile) {
+        if (!is_readable($privateFile)) {
+            continue;
+        }
+
         $fileConfig = include $privateFile;
         if (is_array($fileConfig)) {
             $config = array_merge($config, $fileConfig);
+            break;
         }
     }
 

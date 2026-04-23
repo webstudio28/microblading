@@ -12,6 +12,13 @@ Create this file **outside** `public_html`:
 
 - `/home/<cpanel-user>/cal-booking-config.php`
 
+Alternative accepted location (for local/dev):
+
+- `<deployed-project-root>/cal-booking-config.php`
+- `../backend-functions/cal-booking-config.php` (sibling folder to project root)
+
+You can also set env var `CAL_BOOKING_CONFIG_PATH` to an absolute custom path.
+
 Use `cal-booking-config.example.php` from this repo as template.
 
 Required values:
