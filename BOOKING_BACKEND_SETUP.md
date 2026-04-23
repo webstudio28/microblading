@@ -31,6 +31,11 @@ Recommended values:
 
 - `CAL_DEFAULT_TIMEZONE` (example: `Europe/Sofia`)
 - `CAL_ATTENDEE_LANGUAGE` (set `bg` for Bulgarian booking emails)
+- `RESEND_API_KEY` (for custom confirmation emails)
+- `RESEND_FROM_EMAIL` (must be a verified Resend sender/domain)
+- `RESEND_FROM_NAME` (example: `Valeto`)
+- `RESEND_REPLY_TO` (optional)
+- `RESEND_SEND_CUSTOM_EMAIL` (`1` to send custom email, `0` to disable)
 
 ## 2) Keep frontend endpoint enabled
 
@@ -63,3 +68,4 @@ Because `.eleventy.js` now passthrough-copies `src/api`, your API file is includ
 - If server returns an error, the modal now shows backend error text.
 - If you get authentication errors, re-check `CAL_API_KEY`.
 - If you get event lookup errors, re-check `CAL_EVENT_TYPE_SLUG` and `CAL_USERNAME`.
+- Endpoint response now includes `customEmailSent` and `customEmailError` for debug.

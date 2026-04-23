@@ -732,8 +732,40 @@
                 throw new Error(serverError);
               }
 
-              setFeedback("Заявката е изпратена успешно.", "success");
-              window.setTimeout(closeModal, 900);
+              var bookingUidText =
+                responseJson && responseJson.bookingUid
+                  ? " №" + String(responseJson.bookingUid)
+                  : "";
+              var customEmailSent = !!(
+                responseJson && responseJson.customEmailSent
+              );
+              var customEmailError =
+                responseJson && responseJson.customEmailError
+                  ? String(responseJson.customEmailError)
+                  : "";
+
+              if (customEmailSent) {
+                setFeedback(
+                  "Резервацията е потвърдена" +
+                    bookingUidText +
+                    ". Имейлът е изпратен успешно.",
+                  "success"
+                );
+              } else if (customEmailError) {
+                setFeedback(
+                  "Резервацията е потвърдена" +
+                    bookingUidText +
+                    ", но имейлът не беше изпратен: " +
+                    customEmailError
+                );
+              } else {
+                setFeedback(
+                  "Резервацията е потвърдена" + bookingUidText + ".",
+                  "success"
+                );
+              }
+
+              window.setTimeout(closeModal, 1600);
               return;
             }
 

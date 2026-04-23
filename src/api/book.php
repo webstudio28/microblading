@@ -31,7 +31,13 @@ function load_private_config(): array
         "CAL_TEAM_SLUG" => getenv("CAL_TEAM_SLUG") ?: "",
         "CAL_ORGANIZATION_SLUG" => getenv("CAL_ORGANIZATION_SLUG") ?: "",
         "CAL_DEFAULT_TIMEZONE" => getenv("CAL_DEFAULT_TIMEZONE") ?: "Europe/Sofia",
-        "CAL_ATTENDEE_LANGUAGE" => getenv("CAL_ATTENDEE_LANGUAGE") ?: "bg"
+        "CAL_ATTENDEE_LANGUAGE" => getenv("CAL_ATTENDEE_LANGUAGE") ?: "bg",
+        "RESEND_API_BASE_URL" => getenv("RESEND_API_BASE_URL") ?: "https://api.resend.com",
+        "RESEND_API_KEY" => getenv("RESEND_API_KEY") ?: "",
+        "RESEND_FROM_EMAIL" => getenv("RESEND_FROM_EMAIL") ?: "",
+        "RESEND_FROM_NAME" => getenv("RESEND_FROM_NAME") ?: "Valeto",
+        "RESEND_REPLY_TO" => getenv("RESEND_REPLY_TO") ?: "",
+        "RESEND_SEND_CUSTOM_EMAIL" => getenv("RESEND_SEND_CUSTOM_EMAIL") ?: "1"
     ];
 
     $candidateFiles = [];
@@ -73,6 +79,75 @@ function respond_json(int $statusCode, array $payload): void
     http_response_code($statusCode);
     echo json_encode($payload, JSON_UNESCAPED_UNICODE);
     exit;
+}
+
+function to_bool(mixed $value): bool
+{
+    if (is_bool($value)) return $value;
+    $normalized = strtolower(trim((string)$value));
+    return in_array($normalized, ["1", "true", "yes", "on"], true);
+}
+
+function send_resend_email(array $config, array $emailPayload): array
+{
+    $apiKey = trim((string)($config["RESEND_API_KEY"] ?? ""));
+    $fromEmail = trim((string)($config["RESEND_FROM_EMAIL"] ?? ""));
+    $fromName = trim((string)($config["RESEND_FROM_NAME"] ?? "Valeto"));
+
+    if ($apiKey === "" || $fromEmail === "") {
+        return ["sent" => false, "error" => "Missing RESEND_API_KEY or RESEND_FROM_EMAIL"];
+    }
+
+    $requestBody = [
+        "from" => $fromName . " <" . $fromEmail . ">",
+        "to" => [$emailPayload["to"]],
+        "subject" => $emailPayload["subject"],
+        "html" => $emailPayload["html"],
+        "text" => $emailPayload["text"]
+    ];
+
+    $replyTo = trim((string)($config["RESEND_REPLY_TO"] ?? ""));
+    if ($replyTo !== "") {
+        $requestBody["reply_to"] = $replyTo;
+    }
+
+    $endpoint = rtrim((string)$config["RESEND_API_BASE_URL"], "/") . "/emails";
+    $curl = curl_init($endpoint);
+    curl_setopt_array($curl, [
+        CURLOPT_POST => true,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HTTPHEADER => [
+            "Content-Type: application/json",
+            "Authorization: Bearer " . $apiKey
+        ],
+        CURLOPT_POSTFIELDS => json_encode($requestBody, JSON_UNESCAPED_UNICODE),
+        CURLOPT_TIMEOUT => 30
+    ]);
+
+    $responseBody = curl_exec($curl);
+    $curlError = curl_error($curl);
+    $statusCode = (int)curl_getinfo($curl, CURLINFO_HTTP_CODE);
+    curl_close($curl);
+
+    if ($responseBody === false) {
+        return ["sent" => false, "error" => "Resend request failed: " . $curlError];
+    }
+
+    $parsed = json_decode($responseBody, true);
+    if ($statusCode < 200 || $statusCode >= 300) {
+        $message = "Resend returned status " . $statusCode;
+        if (is_array($parsed) && isset($parsed["message"])) {
+            $message = (string)$parsed["message"];
+        }
+        return ["sent" => false, "error" => $message];
+    }
+
+    $emailId = "";
+    if (is_array($parsed) && isset($parsed["id"])) {
+        $emailId = (string)$parsed["id"];
+    }
+
+    return ["sent" => true, "id" => $emailId];
 }
 
 $rawBody = file_get_contents("php://input");
@@ -189,7 +264,54 @@ if (is_array($calResponse) && isset($calResponse["data"]["uid"])) {
     $bookingUid = (string)$calResponse["data"]["uid"];
 }
 
+$emailResult = ["sent" => false];
+$shouldSendCustomEmail = to_bool($config["RESEND_SEND_CUSTOM_EMAIL"] ?? "1");
+if ($shouldSendCustomEmail) {
+    $safeName = htmlspecialchars($fullName, ENT_QUOTES, "UTF-8");
+    $safeService = htmlspecialchars($serviceLabel !== "" ? $serviceLabel : "Услуга", ENT_QUOTES, "UTF-8");
+    $safeDate = htmlspecialchars($dateValue, ENT_QUOTES, "UTF-8");
+    $safeTime = htmlspecialchars($timeValue, ENT_QUOTES, "UTF-8");
+    $safePhone = htmlspecialchars($phone, ENT_QUOTES, "UTF-8");
+    $safeEmail = htmlspecialchars($email, ENT_QUOTES, "UTF-8");
+    $safeBookingUid = htmlspecialchars($bookingUid, ENT_QUOTES, "UTF-8");
+
+    $subject = "Вашата резервация за " . ($serviceLabel !== "" ? $serviceLabel : "услуга") . " е потвърдена";
+    $html = <<<HTML
+<div style="font-family:Arial,sans-serif;color:#2c1a0e;line-height:1.5">
+  <h2 style="margin:0 0 12px">Вашата резервация за {$safeService} е потвърдена</h2>
+  <p style="margin:0 0 14px">Здравейте, {$safeName}!</p>
+  <p style="margin:0 0 6px"><strong>Детайли за резервация:</strong></p>
+  <ul style="margin:0 0 14px 18px;padding:0">
+    <li><strong>Услуга:</strong> {$safeService}</li>
+    <li><strong>Дата:</strong> {$safeDate}</li>
+    <li><strong>Час:</strong> {$safeTime}</li>
+    <li><strong>Телефон:</strong> {$safePhone}</li>
+    <li><strong>Имейл:</strong> {$safeEmail}</li>
+  </ul>
+  <p style="margin:0 0 8px">Номер на резервация: <strong>{$safeBookingUid}</strong></p>
+  <p style="margin:0">Ако имате въпроси, отговорете директно на този имейл.</p>
+</div>
+HTML;
+    $text = "Вашата резервация за " . ($serviceLabel !== "" ? $serviceLabel : "услуга") . " е потвърдена\n\n" .
+        "Детайли за резервация:\n" .
+        "- Услуга: " . ($serviceLabel !== "" ? $serviceLabel : "Услуга") . "\n" .
+        "- Дата: " . $dateValue . "\n" .
+        "- Час: " . $timeValue . "\n" .
+        "- Телефон: " . $phone . "\n" .
+        "- Имейл: " . $email . "\n" .
+        "- Номер на резервация: " . $bookingUid . "\n";
+
+    $emailResult = send_resend_email($config, [
+        "to" => $email,
+        "subject" => $subject,
+        "html" => $html,
+        "text" => $text
+    ]);
+}
+
 respond_json(200, [
     "ok" => true,
-    "bookingUid" => $bookingUid
+    "bookingUid" => $bookingUid,
+    "customEmailSent" => (bool)($emailResult["sent"] ?? false),
+    "customEmailError" => (string)($emailResult["error"] ?? "")
 ]);
