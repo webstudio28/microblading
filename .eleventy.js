@@ -7,6 +7,8 @@ module.exports = function (eleventyConfig) {
 
   // Passthrough copy: src/assets → _site/assets
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  // Passthrough copy: tiny PHP API endpoint for cPanel
+  eleventyConfig.addPassthroughCopy({ "src/api": "api" });
 
   // Watch data so navigation/content tweaks trigger rebuild
   eleventyConfig.addWatchTarget("src/_data");

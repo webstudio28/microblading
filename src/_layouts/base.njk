@@ -36,6 +36,8 @@
   <div
     id="booking-modal"
     class="booking-modal"
+    data-booking-endpoint="{{ home.booking.submitEndpoint if home and home.booking and home.booking.submitEndpoint else '' }}"
+    data-booking-cal-url="{{ home.booking.calBookingUrl if home and home.booking and home.booking.calBookingUrl else '' }}"
     role="dialog"
     aria-modal="true"
     aria-hidden="true"
@@ -53,6 +55,63 @@
         &times;
       </button>
       <h2 id="booking-modal-title" class="booking-modal__title">Запази час</h2>
+      <p class="booking-modal__subtitle">Стъпка <span data-booking-step-current>1</span> от 3</p>
+
+      <form class="booking-form" data-booking-form novalidate>
+        <div class="booking-step" data-booking-step="0">
+          <p class="booking-step__label">Избери услуга</p>
+          <div class="booking-service-grid">
+            <label class="booking-service-card">
+              <input type="radio" name="serviceType" value="microblading" class="booking-service-input">
+              <span class="booking-service-text">Микроблейдинг</span>
+            </label>
+            <label class="booking-service-card">
+              <input type="radio" name="serviceType" value="lamination" class="booking-service-input">
+              <span class="booking-service-text">Ламиниране</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="booking-step" data-booking-step="1" hidden>
+          <p class="booking-step__label">Избери дата и час</p>
+          <input name="date" type="hidden" data-booking-selected-date required>
+          <input name="time" type="hidden" data-booking-selected-time required>
+
+          <div class="booking-availability">
+            <p class="booking-availability__title">Свободни дни</p>
+            <div class="booking-day-list" data-booking-day-list></div>
+          </div>
+
+          <div class="booking-availability booking-availability--slots">
+            <p class="booking-availability__title">Свободни часове</p>
+            <div class="booking-slot-list" data-booking-slot-list></div>
+          </div>
+          <p class="booking-availability__status" data-booking-slot-status></p>
+        </div>
+
+        <div class="booking-step" data-booking-step="2" hidden>
+          <p class="booking-step__label">Лични данни</p>
+          <div class="booking-field-wrap">
+            <label class="booking-field-label" for="booking-full-name">Име и фамилия</label>
+            <input id="booking-full-name" name="fullName" type="text" class="booking-field-input" required>
+          </div>
+          <div class="booking-field-wrap">
+            <label class="booking-field-label" for="booking-phone">Телефон</label>
+            <input id="booking-phone" name="phone" type="tel" class="booking-field-input" required>
+          </div>
+          <div class="booking-field-wrap">
+            <label class="booking-field-label" for="booking-email">Имейл</label>
+            <input id="booking-email" name="email" type="email" class="booking-field-input" required>
+          </div>
+        </div>
+
+        <p class="booking-form__feedback" data-booking-feedback aria-live="polite"></p>
+
+        <div class="booking-form__actions">
+          <button type="button" class="booking-btn booking-btn--ghost" data-booking-prev disabled>Назад</button>
+          <button type="button" class="booking-btn booking-btn--primary" data-booking-next>Напред</button>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -83,17 +142,420 @@
       var closeTriggers = Array.prototype.slice.call(
         modal.querySelectorAll("[data-booking-close]")
       );
-      var modalPanel = modal.querySelector(".booking-modal__panel");
+      var submitEndpoint = modal.getAttribute("data-booking-endpoint") || "";
+      var calBookingUrl = modal.getAttribute("data-booking-cal-url") || "";
+      var bookingForm = modal.querySelector("[data-booking-form]");
+      var steps = Array.prototype.slice.call(
+        modal.querySelectorAll("[data-booking-step]")
+      );
+      var stepCurrentLabel = modal.querySelector("[data-booking-step-current]");
+      var feedbackEl = modal.querySelector("[data-booking-feedback]");
+      var prevBtn = modal.querySelector("[data-booking-prev]");
+      var nextBtn = modal.querySelector("[data-booking-next]");
+      var selectedDateInput = modal.querySelector("[data-booking-selected-date]");
+      var selectedTimeInput = modal.querySelector("[data-booking-selected-time]");
+      var dayListEl = modal.querySelector("[data-booking-day-list]");
+      var slotListEl = modal.querySelector("[data-booking-slot-list]");
+      var slotStatusEl = modal.querySelector("[data-booking-slot-status]");
       var previousFocusedElement = null;
+      var currentStep = 0;
+      var isSubmitting = false;
+      var isLoadingAvailability = false;
+      var availabilityByDay = {};
+      var availabilityDays = [];
+      var selectedDay = "";
+      var selectedSlotIso = "";
+
+      var locale = "bg-BG";
+      var userTimeZone = "Europe/Sofia";
+      try {
+        if (
+          typeof Intl !== "undefined" &&
+          Intl.DateTimeFormat &&
+          Intl.DateTimeFormat().resolvedOptions().timeZone
+        ) {
+          userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        }
+      } catch (error) {
+        userTimeZone = "Europe/Sofia";
+      }
+
+      var formatDateLabel = function (day) {
+        return new Date(day + "T00:00:00").toLocaleDateString(locale, {
+          weekday: "short",
+          day: "numeric",
+          month: "short"
+        });
+      };
+
+      var formatTimeLabel = function (isoValue) {
+        return new Date(isoValue).toLocaleTimeString(locale, {
+          hour: "2-digit",
+          minute: "2-digit"
+        });
+      };
+
+      var setFeedback = function (message, kind) {
+        if (!feedbackEl) return;
+        feedbackEl.textContent = message || "";
+        feedbackEl.classList.remove(
+          "booking-form__feedback--error",
+          "booking-form__feedback--success"
+        );
+        if (!message) return;
+        feedbackEl.classList.add(
+          kind === "success"
+            ? "booking-form__feedback--success"
+            : "booking-form__feedback--error"
+        );
+      };
+
+      var setSlotStatus = function (message, kind) {
+        if (!slotStatusEl) return;
+        slotStatusEl.textContent = message || "";
+        slotStatusEl.classList.remove(
+          "booking-availability__status--error",
+          "booking-availability__status--success",
+          "booking-availability__status--muted"
+        );
+        if (!message) return;
+        slotStatusEl.classList.add(
+          kind === "success"
+            ? "booking-availability__status--success"
+            : kind === "muted"
+              ? "booking-availability__status--muted"
+              : "booking-availability__status--error"
+        );
+      };
+
+      var parseCalBookingConfig = function () {
+        if (!calBookingUrl) return null;
+        try {
+          var parsedUrl = new URL(calBookingUrl);
+          var pathParts = parsedUrl.pathname.split("/").filter(Boolean);
+          if (pathParts.length < 2) return null;
+
+          var hostName = parsedUrl.hostname || "";
+          var apiHost = "api.cal.com";
+          if (hostName.indexOf("api.cal.") === 0) {
+            apiHost = hostName;
+          } else if (hostName.indexOf("cal.") === 0) {
+            apiHost = "api." + hostName;
+          }
+
+          return {
+            eventTypeSlug: pathParts[pathParts.length - 1],
+            username: pathParts[pathParts.length - 2],
+            apiBaseUrl: parsedUrl.protocol + "//" + apiHost
+          };
+        } catch (error) {
+          return null;
+        }
+      };
+
+      var clearSelectedDateTime = function () {
+        selectedDay = "";
+        selectedSlotIso = "";
+        if (selectedDateInput) selectedDateInput.value = "";
+        if (selectedTimeInput) selectedTimeInput.value = "";
+      };
+
+      var renderSlotButtons = function () {
+        if (!slotListEl) return;
+        slotListEl.innerHTML = "";
+
+        if (!selectedDay || !availabilityByDay[selectedDay]) {
+          setSlotStatus("Избери ден, за да видиш часовете.", "muted");
+          return;
+        }
+
+        var slots = availabilityByDay[selectedDay];
+        if (!slots.length) {
+          setSlotStatus("Няма свободни часове за този ден.", "muted");
+          return;
+        }
+
+        slots.forEach(function (slotIso) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "booking-slot-btn";
+          btn.textContent = formatTimeLabel(slotIso);
+          btn.setAttribute("data-slot-iso", slotIso);
+          if (slotIso === selectedSlotIso) {
+            btn.classList.add("is-active");
+          }
+
+          btn.addEventListener("click", function () {
+            selectedSlotIso = slotIso;
+            if (selectedDateInput) {
+              selectedDateInput.value = selectedDay;
+            }
+            if (selectedTimeInput) {
+              selectedTimeInput.value = formatTimeLabel(slotIso);
+            }
+            renderSlotButtons();
+            setSlotStatus("Избран час: " + formatTimeLabel(slotIso), "success");
+          });
+
+          slotListEl.appendChild(btn);
+        });
+
+        if (!selectedSlotIso) {
+          setSlotStatus("Избери свободен час.", "muted");
+        }
+      };
+
+      var renderDayButtons = function () {
+        if (!dayListEl) return;
+        dayListEl.innerHTML = "";
+
+        if (!availabilityDays.length) {
+          setSlotStatus("Няма налични дни в избрания период.", "error");
+          renderSlotButtons();
+          return;
+        }
+
+        availabilityDays.forEach(function (day) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "booking-day-btn";
+          btn.textContent = formatDateLabel(day);
+          btn.setAttribute("data-day", day);
+          if (day === selectedDay) {
+            btn.classList.add("is-active");
+          }
+
+          btn.addEventListener("click", function () {
+            selectedDay = day;
+            selectedSlotIso = "";
+            if (selectedDateInput) selectedDateInput.value = day;
+            if (selectedTimeInput) selectedTimeInput.value = "";
+            renderDayButtons();
+            renderSlotButtons();
+          });
+
+          dayListEl.appendChild(btn);
+        });
+      };
+
+      var toIsoDate = function (dateObj) {
+        var year = dateObj.getFullYear();
+        var month = String(dateObj.getMonth() + 1).padStart(2, "0");
+        var day = String(dateObj.getDate()).padStart(2, "0");
+        return year + "-" + month + "-" + day;
+      };
+
+      var loadAvailability = async function () {
+        if (isLoadingAvailability) return;
+
+        var parsed = parseCalBookingConfig();
+        if (!parsed) {
+          setSlotStatus("Добави валиден booking.calBookingUrl за зареждане на слотовете.", "error");
+          return;
+        }
+
+        isLoadingAvailability = true;
+        clearSelectedDateTime();
+        availabilityByDay = {};
+        availabilityDays = [];
+        if (dayListEl) dayListEl.innerHTML = "";
+        if (slotListEl) slotListEl.innerHTML = "";
+        setSlotStatus("Зареждаме свободните часове...", "muted");
+
+        try {
+          var startDate = new Date();
+          var endDate = new Date();
+          endDate.setDate(startDate.getDate() + 21);
+
+          var apiUrl = new URL("/v2/slots", parsed.apiBaseUrl);
+          apiUrl.searchParams.set("eventTypeSlug", parsed.eventTypeSlug);
+          apiUrl.searchParams.set("username", parsed.username);
+          apiUrl.searchParams.set("start", toIsoDate(startDate));
+          apiUrl.searchParams.set("end", toIsoDate(endDate));
+          apiUrl.searchParams.set("timeZone", userTimeZone);
+          apiUrl.searchParams.set("format", "time");
+
+          var response = await fetch(apiUrl.toString(), {
+            headers: {
+              "cal-api-version": "2024-09-04"
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error("Slots request failed: " + response.status);
+          }
+
+          var result = await response.json();
+          var slotsMap = {};
+
+          if (result && result.data) {
+            if (result.data.slots && typeof result.data.slots === "object") {
+              slotsMap = result.data.slots;
+            } else if (typeof result.data === "object") {
+              slotsMap = result.data;
+            }
+          }
+          var dayKeys = Object.keys(slotsMap).sort();
+
+          dayKeys.forEach(function (dayKey) {
+            var daySlots = slotsMap[dayKey] || [];
+            var slotValues = daySlots
+              .map(function (slotItem) {
+                if (typeof slotItem === "string") return slotItem;
+                if (slotItem && slotItem.start) return slotItem.start;
+                return "";
+              })
+              .filter(Boolean);
+
+            if (slotValues.length) {
+              availabilityByDay[dayKey] = slotValues;
+            }
+          });
+
+          availabilityDays = Object.keys(availabilityByDay).sort();
+          if (availabilityDays.length) {
+            selectedDay = availabilityDays[0];
+            if (selectedDateInput) selectedDateInput.value = selectedDay;
+          }
+          renderDayButtons();
+          renderSlotButtons();
+        } catch (error) {
+          if (dayListEl) dayListEl.innerHTML = "";
+          if (slotListEl) slotListEl.innerHTML = "";
+          setSlotStatus("Неуспешно зареждане на наличните часове. Опитай отново.", "error");
+        } finally {
+          isLoadingAvailability = false;
+        }
+      };
+
+      var focusCurrentStepField = function () {
+        if (!steps[currentStep]) return;
+        var firstField = steps[currentStep].querySelector(
+          "button, input:not([type='hidden']), select, textarea"
+        );
+        if (firstField && typeof firstField.focus === "function") {
+          firstField.focus();
+        }
+      };
+
+      var renderStep = function () {
+        steps.forEach(function (step, index) {
+          step.hidden = index !== currentStep;
+        });
+
+        if (stepCurrentLabel) {
+          stepCurrentLabel.textContent = String(currentStep + 1);
+        }
+
+        if (prevBtn) {
+          prevBtn.disabled = currentStep === 0 || isSubmitting;
+        }
+
+        if (nextBtn) {
+          nextBtn.disabled = isSubmitting;
+          if (isSubmitting) {
+            nextBtn.textContent = "Изпращане...";
+          } else {
+            nextBtn.textContent = currentStep === steps.length - 1 ? "Изпрати" : "Напред";
+          }
+        }
+
+        setFeedback("");
+
+        if (currentStep === 1 && calBookingUrl && !availabilityDays.length) {
+          loadAvailability();
+        }
+      };
+
+      var setSubmitting = function (value) {
+        isSubmitting = value;
+        if (prevBtn) {
+          prevBtn.disabled = currentStep === 0 || isSubmitting;
+        }
+        if (nextBtn) {
+          nextBtn.disabled = isSubmitting;
+          if (isSubmitting) {
+            nextBtn.textContent = "Изпращане...";
+          } else {
+            nextBtn.textContent = currentStep === steps.length - 1 ? "Изпрати" : "Напред";
+          }
+        }
+      };
+
+      var validateStep = function (stepIndex) {
+        if (!bookingForm) return false;
+
+        if (stepIndex === 0) {
+          var serviceValue = bookingForm.querySelector(
+            "input[name='serviceType']:checked"
+          );
+          if (!serviceValue) {
+            setFeedback("Моля, избери услуга.");
+            return false;
+          }
+          return true;
+        }
+
+        if (stepIndex === 1) {
+          var dateInput = selectedDateInput;
+          var timeInput = selectedTimeInput;
+          if (isLoadingAvailability) {
+            setFeedback("Изчакай да се заредят свободните часове.");
+            return false;
+          }
+          if (!dateInput || !timeInput || !dateInput.value || !timeInput.value) {
+            setFeedback("Моля, избери дата и час.");
+            return false;
+          }
+          return true;
+        }
+
+        if (stepIndex === 2) {
+          var fullNameInput = bookingForm.querySelector("input[name='fullName']");
+          var phoneInput = bookingForm.querySelector("input[name='phone']");
+          var emailInput = bookingForm.querySelector("input[name='email']");
+
+          var isValid =
+            fullNameInput &&
+            phoneInput &&
+            emailInput &&
+            fullNameInput.value.trim() &&
+            phoneInput.value.trim() &&
+            emailInput.checkValidity();
+
+          if (!isValid) {
+            setFeedback("Попълни коректно име, телефон и имейл.");
+            return false;
+          }
+          return true;
+        }
+
+        return true;
+      };
+
+      var resetFormState = function () {
+        currentStep = 0;
+        setSubmitting(false);
+        if (bookingForm) {
+          bookingForm.reset();
+        }
+        clearSelectedDateTime();
+        availabilityByDay = {};
+        availabilityDays = [];
+        if (dayListEl) dayListEl.innerHTML = "";
+        if (slotListEl) slotListEl.innerHTML = "";
+        setSlotStatus("");
+        setFeedback("");
+        renderStep();
+      };
 
       var openModal = function () {
         previousFocusedElement = document.activeElement;
+        resetFormState();
         modal.hidden = false;
         modal.setAttribute("aria-hidden", "false");
         document.body.classList.add("modal-open");
-        if (modalPanel) {
-          modalPanel.focus();
-        }
+        focusCurrentStepField();
       };
 
       var closeModal = function () {
@@ -118,6 +580,160 @@
       closeTriggers.forEach(function (trigger) {
         trigger.addEventListener("click", closeModal);
       });
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", function () {
+          if (currentStep === 0) return;
+          currentStep -= 1;
+          renderStep();
+          focusCurrentStepField();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener("click", function () {
+          var stepIsValid = validateStep(currentStep);
+          if (!stepIsValid) return;
+
+          if (currentStep < steps.length - 1) {
+            currentStep += 1;
+            renderStep();
+            focusCurrentStepField();
+            return;
+          }
+
+          if (bookingForm) {
+            bookingForm.dispatchEvent(
+              new Event("submit", { bubbles: true, cancelable: true })
+            );
+          }
+        });
+      }
+
+      if (bookingForm) {
+        bookingForm.addEventListener("submit", async function (event) {
+          event.preventDefault();
+          setFeedback("");
+
+          if (!validateStep(steps.length - 1)) return;
+          if (isSubmitting) return;
+
+          var serviceInput = bookingForm.querySelector(
+            "input[name='serviceType']:checked"
+          );
+          var dateInput = bookingForm.querySelector("input[name='date']");
+          var timeInput = bookingForm.querySelector("input[name='time']");
+          var fullNameInput = bookingForm.querySelector("input[name='fullName']");
+          var phoneInput = bookingForm.querySelector("input[name='phone']");
+          var emailInput = bookingForm.querySelector("input[name='email']");
+
+          if (
+            !serviceInput ||
+            !dateInput ||
+            !timeInput ||
+            !fullNameInput ||
+            !phoneInput ||
+            !emailInput
+          ) {
+            setFeedback("Липсват данни от формата.");
+            return;
+          }
+
+          var serviceLabels = {
+            microblading: "Микроблейдинг",
+            lamination: "Ламиниране"
+          };
+          var serviceLabel =
+            serviceLabels[serviceInput.value] || serviceInput.value;
+          var dateValue = dateInput.value;
+          var timeValue = timeInput.value;
+          var fullNameValue = fullNameInput.value.trim();
+          var phoneValue = phoneInput.value.trim();
+          var emailValue = emailInput.value.trim();
+
+          var payload = {
+            source: "valeto-site",
+            service: serviceInput.value,
+            serviceLabel: serviceLabel,
+            date: dateValue,
+            time: timeValue,
+            slotStartIso: selectedSlotIso,
+            fullName: fullNameValue,
+            phone: phoneValue,
+            email: emailValue
+          };
+
+          setSubmitting(true);
+
+          try {
+            if (submitEndpoint) {
+              var response = await fetch(submitEndpoint, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+              });
+
+              var responseJson = null;
+              try {
+                responseJson = await response.json();
+              } catch (jsonError) {
+                responseJson = null;
+              }
+
+              if (!response.ok) {
+                var serverError =
+                  responseJson && responseJson.error
+                    ? String(responseJson.error)
+                    : "Submit endpoint returned " + response.status;
+                throw new Error(serverError);
+              }
+
+              setFeedback("Заявката е изпратена успешно.", "success");
+              window.setTimeout(closeModal, 900);
+              return;
+            }
+
+            if (calBookingUrl) {
+              var calUrl = new URL(calBookingUrl);
+              calUrl.searchParams.set("name", fullNameValue);
+              calUrl.searchParams.set("email", emailValue);
+              calUrl.searchParams.set("phone", phoneValue);
+              calUrl.searchParams.set(
+                "notes",
+                "Услуга: " +
+                  serviceLabel +
+                  "\nПредпочитана дата: " +
+                  dateValue +
+                  "\nПредпочитан час: " +
+                  timeValue
+              );
+              calUrl.searchParams.set("service", serviceLabel);
+              calUrl.searchParams.set("preferred_date", dateValue);
+              calUrl.searchParams.set("preferred_time", timeValue);
+
+              window.open(calUrl.toString(), "_blank", "noopener");
+              setFeedback("Отваряме Cal.com за потвърждение на часа.", "success");
+              window.setTimeout(closeModal, 600);
+              return;
+            }
+
+            throw new Error("Booking config is missing");
+          } catch (error) {
+            setFeedback(error && error.message ? error.message : "Неуспешно изпращане.");
+          } finally {
+            setSubmitting(false);
+          }
+        });
+
+        bookingForm.addEventListener("keydown", function (event) {
+          if (event.key !== "Enter") return;
+          if (currentStep === steps.length - 1) return;
+          event.preventDefault();
+          if (nextBtn) {
+            nextBtn.click();
+          }
+        });
+      }
 
       modal.addEventListener("click", function (event) {
         if (event.target === modal) {

@@ -10,6 +10,7 @@ local_docs/
 .env
 .env.*
 !.env.example
+cal-booking-config.php
 
 # Logs
 npm-debug.log*
