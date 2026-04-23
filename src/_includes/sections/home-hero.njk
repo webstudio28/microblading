@@ -26,7 +26,13 @@
         {# CTAs — full width of column; buttons share row equally on sm+ #}
         <div class="mt-1 flex w-full min-w-0 flex-col gap-3 sm:flex-row sm:flex-nowrap">
           {% if h.ctaPrimary %}
-          <a href="{{ h.ctaPrimary.url }}" class="btn-primary w-full min-w-0 sm:flex-1">
+          <a
+            href="{{ h.ctaPrimary.url }}"
+            class="btn-primary w-full min-w-0 sm:flex-1"
+            data-booking-open
+            aria-haspopup="dialog"
+            aria-controls="booking-modal"
+          >
             {{ h.ctaPrimary.label }}
           </a>
           {% endif %}

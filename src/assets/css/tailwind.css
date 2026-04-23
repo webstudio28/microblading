@@ -148,6 +148,27 @@
     }
   }
 
+  /* ── Section sub-heading card ── */
+  .section-sub-block {
+    @apply mt-10;
+  }
+
+  /* Label + trailing line — left-aligned, line runs after the text */
+  .section-sub-heading {
+    @apply font-sans text-sm font-medium uppercase tracking-[0.18em] text-[#a07850]
+           flex items-center gap-4;
+  }
+  .section-sub-heading::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      rgba(201, 169, 138, 0.55),
+      transparent
+    );
+  }
+
   /* Hero badge pill — frosted glass, clearly see-through */
   .hero-badge {
     @apply inline-flex items-center gap-1.5
@@ -187,4 +208,72 @@
            transition-colors duration-200;
     color: var(--color-ink);
   }
+
+  .booking-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    display: grid;
+    place-items: center;
+    padding: 1.25rem;
+  }
+
+  .booking-modal[hidden] {
+    display: none !important;
+  }
+
+  .booking-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(19, 12, 9, 0.58);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+
+  .booking-modal__panel {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 34rem);
+    min-height: 16rem;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.64);
+    background: rgba(255, 255, 255, 0.78);
+    -webkit-backdrop-filter: blur(14px) saturate(130%);
+    backdrop-filter: blur(14px) saturate(130%);
+    box-shadow:
+      0 24px 55px rgba(17, 11, 8, 0.22),
+      0 1px 0 rgba(255, 255, 255, 0.55) inset;
+    padding: 2.5rem 2rem 2rem;
+    outline: none;
+  }
+
+  .booking-modal__close {
+    position: absolute;
+    right: 0.75rem;
+    top: 0.55rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 9999px;
+    border: none;
+    background: transparent;
+    color: rgba(44, 26, 14, 0.75);
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 180ms ease, color 180ms ease;
+  }
+
+  .booking-modal__close:hover {
+    background: rgba(44, 26, 14, 0.1);
+    color: rgba(44, 26, 14, 0.95);
+  }
+
+  .booking-modal__title {
+    @apply font-mak text-3xl leading-tight md:text-4xl;
+    color: var(--color-ink);
+  }
+}
+
+body.modal-open {
+  overflow: hidden;
 }

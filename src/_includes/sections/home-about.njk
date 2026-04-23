@@ -55,6 +55,9 @@
             <a
               href="{{ a.cta.url }}"
               class="block w-full rounded-3xl bg-zinc-800 py-3.5 text-center font-['Montserrat_Alternates'] text-base font-medium tracking-wide text-white shadow-[0px_4px_4px_0px_rgba(0,0,0,0.21)] transition-colors hover:bg-zinc-700"
+              data-booking-open
+              aria-haspopup="dialog"
+              aria-controls="booking-modal"
             >{{ a.cta.label }}</a>
           </div>
           {% endif %}

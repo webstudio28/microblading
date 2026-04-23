@@ -33,6 +33,29 @@
     {{ content | safe }}
   </div>
 
+  <div
+    id="booking-modal"
+    class="booking-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-labelledby="booking-modal-title"
+    hidden
+  >
+    <div class="booking-modal__backdrop" data-booking-close></div>
+    <div class="booking-modal__panel" role="document" tabindex="-1">
+      <button
+        type="button"
+        class="booking-modal__close"
+        data-booking-close
+        aria-label="Затвори модалния прозорец"
+      >
+        &times;
+      </button>
+      <h2 id="booking-modal-title" class="booking-modal__title">Запази час</h2>
+    </div>
+  </div>
+
   <script>
     (function () {
       var headerSurface = document.querySelector(".js-header-surface");
@@ -48,6 +71,65 @@
 
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
+    })();
+
+    (function () {
+      var modal = document.getElementById("booking-modal");
+      if (!modal) return;
+
+      var openTriggers = Array.prototype.slice.call(
+        document.querySelectorAll("[data-booking-open]")
+      );
+      var closeTriggers = Array.prototype.slice.call(
+        modal.querySelectorAll("[data-booking-close]")
+      );
+      var modalPanel = modal.querySelector(".booking-modal__panel");
+      var previousFocusedElement = null;
+
+      var openModal = function () {
+        previousFocusedElement = document.activeElement;
+        modal.hidden = false;
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+        if (modalPanel) {
+          modalPanel.focus();
+        }
+      };
+
+      var closeModal = function () {
+        modal.hidden = true;
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+        if (
+          previousFocusedElement &&
+          typeof previousFocusedElement.focus === "function"
+        ) {
+          previousFocusedElement.focus();
+        }
+      };
+
+      openTriggers.forEach(function (trigger) {
+        trigger.addEventListener("click", function (event) {
+          event.preventDefault();
+          openModal();
+        });
+      });
+
+      closeTriggers.forEach(function (trigger) {
+        trigger.addEventListener("click", closeModal);
+      });
+
+      modal.addEventListener("click", function (event) {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && !modal.hidden) {
+          closeModal();
+        }
+      });
     })();
   </script>
 </body>

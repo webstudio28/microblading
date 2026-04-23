@@ -14,13 +14,24 @@
 
     <h2
       id="microblading-heading"
-      class="font-mak mt-2 text-2xl font-bold leading-8 tracking-wider text-yellow-900 md:text-[2rem] md:leading-9"
+      class="font-mak mt-2 text-[2.25rem] font-bold leading-10 tracking-wider text-yellow-900 md:text-[2.5rem] md:leading-[2.75rem]"
     >{{ m.title | default("Микроблейдинг") }}</h2>
 
     {% if m.lead %}
-    <p class="font-sans mt-4 max-w-2xl text-sm font-normal leading-relaxed text-[#4a3728] md:text-base md:leading-7">
+    <p class="site-lead mt-4 w-full text-[#4a3728]">
       {{ m.lead }}
     </p>
+    {% endif %}
+
+    {% if m.sub %}
+    <div class="section-sub-block">
+      <h3 class="section-sub-heading">{{ m.sub.title }}</h3>
+      {% if m.sub.body %}
+      <p class="site-lead mt-5 w-full text-[#4a3728]">
+        {{ m.sub.body }}
+      </p>
+      {% endif %}
+    </div>
     {% endif %}
 
   </div>
