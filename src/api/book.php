@@ -43,10 +43,13 @@ function load_private_config(): array
     // Local/dev convenience (project root)
     $candidateFiles[] = dirname(__DIR__, 2) . "/cal-booking-config.php";
 
-    // Sibling folder to project root, e.g. ../backend-functions/cal-booking-config.php
+    // cPanel variants:
+    // - deployment rooted at /home/<user>/microblading
+    // - deployment rooted at /home/<user>/public_html/microblading
+    // We try both level-2 and level-3 parents to support both layouts.
+    $candidateFiles[] = dirname(__DIR__, 2) . "/backend-functions/cal-booking-config.php";
     $candidateFiles[] = dirname(__DIR__, 3) . "/backend-functions/cal-booking-config.php";
-
-    // Parent of project root, e.g. ../cal-booking-config.php
+    $candidateFiles[] = dirname(__DIR__, 2) . "/cal-booking-config.php";
     $candidateFiles[] = dirname(__DIR__, 3) . "/cal-booking-config.php";
 
     foreach ($candidateFiles as $privateFile) {
