@@ -32,6 +32,24 @@
     {% include "header.njk" %}
     {{ content | safe }}
   </div>
+
+  <script>
+    (function () {
+      var headerSurface = document.querySelector(".js-header-surface");
+      if (!headerSurface) return;
+
+      var onScroll = function () {
+        if (window.scrollY > 18) {
+          headerSurface.classList.add("is-glassy");
+        } else {
+          headerSurface.classList.remove("is-glassy");
+        }
+      };
+
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    })();
+  </script>
 </body>
 </html>
 

@@ -22,6 +22,9 @@
   --color-brand-secondary:#7a6558;
   --color-brand-accent:   #c9a98a;
 
+  /* Default site body / UI copy (same stack as hero subheadline) */
+  --font-site-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+
   /* Section vertical rhythm — mirrors .section-padding (py-16 / md:py-24) */
   --section-padding-y:     4rem;
   --section-padding-y-md:  6rem;
@@ -44,7 +47,7 @@
     @apply min-h-screen antialiased;
     background: linear-gradient(to right, #efe4ce, #fffbf4);
     color: var(--color-ink);
-    font-family: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-site-sans);
   }
 
   h1, h2, h3 {
@@ -53,6 +56,14 @@
 }
 
 @layer components {
+  /*
+   * Lead / body copy — Montserrat, same scale as hero subheadline.
+   * Use for long-form blurbs, header nav labels, etc.
+   */
+  .site-lead {
+    @apply font-sans text-base font-normal leading-relaxed text-muted md:text-lg md:leading-relaxed;
+  }
+
   .container-custom {
     @apply max-w-screen-xl mx-auto px-4 md:px-6;
   }
@@ -87,10 +98,27 @@
 
   /* Header: pill-shaped floating island */
   .site-header-surface {
-    @apply flex items-center justify-between gap-4
+    @apply relative flex items-center justify-between gap-3 sm:gap-4
            bg-white rounded-full
            px-5 py-2.5 sm:px-6 sm:py-3
            shadow-sm border border-white/60;
+    transition:
+      background-color 220ms ease,
+      border-color 220ms ease,
+      box-shadow 220ms ease,
+      backdrop-filter 220ms ease,
+      -webkit-backdrop-filter 220ms ease;
+  }
+
+  /* Applied after user scrolls a little */
+  .site-header-surface.is-glassy {
+    background-color: rgba(255, 255, 255, 0.42);
+    border-color: rgba(255, 255, 255, 0.48);
+    -webkit-backdrop-filter: blur(14px) saturate(125%);
+    backdrop-filter: blur(14px) saturate(125%);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.30) inset,
+      0 8px 24px rgba(44, 26, 14, 0.14);
   }
 
   /* Header “Запази час” — soft blush, warm accents */
