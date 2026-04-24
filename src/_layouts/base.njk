@@ -139,6 +139,73 @@
     })();
 
     (function () {
+      var toggle = document.getElementById("mobile-menu-toggle");
+      var panel = document.getElementById("mobile-menu-panel");
+      var backdrop = document.getElementById("mobile-menu-backdrop");
+      var closeBtn = document.getElementById("mobile-menu-close");
+      if (!toggle || !panel || !backdrop) return;
+
+      var mobileLinks = panel.querySelectorAll(".mobile-menu-link");
+      var isOpen = false;
+      var closeTimer = null;
+
+      var openMenu = function () {
+        if (closeTimer) {
+          window.clearTimeout(closeTimer);
+          closeTimer = null;
+        }
+        isOpen = true;
+        toggle.classList.add("is-active");
+        toggle.setAttribute("aria-expanded", "true");
+        toggle.setAttribute("aria-label", "Затвори меню");
+        panel.hidden = false;
+        backdrop.hidden = false;
+        panel.setAttribute("aria-hidden", "false");
+        backdrop.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+
+        requestAnimationFrame(function () {
+          panel.classList.add("is-open");
+          backdrop.classList.add("is-open");
+        });
+      };
+
+      var closeMenu = function () {
+        if (!isOpen) return;
+        isOpen = false;
+        toggle.classList.remove("is-active");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Отвори меню");
+        panel.classList.remove("is-open");
+        backdrop.classList.remove("is-open");
+        panel.setAttribute("aria-hidden", "true");
+        backdrop.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+
+        closeTimer = window.setTimeout(function () {
+          panel.hidden = true;
+          backdrop.hidden = true;
+          closeTimer = null;
+        }, 290);
+      };
+
+      toggle.addEventListener("click", function () {
+        if (isOpen) closeMenu();
+        else openMenu();
+      });
+
+      if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+      backdrop.addEventListener("click", closeMenu);
+      mobileLinks.forEach(function (link) {
+        link.addEventListener("click", closeMenu);
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && isOpen) closeMenu();
+      });
+    })();
+
+    (function () {
       var modal = document.getElementById("booking-modal");
       if (!modal) return;
 

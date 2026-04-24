@@ -28,9 +28,22 @@
         {% endfor %}
       </nav>
 
+      <button
+        type="button"
+        class="mobile-menu-toggle md:hidden"
+        id="mobile-menu-toggle"
+        aria-label="Отвори меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu-panel"
+      >
+        <span class="mobile-menu-toggle__line"></span>
+        <span class="mobile-menu-toggle__line"></span>
+        <span class="mobile-menu-toggle__line"></span>
+      </button>
+
       <a
         href="{{ headerCta.url }}"
-        class="header-book-cta"
+        class="header-book-cta hidden md:inline-flex"
         data-booking-open
         aria-haspopup="dialog"
         aria-controls="booking-modal"
@@ -39,3 +52,42 @@
     </div>
   </div>
 </header>
+
+<div
+  id="mobile-menu-backdrop"
+  class="mobile-menu-backdrop"
+  aria-hidden="true"
+  hidden
+></div>
+
+<aside
+  id="mobile-menu-panel"
+  class="mobile-menu-panel"
+  aria-hidden="true"
+  hidden
+>
+  <div class="mobile-menu-panel__inner">
+    <button
+      type="button"
+      class="mobile-menu-close"
+      id="mobile-menu-close"
+      aria-label="Затвори меню"
+    >
+      &times;
+    </button>
+
+    <nav class="mobile-menu-nav" aria-label="Mobile">
+      {% for item in site.nav.header %}
+        <a href="{{ item.url }}" class="mobile-menu-link">{{ item.label }}</a>
+      {% endfor %}
+
+      <a
+        href="{{ headerCta.url }}"
+        class="mobile-menu-link mobile-menu-link--cta"
+        data-booking-open
+        aria-haspopup="dialog"
+        aria-controls="booking-modal"
+      >{{ headerCta.label }}</a>
+    </nav>
+  </div>
+</aside>

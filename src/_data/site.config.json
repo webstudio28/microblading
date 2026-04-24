@@ -18,11 +18,11 @@
   },
   "nav": {
     "header": [
-      { "label": "Начало",        "url": "#hero" },
-      { "label": "За мен",        "url": "#about" },
-      { "label": "Микроблейдинг", "url": "#microblading" },
-      { "label": "Ламиниране",    "url": "#laminating" },
-      { "label": "Контакти",      "url": "#contact" }
+      { "label": "Начало",        "url": "#hero",         "icon": "home" },
+      { "label": "За мен",        "url": "#about",        "icon": "user" },
+      { "label": "Микроблейдинг", "url": "#microblading", "icon": "sparkle" },
+      { "label": "Ламиниране",    "url": "#laminating",   "icon": "leaf" },
+      { "label": "Контакти",      "url": "#contact",      "icon": "mail" }
     ]
   }
 }
