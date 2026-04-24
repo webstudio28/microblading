@@ -1,6 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{njk,html,md,js}"],
+  safelist: [
+    "mb-bubble--1",
+    "mb-bubble--2",
+    "mb-bubble--3",
+    "mb-bubble--4",
+    "mb-bubble--5",
+  ],
   theme: {
     extend: {
       fontFamily: {

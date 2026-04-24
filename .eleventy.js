@@ -1,8 +1,9 @@
 module.exports = function (eleventyConfig) {
-  // Allow access from phone/other devices on same WiFi + watch built CSS
+  // Allow access from phone/other devices on same WiFi.
+  // Do not force a custom watch list here, otherwise live reload
+  // can miss template/data updates until a manual refresh.
   eleventyConfig.setServerOptions({
     showAllHosts: true,
-    watch: ["_site/**/*.css"],
   });
 
   // Passthrough copy: src/assets → _site/assets

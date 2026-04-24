@@ -1,0 +1,91 @@
+{
+  "gallery": [
+    {
+      "src": "/assets/images/microblading1.jpg",
+      "alt": "Резултат от микроблейдинг – нежно оформени вежди"
+    },
+    {
+      "src": "/assets/images/microblading2.jpg",
+      "alt": "Процес по очертаване и симетрия"
+    },
+    {
+      "src": "/assets/images/microblading3.jpg",
+      "alt": "Детайл при ръчна техника на косъмчета"
+    },
+    {
+      "src": "/assets/images/microblading4.jpg",
+      "alt": "Готов резултат – естествен и изискан"
+    },
+    {
+      "src": "/assets/images/microblading5.jpg",
+      "alt": "Поглед отблизо върху прецизността на линиите"
+    },
+    {
+      "src": "/assets/images/microblading6.jpg",
+      "alt": "Етап от процедурата по оформяне"
+    },
+    {
+      "src": "/assets/images/microblading7.jpg",
+      "alt": "Фин детайл в естествения ефект"
+    },
+    {
+      "src": "/assets/images/microblading8.jpg",
+      "alt": "Подготовка и симетрия на веждите"
+    },
+    {
+      "src": "/assets/images/microblading9.jpg",
+      "alt": "Готов резултат с мека линия"
+    },
+    {
+      "src": "/assets/images/microblading10.jpg",
+      "alt": "Финален кадър от микроблейдинг визията"
+    },
+    {
+      "src": "/assets/images/microblading11.jpg",
+      "alt": "Нежен резултат след процедура"
+    },
+    {
+      "src": "/assets/images/microblading12.jpg",
+      "alt": "Прецизно изработени косъмчета"
+    },
+    {
+      "src": "/assets/images/microblading13.jpg",
+      "alt": "Естествена форма и баланс"
+    },
+    {
+      "src": "/assets/images/microblading14.jpg",
+      "alt": "Детайл отблизо на линията"
+    },
+    {
+      "src": "/assets/images/microblading15.jpg",
+      "alt": "Подчертан, но натурален ефект"
+    }
+  ],
+  "steps": [
+    {
+      "number": "01",
+      "title": "Консултация",
+      "description": "Обсъждаме вашите желания, стил и подходящ оттенък, за да създадем вежди, които допълват лицето ви."
+    },
+    {
+      "number": "02",
+      "title": "Прецизен дизайн",
+      "description": "Внимателно очертаваме форма и симетрия, съобразени с чертите ви, преди да започне самата процедура."
+    },
+    {
+      "number": "03",
+      "title": "Нежна процедура",
+      "description": "С ръчна техника нанасяме тънки косъмчета, които имитират естествения ръст на веждата."
+    },
+    {
+      "number": "04",
+      "title": "Грижа след",
+      "description": "Получавате персонализирани указания и крем за период на възстановяване без усложнения."
+    },
+    {
+      "number": "05",
+      "title": "Финален щрих",
+      "description": "След 4–6 седмици правим лек контрол, за да постигнем идеалния дълготраен резултат."
+    }
+  ]
+}
