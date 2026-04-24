@@ -125,7 +125,7 @@
   .header-book-cta {
     font-family: "Montserrat Alternates", "Montserrat", ui-sans-serif, system-ui, sans-serif;
     @apply inline-flex shrink-0 items-center justify-center whitespace-nowrap
-           rounded-full px-4 py-2 text-[13px] font-medium tracking-wide
+           rounded-full px-4 py-2 text-[13px] font-normal tracking-wide
            transition-[box-shadow,transform,background-color] duration-200;
     color: #fdf4f2;
     background: linear-gradient(145deg, #5c4349 0%, #4a363d 45%, #3b2a30 100%);
@@ -183,6 +183,17 @@
     letter-spacing: 0.02em;
     margin-top: -0.55rem;
   }
+  @media (max-width: 767px) {
+    .hero-section {
+      padding-top: calc(var(--section-padding-y) * 0.7);
+    }
+    .hero-badge--signature {
+      margin-top: 0.1rem;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.72rem;
+      line-height: 1;
+    }
+  }
   .hero-badge--inline {
     vertical-align: middle;
     font-size: clamp(0.68rem, 0.95vw, 0.82rem);
@@ -207,16 +218,19 @@
   .btn-primary {
     @apply inline-flex items-center justify-center
            rounded-full px-7 py-2.5
-           text-base font-semibold text-white
-           bg-[#1a1105] hover:bg-[#2c1a0e]
+           text-base font-medium text-white
            transition-colors duration-200;
+    background-color: #3a2415;
+  }
+  .btn-primary:hover {
+    background-color: #4a2f1c;
   }
   /* Same frosted white as .hero-badge — see-through, not a solid chip */
   .btn-secondary {
     @apply inline-flex items-center justify-center
            rounded-full border border-white/55
            bg-white/55 px-7 py-2.5 backdrop-blur-md
-           text-base font-semibold shadow-sm
+           text-base font-medium shadow-sm
            hover:border-white/70 hover:bg-white/65
            transition-colors duration-200;
     color: var(--color-ink);
@@ -558,11 +572,12 @@
   }
 
   /* ─────────────────────────────────────────────────────────────
-     Microblading section — hero-palette only, no section bg
+     Microblading section — hero-palette with soft white glass bg
      ───────────────────────────────────────────────────────────── */
   .mb-section {
     position: relative;
     isolation: isolate;
+    background: rgba(255, 255, 255, 0.5);
   }
 
   /* Header */

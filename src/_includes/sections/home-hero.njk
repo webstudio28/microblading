@@ -1,20 +1,39 @@
 {% set h = home.hero if home and home.hero else {} %}
 <section class="hero-section section-padding" id="hero">
   <div class="container-custom">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-center">
 
       {# ── Left: text ── #}
-      <div class="flex w-full min-w-0 flex-col items-start gap-5">
+      <div class="order-1 flex w-full min-w-0 flex-col items-center gap-5 text-center md:order-1 md:items-start md:text-left">
 
         {# Badge pill #}
         {% if h.badge %}
-        <span class="hero-badge hero-badge--signature">by Valya Matovska</span>
+        <span class="hero-badge hero-badge--signature hidden md:inline-flex">by Valya Matovska</span>
         {% endif %}
 
         {# Headline — MAK font #}
-        <h1 class="font-mak text-5xl leading-[1.12] text-ink md:text-6xl md:leading-[1.1] xl:text-[4.25rem] xl:leading-[1.08]">
+        <h1 class="font-mak text-[2.35rem] leading-[1.12] text-ink md:text-6xl md:leading-[1.1] xl:text-[4.25rem] xl:leading-[1.08]">
           {{ h.headline | default("Микроблейдинг и ламиниране в Пловдив") }}
         </h1>
+
+        {# Mobile-only image between label and description #}
+        <div class="flex w-full justify-center md:hidden">
+          <div class="hero-photo-wrap w-full max-w-none">
+            <picture>
+              <source
+                media="(max-width: 767px)"
+                srcset="{{ '/assets/images/hero-img-mobile.jpg' | url }}"
+              >
+              <img
+                src="{{ h.image | default('/assets/images/hero-img.jpeg') | url }}"
+                alt="{{ h.imageAlt | default('Hero image') }}"
+                class="hero-photo"
+                width="460" height="540"
+                loading="eager"
+              >
+            </picture>
+          </div>
+        </div>
 
         {# Sub-text — Montserrat #}
         {% if h.subheadline %}
@@ -24,11 +43,11 @@
         {% endif %}
 
         {# CTAs — full width of column; buttons share row equally on sm+ #}
-        <div class="mt-1 flex w-full min-w-0 flex-col gap-3 sm:flex-row sm:flex-nowrap">
+        <div class="mt-1 hidden w-full min-w-0 flex-row flex-nowrap gap-3 md:flex">
           {% if h.ctaPrimary %}
           <a
             href="{{ h.ctaPrimary.url }}"
-            class="btn-primary w-full min-w-0 sm:flex-1"
+            class="btn-primary min-w-0 flex-1"
             data-booking-open
             aria-haspopup="dialog"
             aria-controls="booking-modal"
@@ -37,7 +56,7 @@
           </a>
           {% endif %}
           {% if h.ctaSecondary %}
-          <a href="{{ h.ctaSecondary.url }}" class="btn-secondary w-full min-w-0 sm:flex-1">
+          <a href="{{ h.ctaSecondary.url }}" class="btn-secondary min-w-0 flex-1">
             {{ h.ctaSecondary.label }}
           </a>
           {% endif %}
@@ -46,16 +65,42 @@
       </div>
 
       {# ── Right: photo card ── #}
-      <div class="flex justify-center lg:justify-end">
+      <div class="order-2 hidden justify-center md:flex md:order-2 lg:justify-end">
         <div class="hero-photo-wrap">
-          <img
-            src="{{ h.image | default('/assets/images/hero-img.jpeg') | url }}"
-            alt="{{ h.imageAlt | default('Hero image') }}"
-            class="hero-photo"
-            width="460" height="540"
-            loading="eager"
-          >
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="{{ '/assets/images/hero-img-mobile.jpg' | url }}"
+            >
+            <img
+              src="{{ h.image | default('/assets/images/hero-img.jpeg') | url }}"
+              alt="{{ h.imageAlt | default('Hero image') }}"
+              class="hero-photo"
+              width="460" height="540"
+              loading="eager"
+            >
+          </picture>
         </div>
+      </div>
+
+      {# ── Mobile CTAs (below image) ── #}
+      <div class="order-3 mt-0.5 flex w-full min-w-0 flex-row flex-nowrap gap-2 md:hidden">
+        {% if h.ctaPrimary %}
+        <a
+          href="{{ h.ctaPrimary.url }}"
+          class="btn-primary min-w-0 flex-1 px-4 py-2 text-sm"
+          data-booking-open
+          aria-haspopup="dialog"
+          aria-controls="booking-modal"
+        >
+          {{ h.ctaPrimary.label }}
+        </a>
+        {% endif %}
+        {% if h.ctaSecondary %}
+        <a href="{{ h.ctaSecondary.url }}" class="btn-secondary min-w-0 flex-1 px-4 py-2 text-sm">
+          {{ h.ctaSecondary.label }}
+        </a>
+        {% endif %}
       </div>
 
     </div>
