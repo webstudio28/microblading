@@ -14,6 +14,11 @@ module.exports = function (eleventyConfig) {
   // Watch data so navigation/content tweaks trigger rebuild
   eleventyConfig.addWatchTarget("src/_data");
 
+  eleventyConfig.addNunjucksFilter("isVideoPath", function (src) {
+    if (!src || typeof src !== "string") return false;
+    return /\.mp4(\?|#|$)/i.test(src.trim());
+  });
+
   // Useful for sitemaps/lastmod (if added later)
   eleventyConfig.addGlobalData("buildDate", () => new Date().toISOString().slice(0, 10));
 

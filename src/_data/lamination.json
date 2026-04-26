@@ -2,8 +2,8 @@
   "gallery": [
     { "src": "/assets/images/laminirane1.jpg", "alt": "Ламиниране — примерна снимка 1" },
     { "src": "/assets/images/laminirane2.jpg", "alt": "Ламиниране — примерна снимка 2" },
-    { "src": "/assets/images/laminirane3.jpg", "alt": "Ламиниране — примерна снимка 3" },
-    { "src": "/assets/images/laminirane4.jpg", "alt": "Ламиниране — примерна снимка 4" },
+    { "src": "/assets/images/laminirane3.mp4", "alt": "Ламиниране — видео 3" },
+    { "src": "/assets/images/laminirane4.mp4", "alt": "Ламиниране — видео 4" },
     { "src": "/assets/images/laminirane5.jpg", "alt": "Ламиниране — примерна снимка 5" },
     { "src": "/assets/images/laminirane6.jpg", "alt": "Ламиниране — примерна снимка 6" },
     { "src": "/assets/images/laminirane7.jpg", "alt": "Ламиниране — примерна снимка 7" },

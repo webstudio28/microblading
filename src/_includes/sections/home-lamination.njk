@@ -72,11 +72,29 @@
     <div class="mb-bubbles" role="list" data-lam-bubbles aria-labelledby="lam-gallery-heading">
       {% for item in lb.gallery %}
       <figure
-        class="mb-bubble"
+        class="mb-bubble{% if item.src | isVideoPath %} mb-bubble--video{% endif %}"
         role="listitem"
         data-lam-gallery-trigger
         data-lam-gallery-index="{{ loop.index0 }}"
       >
+        {% if item.src | isVideoPath %}
+        <video
+          src="{{ item.src | url }}"
+          data-lam-gallery-item
+          data-lam-gallery-index="{{ loop.index0 }}"
+          muted
+          playsinline
+          loop
+          preload="metadata"
+          aria-label="{{ item.alt | default('Ламиниране — видео') }}"
+        ></video>
+        <span class="mb-bubble__video-badge" aria-hidden="true">
+          <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="28" cy="28" r="26" fill="rgba(255, 255, 255, 0.92)" stroke="rgba(44, 26, 14, 0.1)" stroke-width="1" />
+            <path fill="#3a2415" d="M23 17v22l18-11-18-11Z" />
+          </svg>
+        </span>
+        {% else %}
         <img
           src="{{ item.src | url }}"
           alt="{{ item.alt | default('Ламиниране — снимка') }}"
@@ -85,6 +103,7 @@
           loading="lazy"
           decoding="async"
         />
+        {% endif %}
       </figure>
       {% endfor %}
     </div>
@@ -206,6 +225,13 @@
       <div class="mb-gallery-modal__stage" data-lam-gallery-stage>
         <div class="mb-gallery-modal__clip">
           <img class="mb-gallery-modal__image" data-lam-gallery-image src="" alt="" />
+          <video
+            class="mb-gallery-modal__image"
+            data-lam-gallery-video
+            playsinline
+            controls
+            hidden
+          ></video>
         </div>
       </div>
 
@@ -370,6 +396,7 @@
     var galleryModal = document.getElementById("lam-gallery-modal");
     if (galleryModal && lamSection) {
       var galleryImage = galleryModal.querySelector("[data-lam-gallery-image]");
+      var galleryVideo = galleryModal.querySelector("[data-lam-gallery-video]");
       var galleryStage = galleryModal.querySelector("[data-lam-gallery-stage]");
       var galleryItems = Array.prototype.slice.call(
         lamSection.querySelectorAll("[data-lam-gallery-item]")
@@ -382,11 +409,41 @@
       var nextGalleryBtn = galleryModal.querySelector("[data-lam-gallery-next]");
       var galleryIndex = 0;
 
+      function pauseModalVideo() {
+        if (!galleryVideo) return;
+        galleryVideo.pause();
+        galleryVideo.removeAttribute("src");
+        try { galleryVideo.load(); } catch (err) {}
+      }
+
       function renderGalleryImage() {
-        if (!galleryItems.length || !galleryImage) return;
+        if (!galleryItems.length) return;
         var source = galleryItems[galleryIndex];
-        galleryImage.src = source.currentSrc || source.src;
-        galleryImage.alt = source.alt || "Галерия ламиниране";
+        var isVideo = source.tagName === "VIDEO";
+
+        if (isVideo) {
+          if (galleryImage) {
+            galleryImage.removeAttribute("src");
+            galleryImage.alt = "";
+            galleryImage.setAttribute("hidden", "");
+          }
+          if (galleryVideo) {
+            var vsrc = source.currentSrc || source.getAttribute("src") || "";
+            galleryVideo.src = vsrc;
+            galleryVideo.setAttribute("aria-label", source.getAttribute("aria-label") || "Галерия ламиниране");
+            galleryVideo.removeAttribute("hidden");
+            galleryVideo.muted = false;
+            try { galleryVideo.play(); } catch (err) {}
+          }
+        } else {
+          pauseModalVideo();
+          if (galleryVideo) galleryVideo.setAttribute("hidden", "");
+          if (galleryImage) {
+            galleryImage.removeAttribute("hidden");
+            galleryImage.src = source.currentSrc || source.src;
+            galleryImage.alt = source.alt || "Галерия ламиниране";
+          }
+        }
       }
 
       function openGallery(index) {
@@ -398,6 +455,13 @@
       }
 
       function closeGallery() {
+        pauseModalVideo();
+        if (galleryVideo) galleryVideo.setAttribute("hidden", "");
+        if (galleryImage) {
+          galleryImage.removeAttribute("hidden");
+          galleryImage.removeAttribute("src");
+          galleryImage.alt = "";
+        }
         galleryModal.hidden = true;
         galleryModal.setAttribute("aria-hidden", "true");
         document.body.classList.remove("modal-open");
