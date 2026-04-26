@@ -66,8 +66,14 @@
           <div class="flex items-center gap-3 mb-3">
             <img src="{{ client.avatar }}" alt="{{ client.name }}" class="w-10 h-10 rounded-full object-cover shadow-sm bg-white border border-[#2c1a0e]/10">
             <div>
-              <h3 class="font-mak font-bold text-[#2c1a0e] text-base leading-tight tracking-wide">{{ client.name }}</h3>
-              <p class="text-[10px] font-semibold text-[#a07850] uppercase tracking-[0.1em] mt-1">{{ client.service }}</p>
+              <h3 class="font-sans text-[11px] font-bold text-[#2c1a0e] uppercase tracking-[0.1em] leading-tight">{{ client.name }}</h3>
+              <div class="mt-1.5 flex flex-wrap gap-1.5">
+                {% for svc in client.services %}
+                <span class="inline-flex px-2 py-0.5 bg-[#2c1a0e]/5 text-[#a07850] text-[10px] font-semibold tracking-wide rounded-full border border-[#2c1a0e]/10">
+                  {{ svc }}
+                </span>
+                {% endfor %}
+              </div>
             </div>
           </div>
           {% if client.review %}
@@ -105,16 +111,16 @@
       </button>
 
       <!-- Dynamically populated content -->
-      <div class="client-modal__content flex flex-col md:flex-row h-full">
+      <div class="client-modal__content flex flex-col-reverse md:flex-row h-full md:items-stretch">
         
-        <!-- Left: Image comparison (stacked or side-by-side based on space) -->
+        <!-- Left: Image comparison (Bottom on mobile) -->
         <div class="client-modal__visuals md:w-3/5 relative flex flex-col md:flex-row">
           
           <!-- Before Image -->
-          <div class="relative w-full h-56 md:h-full md:flex-1 group">
+          <div id="lightbox-trigger-before" class="relative w-full h-56 md:h-full md:flex-1 group cursor-zoom-in hover:opacity-95 transition-opacity">
             <img id="client-modal-before" src="" class="w-full h-full object-cover block">
-            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4">
-              <span class="text-white text-xs font-medium uppercase tracking-widest bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm">Преди</span>
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4 pointer-events-none">
+              <span class="text-white text-xs font-medium uppercase tracking-widest bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm shadow-sm">Преди</span>
             </div>
           </div>
           
@@ -122,21 +128,21 @@
           <div class="hidden md:block w-1 h-full bg-white/20 z-10 shrink-0"></div>
 
           <!-- After Image -->
-          <div class="relative w-full h-64 md:h-full md:flex-1">
+          <div id="lightbox-trigger-after" class="relative w-full h-64 md:h-full md:flex-1 cursor-zoom-in hover:opacity-95 transition-opacity">
             <img id="client-modal-after" src="" class="w-full h-full object-cover block">
-            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4">
-              <span class="text-white text-xs font-medium uppercase tracking-widest bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm">След</span>
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4 pointer-events-none">
+              <span class="text-white text-xs font-medium uppercase tracking-widest bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm shadow-sm">След</span>
             </div>
           </div>
         </div>
 
         <!-- Right: Text Content -->
-        <div class="client-modal__text md:w-2/5 p-6 md:p-8 flex flex-col bg-white">
-          <div class="flex items-center gap-4 mb-6 pb-6 border-b border-[#2c1a0e]/10">
-            <img id="client-modal-avatar" src="" class="w-16 h-16 rounded-full object-cover shadow-sm bg-white border border-[#2c1a0e]/10">
+        <div class="client-modal__text md:w-2/5 p-6 pt-14 md:p-8 flex flex-col bg-white">
+          <div class="flex items-center gap-4 mb-6 pb-6">
+            <img id="client-modal-avatar" src="" class="w-16 h-16 rounded-full object-cover shadow-sm bg-white">
             <div>
               <h3 id="client-modal-name" class="font-mak text-2xl text-[#2c1a0e] leading-tight mb-1">Име</h3>
-              <p id="client-modal-service" class="text-sm uppercase tracking-widest text-[#a07850] font-medium">Услуга</p>
+              <div id="client-modal-service" class="flex flex-wrap gap-1.5 mt-2"></div>
             </div>
           </div>
           
@@ -146,6 +152,19 @@
         </div>
       </div>
     </div>
+  </div>
+  <!-- Lightbox Modal -->
+  <div
+    id="clients-lightbox"
+    class="clients-lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    style="display: none;"
+  >
+    <div class="clients-lightbox__backdrop" data-lightbox-close></div>
+    <button type="button" class="clients-lightbox__close" data-lightbox-close>&times;</button>
+    <img id="clients-lightbox-img" src="" class="clients-lightbox__img">
   </div>
 </section>
 
@@ -256,12 +275,46 @@
       var domBefore = document.getElementById("client-modal-before");
       var domAfter = document.getElementById("client-modal-after");
 
+      var triggerBefore = document.getElementById("lightbox-trigger-before");
+      var triggerAfter = document.getElementById("lightbox-trigger-after");
+      var lightbox = document.getElementById("clients-lightbox");
+      var lightboxImg = document.getElementById("clients-lightbox-img");
+      var lightboxCloses = document.querySelectorAll("[data-lightbox-close]");
+
+      // Lightbox logic
+      function openLightbox(src) {
+        if (!src) return;
+        lightboxImg.src = src;
+        lightbox.style.display = "grid";
+        lightbox.setAttribute("aria-hidden", "false");
+      }
+      function closeLightbox() {
+        lightbox.style.display = "none";
+        lightbox.setAttribute("aria-hidden", "true");
+        lightboxImg.src = "";
+      }
+      
+      triggerBefore.addEventListener("click", function() { openLightbox(domBefore.src); });
+      triggerAfter.addEventListener("click", function() { openLightbox(domAfter.src); });
+      
+      lightboxCloses.forEach(function(btn) {
+        btn.addEventListener("click", closeLightbox);
+      });
+
       function openModal(clientId) {
         var client = window.ValetoClientsData.find(c => c.id === clientId);
         if (!client) return;
 
         domName.textContent = client.name;
-        domService.textContent = client.service;
+        
+        var servicesHtml = "";
+        if (client.services && client.services.length) {
+          client.services.forEach(function(svc) {
+            servicesHtml += '<span class="inline-flex px-2 py-0.5 bg-[#2c1a0e]/5 text-[#a07850] text-[10px] font-semibold tracking-wide rounded-full border border-[#2c1a0e]/10">' + svc + '</span>';
+          });
+        }
+        domService.innerHTML = servicesHtml;
+        
         domDesc.textContent = client.description;
         domAvatar.src = client.avatar;
         domBefore.src = client.beforeImage;
@@ -297,8 +350,12 @@
       });
 
       document.addEventListener("keydown", function(e) {
-        if (modal.style.display !== "none" && e.key === "Escape") {
-          closeModal();
+        if (e.key === "Escape") {
+          if (lightbox && lightbox.style.display !== "none") {
+            closeLightbox();
+          } else if (modal.style.display !== "none") {
+            closeModal();
+          }
         }
       });
     }
