@@ -910,6 +910,7 @@
     overflow: hidden;
     background: #e8d9cc;
     border: 0;
+    border-radius: 2.5rem 2.5rem 0.55rem 2.5rem;
     box-shadow:
       0 24px 50px -22px rgba(44, 26, 14, 0.28),
       0 8px 18px rgba(44, 26, 14, 0.08);
@@ -930,10 +931,6 @@
     box-shadow:
       0 32px 60px -22px rgba(44, 26, 14, 0.34),
       0 14px 24px rgba(44, 26, 14, 0.12);
-  }
-  /* same less-rounded corner on every image card */
-  .mb-bubble {
-    border-radius: 2.5rem 2.5rem 0.55rem 2.5rem;
   }
   @media (min-width: 1024px) {
     .mb-bubbles-nav {
@@ -1314,20 +1311,33 @@
     gap: 0.8rem;
   }
   .mb-gallery-modal__stage {
-    border-radius: 1.4rem;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.08);
+    background: transparent;
     min-height: min(76vh, 42rem);
+    width: 100%;
     display: grid;
     place-items: center;
   }
-  .mb-gallery-modal__image {
+  /* Wrapper clips the img — same corner language as .mb-bubble (replaced elements clip unreliably) */
+  .mb-gallery-modal__clip {
     width: 100%;
     height: min(76vh, 42rem);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+  }
+  .mb-gallery-modal__image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
     display: block;
     user-select: none;
     -webkit-user-drag: none;
+    border-radius: 0.5rem;
   }
   .mb-gallery-modal__arrow {
     width: 2.7rem;
