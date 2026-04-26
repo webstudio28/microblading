@@ -1,0 +1,41 @@
+{
+  "gallery": [
+    { "src": "/assets/images/laminirane1.jpg", "alt": "Ламиниране — примерна снимка 1" },
+    { "src": "/assets/images/laminirane2.jpg", "alt": "Ламиниране — примерна снимка 2" },
+    { "src": "/assets/images/laminirane3.jpg", "alt": "Ламиниране — примерна снимка 3" },
+    { "src": "/assets/images/laminirane4.jpg", "alt": "Ламиниране — примерна снимка 4" },
+    { "src": "/assets/images/laminirane5.jpg", "alt": "Ламиниране — примерна снимка 5" },
+    { "src": "/assets/images/laminirane6.jpg", "alt": "Ламиниране — примерна снимка 6" },
+    { "src": "/assets/images/laminirane7.jpg", "alt": "Ламиниране — примерна снимка 7" },
+    { "src": "/assets/images/laminirane8.jpg", "alt": "Ламиниране — примерна снимка 8" },
+    { "src": "/assets/images/laminirane9.jpg", "alt": "Ламиниране — примерна снимка 9" },
+    { "src": "/assets/images/laminirane10.jpg", "alt": "Ламиниране — примерна снимка 10" }
+  ],
+  "steps": [
+    {
+      "number": "01",
+      "title": "Обща информация",
+      "description": "Тук може да опишете първата стъпка. Текстът е примерен и подлежи на замяна."
+    },
+    {
+      "number": "02",
+      "title": "Подготовка",
+      "description": "Тук може да опишете втората стъпка. Текстът е примерен и подлежи на замяна."
+    },
+    {
+      "number": "03",
+      "title": "Процедура",
+      "description": "Тук може да опишете третата стъпка. Текстът е примерен и подлежи на замяна."
+    },
+    {
+      "number": "04",
+      "title": "Грижа след това",
+      "description": "Тук може да опишете четвъртата стъпка. Текстът е примерен и подлежи на замяна."
+    },
+    {
+      "number": "05",
+      "title": "Проследяване",
+      "description": "Тук може да опишете петата стъпка. Текстът е примерен и подлежи на замяна."
+    }
+  ]
+}

@@ -1,0 +1,491 @@
+{% set l = home.lamination if home and home.lamination else {} %}
+{% set lb = lamination if lamination else {} %}
+<section
+  id="laminating"
+  class="mb-section lam-section scroll-mt-20 section-padding"
+  aria-labelledby="laminating-heading"
+>
+  <div class="container-custom relative">
+
+    <header class="mb-header">
+      {% if l.eyebrow %}
+      <span class="mb-eyebrow">{{ l.eyebrow }}</span>
+      {% endif %}
+
+      <h2 id="laminating-heading" class="mb-title">
+        {{ l.title | default("Ламиниране") }}
+      </h2>
+
+      {% if l.lead %}
+      <p class="mb-lead">{{ l.lead }}</p>
+      {% endif %}
+
+      {% if l.sub %}
+      <p class="mb-learn-inline">
+        <button
+          type="button"
+          class="mb-learn-more-btn"
+          data-lam-info-open
+          aria-haspopup="dialog"
+          aria-controls="lam-info-modal"
+        >
+          Научи повече
+        </button>
+      </p>
+      {% endif %}
+    </header>
+
+  </div>
+
+  {% if lb.gallery and lb.gallery.length %}
+  <div class="mb-bubbles-wrap pt-10" data-lam-bubbles-wrap>
+    <div class="container-custom">
+      <div class="mb-bubbles-head">
+        <p class="mb-bubbles-label" id="lam-gallery-heading">
+          {{ l.galleryLabel | default("Галерия") }}
+        </p>
+        <div class="mb-bubbles-nav" aria-hidden="true">
+          <button
+            type="button"
+            class="mb-bubbles-arrow mb-bubbles-arrow--prev"
+            data-lam-bubbles-prev
+            aria-label="Предишна снимка"
+          >
+            <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="21 8 12 16 21 24" vector-effect="non-scaling-stroke" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            class="mb-bubbles-arrow mb-bubbles-arrow--next"
+            data-lam-bubbles-next
+            aria-label="Следваща снимка"
+          >
+            <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="11 8 20 16 11 24" vector-effect="non-scaling-stroke" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-bubbles" role="list" data-lam-bubbles aria-labelledby="lam-gallery-heading">
+      {% for item in lb.gallery %}
+      <figure
+        class="mb-bubble"
+        role="listitem"
+        data-lam-gallery-trigger
+        data-lam-gallery-index="{{ loop.index0 }}"
+      >
+        <img
+          src="{{ item.src | url }}"
+          alt="{{ item.alt | default('Ламиниране — снимка') }}"
+          data-lam-gallery-item
+          data-lam-gallery-index="{{ loop.index0 }}"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if lb.steps and lb.steps.length %}
+  <div class="mb-steps" data-lam-steps>
+    <div class="container-custom">
+      <div class="mb-steps__head">
+        <p class="mb-steps__label">Процедурата</p>
+        <div class="mb-steps__nav" aria-hidden="true">
+          <button
+            type="button"
+            class="mb-steps__arrow mb-steps__arrow--prev"
+            data-lam-steps-prev
+            aria-label="Предишна стъпка"
+          >
+            <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="21 8 12 16 21 24" vector-effect="non-scaling-stroke" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            class="mb-steps__arrow mb-steps__arrow--next"
+            data-lam-steps-next
+            aria-label="Следваща стъпка"
+          >
+            <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="11 8 20 16 11 24" vector-effect="non-scaling-stroke" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-steps__viewport" data-lam-steps-viewport>
+      <ol class="mb-steps__list">
+        {% for step in lb.steps %}
+        <li class="mb-step">
+          <span class="mb-step__num" aria-hidden="true">{{ step.number }}</span>
+          <div class="mb-step__body">
+            <h3 class="mb-step__title">{{ step.title }}</h3>
+          </div>
+          {% if step.description %}
+          <p class="mb-step__desc">{{ step.description }}</p>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if l.sub %}
+  <div
+    id="lam-info-modal"
+    class="mb-info-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-labelledby="lam-info-modal-title"
+    hidden
+  >
+    <div class="mb-info-modal__backdrop" data-lam-info-close></div>
+    <div class="mb-info-modal__panel" role="document" tabindex="-1">
+      <button
+        type="button"
+        class="mb-info-modal__close"
+        data-lam-info-close
+        aria-label="Затвори"
+      >
+        &times;
+      </button>
+      <h3 id="lam-info-modal-title" class="mb-info-modal__title">
+        {{ l.sub.title }}
+      </h3>
+      {% if l.sub.body %}
+      <p class="mb-info-modal__text">
+        {{ l.sub.body }}
+      </p>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if lb.gallery and lb.gallery.length %}
+  <div
+    id="lam-gallery-modal"
+    class="mb-gallery-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-label="Галерия ламиниране"
+    hidden
+  >
+    <div class="mb-gallery-modal__backdrop" data-lam-gallery-close></div>
+    <div class="mb-gallery-modal__panel" role="document">
+      <button
+        type="button"
+        class="mb-gallery-modal__close"
+        data-lam-gallery-close
+        aria-label="Затвори галерията"
+      >
+        &times;
+      </button>
+
+      <button
+        type="button"
+        class="mb-gallery-modal__arrow mb-gallery-modal__arrow--prev"
+        data-lam-gallery-prev
+        aria-label="Предишна снимка"
+      >
+        <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="21 8 12 16 21 24" vector-effect="non-scaling-stroke" />
+        </svg>
+      </button>
+
+      <div class="mb-gallery-modal__stage" data-lam-gallery-stage>
+        <div class="mb-gallery-modal__clip">
+          <img class="mb-gallery-modal__image" data-lam-gallery-image src="" alt="" />
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="mb-gallery-modal__arrow mb-gallery-modal__arrow--next"
+        data-lam-gallery-next
+        aria-label="Следваща снимка"
+      >
+        <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="11 8 20 16 11 24" vector-effect="non-scaling-stroke" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  {% endif %}
+
+</section>
+
+<script>
+  (function initLamSteps() {
+    function enableHorizontalDrag(viewport) {
+      if (!viewport) return;
+      var isDown = false;
+      var startX = 0;
+      var startScroll = 0;
+      var moved = false;
+      var DRAG_THRESHOLD = 4;
+
+      viewport.addEventListener("pointerdown", function (e) {
+        if (e.pointerType === "touch") return;
+        isDown = true;
+        moved = false;
+        startX = e.clientX;
+        startScroll = viewport.scrollLeft;
+        viewport.classList.add("is-dragging");
+        try { viewport.setPointerCapture(e.pointerId); } catch (err) {}
+      });
+
+      viewport.addEventListener("pointermove", function (e) {
+        if (!isDown) return;
+        var dx = e.clientX - startX;
+        if (Math.abs(dx) > DRAG_THRESHOLD) moved = true;
+        viewport.scrollLeft = startScroll - dx;
+      });
+
+      function endDrag(e) {
+        if (!isDown) return;
+        isDown = false;
+        viewport.classList.remove("is-dragging");
+        if (e && e.pointerId != null) {
+          try { viewport.releasePointerCapture(e.pointerId); } catch (err) {}
+        }
+      }
+      viewport.addEventListener("pointerup", endDrag);
+      viewport.addEventListener("pointercancel", endDrag);
+      viewport.addEventListener("pointerleave", endDrag);
+
+      viewport.addEventListener("click", function (e) {
+        if (moved) {
+          e.preventDefault();
+          e.stopPropagation();
+          moved = false;
+        }
+      }, true);
+
+      viewport.addEventListener("dragstart", function (e) { e.preventDefault(); });
+    }
+
+    document.querySelectorAll("[data-lam-bubbles-wrap]").forEach(function (root) {
+      var strip = root.querySelector("[data-lam-bubbles]");
+      var prevBtn = root.querySelector("[data-lam-bubbles-prev]");
+      var nextBtn = root.querySelector("[data-lam-bubbles-next]");
+      if (!strip) return;
+
+      function cardWidth() {
+        var card = strip.querySelector(".mb-bubble");
+        if (!card) return strip.clientWidth * 0.8;
+        var cs = getComputedStyle(strip);
+        var gap = parseFloat(cs.columnGap || cs.gap || "0") || 0;
+        return card.getBoundingClientRect().width + gap;
+      }
+
+      function updateBubblesArrows() {
+        var max = strip.scrollWidth - strip.clientWidth;
+        var atStart = strip.scrollLeft <= 2;
+        var atEnd = strip.scrollLeft >= max - 2;
+        if (prevBtn) prevBtn.toggleAttribute("disabled", atStart);
+        if (nextBtn) nextBtn.toggleAttribute("disabled", atEnd);
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", function () {
+          strip.scrollBy({ left: -cardWidth(), behavior: "smooth" });
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener("click", function () {
+          strip.scrollBy({ left: cardWidth(), behavior: "smooth" });
+        });
+      }
+
+      strip.addEventListener("scroll", updateBubblesArrows, { passive: true });
+      window.addEventListener("resize", updateBubblesArrows);
+      updateBubblesArrows();
+
+      if (window.matchMedia("(max-width: 767px)").matches) {
+        enableHorizontalDrag(strip);
+      }
+    });
+
+    document.querySelectorAll("[data-lam-steps]").forEach(function (root) {
+      var viewport = root.querySelector("[data-lam-steps-viewport]");
+      var prevBtn = root.querySelector("[data-lam-steps-prev]");
+      var nextBtn = root.querySelector("[data-lam-steps-next]");
+      if (!viewport) return;
+
+      function getCardWidth() {
+        var card = viewport.querySelector(".mb-step");
+        if (!card) return viewport.clientWidth * 0.8;
+        var list = viewport.querySelector(".mb-steps__list");
+        var gap = 0;
+        if (list) {
+          var cs = getComputedStyle(list);
+          gap = parseFloat(cs.columnGap || cs.gap || "0") || 0;
+        }
+        return card.getBoundingClientRect().width + gap;
+      }
+
+      function updateArrows() {
+        var max = viewport.scrollWidth - viewport.clientWidth;
+        var atStart = viewport.scrollLeft <= 2;
+        var atEnd = viewport.scrollLeft >= max - 2;
+        if (prevBtn) prevBtn.toggleAttribute("disabled", atStart);
+        if (nextBtn) nextBtn.toggleAttribute("disabled", atEnd);
+        if (max <= 2) {
+          root.classList.add("is-static");
+        } else {
+          root.classList.remove("is-static");
+        }
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", function () {
+          viewport.scrollBy({ left: -getCardWidth(), behavior: "smooth" });
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener("click", function () {
+          viewport.scrollBy({ left: getCardWidth(), behavior: "smooth" });
+        });
+      }
+
+      viewport.addEventListener("scroll", updateArrows, { passive: true });
+      window.addEventListener("resize", updateArrows);
+      updateArrows();
+
+      enableHorizontalDrag(viewport);
+    });
+
+    var lamSection = document.getElementById("laminating");
+    var galleryModal = document.getElementById("lam-gallery-modal");
+    if (galleryModal && lamSection) {
+      var galleryImage = galleryModal.querySelector("[data-lam-gallery-image]");
+      var galleryStage = galleryModal.querySelector("[data-lam-gallery-stage]");
+      var galleryItems = Array.prototype.slice.call(
+        lamSection.querySelectorAll("[data-lam-gallery-item]")
+      );
+      var galleryTriggers = Array.prototype.slice.call(
+        lamSection.querySelectorAll("[data-lam-gallery-trigger]")
+      );
+      var closeGalleryBtns = galleryModal.querySelectorAll("[data-lam-gallery-close]");
+      var prevGalleryBtn = galleryModal.querySelector("[data-lam-gallery-prev]");
+      var nextGalleryBtn = galleryModal.querySelector("[data-lam-gallery-next]");
+      var galleryIndex = 0;
+
+      function renderGalleryImage() {
+        if (!galleryItems.length || !galleryImage) return;
+        var source = galleryItems[galleryIndex];
+        galleryImage.src = source.currentSrc || source.src;
+        galleryImage.alt = source.alt || "Галерия ламиниране";
+      }
+
+      function openGallery(index) {
+        galleryIndex = Math.max(0, Math.min(index, galleryItems.length - 1));
+        renderGalleryImage();
+        galleryModal.hidden = false;
+        galleryModal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+      }
+
+      function closeGallery() {
+        galleryModal.hidden = true;
+        galleryModal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+      }
+
+      function nextImage() {
+        if (!galleryItems.length) return;
+        galleryIndex = (galleryIndex + 1) % galleryItems.length;
+        renderGalleryImage();
+      }
+
+      function prevImage() {
+        if (!galleryItems.length) return;
+        galleryIndex = (galleryIndex - 1 + galleryItems.length) % galleryItems.length;
+        renderGalleryImage();
+      }
+
+      galleryTriggers.forEach(function (item) {
+        item.addEventListener("click", function (e) {
+          var target = e.currentTarget;
+          var rawIdx = target && target.getAttribute("data-lam-gallery-index");
+          var idx = Number(rawIdx);
+          if (!Number.isFinite(idx)) idx = 0;
+          openGallery(idx);
+        });
+      });
+
+      closeGalleryBtns.forEach(function (btn) {
+        btn.addEventListener("click", closeGallery);
+      });
+      if (nextGalleryBtn) nextGalleryBtn.addEventListener("click", nextImage);
+      if (prevGalleryBtn) prevGalleryBtn.addEventListener("click", prevImage);
+
+      var swipeStartX = null;
+      if (galleryStage) {
+        galleryStage.addEventListener("touchstart", function (e) {
+          if (!e.touches || !e.touches.length) return;
+          swipeStartX = e.touches[0].clientX;
+        }, { passive: true });
+        galleryStage.addEventListener("touchend", function (e) {
+          if (swipeStartX === null || !e.changedTouches || !e.changedTouches.length) return;
+          var deltaX = e.changedTouches[0].clientX - swipeStartX;
+          swipeStartX = null;
+          if (Math.abs(deltaX) < 40) return;
+          if (deltaX < 0) nextImage();
+          else prevImage();
+        });
+      }
+
+      document.addEventListener("keydown", function (e) {
+        if (galleryModal.hidden) return;
+        if (e.key === "Escape") closeGallery();
+        if (e.key === "ArrowRight") nextImage();
+        if (e.key === "ArrowLeft") prevImage();
+      });
+    }
+
+    var infoModal = document.getElementById("lam-info-modal");
+    if (infoModal) {
+      var panel = infoModal.querySelector(".mb-info-modal__panel");
+      var openBtns = document.querySelectorAll("[data-lam-info-open]");
+      var closeBtns = infoModal.querySelectorAll("[data-lam-info-close]");
+
+      function openInfoModal() {
+        infoModal.hidden = false;
+        infoModal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+        if (panel) panel.focus();
+      }
+
+      function closeInfoModal() {
+        infoModal.hidden = true;
+        infoModal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+      }
+
+      openBtns.forEach(function (btn) {
+        btn.addEventListener("click", openInfoModal);
+      });
+      closeBtns.forEach(function (btn) {
+        btn.addEventListener("click", closeInfoModal);
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && !infoModal.hidden) {
+          closeInfoModal();
+        }
+      });
+    }
+  })();
+</script>

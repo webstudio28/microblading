@@ -763,8 +763,14 @@
   }
   /* Gallery modal is fixed inside this section; isolation traps z-index below the site header.
      Drop isolation only while the modal is open so the backdrop can cover the header. */
-  .mb-section:has(#mb-gallery-modal:not([hidden])) {
+  .mb-section:has(#mb-gallery-modal:not([hidden])),
+  .mb-section:has(#lam-gallery-modal:not([hidden])) {
     isolation: auto;
+  }
+
+  /* Lamination block: same layout tokens as .mb-section; background 0 alpha to tune later */
+  .mb-section.lam-section {
+    background: rgba(255, 255, 255, 0);
   }
 
   /* Header */
