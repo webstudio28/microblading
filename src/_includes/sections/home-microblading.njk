@@ -110,54 +110,6 @@
   </div>
   {% endif %}
 
-  {% if mb.steps and mb.steps.length %}
-  <div class="mb-steps" data-mb-steps>
-    <div class="container-custom">
-      <div class="mb-steps__head">
-        <p class="mb-steps__label">Процедурата</p>
-        <div class="mb-steps__nav" aria-hidden="true">
-          <button
-            type="button"
-            class="mb-steps__arrow mb-steps__arrow--prev"
-            data-mb-steps-prev
-            aria-label="Предишна стъпка"
-          >
-            <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="21 8 12 16 21 24" vector-effect="non-scaling-stroke" />
-            </svg>
-          </button>
-          <button
-            type="button"
-            class="mb-steps__arrow mb-steps__arrow--next"
-            data-mb-steps-next
-            aria-label="Следваща стъпка"
-          >
-            <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="11 8 20 16 11 24" vector-effect="non-scaling-stroke" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="mb-steps__viewport" data-mb-steps-viewport>
-      <ol class="mb-steps__list">
-        {% for step in mb.steps %}
-        <li class="mb-step">
-          <span class="mb-step__num" aria-hidden="true">{{ step.number }}</span>
-          <div class="mb-step__body">
-            <h3 class="mb-step__title">{{ step.title }}</h3>
-          </div>
-          {% if step.description %}
-          <p class="mb-step__desc">{{ step.description }}</p>
-          {% endif %}
-        </li>
-        {% endfor %}
-      </ol>
-    </div>
-  </div>
-  {% endif %}
-
   {% if m.sub %}
   <div
     id="mb-info-modal"
@@ -341,55 +293,6 @@
       if (window.matchMedia("(max-width: 767px)").matches) {
         enableHorizontalDrag(strip);
       }
-    });
-
-    document.querySelectorAll("[data-mb-steps]").forEach(function (root) {
-      var viewport = root.querySelector("[data-mb-steps-viewport]");
-      var prevBtn = root.querySelector("[data-mb-steps-prev]");
-      var nextBtn = root.querySelector("[data-mb-steps-next]");
-      if (!viewport) return;
-
-      function getCardWidth() {
-        var card = viewport.querySelector(".mb-step");
-        if (!card) return viewport.clientWidth * 0.8;
-        var list = viewport.querySelector(".mb-steps__list");
-        var gap = 0;
-        if (list) {
-          var cs = getComputedStyle(list);
-          gap = parseFloat(cs.columnGap || cs.gap || "0") || 0;
-        }
-        return card.getBoundingClientRect().width + gap;
-      }
-
-      function updateArrows() {
-        var max = viewport.scrollWidth - viewport.clientWidth;
-        var atStart = viewport.scrollLeft <= 2;
-        var atEnd = viewport.scrollLeft >= max - 2;
-        if (prevBtn) prevBtn.toggleAttribute("disabled", atStart);
-        if (nextBtn) nextBtn.toggleAttribute("disabled", atEnd);
-        if (max <= 2) {
-          root.classList.add("is-static");
-        } else {
-          root.classList.remove("is-static");
-        }
-      }
-
-      if (prevBtn) {
-        prevBtn.addEventListener("click", function () {
-          viewport.scrollBy({ left: -getCardWidth(), behavior: "smooth" });
-        });
-      }
-      if (nextBtn) {
-        nextBtn.addEventListener("click", function () {
-          viewport.scrollBy({ left: getCardWidth(), behavior: "smooth" });
-        });
-      }
-
-      viewport.addEventListener("scroll", updateArrows, { passive: true });
-      window.addEventListener("resize", updateArrows);
-      updateArrows();
-
-      enableHorizontalDrag(viewport);
     });
 
       var galleryModal = document.getElementById("mb-gallery-modal");
