@@ -35,32 +35,34 @@
       {% endif %}
     </header>
 
-    {% if mb.gallery and mb.gallery.length %}
-    <div class="mb-bubbles-wrap" data-mb-bubbles-wrap>
-      <div class="mb-bubbles-nav" aria-hidden="true">
-        <button
-          type="button"
-          class="mb-bubbles-arrow mb-bubbles-arrow--prev"
-          data-mb-bubbles-prev
-          aria-label="Предишна снимка"
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-        <button
-          type="button"
-          class="mb-bubbles-arrow mb-bubbles-arrow--next"
-          data-mb-bubbles-next
-          aria-label="Следваща снимка"
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-      </div>
+  </div>
 
-      <div class="mb-bubbles" role="list" data-mb-bubbles>
+  {% if mb.gallery and mb.gallery.length %}
+  <div class="mb-bubbles-wrap" data-mb-bubbles-wrap>
+    <div class="mb-bubbles-nav" aria-hidden="true">
+      <button
+        type="button"
+        class="mb-bubbles-arrow mb-bubbles-arrow--prev"
+        data-mb-bubbles-prev
+        aria-label="Предишна снимка"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button
+        type="button"
+        class="mb-bubbles-arrow mb-bubbles-arrow--next"
+        data-mb-bubbles-next
+        aria-label="Следваща снимка"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="mb-bubbles" role="list" data-mb-bubbles>
       {% for item in mb.gallery %}
       <figure
         class="mb-bubble"
@@ -78,11 +80,9 @@
         />
       </figure>
       {% endfor %}
-      </div>
     </div>
-    {% endif %}
-
   </div>
+  {% endif %}
 
   {% if mb.steps and mb.steps.length %}
   <div class="mb-steps" data-mb-steps>

@@ -759,7 +759,7 @@
   .mb-section {
     position: relative;
     isolation: isolate;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.7);
   }
 
   /* Header */
@@ -807,12 +807,24 @@
     margin-top: 0.55rem;
   }
 
+  /* Full-width strip (sibling of .container-custom), same inset math as .mb-steps__list */
+  .mb-bubbles-wrap {
+    width: 100%;
+  }
 
   .mb-bubbles-nav {
     display: none;
     justify-content: flex-end;
     gap: 0.5rem;
     margin-bottom: 0.8rem;
+    padding-left: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
+    padding-right: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
+  }
+  @media (min-width: 768px) {
+    .mb-bubbles-nav {
+      padding-left: max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem));
+      padding-right: max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem));
+    }
   }
 
   .mb-bubbles-arrow {
@@ -857,8 +869,18 @@
     gap: 1.25rem;
     padding-top: 2rem;
     padding-bottom: 3rem;
-    padding-left: 1.5em;
-    margin-left: -1.5em;
+    padding-right: 1rem;
+    padding-left: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
+    scroll-padding-left: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
+    scroll-padding-right: 1rem;
+  }
+  @media (min-width: 768px) {
+    .mb-bubbles {
+      padding-right: 1.5rem;
+      padding-left: max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem));
+      scroll-padding-left: max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem));
+      scroll-padding-right: 1.5rem;
+    }
   }
 
   .mb-bubbles::-webkit-scrollbar {
