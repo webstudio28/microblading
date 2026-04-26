@@ -1410,10 +1410,14 @@
     .mb-gallery-modal__arrow--next {
       right: 0.45rem;
     }
+    /* Panel is vertically centered in the modal — absolute top is relative to the panel, not the
+       viewport. Fix to viewport so the X can sit at the top of the screen. */
     .mb-gallery-modal__close {
-      top: 0.5rem;
-      right: 0.5rem;
-      z-index: 2;
+      position: fixed;
+      top: calc(env(safe-area-inset-top, 0px) + 0.95rem);
+      right: max(0.65rem, env(safe-area-inset-right, 0px));
+      left: auto;
+      z-index: 3;
     }
   }
 }
