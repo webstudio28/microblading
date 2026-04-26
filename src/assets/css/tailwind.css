@@ -870,17 +870,17 @@
     gap: 1.25rem;
     padding-top: 0.5rem;
     padding-bottom: 3rem;
-    padding-right: 1rem;
+    padding-right: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
     padding-left: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
     scroll-padding-left: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
-    scroll-padding-right: 1rem;
+    scroll-padding-right: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
   }
   @media (min-width: 768px) {
     .mb-bubbles {
-      padding-right: 1.5rem;
+      padding-right: max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem));
       padding-left: max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem));
       scroll-padding-left: max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem));
-      scroll-padding-right: 1.5rem;
+      scroll-padding-right: max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem));
     }
   }
 
@@ -1051,7 +1051,6 @@
     overflow-x: auto;
     overflow-y: visible;
     -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
     scrollbar-width: none;
     cursor: grab;
     /* allow vertical page scroll on touch, horizontal drag from JS */
@@ -1059,14 +1058,13 @@
     /* vertical breathing room so shadows aren't clipped */
     padding-top: 0.5rem;
     padding-bottom: 1rem;
-    /* snap targets align to container-custom's left edge, not viewport 0 */
     scroll-padding-left: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
-    scroll-padding-right: 1rem;
+    scroll-padding-right: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
   }
   @media (min-width: 768px) {
     .mb-steps__viewport {
       scroll-padding-left: max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem));
-      scroll-padding-right: 1.5rem;
+      scroll-padding-right: max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem));
     }
   }
   .mb-steps__viewport::-webkit-scrollbar {
@@ -1074,7 +1072,6 @@
   }
   .mb-steps__viewport.is-dragging {
     cursor: grabbing;
-    scroll-snap-type: none;
     scroll-behavior: auto;
     user-select: none;
   }
@@ -1082,8 +1079,7 @@
     pointer-events: none;
   }
 
-  /* Full-bleed strip: first card aligns with container-custom left edge,
-     remaining cards extend to the right viewport edge */
+  /* Full-bleed strip: first / last cards align with container-custom insets */
   .mb-steps__list {
     list-style: none;
     margin: 0;
@@ -1092,11 +1088,13 @@
     gap: 1.25rem;
     align-items: stretch;
     min-width: max-content;
-    padding: 0 1rem 1.5rem max(1rem, calc((100vw - 80rem) / 2 + 1rem));
+    padding: 0 max(1rem, calc((100vw - 80rem) / 2 + 1rem)) 1.5rem
+      max(1rem, calc((100vw - 80rem) / 2 + 1rem));
   }
   @media (min-width: 768px) {
     .mb-steps__list {
-      padding: 0 1.5rem 1.5rem max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem));
+      padding: 0 max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem)) 1.5rem
+        max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem));
     }
   }
 
@@ -1104,7 +1102,6 @@
     position: relative;
     flex: 0 0 auto;
     width: 22rem;
-    scroll-snap-align: start;
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: start;
