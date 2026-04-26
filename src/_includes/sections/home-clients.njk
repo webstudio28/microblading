@@ -1,0 +1,307 @@
+<section
+  id="clients"
+  class="mb-section clients-section scroll-mt-20 section-padding bg-gradient-to-r from-[#efe4ce] to-[#fffbf4]"
+  aria-labelledby="clients-heading"
+>
+  <div class="container-custom relative">
+    <header class="mb-header text-center mx-auto mb-10">
+      <span class="mb-eyebrow justify-center">Резултати</span>
+      <h2 id="clients-heading" class="mb-title text-center mt-2">
+        Моите клиенти
+      </h2>
+      <p class="site-lead mt-3 text-center opacity-80">
+        Усмивките и увереността, които постигнахме заедно. Разгледайте историите и трансформациите на моите клиенти.
+      </p>
+    </header>
+  </div>
+
+  {% if clients and clients.length %}
+  <div class="clients-wrap" data-clients-wrap>
+    <div class="container-custom">
+      <div class="mb-bubbles-head justify-end mb-4">
+        <div class="mb-bubbles-nav" aria-hidden="true">
+          <button
+            type="button"
+            class="mb-bubbles-arrow mb-bubbles-arrow--prev"
+            data-clients-prev
+            aria-label="Предишен клиент"
+          >
+            <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="21 8 12 16 21 24" vector-effect="non-scaling-stroke" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            class="mb-bubbles-arrow mb-bubbles-arrow--next"
+            data-clients-next
+            aria-label="Следващ клиент"
+          >
+            <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="11 8 20 16 11 24" vector-effect="non-scaling-stroke" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- The draggable slider strip -->
+    <div class="clients-strip" role="list" data-clients-strip>
+      {% for client in clients %}
+      <div
+        class="client-card group"
+        role="button"
+        tabindex="0"
+        data-client-trigger
+        data-client-id="{{ client.id }}"
+      >
+        <div class="client-card__visual">
+          <img src="{{ client.afterImage }}" alt="{{ client.name }} резултат" class="client-card__img" loading="lazy" decoding="async">
+          
+          <div class="client-card__overlay">
+            <span class="client-card__btn">Виж повече</span>
+          </div>
+        </div>
+
+        <div class="client-card__body">
+          <div class="flex items-center gap-3 mb-3">
+            <img src="{{ client.avatar }}" alt="{{ client.name }}" class="w-10 h-10 rounded-full object-cover shadow-sm bg-white border border-[#2c1a0e]/10">
+            <div>
+              <h3 class="font-mak font-bold text-[#2c1a0e] text-base leading-tight tracking-wide">{{ client.name }}</h3>
+              <p class="text-[10px] font-semibold text-[#a07850] uppercase tracking-[0.1em] mt-1">{{ client.service }}</p>
+            </div>
+          </div>
+          {% if client.review %}
+          <p class="text-xs text-[#7a6558] italic line-clamp-2 leading-relaxed">
+            {{ client.review }}
+          </p>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- The Modal Template -->
+  <div
+    id="client-detail-modal"
+    class="client-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-labelledby="client-modal-name"
+    style="display: none;"
+  >
+    <div class="client-modal__backdrop" data-client-close></div>
+    
+    <div class="client-modal__panel" role="document">
+      <button
+        type="button"
+        class="client-modal__close"
+        data-client-close
+        aria-label="Затвори"
+      >
+        &times;
+      </button>
+
+      <!-- Dynamically populated content -->
+      <div class="client-modal__content flex flex-col md:flex-row h-full">
+        
+        <!-- Left: Image comparison (stacked or side-by-side based on space) -->
+        <div class="client-modal__visuals md:w-3/5 relative flex flex-col md:flex-row">
+          
+          <!-- Before Image -->
+          <div class="relative w-full h-56 md:h-full md:flex-1 group">
+            <img id="client-modal-before" src="" class="w-full h-full object-cover block">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+              <span class="text-white text-xs font-medium uppercase tracking-widest bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm">Преди</span>
+            </div>
+          </div>
+          
+          <!-- Separator Line (desktop only, optional visual cue) -->
+          <div class="hidden md:block w-1 h-full bg-white/20 z-10 shrink-0"></div>
+
+          <!-- After Image -->
+          <div class="relative w-full h-64 md:h-full md:flex-1">
+            <img id="client-modal-after" src="" class="w-full h-full object-cover block">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+              <span class="text-white text-xs font-medium uppercase tracking-widest bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm">След</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Text Content -->
+        <div class="client-modal__text md:w-2/5 p-6 md:p-8 flex flex-col bg-white">
+          <div class="flex items-center gap-4 mb-6 pb-6 border-b border-[#2c1a0e]/10">
+            <img id="client-modal-avatar" src="" class="w-16 h-16 rounded-full object-cover shadow-sm bg-white border border-[#2c1a0e]/10">
+            <div>
+              <h3 id="client-modal-name" class="font-mak text-2xl text-[#2c1a0e] leading-tight mb-1">Име</h3>
+              <p id="client-modal-service" class="text-sm uppercase tracking-widest text-[#a07850] font-medium">Услуга</p>
+            </div>
+          </div>
+          
+          <div class="prose prose-sm prose-[#7a6558] max-w-none mb-8 pb-8">
+            <p id="client-modal-desc" class="text-base leading-relaxed text-[#5a483e]"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Injecting the JSON data into window object for quick JS access -->
+<script>
+  window.ValetoClientsData = {{ clients | dump | safe }};
+</script>
+
+<script>
+  (function initClients() {
+    // 1. Horizontal Drag Logic
+    function enableHorizontalDrag(viewport) {
+      if (!viewport) return;
+      var isDown = false;
+      var startX = 0;
+      var startScroll = 0;
+      var moved = false;
+      var DRAG_THRESHOLD = 4;
+
+      viewport.addEventListener("pointerdown", function (e) {
+        if (e.pointerType === "touch" || e.button !== 0) return;
+        isDown = true;
+        moved = false;
+        startX = e.clientX;
+        startScroll = viewport.scrollLeft;
+        viewport.classList.add("cursor-grabbing");
+        try { viewport.setPointerCapture(e.pointerId); } catch (err) {}
+      });
+
+      viewport.addEventListener("pointermove", function (e) {
+        if (!isDown) return;
+        var dx = e.clientX - startX;
+        if (Math.abs(dx) > DRAG_THRESHOLD) moved = true;
+        viewport.scrollLeft = startScroll - dx;
+      });
+
+      function endDrag(e) {
+        if (!isDown) return;
+        isDown = false;
+        viewport.classList.remove("cursor-grabbing");
+        if (e && e.pointerId != null) {
+          try { viewport.releasePointerCapture(e.pointerId); } catch (err) {}
+        }
+      }
+      
+      viewport.addEventListener("pointerup", endDrag);
+      viewport.addEventListener("pointercancel", endDrag);
+      viewport.addEventListener("pointerleave", endDrag);
+
+      viewport.addEventListener("click", function (e) {
+        if (moved) {
+          e.preventDefault();
+          e.stopPropagation();
+          moved = false;
+        }
+      }, true);
+      
+      viewport.addEventListener("dragstart", function (e) { e.preventDefault(); });
+    }
+
+    var strip = document.querySelector("[data-clients-strip]");
+    if (strip) {
+      if (window.matchMedia("(max-width: 767px)").matches) {
+        enableHorizontalDrag(strip);
+      }
+    }
+
+    // 2. Navigation Arrows
+    var prevBtn = document.querySelector("[data-clients-prev]");
+    var nextBtn = document.querySelector("[data-clients-next]");
+    
+    function cardWidth() {
+      var card = document.querySelector(".client-card");
+      if (!card) return strip.clientWidth * 0.8;
+      var cs = getComputedStyle(strip);
+      var gap = parseFloat(cs.columnGap || cs.gap || "0") || 0;
+      return card.getBoundingClientRect().width + gap;
+    }
+
+    function updateArrows() {
+      if(!strip) return;
+      var max = strip.scrollWidth - strip.clientWidth;
+      var atStart = strip.scrollLeft <= 2;
+      var atEnd = strip.scrollLeft >= max - 2;
+      if (prevBtn) prevBtn.toggleAttribute("disabled", atStart);
+      if (nextBtn) nextBtn.toggleAttribute("disabled", atEnd);
+    }
+    
+    if (prevBtn) prevBtn.addEventListener("click", function() { strip.scrollBy({ left: -cardWidth(), behavior: "smooth" }); });
+    if (nextBtn) nextBtn.addEventListener("click", function() { strip.scrollBy({ left: cardWidth(), behavior: "smooth" }); });
+    
+    if(strip) {
+      strip.addEventListener("scroll", updateArrows, { passive: true });
+      window.addEventListener("resize", updateArrows);
+      updateArrows();
+    }
+
+    // 3. Modal Logic
+    var modal = document.getElementById("client-detail-modal");
+    var triggers = document.querySelectorAll("[data-client-trigger]");
+    var closes = document.querySelectorAll("[data-client-close]");
+    
+    if (modal && window.ValetoClientsData) {
+      var domName = document.getElementById("client-modal-name");
+      var domService = document.getElementById("client-modal-service");
+      var domDesc = document.getElementById("client-modal-desc");
+      var domAvatar = document.getElementById("client-modal-avatar");
+      var domBefore = document.getElementById("client-modal-before");
+      var domAfter = document.getElementById("client-modal-after");
+
+      function openModal(clientId) {
+        var client = window.ValetoClientsData.find(c => c.id === clientId);
+        if (!client) return;
+
+        domName.textContent = client.name;
+        domService.textContent = client.service;
+        domDesc.textContent = client.description;
+        domAvatar.src = client.avatar;
+        domBefore.src = client.beforeImage;
+        domAfter.src = client.afterImage;
+
+        modal.style.display = "grid";
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+      }
+
+      function closeModal() {
+        modal.style.display = "none";
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+      }
+
+      triggers.forEach(function(btn) {
+        btn.addEventListener("click", function() {
+          openModal(this.getAttribute("data-client-id"));
+        });
+        
+        // Enter key support for accessibility
+        btn.addEventListener("keydown", function(e) {
+          if(e.key === "Enter" || e.keyCode === 13) {
+            e.preventDefault();
+            openModal(this.getAttribute("data-client-id"));
+          }
+        });
+      });
+
+      closes.forEach(function(btn) {
+        btn.addEventListener("click", closeModal);
+      });
+
+      document.addEventListener("keydown", function(e) {
+        if (modal.style.display !== "none" && e.key === "Escape") {
+          closeModal();
+        }
+      });
+    }
+
+  })();
+</script>

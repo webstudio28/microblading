@@ -764,7 +764,8 @@
   /* Gallery modal is fixed inside this section; isolation traps z-index below the site header.
      Drop isolation only while the modal is open so the backdrop can cover the header. */
   .mb-section:has(#mb-gallery-modal:not([hidden])),
-  .mb-section:has(#lam-gallery-modal:not([hidden])) {
+  .mb-section:has(#lam-gallery-modal:not([hidden])),
+  .mb-section:has(#client-detail-modal[aria-hidden="false"]) {
     isolation: auto;
   }
 
@@ -1467,7 +1468,169 @@
       z-index: 3;
     }
   }
+
+  /* ─────────────────────────────────────────────────────────────
+     Clients Section (Horizontal Scroll + Detail Modal)
+     ───────────────────────────────────────────────────────────── */
+  .clients-strip {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    gap: 1.25rem;
+    padding: 0.5rem 1rem 3rem 1rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .clients-strip::-webkit-scrollbar {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .clients-strip {
+      padding: 0.5rem calc(50vw - 40rem + 1.5rem) 3.5rem calc(50vw - 40rem + 1.5rem);
+    }
+  }
+
+  .client-card {
+    flex: 0 0 16rem;
+    scroll-snap-align: center;
+    border-radius: 1.2rem;
+    background: #fff;
+    border: 1px solid rgba(44, 26, 14, 0.08);
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(44, 26, 14, 0.04);
+    cursor: pointer;
+    transition: transform 250ms ease, box-shadow 250ms ease;
+    outline: none;
+  }
+  .client-card:hover, .client-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 35px rgba(44, 26, 14, 0.08);
+    border-color: rgba(201, 169, 138, 0.4);
+  }
+
+  .client-card__visual {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    background: #f0e9df;
+  }
+
+  .client-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 500ms ease;
+  }
+  .client-card:hover .client-card__img {
+    transform: scale(1.05);
+  }
+
+  .client-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(20, 12, 8, 0.7) 0%, transparent 60%);
+    opacity: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 1.5rem;
+  }
+
+  .client-card__btn {
+    background: rgba(255, 255, 255, 0.9);
+    color: #2c1a0e;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    backdrop-filter: blur(4px);
+    transition: background 250ms ease;
+  }
+  .client-card:hover .client-card__btn,
+  .client-card:focus-visible .client-card__btn {
+    background: #fff;
+  }
+
+  .client-card__body {
+    padding: 1.1rem;
+    border-top: 1px solid rgba(44, 26, 14, 0.05);
+  }
+
+  /* Client Modal Layout */
+  .client-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    overflow-y: auto;
+  }
+  @media (min-width: 768px) {
+    .client-modal {
+      padding: 2rem;
+    }
+  }
+
+  .client-modal[hidden] {
+    display: none !important;
+  }
+
+  .client-modal__backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(33, 20, 12, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .client-modal__panel {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin: auto 0;
+    background: #fff;
+    border-radius: 1.5rem;
+    box-shadow: 0 25px 60px rgba(20, 10, 5, 0.3);
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .client-modal__panel {
+      width: min(100%, 65rem);
+      margin: 0;
+      height: 38rem;
+    }
+  }
+
+  .client-modal__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 50;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.85);
+    color: #2c1a0e;
+    font-size: 1.7rem;
+    line-height: 1;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 200ms ease, background 200ms ease;
+    backdrop-filter: blur(4px);
+  }
+  .client-modal__close:hover {
+    transform: scale(1.05);
+    background: #fff;
+  }
 }
+
 
 body.modal-open {
   overflow: hidden;
