@@ -1409,19 +1409,21 @@
       gap: 0.6rem;
     }
     .mb-gallery-modal__arrow {
-      position: absolute;
+      position: fixed;
       top: 50%;
       transform: translateY(-50%);
-      z-index: 2;
+      z-index: 3;
     }
-    .mb-gallery-modal__arrow:hover {
-      transform: translateY(calc(-50% - 1px));
+    .mb-gallery-modal__arrow:hover,
+    .mb-gallery-modal__arrow:active {
+      transform: translateY(-50%);
+      opacity: 0.88;
     }
     .mb-gallery-modal__arrow--prev {
-      left: 0.45rem;
+      left: max(0.45rem, env(safe-area-inset-left, 0px));
     }
     .mb-gallery-modal__arrow--next {
-      right: 0.45rem;
+      right: max(0.45rem, env(safe-area-inset-right, 0px));
     }
     /* Panel is vertically centered in the modal — absolute top is relative to the panel, not the
        viewport. Fix to viewport so the X can sit at the top of the screen. */
