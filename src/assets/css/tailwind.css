@@ -761,6 +761,11 @@
     isolation: isolate;
     background: rgba(255, 255, 255, 0.7);
   }
+  /* Gallery modal is fixed inside this section; isolation traps z-index below the site header.
+     Drop isolation only while the modal is open so the backdrop can cover the header. */
+  .mb-section:has(#mb-gallery-modal:not([hidden])) {
+    isolation: auto;
+  }
 
   /* Header */
   .mb-header {
@@ -1286,7 +1291,7 @@
   .mb-gallery-modal {
     position: fixed;
     inset: 0;
-    z-index: 110;
+    z-index: 200;
     display: grid;
     place-items: center;
     padding: 1rem;
@@ -1297,6 +1302,7 @@
   .mb-gallery-modal__backdrop {
     position: absolute;
     inset: 0;
+    z-index: 0;
     background: rgba(20, 12, 8, 0.72);
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
