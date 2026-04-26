@@ -423,23 +423,23 @@
 
         if (isVideo) {
           if (galleryImage) {
-            galleryImage.removeAttribute("src");
+            galleryImage.src = "";
             galleryImage.alt = "";
-            galleryImage.setAttribute("hidden", "");
+            galleryImage.style.display = "none";
           }
           if (galleryVideo) {
             var vsrc = source.currentSrc || source.getAttribute("src") || "";
             galleryVideo.src = vsrc;
             galleryVideo.setAttribute("aria-label", source.getAttribute("aria-label") || "Галерия ламиниране");
-            galleryVideo.removeAttribute("hidden");
+            galleryVideo.style.display = "block";
             galleryVideo.muted = false;
             try { galleryVideo.play(); } catch (err) {}
           }
         } else {
           pauseModalVideo();
-          if (galleryVideo) galleryVideo.setAttribute("hidden", "");
+          if (galleryVideo) galleryVideo.style.display = "none";
           if (galleryImage) {
-            galleryImage.removeAttribute("hidden");
+            galleryImage.style.display = "block";
             galleryImage.src = source.currentSrc || source.src;
             galleryImage.alt = source.alt || "Галерия ламиниране";
           }
@@ -456,10 +456,10 @@
 
       function closeGallery() {
         pauseModalVideo();
-        if (galleryVideo) galleryVideo.setAttribute("hidden", "");
+        if (galleryVideo) galleryVideo.style.display = "none";
         if (galleryImage) {
-          galleryImage.removeAttribute("hidden");
-          galleryImage.removeAttribute("src");
+          galleryImage.style.display = "none";
+          galleryImage.src = "";
           galleryImage.alt = "";
         }
         galleryModal.hidden = true;
