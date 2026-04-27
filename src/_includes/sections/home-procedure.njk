@@ -13,16 +13,6 @@
     "number": "03",
     "title": "Процедурата",
     "description": "Използваме най-новите техники за изграждане на перфектния баланс, създавайки естествен и траен резултат."
-  },
-  {
-    "number": "04",
-    "title": "Грижа след",
-    "description": "Получавате персонализирани указания и крем за период на възстановяване без усложнения."
-  },
-  {
-    "number": "05",
-    "title": "Финален щрих",
-    "description": "След 4–6 седмици правим лек контрол, за да постигнем идеалния дълготраен резултат."
   }
 ] %}
 
@@ -34,28 +24,6 @@
         <h2 class="mb-title text-center mt-2">Какво да очакваш</h2>
       </header>
       
-      <div class="mb-steps__nav flex justify-end mb-4" aria-hidden="true">
-        <button
-          type="button"
-          class="mb-steps__arrow mb-steps__arrow--prev"
-          data-procedure-steps-prev
-          aria-label="Предишна стъпка"
-        >
-          <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="21 8 12 16 21 24" vector-effect="non-scaling-stroke" />
-          </svg>
-        </button>
-        <button
-          type="button"
-          class="mb-steps__arrow mb-steps__arrow--next"
-          data-procedure-steps-next
-          aria-label="Следваща стъпка"
-        >
-          <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="11 8 20 16 11 24" vector-effect="non-scaling-stroke" />
-          </svg>
-        </button>
-      </div>
     </div>
 
     <div class="mb-steps__viewport" data-procedure-steps-viewport>
@@ -78,37 +46,8 @@
   document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll("[data-procedure-steps]").forEach(function (root) {
       var viewport = root.querySelector("[data-procedure-steps-viewport]");
-      var prevBtn = root.querySelector("[data-procedure-steps-prev]");
-      var nextBtn = root.querySelector("[data-procedure-steps-next]");
-
       if (!viewport) return;
-
-      var updateButtons = function () {
-        if (!prevBtn || !nextBtn) return;
-        var maxScrollLeft = viewport.scrollWidth - viewport.clientWidth;
-        prevBtn.disabled = viewport.scrollLeft <= 0;
-        nextBtn.disabled = viewport.scrollLeft >= maxScrollLeft - 1;
-      };
-
-      if (prevBtn && nextBtn) {
-        prevBtn.addEventListener("click", function () {
-          var card = viewport.querySelector(".mb-step");
-          if (card) {
-            var scrollAmount = card.offsetWidth + 20; 
-            viewport.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-          }
-        });
-        nextBtn.addEventListener("click", function () {
-          var card = viewport.querySelector(".mb-step");
-          if (card) {
-            var scrollAmount = card.offsetWidth + 20;
-            viewport.scrollBy({ left: scrollAmount, behavior: "smooth" });
-          }
-        });
-        viewport.addEventListener("scroll", updateButtons, { passive: true });
-        window.addEventListener("resize", updateButtons, { passive: true });
-        setTimeout(updateButtons, 100);
-      }
+      if (!window.matchMedia("(max-width: 1023px)").matches) return;
 
       // Drag to scroll logic
       var isDown = false;

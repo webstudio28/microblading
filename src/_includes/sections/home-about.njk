@@ -4,7 +4,7 @@
   class="relative scroll-mt-20 section-padding bg-gradient-to-br from-[#A48C77] to-[#C1AE9A]"
   aria-labelledby="about-heading"
 >
-  <div class="pointer-events-none absolute inset-x-0 bottom-0 h-[30%] bg-[#C1AE9A]" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 hidden h-[30%] bg-[#C1AE9A] md:block" aria-hidden="true"></div>
 
   <div class="container-custom relative z-10">
 
@@ -12,11 +12,11 @@
     <header class="mb-header text-center mx-auto mb-10">
       <h2
         id="about-heading"
-        class="font-mak text-center mx-auto text-[2.25rem] font-bold leading-10 tracking-wider text-white md:text-[2.5rem] md:leading-[2.75rem]"
+        class="mb-title text-center mt-2 text-white"
       >{{ a.title | default("За мен") }}</h2>
 
       {% if a.intro %}
-      <p class="site-lead mt-3 text-white text-center mx-auto max-w-2xl">
+      <p class="site-lead mt-3 text-center mx-auto max-w-2xl text-white">
         {{ a.intro }}
       </p>
       {% endif %}
@@ -40,25 +40,25 @@
       <div class="flex min-w-0 flex-1 justify-end">
         <div class="flex w-full min-w-0 flex-col min-h-0 md:min-h-[420px] md:w-[90%]">
 
-          <p class="site-lead text-white/70">
+          <p class="mb-lead mt-0 max-w-none text-white/80">
             {{ a.body | default("") }}
           </p>
 
           {% if a.body2 %}
-          <p class="site-lead mt-5 text-white/70">
+          <p class="mb-lead mt-5 hidden max-w-none text-white/80 md:block">
             {{ a.body2 }}
           </p>
           {% endif %}
 
           {% if a.cta %}
           <div class="mt-auto w-full pt-8">
-            <a
-              href="{{ a.cta.url }}"
+            <button
+              type="button"
               class="block w-full rounded-3xl bg-zinc-800 py-3.5 text-center font-['Montserrat_Alternates'] text-base font-medium tracking-wide text-white shadow-[0px_4px_4px_0px_rgba(0,0,0,0.21)] transition-colors hover:bg-zinc-700"
-              data-booking-open
+              data-about-info-open
               aria-haspopup="dialog"
-              aria-controls="booking-modal"
-            >{{ a.cta.label }}</a>
+              aria-controls="about-info-modal"
+            >{{ a.cta.label }}</button>
           </div>
           {% endif %}
 
@@ -67,4 +67,80 @@
     </div>
 
   </div>
+
+  <div
+    id="about-info-modal"
+    class="mb-info-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-labelledby="about-info-modal-title"
+    hidden
+  >
+    <div class="mb-info-modal__backdrop" data-about-info-close></div>
+    <div class="mb-info-modal__panel" role="document" tabindex="-1">
+      <button
+        type="button"
+        class="mb-info-modal__close"
+        data-about-info-close
+        aria-label="Затвори"
+      >
+        &times;
+      </button>
+      <h3 id="about-info-modal-title" class="mb-info-modal__title">
+        {{ a.title | default("За мен") }}
+      </h3>
+      <p class="mb-info-modal__text text-[1.02rem] leading-[1.72]">
+        {{ a.body | default("") }}
+      </p>
+      {% if a.body2 %}
+      <p class="mb-info-modal__text text-[1.02rem] leading-[1.72]">
+        {{ a.body2 }}
+      </p>
+      {% endif %}
+
+      <div class="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+        <img src="{{ '/assets/images/za-men1.jpg' | url }}" alt="За мен - снимка 1" class="h-40 w-full rounded-xl object-cover" loading="lazy" decoding="async" />
+        <img src="{{ '/assets/images/za-men2.jpg' | url }}" alt="За мен - снимка 2" class="h-40 w-full rounded-xl object-cover" loading="lazy" decoding="async" />
+        <img src="{{ '/assets/images/za-men3.jpg' | url }}" alt="За мен - снимка 3" class="h-40 w-full rounded-xl object-cover" loading="lazy" decoding="async" />
+      </div>
+    </div>
+  </div>
 </section>
+
+<script>
+  (function initAboutModal() {
+    var modal = document.getElementById("about-info-modal");
+    if (!modal) return;
+
+    var panel = modal.querySelector(".mb-info-modal__panel");
+    var openBtns = document.querySelectorAll("[data-about-info-open]");
+    var closeBtns = modal.querySelectorAll("[data-about-info-close]");
+
+    function openModal() {
+      modal.hidden = false;
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+      if (panel) panel.focus();
+    }
+
+    function closeModal() {
+      modal.hidden = true;
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+    }
+
+    openBtns.forEach(function (btn) {
+      btn.addEventListener("click", openModal);
+    });
+    closeBtns.forEach(function (btn) {
+      btn.addEventListener("click", closeModal);
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !modal.hidden) {
+        closeModal();
+      }
+    });
+  })();
+</script>
