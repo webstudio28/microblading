@@ -44,46 +44,95 @@
       </div>
     </div>
 
-    <!-- The draggable slider strip -->
-    <div class="clients-strip" role="list" data-clients-strip>
-      {% for client in clients %}
-      <div
-        class="client-card group"
-        role="button"
-        tabindex="0"
-        data-client-trigger
-        data-client-id="{{ client.id }}"
-      >
-        <div class="client-card__visual">
-          <img src="{{ client.afterImage }}" alt="{{ client.name }} резултат" class="client-card__img" loading="lazy" decoding="async">
-          
-          <div class="client-card__overlay">
-            <span class="client-card__btn">Виж повече</span>
-          </div>
-        </div>
+    <!-- Auto-moving draggable strip -->
+    <div class="clients-strip-wrapper">
+      <div class="clients-strip" role="list" data-clients-strip>
+        <div class="clients-strip-set">
+        {% for client in clients %}
+        <div
+          class="client-card group"
+          data-client-id="{{ client.id }}"
+        >
+          <div class="client-card__visual">
+            <img src="{{ client.afterImage }}" alt="{{ client.name }} резултат" class="client-card__img" loading="lazy" decoding="async">
 
-        <div class="client-card__body">
-          <div class="flex items-center gap-3 mb-3">
-            <img src="{{ client.avatar }}" alt="{{ client.name }}" class="w-10 h-10 rounded-full object-cover shadow-sm bg-white border border-[#2c1a0e]/10">
-            <div>
-              <h3 class="font-sans text-[11px] font-bold text-[#2c1a0e] uppercase tracking-[0.1em] leading-tight">{{ client.name }}</h3>
-              <div class="mt-1.5 flex flex-wrap gap-1.5">
-                {% for svc in client.services %}
-                <span class="inline-flex px-2 py-0.5 bg-[#2c1a0e]/5 text-[#a07850] text-[10px] font-semibold tracking-wide rounded-full border border-[#2c1a0e]/10">
-                  {{ svc }}
-                </span>
-                {% endfor %}
-              </div>
+            <div class="client-card__overlay">
+              <button
+                type="button"
+                class="client-card__btn border-0"
+                data-client-trigger
+                data-client-id="{{ client.id }}"
+                aria-label="Виж повече за {{ client.name }}"
+              >
+                Виж повече
+              </button>
             </div>
           </div>
-          {% if client.review %}
-          <p class="text-xs text-[#7a6558] italic line-clamp-2 leading-relaxed">
-            {{ client.review }}
-          </p>
-          {% endif %}
+
+          <div class="client-card__body">
+            <div class="flex items-center gap-3 mb-3">
+              <img src="{{ client.avatar }}" alt="{{ client.name }}" class="w-10 h-10 rounded-full object-cover shadow-sm bg-white border border-[#2c1a0e]/10">
+              <div>
+                <h3 class="font-sans text-[11px] font-bold text-[#2c1a0e] uppercase tracking-[0.1em] leading-tight">{{ client.name }}</h3>
+                <div class="mt-1.5 flex flex-wrap gap-1.5">
+                  {% for svc in client.services %}
+                  <span class="inline-flex px-2 py-0.5 bg-[#2c1a0e]/5 text-[#a07850] text-[10px] font-semibold tracking-wide rounded-full border border-[#2c1a0e]/10">
+                    {{ svc }}
+                  </span>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            {% if client.review %}
+            <p class="text-xs text-[#7a6558] italic line-clamp-2 leading-relaxed">
+              {{ client.review }}
+            </p>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+        <div class="clients-strip-set" aria-hidden="true">
+        {% for client in clients %}
+        <div class="client-card group" data-client-id="{{ client.id }}">
+          <div class="client-card__visual">
+            <img src="{{ client.afterImage }}" alt="" class="client-card__img" loading="lazy" decoding="async">
+            <div class="client-card__overlay">
+              <button
+                type="button"
+                class="client-card__btn border-0"
+                data-client-trigger
+                data-client-id="{{ client.id }}"
+                aria-label="Виж повече за {{ client.name }}"
+              >
+                Виж повече
+              </button>
+            </div>
+          </div>
+          <div class="client-card__body">
+            <div class="flex items-center gap-3 mb-3">
+              <img src="{{ client.avatar }}" alt="" class="w-10 h-10 rounded-full object-cover shadow-sm bg-white border border-[#2c1a0e]/10">
+              <div>
+                <h3 class="font-sans text-[11px] font-bold text-[#2c1a0e] uppercase tracking-[0.1em] leading-tight">{{ client.name }}</h3>
+                <div class="mt-1.5 flex flex-wrap gap-1.5">
+                  {% for svc in client.services %}
+                  <span class="inline-flex px-2 py-0.5 bg-[#2c1a0e]/5 text-[#a07850] text-[10px] font-semibold tracking-wide rounded-full border border-[#2c1a0e]/10">
+                    {{ svc }}
+                  </span>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            {% if client.review %}
+            <p class="text-xs text-[#7a6558] italic line-clamp-2 leading-relaxed">
+              {{ client.review }}
+            </p>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
         </div>
       </div>
-      {% endfor %}
     </div>
   </div>
   {% endif %}
@@ -175,61 +224,118 @@
 
 <script>
   (function initClients() {
-    // 1. Horizontal Drag Logic
-    function enableHorizontalDrag(viewport) {
-      if (!viewport) return;
-      var isDown = false;
-      var startX = 0;
-      var startScroll = 0;
-      var moved = false;
-      var DRAG_THRESHOLD = 4;
+    // 1. Auto-moving infinite carousel + drag (same behavior as testimonials strip)
+    var strip = document.querySelector("[data-clients-strip]");
+    var setEl = strip ? strip.querySelector(".clients-strip-set") : null;
+    var setWidth = 0;
+    var loopWidth = 0;
+    var position = 0;
+    var dragging = false;
+    var startX = 0;
+    var startPos = 0;
+    var speed = 0.15;
 
-      viewport.addEventListener("pointerdown", function (e) {
-        if (e.pointerType === "touch" || e.button !== 0) return;
-        isDown = true;
-        moved = false;
-        startX = e.clientX;
-        startScroll = viewport.scrollLeft;
-        viewport.classList.add("cursor-grabbing");
-        try { viewport.setPointerCapture(e.pointerId); } catch (err) {}
-      });
-
-      viewport.addEventListener("pointermove", function (e) {
-        if (!isDown) return;
-        var dx = e.clientX - startX;
-        if (Math.abs(dx) > DRAG_THRESHOLD) moved = true;
-        viewport.scrollLeft = startScroll - dx;
-      });
-
-      function endDrag(e) {
-        if (!isDown) return;
-        isDown = false;
-        viewport.classList.remove("cursor-grabbing");
-        if (e && e.pointerId != null) {
-          try { viewport.releasePointerCapture(e.pointerId); } catch (err) {}
-        }
-      }
-      
-      viewport.addEventListener("pointerup", endDrag);
-      viewport.addEventListener("pointercancel", endDrag);
-      viewport.addEventListener("pointerleave", endDrag);
-
-      viewport.addEventListener("click", function (e) {
-        if (moved) {
-          e.preventDefault();
-          e.stopPropagation();
-          moved = false;
-        }
-      }, true);
-      
-      viewport.addEventListener("dragstart", function (e) { e.preventDefault(); });
+    function getStripGap() {
+      if (!strip) return 0;
+      var cs = getComputedStyle(strip);
+      return parseFloat(cs.columnGap || cs.gap || "0") || 0;
     }
 
-    var strip = document.querySelector("[data-clients-strip]");
-    if (strip) {
-      if (window.matchMedia("(max-width: 767px)").matches) {
-        enableHorizontalDrag(strip);
+    function ensureSetMinWidth() {
+      if (!strip) return;
+      var sets = strip.querySelectorAll(".clients-strip-set");
+      if (!sets.length) return;
+
+      var minSetWidth = strip.clientWidth + getStripGap() + 1;
+      sets.forEach(function (set) {
+        if (!set.dataset.baseHtml) {
+          set.dataset.baseHtml = set.innerHTML;
+        }
+        // Always rebuild from the original markup to avoid clone accumulation on re-run/resize.
+        set.innerHTML = set.dataset.baseHtml;
+
+        var originals = Array.prototype.slice.call(set.children);
+        if (!originals.length) return;
+
+        var idx = 0;
+        while (set.scrollWidth < minSetWidth && idx < 80) {
+          var clone = originals[idx % originals.length].cloneNode(true);
+          set.appendChild(clone);
+          idx += 1;
+        }
+
+        // Keep each set internally non-duplicating at the wrap boundary:
+        // if it ends on the same card it starts with, append the next base card.
+        if (originals.length > 1) {
+          var firstId = originals[0].getAttribute("data-client-id");
+          var lastEl = set.lastElementChild;
+          var lastId = lastEl ? lastEl.getAttribute("data-client-id") : null;
+          if (firstId && lastId && firstId === lastId) {
+            set.appendChild(originals[1].cloneNode(true));
+          }
+        }
+      });
+    }
+
+    function refreshMeasurements() {
+      if (!setEl) return;
+      setWidth = setEl.offsetWidth;
+      loopWidth = setWidth + getStripGap();
+    }
+
+    function getClientX(e) {
+      return e.touches ? e.touches[0].clientX : e.clientX;
+    }
+
+    function tick() {
+      if (!strip || !loopWidth) return;
+      if (!dragging) {
+        position -= speed;
+        if (position < -loopWidth) position += loopWidth;
+        if (position > 0) position -= loopWidth;
       }
+      strip.style.transform = "translateX(" + position + "px)";
+      requestAnimationFrame(tick);
+    }
+
+    function onDown(e) {
+      dragging = true;
+      startX = getClientX(e);
+      startPos = position;
+      strip.classList.add("is-dragging");
+      strip.style.cursor = "grabbing";
+    }
+
+    function onMove(e) {
+      if (!dragging) return;
+      var x = getClientX(e);
+      position = startPos + (x - startX);
+    }
+
+    function onUp() {
+      dragging = false;
+      if (strip) strip.classList.remove("is-dragging");
+      if (strip) strip.style.cursor = "";
+      while (position < -loopWidth) position += loopWidth;
+      while (position > 0) position -= loopWidth;
+    }
+
+    if (strip && setEl) {
+      ensureSetMinWidth();
+      refreshMeasurements();
+      strip.style.willChange = "transform";
+      strip.addEventListener("mousedown", onDown);
+      strip.addEventListener("touchstart", onDown, { passive: true });
+      window.addEventListener("mousemove", onMove);
+      window.addEventListener("touchmove", onMove, { passive: true });
+      window.addEventListener("mouseup", onUp);
+      window.addEventListener("touchend", onUp);
+
+      if (loopWidth > 0) requestAnimationFrame(tick);
+      else window.addEventListener("load", function () {
+        refreshMeasurements();
+        requestAnimationFrame(tick);
+      });
     }
 
     // 2. Navigation Arrows
@@ -238,33 +344,43 @@
     
     function cardWidth() {
       var card = document.querySelector(".client-card");
+      if (!strip) return 0;
       if (!card) return strip.clientWidth * 0.8;
-      var cs = getComputedStyle(strip);
+      var cs = getComputedStyle(setEl || strip);
       var gap = parseFloat(cs.columnGap || cs.gap || "0") || 0;
       return card.getBoundingClientRect().width + gap;
     }
 
     function updateArrows() {
-      if(!strip) return;
-      var max = strip.scrollWidth - strip.clientWidth;
-      var atStart = strip.scrollLeft <= 2;
-      var atEnd = strip.scrollLeft >= max - 2;
-      if (prevBtn) prevBtn.toggleAttribute("disabled", atStart);
-      if (nextBtn) nextBtn.toggleAttribute("disabled", atEnd);
+      if (!prevBtn || !nextBtn) return;
+      // Infinite carousel never reaches a hard edge.
+      prevBtn.removeAttribute("disabled");
+      nextBtn.removeAttribute("disabled");
     }
     
-    if (prevBtn) prevBtn.addEventListener("click", function() { strip.scrollBy({ left: -cardWidth(), behavior: "smooth" }); });
-    if (nextBtn) nextBtn.addEventListener("click", function() { strip.scrollBy({ left: cardWidth(), behavior: "smooth" }); });
+    if (prevBtn) prevBtn.addEventListener("click", function() {
+      if (!loopWidth) return;
+      position += cardWidth();
+      while (position > 0) position -= loopWidth;
+    });
+    if (nextBtn) nextBtn.addEventListener("click", function() {
+      if (!loopWidth) return;
+      position -= cardWidth();
+      while (position < -loopWidth) position += loopWidth;
+    });
     
-    if(strip) {
-      strip.addEventListener("scroll", updateArrows, { passive: true });
-      window.addEventListener("resize", updateArrows);
+    if (strip) {
+      window.addEventListener("resize", function() {
+        ensureSetMinWidth();
+        refreshMeasurements();
+        updateArrows();
+      });
       updateArrows();
     }
 
     // 3. Modal Logic
     var modal = document.getElementById("client-detail-modal");
-    var triggers = document.querySelectorAll("[data-client-trigger]");
+    var triggers = document.querySelectorAll("button[data-client-trigger]");
     var closes = document.querySelectorAll("[data-client-close]");
     
     if (modal && window.ValetoClientsData) {
@@ -331,17 +447,11 @@
         document.body.classList.remove("modal-open");
       }
 
-      triggers.forEach(function(btn) {
-        btn.addEventListener("click", function() {
+      triggers.forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
           openModal(this.getAttribute("data-client-id"));
-        });
-        
-        // Enter key support for accessibility
-        btn.addEventListener("keydown", function(e) {
-          if(e.key === "Enter" || e.keyCode === 13) {
-            e.preventDefault();
-            openModal(this.getAttribute("data-client-id"));
-          }
         });
       });
 

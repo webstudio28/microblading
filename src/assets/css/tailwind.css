@@ -1588,34 +1588,56 @@
   /* ─────────────────────────────────────────────────────────────
      Clients Section (Horizontal Scroll + Detail Modal)
      ───────────────────────────────────────────────────────────── */
+  .clients-strip-wrapper {
+    overflow: hidden;
+    width: 100%;
+  }
   .clients-strip {
     display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
+    width: max-content;
     gap: 1.25rem;
-    padding: 0.5rem 1rem 3rem 1rem;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 0.5rem 0 3rem 0;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: default;
+  }
+  .clients-strip:hover {
+    cursor: grab;
+  }
+  .clients-strip:hover * {
+    cursor: grab;
+  }
+  .clients-strip.is-dragging,
+  .clients-strip.is-dragging * {
+    cursor: grabbing !important;
+  }
+  .clients-strip-set {
+    display: flex;
+    flex-shrink: 0;
+    gap: 1.25rem;
   }
   .clients-strip::-webkit-scrollbar {
     display: none;
   }
   @media (min-width: 768px) {
     .clients-strip {
-      padding: 0.5rem calc(50vw - 40rem + 1.5rem) 3.5rem calc(50vw - 40rem + 1.5rem);
+      padding-bottom: 3.5rem;
     }
   }
 
   .client-card {
     flex: 0 0 16rem;
-    scroll-snap-align: center;
     border-radius: 1.2rem;
     background: #fff;
     border: 1px solid rgba(44, 26, 14, 0.08);
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(44, 26, 14, 0.04);
-    cursor: pointer;
+    cursor: default;
     transition: transform 250ms ease, box-shadow 250ms ease;
     outline: none;
   }
@@ -1660,6 +1682,8 @@
     font-size: 0.8rem;
     font-weight: 600;
     padding: 0.5rem 1rem;
+    border: 0;
+    cursor: pointer;
     border-radius: 9999px;
     backdrop-filter: blur(4px);
     transition: background 250ms ease;
