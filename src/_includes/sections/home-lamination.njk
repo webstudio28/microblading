@@ -7,21 +7,21 @@
 >
   <div class="container-custom relative">
 
-    <header class="mb-header">
+    <header class="mb-header text-center mx-auto mb-5">
       {% if l.eyebrow %}
-      <span class="mb-eyebrow">{{ l.eyebrow }}</span>
+      <span class="mb-eyebrow justify-center">{{ l.eyebrow }}</span>
       {% endif %}
 
-      <h2 id="laminating-heading" class="mb-title">
+      <h2 id="laminating-heading" class="mb-title text-center mt-2">
         {{ l.title | default("Ламиниране") }}
       </h2>
 
       {% if l.lead %}
-      <p class="mb-lead">{{ l.lead }}</p>
+      <p class="mb-lead text-center mt-3">{{ l.lead }}</p>
       {% endif %}
 
       {% if l.sub %}
-      <p class="mb-learn-inline">
+      <p class="mb-learn-inline justify-center mt-3">
         <button
           type="button"
           class="mb-learn-more-btn"
@@ -38,7 +38,7 @@
   </div>
 
   {% if lb.gallery and lb.gallery.length %}
-  <div class="mb-bubbles-wrap pt-10" data-lam-bubbles-wrap>
+  <div class="mb-bubbles-wrap pt-5" data-lam-bubbles-wrap>
     <div class="container-custom">
       <div class="mb-bubbles-head">
         <p class="mb-bubbles-label" id="lam-gallery-heading">

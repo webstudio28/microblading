@@ -769,6 +769,10 @@
     isolation: auto;
   }
 
+  .mb-section.clients-section {
+    background: transparent;
+  }
+
   /* Lamination block: same layout tokens as .mb-section; background 0 alpha to tune later */
   .mb-section.lam-section {
     background: rgba(255, 255, 255, 0);

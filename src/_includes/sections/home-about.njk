@@ -9,14 +9,14 @@
   <div class="container-custom relative z-10">
 
     {# Row 1: section heading + intro (full width of container) #}
-    <header>
+    <header class="mb-header text-center mx-auto mb-10">
       <h2
         id="about-heading"
-        class="font-mak text-[2.25rem] font-bold leading-10 tracking-wider text-white md:text-[2.5rem] md:leading-[2.75rem]"
+        class="font-mak text-center mx-auto text-[2.25rem] font-bold leading-10 tracking-wider text-white md:text-[2.5rem] md:leading-[2.75rem]"
       >{{ a.title | default("За мен") }}</h2>
 
       {% if a.intro %}
-      <p class="site-lead mt-3 text-white">
+      <p class="site-lead mt-3 text-white text-center mx-auto max-w-2xl">
         {{ a.intro }}
       </p>
       {% endif %}

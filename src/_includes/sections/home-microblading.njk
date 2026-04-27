@@ -7,21 +7,21 @@
 >
   <div class="container-custom relative">
 
-    <header class="mb-header">
+    <header class="mb-header text-center mx-auto mb-5">
       {% if m.eyebrow %}
-      <span class="mb-eyebrow">{{ m.eyebrow }}</span>
+      <span class="mb-eyebrow justify-center">{{ m.eyebrow }}</span>
       {% endif %}
 
-      <h2 id="microblading-heading" class="mb-title">
+      <h2 id="microblading-heading" class="mb-title text-center mt-2">
         {{ m.title | default("Микроблейдинг") }}
       </h2>
 
       {% if m.lead %}
-      <p class="mb-lead">{{ m.lead }}</p>
+      <p class="mb-lead text-center mt-3">{{ m.lead }}</p>
       {% endif %}
 
       {% if m.sub %}
-      <p class="mb-learn-inline">
+      <p class="mb-learn-inline justify-center mt-3">
         <button
           type="button"
           class="mb-learn-more-btn"
@@ -38,7 +38,7 @@
   </div>
 
   {% if mb.gallery and mb.gallery.length %}
-  <div class="mb-bubbles-wrap pt-10" data-mb-bubbles-wrap>
+  <div class="mb-bubbles-wrap pt-5" data-mb-bubbles-wrap>
     <div class="container-custom">
       <div class="mb-bubbles-head">
         <p class="mb-bubbles-label" id="mb-gallery-heading">

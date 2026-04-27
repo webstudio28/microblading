@@ -26,33 +26,35 @@
   }
 ] %}
 
-<section class="home-procedure section-padding relative bg-transparent overflow-hidden" id="procedure">
+<section class="home-procedure section-padding relative bg-white/70 overflow-hidden" id="procedure">
   <div class="mb-steps" data-procedure-steps>
     <div class="container-custom">
-      <div class="mb-steps__head">
-        <h2 class="mb-steps__label">Етапи на процедурата</h2>
-        <div class="mb-steps__nav" aria-hidden="true">
-          <button
-            type="button"
-            class="mb-steps__arrow mb-steps__arrow--prev"
-            data-procedure-steps-prev
-            aria-label="Предишна стъпка"
-          >
-            <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="21 8 12 16 21 24" vector-effect="non-scaling-stroke" />
-            </svg>
-          </button>
-          <button
-            type="button"
-            class="mb-steps__arrow mb-steps__arrow--next"
-            data-procedure-steps-next
-            aria-label="Следваща стъпка"
-          >
-            <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="11 8 20 16 11 24" vector-effect="non-scaling-stroke" />
-            </svg>
-          </button>
-        </div>
+      <header class="mb-header text-center mx-auto mb-6">
+        <span class="mb-eyebrow justify-center">Внимание към детайла</span>
+        <h2 class="mb-title text-center mt-2">Какво да очакваш</h2>
+      </header>
+      
+      <div class="mb-steps__nav flex justify-end mb-4" aria-hidden="true">
+        <button
+          type="button"
+          class="mb-steps__arrow mb-steps__arrow--prev"
+          data-procedure-steps-prev
+          aria-label="Предишна стъпка"
+        >
+          <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="21 8 12 16 21 24" vector-effect="non-scaling-stroke" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="mb-steps__arrow mb-steps__arrow--next"
+          data-procedure-steps-next
+          aria-label="Следваща стъпка"
+        >
+          <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="11 8 20 16 11 24" vector-effect="non-scaling-stroke" />
+          </svg>
+        </button>
       </div>
     </div>
 
