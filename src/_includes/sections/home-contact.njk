@@ -1,0 +1,53 @@
+{% set c = home.contact if home and home.contact else {} %}
+<section
+  id="contact"
+  class="mb-section scroll-mt-20 section-padding bg-white/70"
+  aria-labelledby="contact-heading"
+>
+  <div class="container-custom">
+    <header class="mb-header text-center mx-auto mb-8">
+      <span class="mb-eyebrow justify-center">Свържи се с мен</span>
+      <h2 id="contact-heading" class="mb-title text-center mt-2">Контакти</h2>
+    </header>
+
+    <div class="contact-min-grid">
+      <div class="contact-min-card">
+        <h3 class="contact-min-title">Директен контакт</h3>
+        <div class="contact-min-links">
+          <a class="contact-min-link" href="tel:{{ c.phoneHref | default('+359881234567') }}">
+            Телефон: {{ c.phoneLabel | default('+359 88 123 4567') }}
+          </a>
+          <a class="contact-min-link" href="mailto:{{ c.email | default('hello@valeto.bg') }}">
+            Имейл: {{ c.email | default('hello@valeto.bg') }}
+          </a>
+          <a class="contact-min-link" href="{{ c.viber | default('viber://chat?number=%2B359881234567') }}" target="_blank" rel="noopener noreferrer">
+            Viber
+          </a>
+          <a class="contact-min-link" href="{{ c.whatsapp | default('https://wa.me/359881234567') }}" target="_blank" rel="noopener noreferrer">
+            WhatsApp
+          </a>
+        </div>
+
+        <h3 class="contact-min-title mt-6">Социални мрежи</h3>
+        <div class="contact-min-socials">
+          <a class="contact-min-pill" href="{{ c.instagram | default('https://instagram.com/') }}" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a class="contact-min-pill" href="{{ c.tiktok | default('https://www.tiktok.com/') }}" target="_blank" rel="noopener noreferrer">TikTok</a>
+          <a class="contact-min-pill" href="{{ c.facebook | default('https://facebook.com/') }}" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </div>
+      </div>
+
+      <div class="contact-min-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.3479159986296!2d24.730111076962526!3d42.142841171213796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd1c92fd1e2dd%3A0xadf75277a3ce827b!2z0LYu0LouINCc0LvQsNC00LXQttC60Lgg0YXRitC70LzQoNCw0LnQvtC9INCm0LXQvdGC0YDQsNC70LXQvSwg0LHRg9C7LiDigJ7QktCw0YHQuNC7INCQ0L_RgNC40LvQvtCy4oCcIDQ5LCA0MDAyINCf0LvQvtCy0LTQuNCy!5e0!3m2!1sbg!2sbg!4v1777269644869!5m2!1sbg!2sbg"
+          width="600"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Локация в Google Maps"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
