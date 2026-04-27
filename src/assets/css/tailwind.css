@@ -800,6 +800,12 @@
     height: 1px;
     background: linear-gradient(to right, transparent, var(--color-brand-accent) 40%, var(--color-brand-accent));
   }
+  .mb-eyebrow::after {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: linear-gradient(to left, transparent, var(--color-brand-accent) 40%, var(--color-brand-accent));
+  }
 
   .mb-title {
     font-family: "MAK", Georgia, serif;

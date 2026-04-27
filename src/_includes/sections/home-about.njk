@@ -29,7 +29,7 @@
       <img
         src="{{ a.image | default('/assets/images/about-me.jpg') | url }}"
         alt="{{ a.imageAlt | default('') }}"
-        class="h-[420px] w-full max-w-[320px] shrink-0 self-start rounded-[20px] object-cover object-top md:w-[320px]"
+        class="h-[420px] w-full shrink-0 self-start rounded-[20px] object-cover object-top md:w-[320px] md:max-w-[320px]"
         width="320"
         height="420"
         loading="lazy"
