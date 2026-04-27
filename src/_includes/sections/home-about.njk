@@ -4,66 +4,75 @@
   class="relative scroll-mt-20 section-padding bg-gradient-to-br from-[#A48C77] to-[#C1AE9A]"
   aria-labelledby="about-heading"
 >
-  <div class="pointer-events-none absolute inset-x-0 bottom-0 hidden h-[30%] bg-[#C1AE9A] md:block" aria-hidden="true"></div>
-
   <div class="container-custom relative z-10">
 
     {# Row 1: section heading + intro (full width of container) #}
-    <header class="mb-header text-center mx-auto mb-10">
+    <header class="mb-header mx-auto mb-6 text-center md:mb-8">
       <h2
         id="about-heading"
-        class="mb-title text-center mt-2 text-white"
+        class="mb-title mt-2 text-center text-white"
       >{{ a.title | default("За мен") }}</h2>
 
       {% if a.intro %}
-      <p class="site-lead mt-3 text-center mx-auto max-w-2xl text-white">
+      <p class="site-lead mt-3 hidden text-center text-white md:mx-auto md:block md:max-w-2xl">
         {{ a.intro }}
       </p>
       {% endif %}
     </header>
 
-    {# Row 2: image | right rail (text + CTA = 90% of space beside image, flush right) #}
-    <div class="mt-8 flex flex-col gap-6 md:flex-row md:items-start">
-
-      {# Left: photo #}
+    {# Same photos as modal: 1 col mobile, 2 cols md–lg, 3 cols lg+ #}
+    <div class="about-section__photos mx-auto grid w-full max-w-5xl grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3">
       <img
-        src="{{ a.image | default('/assets/images/about-me.jpg') | url }}"
-        alt="{{ a.imageAlt | default('') }}"
-        class="h-[420px] w-full shrink-0 self-start rounded-[20px] object-cover object-top md:w-[320px] md:max-w-[320px]"
-        width="320"
-        height="420"
+        src="{{ '/assets/images/za-men1.jpg' | url }}"
+        alt="За мен — снимка 1"
+        class="aspect-[4/3] w-full rounded-xl object-cover shadow-[0_8px_24px_rgba(0,0,0,0.12)]"
+        width="640"
+        height="480"
         loading="lazy"
         decoding="async"
       >
+      <img
+        src="{{ '/assets/images/za-men2.jpg' | url }}"
+        alt="За мен — снимка 2"
+        class="hidden aspect-[4/3] w-full rounded-xl object-cover shadow-[0_8px_24px_rgba(0,0,0,0.12)] md:block"
+        width="640"
+        height="480"
+        loading="lazy"
+        decoding="async"
+      >
+      <img
+        src="{{ '/assets/images/za-men3.jpg' | url }}"
+        alt="За мен — снимка 3"
+        class="hidden aspect-[4/3] w-full rounded-xl object-cover shadow-[0_8px_24px_rgba(0,0,0,0.12)] lg:block"
+        width="640"
+        height="480"
+        loading="lazy"
+        decoding="async"
+      >
+    </div>
 
-      {# Fills space to the right of the image; inner column is 90% wide and right-aligned #}
-      <div class="flex min-w-0 flex-1 justify-end">
-        <div class="flex w-full min-w-0 flex-col min-h-0 md:min-h-[420px] md:w-[90%]">
+    <div class="mx-auto mt-6 flex w-full max-w-3xl flex-col items-center text-center md:mt-8">
+      <p class="mb-lead mt-0 max-w-none text-white/90">
+        {{ a.body | default("") }}
+      </p>
 
-          <p class="mb-lead mt-0 max-w-none text-white/80">
-            {{ a.body | default("") }}
-          </p>
+      {% if a.body2 %}
+      <p class="mb-lead mt-4 max-w-none text-white/90">
+        {{ a.body2 }}
+      </p>
+      {% endif %}
 
-          {% if a.body2 %}
-          <p class="mb-lead mt-5 hidden max-w-none text-white/80 md:block">
-            {{ a.body2 }}
-          </p>
-          {% endif %}
-
-          {% if a.cta %}
-          <div class="mt-auto w-full pt-8">
-            <button
-              type="button"
-              class="block w-full rounded-3xl bg-zinc-800 py-3.5 text-center font-['Montserrat_Alternates'] text-base font-medium tracking-wide text-white shadow-[0px_4px_4px_0px_rgba(0,0,0,0.21)] transition-colors hover:bg-zinc-700"
-              data-about-info-open
-              aria-haspopup="dialog"
-              aria-controls="about-info-modal"
-            >{{ a.cta.label }}</button>
-          </div>
-          {% endif %}
-
-        </div>
+      {% if a.cta %}
+      <div class="mt-7 flex w-full justify-center">
+        <button
+          type="button"
+          class="inline-flex min-w-[220px] items-center justify-center rounded-3xl bg-zinc-800 px-8 py-3.5 text-center font-['Montserrat_Alternates'] text-base font-medium tracking-wide text-white shadow-[0px_4px_4px_0px_rgba(0,0,0,0.21)] transition-colors hover:bg-zinc-700"
+          data-about-info-open
+          aria-haspopup="dialog"
+          aria-controls="about-info-modal"
+        >{{ a.cta.label }}</button>
       </div>
+      {% endif %}
     </div>
 
   </div>
