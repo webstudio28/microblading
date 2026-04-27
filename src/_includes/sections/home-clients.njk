@@ -54,7 +54,7 @@
           data-client-id="{{ client.id }}"
         >
           <div class="client-card__visual">
-            <img src="{{ client.afterImage }}" alt="{{ client.name }} резултат" class="client-card__img" loading="lazy" decoding="async">
+            <img src="{{ client.afterImage | url }}" alt="{{ client.name }} резултат" class="client-card__img" loading="lazy" decoding="async">
 
             <div class="client-card__overlay">
               <button
@@ -96,7 +96,7 @@
         {% for client in clients %}
         <div class="client-card group" data-client-id="{{ client.id }}">
           <div class="client-card__visual">
-            <img src="{{ client.afterImage }}" alt="" class="client-card__img" loading="lazy" decoding="async">
+            <img src="{{ client.afterImage | url }}" alt="" class="client-card__img" loading="lazy" decoding="async">
             <div class="client-card__overlay">
               <button
                 type="button"
@@ -398,9 +398,10 @@
       var lightboxCloses = document.querySelectorAll("[data-lightbox-close]");
 
       // Lightbox logic
-      function openLightbox(src) {
+      function openLightbox(src, altText) {
         if (!src) return;
         lightboxImg.src = src;
+        lightboxImg.alt = altText || "";
         lightbox.style.display = "grid";
         lightbox.setAttribute("aria-hidden", "false");
       }
@@ -408,10 +409,15 @@
         lightbox.style.display = "none";
         lightbox.setAttribute("aria-hidden", "true");
         lightboxImg.src = "";
+        lightboxImg.alt = "";
       }
       
-      triggerBefore.addEventListener("click", function() { openLightbox(domBefore.src); });
-      triggerAfter.addEventListener("click", function() { openLightbox(domAfter.src); });
+      triggerBefore.addEventListener("click", function() {
+        openLightbox(domBefore.src, "Преди");
+      });
+      triggerAfter.addEventListener("click", function() {
+        openLightbox(domAfter.src, "След");
+      });
       
       lightboxCloses.forEach(function(btn) {
         btn.addEventListener("click", closeLightbox);

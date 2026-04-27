@@ -8,8 +8,8 @@
     ],
     "description": "Мария желаеше по-плътни и изразителни вежди, които да подчертаят чертите на лицето ѝ, но без да губят естествения си вид. Извършихме прецизно изграждане на косъмчетата с фокус върху перфектната арка.",
     "review": "\"Веждите ми изглеждат невероятно естествени! Благодаря за прекрасното отношение и професионализъм.\"",
-    "beforeImage": "https://images.unsplash.com/photo-1595152452543-e5fc28ebc2b8?auto=format&fit=crop&w=600&q=80",
-    "afterImage": "https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=600&q=80"
+    "beforeImage": "/assets/images/laminirane1.jpg",
+    "afterImage": "/assets/images/microblading1.jpg"
   },
   {
     "id": "client-2",
@@ -20,8 +20,8 @@
     ],
     "description": "Елена имаше непокорни косъмчета, растящи в различни посоки. С ламинирането успяхме да ги стилизираме трайно нагоре, добавяйки обем и плътност. Резултатът е свеж и младежки поглед.",
     "review": "\"Не мога да повярвам колко обем имат веждите ми сега! Спестява ми толкова време сутрин.\"",
-    "beforeImage": "https://images.unsplash.com/photo-1588513689498-75b5b9ab2bb9?auto=format&fit=crop&w=600&q=80",
-    "afterImage": "https://images.unsplash.com/photo-1512413346919-482250275817?auto=format&fit=crop&w=600&q=80"
+    "beforeImage": "/assets/images/laminirane2.jpg",
+    "afterImage": "/assets/images/microblading2.jpg"
   },
   {
     "id": "client-3",
@@ -32,8 +32,8 @@
     ],
     "description": "Целта при Виктория беше коригиране на лека асиметрия. С помощта на индивидуално оразмеряване изградихме напълно симетрична и балансирана форма, която отваря погледа.",
     "review": "\"Най-накрая имам симетрични вежди! Формата е перфектна, точно това, което исках.\"",
-    "beforeImage": "https://images.unsplash.com/photo-1615291242332-9a0ea6eb16f8?auto=format&fit=crop&w=600&q=80",
-    "afterImage": "https://images.unsplash.com/photo-1542385418-7bc0021bf99a?auto=format&fit=crop&w=600&q=80"
+    "beforeImage": "/assets/images/microblading3.jpg",
+    "afterImage": "/assets/images/microblading3.jpg"
   },
   {
     "id": "client-4",
@@ -44,8 +44,8 @@
     ],
     "description": "Естествените вежди на Симона бяха много светли и почти незабележими. След ламиниране и нежно тониране с подхранваща боя, те станаха изразителни и плътни.",
     "review": "\"Лицето ми направо светна! Най-доброто решение, което можех да взема за веждите си.\"",
-    "beforeImage": "https://images.unsplash.com/photo-1550503080-60b540608ed1?auto=format&fit=crop&w=600&q=80",
-    "afterImage": "https://images.unsplash.com/photo-1512351735230-a07bfdbfb775?auto=format&fit=crop&w=600&q=80"
+    "beforeImage": "/assets/images/microblading4.jpg",
+    "afterImage": "/assets/images/microblading4.jpg"
   },
   {
     "id": "client-5",
@@ -56,7 +56,69 @@
     ],
     "description": "Радина ни посети за втори път след една година за освежаване на микроблейдинга. Надградихме избледнелите зони, връщайки първоначалния им наситен вид.",
     "review": "\"Отново безупречен резултат! Просто обожавам да идвам тук.\"",
-    "beforeImage": "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=600&q=80",
-    "afterImage": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=600&q=80"
+    "beforeImage": "/assets/images/microblading5.jpg",
+    "afterImage": "/assets/images/microblading6.jpg"
+  },
+  {
+    "id": "client-6",
+    "name": "Никол Денева",
+    "avatar": "https://i.pravatar.cc/150?u=nikol",
+    "services": [
+      "Микроблейдинг"
+    ],
+    "description": "Търсехме по-мека, нежна форма с максимално естествен резултат. Постигнахме равномерна плътност и много балансирана арка.",
+    "review": "\"Изглеждат толкова естествено, че всички мислят, че са моите вежди!\"",
+    "beforeImage": "/assets/images/microblading7.jpg",
+    "afterImage": "/assets/images/microblading8.jpg"
+  },
+  {
+    "id": "client-7",
+    "name": "Кристина Георгиева",
+    "avatar": "https://i.pravatar.cc/150?u=kristina",
+    "services": [
+      "Ламиниране",
+      "Оцветяване"
+    ],
+    "description": "След процедурата веждите стоят подредени и повдигнати през целия ден, а цветът подчертава формата без да е тежък.",
+    "review": "\"Погледът ми е много по-отворен и свеж.\"",
+    "beforeImage": "/assets/images/laminirane1.jpg",
+    "afterImage": "/assets/images/microblading9.jpg"
+  },
+  {
+    "id": "client-8",
+    "name": "Деница Петрова",
+    "avatar": "https://i.pravatar.cc/150?u=denitsa",
+    "services": [
+      "Микроблейдинг"
+    ],
+    "description": "Възстановихме липсващите участъци и изравнихме формата, като запазихме много естествена линия на косъмчетата.",
+    "review": "\"Най-накрая веждите ми имат перфектна форма.\"",
+    "beforeImage": "/assets/images/microblading10.jpg",
+    "afterImage": "/assets/images/microblading3.jpg"
+  },
+  {
+    "id": "client-9",
+    "name": "Габриела Костова",
+    "avatar": "https://i.pravatar.cc/150?u=gabriela",
+    "services": [
+      "Ламиниране"
+    ],
+    "description": "Направихме оформяне и фиксация за по-изчистена линия и пълнота. Веждите изглеждат подредени и меки едновременно.",
+    "review": "\"Ефектът е точно какъвто исках — естествен и елегантен.\"",
+    "beforeImage": "/assets/images/laminirane2.jpg",
+    "afterImage": "/assets/images/microblading4.jpg"
+  },
+  {
+    "id": "client-10",
+    "name": "Ива Стоянова",
+    "avatar": "https://i.pravatar.cc/150?u=iva",
+    "services": [
+      "Микроблейдинг",
+      "Освежаване"
+    ],
+    "description": "Освежихме предишна процедура и коригирахме дребни асиметрии за по-стегната и хармонична форма.",
+    "review": "\"Веждите ми стоят перфектно всеки ден без усилие.\"",
+    "beforeImage": "/assets/images/microblading1.jpg",
+    "afterImage": "/assets/images/microblading10.jpg"
   }
 ]
