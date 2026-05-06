@@ -8,7 +8,7 @@
 
         {# Badge pill #}
         {% if h.badge %}
-        <span class="hero-badge hero-badge--signature hidden md:inline-flex">by Valya Matovska</span>
+        <span class="hero-badge hero-badge--signature hidden md:inline-flex">{{ h.badge }}</span>
         {% endif %}
 
         {# Headline — MAK font #}
@@ -48,9 +48,12 @@
           <a
             href="{{ h.ctaPrimary.url }}"
             class="btn-primary min-w-0 flex-1"
+            {% if h.ctaPrimary.openBookingModal %}
             data-booking-open
             aria-haspopup="dialog"
             aria-controls="booking-modal"
+            {% endif %}
+            {% if h.ctaPrimary.external %}target="_blank" rel="noopener noreferrer"{% endif %}
           >
             {{ h.ctaPrimary.label }}
           </a>
@@ -89,9 +92,12 @@
         <a
           href="{{ h.ctaPrimary.url }}"
           class="btn-primary min-w-0 flex-1 px-4 py-2 text-sm"
+          {% if h.ctaPrimary.openBookingModal %}
           data-booking-open
           aria-haspopup="dialog"
           aria-controls="booking-modal"
+          {% endif %}
+          {% if h.ctaPrimary.external %}target="_blank" rel="noopener noreferrer"{% endif %}
         >
           {{ h.ctaPrimary.label }}
         </a>

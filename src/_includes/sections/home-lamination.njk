@@ -17,7 +17,7 @@
       </h2>
 
       {% if l.lead %}
-      <p class="mb-lead text-center mt-3">{{ l.lead }}</p>
+      <p class="mb-lead mb-lead--clamped text-center mt-3">{{ l.lead }}</p>
       {% endif %}
 
       {% if l.sub %}
@@ -133,7 +133,16 @@
       <h3 id="lam-info-modal-title" class="mb-info-modal__title">
         {{ l.sub.title }}
       </h3>
-      {% if l.sub.body %}
+      {% if l.sub.sections and l.sub.sections.length %}
+        {% for sec in l.sub.sections %}
+        <h4 class="mb-info-modal__subtitle text-base font-semibold text-[#2c1a0e]{% if not loop.first %} mt-4{% endif %}">{{ sec.heading }}</h4>
+        {% if sec.paragraphs and sec.paragraphs.length %}
+          {% for p in sec.paragraphs %}
+          <p class="mb-info-modal__text mt-2">{{ p }}</p>
+          {% endfor %}
+        {% endif %}
+        {% endfor %}
+      {% elif l.sub.body %}
       <p class="mb-info-modal__text">
         {{ l.sub.body }}
       </p>
@@ -454,5 +463,6 @@
         }
       });
     }
+
   })();
 </script>

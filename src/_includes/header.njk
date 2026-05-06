@@ -1,4 +1,4 @@
-{% set headerCta = home.hero.ctaPrimary if home and home.hero and home.hero.ctaPrimary else { "label": "Запази час", "url": "#contact" } %}
+{% set headerCta = home.hero.ctaPrimary if home and home.hero and home.hero.ctaPrimary else { "label": "Запази час", "url": "https://s24.bg/m/3844", "openBookingModal": false, "external": true } %}
 <header class="sticky top-4 z-50">
   <div class="container-custom">
     <div class="site-header-surface js-header-surface">
@@ -44,9 +44,12 @@
       <a
         href="{{ headerCta.url }}"
         class="header-book-cta hidden md:inline-flex"
+        {% if headerCta.openBookingModal %}
         data-booking-open
         aria-haspopup="dialog"
         aria-controls="booking-modal"
+        {% endif %}
+        {% if headerCta.external %}target="_blank" rel="noopener noreferrer"{% endif %}
       >{{ headerCta.label }}</a>
 
     </div>
@@ -84,9 +87,12 @@
       <a
         href="{{ headerCta.url }}"
         class="mobile-menu-link mobile-menu-link--cta"
+        {% if headerCta.openBookingModal %}
         data-booking-open
         aria-haspopup="dialog"
         aria-controls="booking-modal"
+        {% endif %}
+        {% if headerCta.external %}target="_blank" rel="noopener noreferrer"{% endif %}
       >{{ headerCta.label }}</a>
     </nav>
   </div>

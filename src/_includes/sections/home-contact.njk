@@ -12,40 +12,55 @@
 
     <div class="contact-min-grid">
       <div class="contact-min-card">
-        <h3 class="contact-min-title">Директен контакт</h3>
+        {% if c.addresses and c.addresses.length %}
+        <h3 class="contact-min-title">Адреси</h3>
+        <ul class="mb-4 list-none space-y-1.5 text-[#5a483e]">
+          {% for line in c.addresses %}
+          <li>{{ line }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+
+        <h3 class="contact-min-title{% if not (c.addresses and c.addresses.length) %} mt-0{% endif %}">Директен контакт</h3>
         <div class="contact-min-links">
-          <a class="contact-min-link" href="tel:{{ c.phoneHref | default('+359881234567') }}">
-            Телефон: {{ c.phoneLabel | default('+359 88 123 4567') }}
+          <a class="contact-min-link" href="tel:{{ c.phoneHref | default('+359887621922') }}">
+            Телефон: {{ c.phoneLabel | default('0887 621 922') }}
           </a>
-          <a class="contact-min-link" href="mailto:{{ c.email | default('hello@valeto.bg') }}">
-            Имейл: {{ c.email | default('hello@valeto.bg') }}
+          <a class="contact-min-link" href="mailto:{{ c.email | default('phibrowsvm@gmail.com') }}">
+            Имейл: {{ c.email | default('phibrowsvm@gmail.com') }}
           </a>
-          <a class="contact-min-link" href="{{ c.viber | default('viber://chat?number=%2B359881234567') }}" target="_blank" rel="noopener noreferrer">
+          <a class="contact-min-link" href="{{ c.viber | default('viber://chat?number=%2B359887621922') }}" target="_blank" rel="noopener noreferrer">
             Viber
           </a>
-          <a class="contact-min-link" href="{{ c.whatsapp | default('https://wa.me/359881234567') }}" target="_blank" rel="noopener noreferrer">
+          <a class="contact-min-link" href="{{ c.whatsapp | default('https://wa.me/359887621922') }}" target="_blank" rel="noopener noreferrer">
             WhatsApp
           </a>
         </div>
 
         <h3 class="contact-min-title mt-6">Социални мрежи</h3>
         <div class="contact-min-socials">
-          <a class="contact-min-pill" href="{{ c.instagram | default('https://instagram.com/') }}" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a class="contact-min-pill" href="{{ c.tiktok | default('https://www.tiktok.com/') }}" target="_blank" rel="noopener noreferrer">TikTok</a>
-          <a class="contact-min-pill" href="{{ c.facebook | default('https://facebook.com/') }}" target="_blank" rel="noopener noreferrer">Facebook</a>
+          {% if c.instagram %}
+          <a class="contact-min-pill" href="{{ c.instagram }}" target="_blank" rel="noopener noreferrer">Instagram @phibrows_valyamatovska</a>
+          {% endif %}
+          {% if c.facebook %}
+          <a class="contact-min-pill" href="{{ c.facebook }}" target="_blank" rel="noopener noreferrer">Facebook</a>
+          {% endif %}
+          {% if c.tiktok %}
+          <a class="contact-min-pill" href="{{ c.tiktok }}" target="_blank" rel="noopener noreferrer">TikTok</a>
+          {% endif %}
         </div>
       </div>
 
       <div class="contact-min-map">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.3479159986296!2d24.730111076962526!3d42.142841171213796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd1c92fd1e2dd%3A0xadf75277a3ce827b!2z0LYu0LouINCc0LvQsNC00LXQttC60Lgg0YXRitC70LzQoNCw0LnQvtC9INCm0LXQvdGC0YDQsNC70LXQvSwg0LHRg9C7LiDigJ7QktCw0YHQuNC7INCQ0L_RgNC40LvQvtCy4oCcIDQ5LCA0MDAyINCf0LvQvtCy0LTQuNCy!5e0!3m2!1sbg!2sbg!4v1777269644869!5m2!1sbg!2sbg"
+          src="{{ c.mapEmbedUrl | default('https://maps.google.com/maps?q=%D1%83%D0%BB.%20%D0%91%D0%BE%D1%80%D0%B8%D1%81%20%D0%A1%D0%B0%D1%80%D0%B0%D1%84%D0%BE%D0%B2%2011%2C%20%D0%9F%D0%BB%D0%BE%D0%B2%D0%B4%D0%B8%D0%B2%2C%20%D0%91%D1%8A%D0%BB%D0%B3%D0%B0%D1%80%D0%B8%D1%8F&output=embed') }}"
           width="600"
           height="450"
           style="border:0;"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="Локация в Google Maps"
+          title="Локация в Google Maps — Пловдив"
         ></iframe>
       </div>
     </div>

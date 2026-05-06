@@ -1,8 +1,8 @@
 {
   "brand": {
-    "name": "Valeto",
+    "name": "Brows and lashes ValyaMatovska",
     "logo": "/assets/images/logo.png",
-    "logoAlt": "Valeto",
+    "logoAlt": "Brows and lashes ValyaMatovska",
     "language": "bg"
   },
   "colors": {
@@ -12,8 +12,8 @@
   },
   "seo": {
     "siteUrl": "https://example.com",
-    "defaultTitle": "Valeto",
-    "defaultDescription": "Микроблейдинг и ламиниране в Пловдив.",
+    "defaultTitle": "Brows and lashes ValyaMatovska — микроблейдинг и ламиниране",
+    "defaultDescription": "PhiBrows микроблейдинг, ламиниране на вежди и мигли в Пловдив и Асеновград. Естествени, балансирани резултати.",
     "twitterCard": "summary_large_image"
   },
   "nav": {

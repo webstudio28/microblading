@@ -1,4 +1,5 @@
-{% set procedureSteps = [
+{% set proc = home.procedure if home and home.procedure else {} %}
+{% set procedureSteps = proc.steps if proc.steps and proc.steps.length else [
   {
     "number": "01",
     "title": "Консултация",
@@ -20,8 +21,8 @@
   <div class="mb-steps" data-procedure-steps>
     <div class="container-custom">
       <header class="mb-header text-center mx-auto mb-6">
-        <span class="mb-eyebrow justify-center">Внимание към детайла</span>
-        <h2 class="mb-title text-center mt-2">Какво да очакваш</h2>
+        <span class="mb-eyebrow justify-center">{{ proc.eyebrow | default("Внимание към детайла") }}</span>
+        <h2 class="mb-title text-center mt-2">{{ proc.title | default("Какво да очакваш") }}</h2>
       </header>
       
     </div>

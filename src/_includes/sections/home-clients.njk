@@ -1,3 +1,4 @@
+{% set cs = home.clientsSection if home and home.clientsSection else {} %}
 <section
   id="clients"
   class="mb-section clients-section scroll-mt-20 section-padding"
@@ -10,7 +11,7 @@
         Моите клиенти
       </h2>
       <p class="site-lead mt-3 text-center opacity-80">
-        Усмивките и увереността, които постигнахме заедно. Разгледайте историите и трансформациите на моите клиенти.
+        {{ cs.lead | default("Усмивките и увереността, които постигнахме заедно. Разгледайте историите и трансформациите на моите клиенти.") }}
       </p>
     </header>
   </div>
@@ -134,6 +135,12 @@
         </div>
       </div>
     </div>
+  </div>
+  {% else %}
+  <div class="container-custom">
+    <p class="mx-auto max-w-2xl text-center text-[#5a483e]">
+      {{ cs.emptyNote | default("Скоро тук ще има реални истории и снимки от клиенти.") }}
+    </p>
   </div>
   {% endif %}
 
