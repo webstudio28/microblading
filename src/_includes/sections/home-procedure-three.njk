@@ -1,0 +1,29 @@
+{# Same markup/classes as home-procedure; content from _data/procedureThreeCards.json (3 steps). Drag-scroll is wired once by home-procedure.njk on all [data-procedure-steps]. #}
+{% set proc3 = procedureThreeCards if procedureThreeCards else {} %}
+{% set procedureSteps = proc3.steps if proc3.steps and proc3.steps.length else [] %}
+{% if procedureSteps.length %}
+<section class="home-procedure section-padding relative bg-white/70 overflow-hidden" id="procedure-three">
+  <div class="mb-steps" data-procedure-steps>
+    <div class="container-custom">
+      <header class="mb-header text-center mx-auto mb-6">
+        <span class="mb-eyebrow justify-center">{{ proc3.eyebrow | default("Процес") }}</span>
+        <h2 class="mb-title text-center mt-2">{{ proc3.title | default("Какво да очакваш") }}</h2>
+      </header>
+    </div>
+
+    <div class="mb-steps__viewport" data-procedure-steps-viewport>
+      <ol class="mb-steps__list">
+        {% for step in procedureSteps %}
+        <li class="mb-step">
+          <span class="mb-step__num" aria-hidden="true">{{ step.number }}</span>
+          <div class="mb-step__body">
+            <h3 class="mb-step__title">{{ step.title }}</h3>
+            <p class="mb-step__desc">{{ step.description }}</p>
+          </div>
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
+</section>
+{% endif %}
