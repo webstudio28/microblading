@@ -71,8 +71,7 @@
           </div>
 
           <div class="client-card__body">
-            <div class="flex items-center gap-3 mb-3">
-              <img src="{{ client.avatar }}" alt="{{ client.name }}" class="w-10 h-10 rounded-full object-cover shadow-sm bg-white border border-[#2c1a0e]/10">
+            <div class="mb-3">
               <div>
                 <h3 class="font-sans text-[11px] font-bold text-[#2c1a0e] uppercase tracking-[0.1em] leading-tight">{{ client.name }}</h3>
                 <div class="mt-1.5 flex flex-wrap gap-1.5">
@@ -111,8 +110,7 @@
             </div>
           </div>
           <div class="client-card__body">
-            <div class="flex items-center gap-3 mb-3">
-              <img src="{{ client.avatar }}" alt="" class="w-10 h-10 rounded-full object-cover shadow-sm bg-white border border-[#2c1a0e]/10">
+            <div class="mb-3">
               <div>
                 <h3 class="font-sans text-[11px] font-bold text-[#2c1a0e] uppercase tracking-[0.1em] leading-tight">{{ client.name }}</h3>
                 <div class="mt-1.5 flex flex-wrap gap-1.5">
@@ -194,8 +192,7 @@
 
         <!-- Right: Text Content -->
         <div class="client-modal__text md:w-2/5 p-6 pt-14 md:p-8 flex flex-col bg-white">
-          <div class="flex items-center gap-4 mb-6 pb-6">
-            <img id="client-modal-avatar" src="" class="w-16 h-16 rounded-full object-cover shadow-sm bg-white">
+          <div class="mb-6 pb-6">
             <div>
               <h3 id="client-modal-name" class="font-mak text-2xl text-[#2c1a0e] leading-tight mb-1">Име</h3>
               <div id="client-modal-service" class="flex flex-wrap gap-1.5 mt-2"></div>
@@ -394,7 +391,6 @@
       var domName = document.getElementById("client-modal-name");
       var domService = document.getElementById("client-modal-service");
       var domDesc = document.getElementById("client-modal-desc");
-      var domAvatar = document.getElementById("client-modal-avatar");
       var domBefore = document.getElementById("client-modal-before");
       var domAfter = document.getElementById("client-modal-after");
 
@@ -445,7 +441,6 @@
         domService.innerHTML = servicesHtml;
         
         domDesc.textContent = client.description;
-        domAvatar.src = client.avatar;
         domBefore.src = client.beforeImage;
         domAfter.src = client.afterImage;
 

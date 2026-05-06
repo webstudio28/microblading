@@ -56,12 +56,6 @@
         {{ a.body | default("") }}
       </p>
 
-      {% if a.body2 %}
-      <p class="mb-lead mt-4 max-w-none text-white/90">
-        {{ a.body2 }}
-      </p>
-      {% endif %}
-
       {% if a.cta %}
       <div class="mt-7 flex w-full justify-center">
         <button
@@ -99,9 +93,6 @@
       <h3 id="about-info-modal-title" class="mb-info-modal__title">
         {{ a.title | default("За мен") }}
       </h3>
-      <p class="mb-info-modal__text text-[1.02rem] leading-[1.72]">
-        {{ a.body | default("") }}
-      </p>
       {% if a.body2 %}
       <p class="mb-info-modal__text text-[1.02rem] leading-[1.72]">
         {{ a.body2 }}
