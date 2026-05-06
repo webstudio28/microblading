@@ -421,7 +421,7 @@
   .booking-modal {
     position: fixed;
     inset: 0;
-    z-index: 90;
+    z-index: 1200;
     display: grid;
     place-items: center;
     padding: 1.25rem;
@@ -763,6 +763,8 @@
   }
   /* Gallery modal is fixed inside this section; isolation traps z-index below the site header.
      Drop isolation only while the modal is open so the backdrop can cover the header. */
+  .mb-section:has(#mb-info-modal:not([hidden])),
+  .mb-section:has(#lam-info-modal:not([hidden])),
   .mb-section:has(#mb-gallery-modal:not([hidden])),
   .mb-section:has(#lam-gallery-modal:not([hidden])),
   .mb-section:has(#client-detail-modal[aria-hidden="false"]) {
@@ -1364,7 +1366,7 @@
   .mb-info-modal {
     position: fixed;
     inset: 0;
-    z-index: 100;
+    z-index: 1300;
     display: grid;
     place-items: center;
     padding: 1.2rem;
@@ -1444,7 +1446,7 @@
   .mb-gallery-modal {
     position: fixed;
     inset: 0;
-    z-index: 200;
+    z-index: 1400;
     display: grid;
     place-items: center;
     padding: 1rem;
@@ -1709,7 +1711,7 @@
   .client-modal {
     position: fixed;
     inset: 0;
-    z-index: 150;
+    z-index: 1300;
     display: grid;
     place-items: center;
     padding: 1rem;
@@ -1783,7 +1785,7 @@
   .clients-lightbox {
     position: fixed;
     inset: 0;
-    z-index: 250;
+    z-index: 1500;
     display: grid;
     place-items: center;
     padding: 1rem;
@@ -1830,8 +1832,70 @@
     border-radius: 0.5rem;
     box-shadow: 0 20px 50px rgba(0,0,0,0.5);
   }
+
+  @keyframes modal-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes modal-panel-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.985);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .mb-info-modal:not([hidden]),
+  .mb-gallery-modal:not([hidden]),
+  .booking-modal:not([hidden]),
+  .client-modal[aria-hidden="false"],
+  .clients-lightbox[aria-hidden="false"] {
+    animation: modal-fade-in 220ms ease-out;
+  }
+
+  .mb-info-modal:not([hidden]) .mb-info-modal__backdrop,
+  .mb-gallery-modal:not([hidden]) .mb-gallery-modal__backdrop,
+  .booking-modal:not([hidden]) .booking-modal__backdrop,
+  .client-modal[aria-hidden="false"] .client-modal__backdrop,
+  .clients-lightbox[aria-hidden="false"] .clients-lightbox__backdrop {
+    animation: modal-fade-in 240ms ease-out;
+  }
+
+  .mb-info-modal:not([hidden]) .mb-info-modal__panel,
+  .mb-gallery-modal:not([hidden]) .mb-gallery-modal__panel,
+  .booking-modal:not([hidden]) .booking-modal__panel,
+  .client-modal[aria-hidden="false"] .client-modal__panel,
+  .clients-lightbox[aria-hidden="false"] .clients-lightbox__img {
+    animation: modal-panel-in 240ms cubic-bezier(.22,.61,.36,1);
+  }
 }
 
 body.modal-open {
   overflow: hidden;
+}
+
+/* Hide visible scrollbars inside all modal surfaces (scroll still works). */
+.mb-info-modal,
+.mb-info-modal__panel,
+.mb-gallery-modal,
+.booking-modal,
+.booking-modal__panel,
+.client-modal,
+.client-modal__panel {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.mb-info-modal::-webkit-scrollbar,
+.mb-info-modal__panel::-webkit-scrollbar,
+.mb-gallery-modal::-webkit-scrollbar,
+.booking-modal::-webkit-scrollbar,
+.booking-modal__panel::-webkit-scrollbar,
+.client-modal::-webkit-scrollbar,
+.client-modal__panel::-webkit-scrollbar {
+  display: none;
 }
