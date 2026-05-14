@@ -1,8 +1,8 @@
-{# Same markup/classes as home-procedure; content from _data/procedureThreeCards.json (3 steps). Drag-scroll is wired once by home-procedure.njk on all [data-procedure-steps]. #}
+{# Content from _data/procedureThreeCards.json (3 steps). #}
 {% set proc3 = procedureThreeCards if procedureThreeCards else {} %}
 {% set procedureSteps = proc3.steps if proc3.steps and proc3.steps.length else [] %}
 {% if procedureSteps.length %}
-<section class="home-procedure section-padding relative bg-white/70 overflow-hidden" id="procedure-three">
+<section class="home-procedure section-padding relative bg-white/70 overflow-hidden" id="procedure">
   <div class="mb-steps" data-procedure-steps>
     <div class="container-custom">
       <header class="mb-header text-center mx-auto mb-6">
@@ -26,4 +26,40 @@
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("[data-procedure-steps]").forEach(function (root) {
+      var viewport = root.querySelector("[data-procedure-steps-viewport]");
+      if (!viewport) return;
+      if (!window.matchMedia("(max-width: 1023px)").matches) return;
+
+      var isDown = false;
+      var startX;
+      var scrollLeft;
+
+      viewport.addEventListener("mousedown", function(e) {
+        isDown = true;
+        viewport.classList.add("is-dragging");
+        startX = e.pageX - viewport.offsetLeft;
+        scrollLeft = viewport.scrollLeft;
+      });
+      viewport.addEventListener("mouseleave", function() {
+        isDown = false;
+        viewport.classList.remove("is-dragging");
+      });
+      viewport.addEventListener("mouseup", function() {
+        isDown = false;
+        viewport.classList.remove("is-dragging");
+      });
+      viewport.addEventListener("mousemove", function(e) {
+        if (!isDown) return;
+        e.preventDefault();
+        var x = e.pageX - viewport.offsetLeft;
+        var walk = (x - startX) * 2;
+        viewport.scrollLeft = scrollLeft - walk;
+      });
+    });
+  });
+</script>
 {% endif %}
