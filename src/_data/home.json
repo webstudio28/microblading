@@ -71,11 +71,11 @@
     "viber": "viber://chat?number=%2B359887621922",
     "whatsapp": "https://wa.me/359887621922",
     "instagram": "https://www.instagram.com/phibrows_valyamatovska/",
+    "lead": "Запази час онлайн или ми пиши — ще ти отговоря възможно най-скоро.",
     "addresses": [
-      "Гр. Пловдив, ул. „Борис Сарафов“ 11",
-      "Гр. Асеновград, ул. „Христо Ботев“ 3"
-    ],
-    "mapEmbedUrl": "https://maps.google.com/maps?q=%D1%83%D0%BB.%20%D0%91%D0%BE%D1%80%D0%B8%D1%81%20%D0%A1%D0%B0%D1%80%D0%B0%D1%84%D0%BE%D0%B2%2011%2C%20%D0%9F%D0%BB%D0%BE%D0%B2%D0%B4%D0%B8%D0%B2%2C%20%D0%91%D1%8A%D0%BB%D0%B3%D0%B0%D1%80%D0%B8%D1%8F&output=embed"
+      { "title": "Пловдив", "line": "Гр. Пловдив, ул. „Борис Сарафов“ 11" },
+      { "title": "Асеновград", "line": "Гр. Асеновград, ул. „Христо Ботев“ 3" }
+    ]
   },
   "clientsSection": {
     "emptyNote": "Реални клиентски истории и снимки се добавят поетапно. Следете Instagram @phibrows_valyamatovska за актуални резултати."
