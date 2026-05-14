@@ -11,31 +11,22 @@
       <h2 id="faq-heading" class="mb-title mt-2 text-center">
         {{ f.title | default("Често задавани въпроси") }}
       </h2>
-      {% if f.intro %}
-      <p class="site-lead mx-auto mt-4 max-w-2xl text-center text-muted">
-        {{ f.intro }}
-      </p>
-      {% endif %}
     </header>
 
     {% if items and items.length %}
-    <div class="faq-stack mx-auto w-full max-w-3xl" data-faq-accordion>
+    <div class="faq-stack w-full" data-faq-accordion>
       {% for item in items %}
       <details class="faq-details" name="home-faq">
         <summary class="faq-details__summary">
-          <span class="faq-details__badge faq-details__badge--question">ВЪПРОС</span>
-          <span class="faq-details__summary-main">
-            <span class="faq-details__question">{{ item.question }}</span>
-            <span class="faq-details__chevron" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="faq-details__chevron-svg">
-                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
+          <span class="faq-details__question">{{ item.question }}</span>
+          <span class="faq-details__chevron" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="faq-details__chevron-svg">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </span>
         </summary>
         <div class="faq-details__content">
           <div class="faq-details__inner">
-            <span class="faq-details__badge faq-details__badge--answer">ОТГОВОР</span>
             <p class="faq-details__answer">{{ item.answer }}</p>
           </div>
         </div>
