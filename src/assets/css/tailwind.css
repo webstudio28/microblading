@@ -1329,6 +1329,180 @@
     min-height: 20rem;
   }
 
+  /* ─────────────────────────────────────────────────────────────
+     FAQ — carousel-inspired pills (ВЪПРОС / ОТГОВОР), cream cards
+     ───────────────────────────────────────────────────────────── */
+  .faq-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .faq-details {
+    position: relative;
+    border-radius: 1.35rem;
+    border: 1px solid rgba(193, 163, 138, 0.38);
+    background: #faf9f6;
+    box-shadow:
+      0 10px 28px rgba(44, 26, 14, 0.07),
+      0 1px 0 rgba(255, 255, 255, 0.85) inset;
+    overflow: hidden;
+    transition: border-color 220ms ease, box-shadow 220ms ease;
+  }
+
+  .faq-details[open] {
+    border-color: rgba(173, 143, 121, 0.55);
+    box-shadow:
+      0 14px 34px rgba(44, 26, 14, 0.1),
+      0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  }
+
+  .faq-details__summary {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.85rem 1.15rem 1.05rem;
+    cursor: pointer;
+    color: var(--color-ink);
+    font-family: var(--font-site-sans);
+    text-align: left;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 180ms ease;
+  }
+
+  .faq-details__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-details__summary::marker {
+    content: "";
+    display: none;
+  }
+
+  .faq-details__summary:hover {
+    background: rgba(255, 255, 255, 0.45);
+  }
+
+  .faq-details__summary:focus {
+    outline: none;
+  }
+
+  .faq-details__summary:focus-visible {
+    outline: 2px solid var(--color-brand-accent);
+    outline-offset: -2px;
+  }
+
+  .faq-details__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 0.38rem 0.85rem;
+    border-radius: 0.5rem;
+  }
+
+  .faq-details__badge--question {
+    background: linear-gradient(180deg, #b89782 0%, #a38470 100%);
+    color: #fffdf9;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.22) inset,
+      0 2px 6px rgba(44, 26, 14, 0.12);
+  }
+
+  .faq-details__badge--answer {
+    align-self: flex-start;
+    margin-bottom: 0.05rem;
+    background: linear-gradient(180deg, #ebe3d6 0%, #e0d4c4 100%);
+    color: var(--color-ink);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.65) inset;
+  }
+
+  .faq-details__summary-main {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .faq-details__question {
+    flex: 1;
+    min-width: 0;
+    font-weight: 500;
+    font-size: clamp(0.94rem, 2.8vw, 1.04rem);
+    line-height: 1.45;
+  }
+
+  .faq-details__chevron {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: rgba(122, 101, 88, 0.88);
+    transition: transform 0.42s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .faq-details__chevron-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .faq-details[open] .faq-details__chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-details__content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.42s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .faq-details[open] .faq-details__content {
+    grid-template-rows: 1fr;
+  }
+
+  .faq-details__inner {
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 1.15rem 1.15rem;
+  }
+
+  .faq-details[open] .faq-details__inner {
+    border-top: 1px solid rgba(201, 169, 138, 0.22);
+    padding-top: 0.85rem;
+  }
+
+  .faq-details__answer {
+    margin: 0;
+    padding: 0.15rem 0 0;
+    color: var(--color-muted);
+    font-size: 0.97rem;
+    line-height: 1.68;
+    font-weight: 400;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .faq-details__content {
+      transition-duration: 1ms;
+    }
+
+    .faq-details__chevron {
+      transition-duration: 1ms;
+    }
+  }
+
   @media (min-width: 1024px) {
     .contact-min-grid {
       grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -1631,21 +1805,18 @@
   .clients-strip {
     display: flex;
     width: max-content;
-    gap: 1.25rem;
+    gap: 2.25rem;
     overflow-x: hidden;
     overflow-y: hidden;
-    padding: 0.5rem 0 3rem 0;
+    padding: 0.5rem 0 4.25rem 0;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    touch-action: pan-y;
+    touch-action: pan-x;
     user-select: none;
     -webkit-user-select: none;
     cursor: default;
   }
   .clients-strip:hover {
-    cursor: grab;
-  }
-  .clients-strip:hover * {
     cursor: grab;
   }
   .clients-strip.is-dragging,
@@ -1655,209 +1826,289 @@
   .clients-strip-set {
     display: flex;
     flex-shrink: 0;
-    gap: 1.25rem;
+    gap: 2.25rem;
   }
+
+  /* ─────────────────────────────────────────────────────────────
+     Testimonials (Raboteriya-style strip + line-clamp + read modal)
+     ───────────────────────────────────────────────────────────── */
+  .testimonials-strip-wrapper {
+    overflow: hidden;
+    width: 100%;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+  }
+
+  .testimonials-strip {
+    display: flex;
+    width: max-content;
+    gap: 1.25rem;
+    padding: 0.35rem 0 3.5rem;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: pan-x;
+  }
+
+  .testimonials-strip-set {
+    display: flex;
+    flex-shrink: 0;
+    gap: 1.25rem;
+    padding-left: 0.75rem;
+  }
+
+  .testimonial-card {
+    flex: 0 0 clamp(16.5rem, 78vw, 22rem);
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    padding: 1.35rem 1.35rem 1.15rem;
+    border-radius: 1.1rem;
+    background: rgba(255, 252, 248, 0.92);
+    border: 1px solid rgba(44, 26, 14, 0.1);
+    box-shadow: 0 12px 28px rgba(44, 26, 14, 0.06);
+  }
+
+  .testimonial-card__stars {
+    display: flex;
+    gap: 0.12rem;
+    margin-bottom: 0.65rem;
+    font-size: 0.85rem;
+    line-height: 1;
+    color: #c9a98a;
+    letter-spacing: 0.02em;
+  }
+
+  .testimonial-card__quote {
+    margin: 0;
+    flex: 1 1 auto;
+    min-height: 0;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: #2c1a0e;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10;
+    overflow: hidden;
+    white-space: pre-line;
+  }
+
+  .testimonial-card__expand {
+    margin-top: 0.55rem;
+    align-self: flex-start;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #7a6558;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  .testimonial-card__expand:hover {
+    color: #2c1a0e;
+  }
+
+  .testimonial-card__name {
+    margin: 0.85rem 0 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(44, 26, 14, 0.72);
+  }
+
+  .testimonial-modal {
+    position: fixed;
+    inset: 0;
+    /* Body-level overlay: above .relative.z-10 (header, mobile menu) and above booking (1200). */
+    z-index: 5000;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    overflow-y: auto;
+  }
+
+  .testimonial-modal[hidden] {
+    display: none !important;
+  }
+
+  .testimonial-modal__backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(33, 20, 12, 0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .testimonial-modal__panel {
+    position: relative;
+    z-index: 1;
+    width: min(34rem, 100%);
+    max-height: min(78vh, 36rem);
+    overflow-y: auto;
+    padding: 1.75rem 1.5rem 1.5rem;
+    border-radius: 1.15rem;
+    background: #fffdf9;
+    border: 1px solid rgba(44, 26, 14, 0.1);
+    box-shadow: 0 22px 50px rgba(22, 12, 6, 0.18);
+    outline: none;
+  }
+
+  .testimonial-modal__close {
+    position: absolute;
+    top: 0.55rem;
+    right: 0.55rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: grid;
+    place-items: center;
+    border: none;
+    border-radius: 999px;
+    background: rgba(44, 26, 14, 0.06);
+    color: #2c1a0e;
+    font-size: 1.35rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .testimonial-modal__close:hover {
+    background: rgba(44, 26, 14, 0.12);
+  }
+
+  .testimonial-modal__name {
+    margin: 0 2.25rem 0.75rem 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #2c1a0e;
+    letter-spacing: 0.02em;
+  }
+
+  .testimonial-modal__quote {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: #3d2a1f;
+    white-space: pre-line;
+  }
+
   .clients-strip::-webkit-scrollbar {
     display: none;
   }
   @media (min-width: 768px) {
     .clients-strip {
-      padding-bottom: 3.5rem;
+      padding-bottom: 4.25rem;
     }
   }
 
   .client-card {
-    flex: 0 0 16rem;
-    border-radius: 1.2rem;
-    background: #fff;
-    border: 1px solid rgba(44, 26, 14, 0.08);
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(44, 26, 14, 0.04);
+    flex: 0 0 clamp(15.75rem, 52vw, 18.25rem);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     cursor: default;
-    transition: transform 250ms ease, box-shadow 250ms ease;
     outline: none;
-  }
-  .client-card:hover, .client-card:focus-visible {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 35px rgba(44, 26, 14, 0.08);
-    border-color: rgba(201, 169, 138, 0.4);
   }
 
   .client-card__visual {
-    position: relative;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    aspect-ratio: 4/5;
+    aspect-ratio: 2 / 3.35;
     overflow: hidden;
     background: #f0e9df;
+    border-radius: 1.2rem;
+    border: 1px solid rgba(44, 26, 14, 0.08);
+    box-shadow: 0 10px 25px rgba(44, 26, 14, 0.04);
+  }
+  @media (min-width: 768px) {
+    .client-card__visual {
+      aspect-ratio: 4 / 5;
+    }
+  }
+
+  .client-card__half {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .client-card__half::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 4.25rem;
+    height: 2.75rem;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(
+      ellipse 120% 100% at 0% 100%,
+      rgba(12, 8, 5, 0.62) 0%,
+      rgba(12, 8, 5, 0.22) 52%,
+      transparent 78%
+    );
   }
 
   .client-card__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 500ms ease;
-  }
-  .client-card:hover .client-card__img {
-    transform: scale(1.05);
+    display: block;
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
   }
 
-  .client-card__overlay {
+  .client-card__label {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(20, 12, 8, 0.7) 0%, transparent 60%);
-    opacity: 1;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding-bottom: 1.5rem;
-  }
-
-  .client-card__btn {
-    background: rgba(255, 255, 255, 0.9);
-    color: #2c1a0e;
-    font-size: 0.8rem;
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    border: 0;
-    cursor: pointer;
-    border-radius: 9999px;
-    backdrop-filter: blur(4px);
-    transition: background 250ms ease;
-  }
-  .client-card:hover .client-card__btn,
-  .client-card:focus-visible .client-card__btn {
-    background: #fff;
-  }
-
-  .client-card__body {
-    padding: 1.1rem;
-    border-top: 1px solid rgba(44, 26, 14, 0.05);
-  }
-
-  /* Client Modal Layout */
-  .client-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 1300;
-    display: grid;
-    place-items: center;
-    padding: 1rem;
-    overflow-y: auto;
-  }
-  @media (min-width: 768px) {
-    .client-modal {
-      padding: 2rem;
-    }
-  }
-
-  .client-modal[hidden] {
-    display: none !important;
-  }
-
-  .client-modal__backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(33, 20, 12, 0.75);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
-
-  .client-modal__panel {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    margin: auto 0;
-    max-height: 90vh;
-    background: #fff;
-    border-radius: 1.5rem;
-    box-shadow: 0 25px 60px rgba(20, 10, 5, 0.3);
-    overflow-x: hidden;
-    overflow-y: auto;
-    outline: none;
-  }
-  @media (min-width: 768px) {
-    .client-modal__panel {
-      width: min(100%, 65rem);
-      margin: 0;
-      height: 38rem;
-    }
-  }
-
-  .client-modal__close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 50;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.85);
-    color: #2c1a0e;
-    font-size: 1.7rem;
-    line-height: 1;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transition: transform 200ms ease, background 200ms ease;
-    backdrop-filter: blur(4px);
-  }
-  .client-modal__close:hover {
-    transform: scale(1.05);
-    background: #fff;
-  }
-
-  .clients-lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 1500;
-    display: grid;
-    place-items: center;
-    padding: 1rem;
-  }
-  .clients-lightbox[style*="display: none"] {
-    display: none !important;
-  }
-  .clients-lightbox__backdrop {
-    position: absolute;
-    inset: 0;
-    background: rgba(10, 5, 2, 0.9);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-  .clients-lightbox__close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 50;
-    width: 3rem;
-    height: 3rem;
-    background: rgba(255, 255, 255, 0.1);
+    bottom: 0.55rem;
+    left: 0.55rem;
+    z-index: 2;
+    font-size: 0.6rem;
+    font-weight: 700;
     color: #fff;
-    border-radius: 9999px;
-    font-size: 2rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
     line-height: 1;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 200ms, transform 200ms;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
   }
-  .clients-lightbox__close:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
+
+  .client-card__btn-below {
+    display: none;
   }
-  .clients-lightbox__img {
-    position: relative;
-    z-index: 10;
-    max-width: 100%;
-    max-height: 90vh;
-    object-fit: contain;
-    border-radius: 0.5rem;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+
+  .client-card__procedure {
+    margin: 0.75rem 0 0;
+    padding: 0 0.15rem;
+    text-align: center;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    line-height: 1.5;
+    color: rgba(44, 26, 14, 0.48);
+  }
+
+  .client-card__procedure-sep {
+    display: inline-block;
+    margin: 0 0.35rem;
+    font-weight: 500;
+    opacity: 0.4;
   }
 
   @keyframes modal-fade-in {
@@ -1879,24 +2130,21 @@
   .mb-info-modal:not([hidden]),
   .mb-gallery-modal:not([hidden]),
   .booking-modal:not([hidden]),
-  .client-modal[aria-hidden="false"],
-  .clients-lightbox[aria-hidden="false"] {
+  .testimonial-modal:not([hidden]) {
     animation: modal-fade-in 220ms ease-out;
   }
 
   .mb-info-modal:not([hidden]) .mb-info-modal__backdrop,
   .mb-gallery-modal:not([hidden]) .mb-gallery-modal__backdrop,
   .booking-modal:not([hidden]) .booking-modal__backdrop,
-  .client-modal[aria-hidden="false"] .client-modal__backdrop,
-  .clients-lightbox[aria-hidden="false"] .clients-lightbox__backdrop {
+  .testimonial-modal:not([hidden]) .testimonial-modal__backdrop {
     animation: modal-fade-in 240ms ease-out;
   }
 
   .mb-info-modal:not([hidden]) .mb-info-modal__panel,
   .mb-gallery-modal:not([hidden]) .mb-gallery-modal__panel,
   .booking-modal:not([hidden]) .booking-modal__panel,
-  .client-modal[aria-hidden="false"] .client-modal__panel,
-  .clients-lightbox[aria-hidden="false"] .clients-lightbox__img {
+  .testimonial-modal:not([hidden]) .testimonial-modal__panel {
     animation: modal-panel-in 240ms cubic-bezier(.22,.61,.36,1);
   }
 }
@@ -1911,8 +2159,8 @@ body.modal-open {
 .mb-gallery-modal,
 .booking-modal,
 .booking-modal__panel,
-.client-modal,
-.client-modal__panel {
+.testimonial-modal,
+.testimonial-modal__panel {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -1922,7 +2170,7 @@ body.modal-open {
 .mb-gallery-modal::-webkit-scrollbar,
 .booking-modal::-webkit-scrollbar,
 .booking-modal__panel::-webkit-scrollbar,
-.client-modal::-webkit-scrollbar,
-.client-modal__panel::-webkit-scrollbar {
+.testimonial-modal::-webkit-scrollbar,
+.testimonial-modal__panel::-webkit-scrollbar {
   display: none;
 }

@@ -22,6 +22,8 @@
       { "label": "За мен",        "url": "#about",        "icon": "user" },
       { "label": "Микроблейдинг", "url": "#microblading", "icon": "sparkle" },
       { "label": "Ламиниране",    "url": "#laminating",   "icon": "leaf" },
+      { "label": "Отзиви",        "url": "#testimonials", "icon": "star" },
+      { "label": "Въпроси",       "url": "#faq",         "icon": "help" },
       { "label": "Контакти",      "url": "#contact",      "icon": "mail" }
     ]
   }

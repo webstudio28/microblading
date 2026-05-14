@@ -8,11 +8,13 @@
     <header class="mb-header text-center mx-auto mb-10">
       <span class="mb-eyebrow justify-center">Резултати</span>
       <h2 id="clients-heading" class="mb-title text-center mt-2">
-        Моите клиенти
+        Преди / След
       </h2>
+      {% if cs.lead %}
       <p class="site-lead mt-3 text-center opacity-80">
-        {{ cs.lead | default("Усмивките и увереността, които постигнахме заедно. Разгледайте историите и трансформациите на моите клиенти.") }}
+        {{ cs.lead }}
       </p>
+      {% endif %}
     </header>
   </div>
 
@@ -24,83 +26,67 @@
         <div class="clients-strip-set">
         {% for client in clients %}
         <div
-          class="client-card group"
+          class="client-card"
           data-client-id="{{ client.id }}"
         >
           <div class="client-card__visual">
-            <img src="{{ client.afterImage | url }}" alt="{{ client.name }} резултат" class="client-card__img" loading="lazy" decoding="async">
-
-            <div class="client-card__overlay">
-              <button
-                type="button"
-                class="client-card__btn border-0"
-                data-client-trigger
-                data-client-id="{{ client.id }}"
-                aria-label="Виж повече за {{ client.name }}"
-              >
-                Виж повече
-              </button>
+            <div class="client-card__half">
+              <img src="{{ client.beforeImage | url }}" alt="{{ client.name }} преди" class="client-card__img" loading="lazy" decoding="async" draggable="false">
+              <span class="client-card__label">Преди</span>
+            </div>
+            <div class="client-card__half">
+              <img src="{{ client.afterImage | url }}" alt="{{ client.name }} след" class="client-card__img" loading="lazy" decoding="async" draggable="false">
+              <span class="client-card__label">След</span>
             </div>
           </div>
-
-          <div class="client-card__body">
-            <div class="mb-3">
-              <div>
-                <h3 class="font-sans text-[11px] font-bold text-[#2c1a0e] uppercase tracking-[0.1em] leading-tight">{{ client.name }}</h3>
-                <div class="mt-1.5 flex flex-wrap gap-1.5">
-                  {% for svc in client.services %}
-                  <span class="inline-flex px-2 py-0.5 bg-[#2c1a0e]/5 text-[#a07850] text-[10px] font-semibold tracking-wide rounded-full border border-[#2c1a0e]/10">
-                    {{ svc }}
-                  </span>
-                  {% endfor %}
-                </div>
-              </div>
-            </div>
-            {% if client.review %}
-            <p class="text-xs text-[#7a6558] italic line-clamp-2 leading-relaxed">
-              {{ client.review }}
-            </p>
-            {% endif %}
-          </div>
+          <button
+            type="button"
+            class="client-card__btn-below"
+            data-client-trigger
+            data-client-id="{{ client.id }}"
+            aria-label="Виж повече за {{ client.name }}"
+          >
+            Виж повече
+          </button>
+          {% if client.services and client.services.length %}
+          <p class="client-card__procedure" aria-label="Процедура">
+            {% for svc in client.services %}
+            <span class="client-card__procedure-item">{{ svc }}</span>{% if not loop.last %}<span class="client-card__procedure-sep" aria-hidden="true">·</span>{% endif %}
+            {% endfor %}
+          </p>
+          {% endif %}
         </div>
         {% endfor %}
         </div>
         <div class="clients-strip-set" aria-hidden="true">
         {% for client in clients %}
-        <div class="client-card group" data-client-id="{{ client.id }}">
+        <div class="client-card" data-client-id="{{ client.id }}">
           <div class="client-card__visual">
-            <img src="{{ client.afterImage | url }}" alt="" class="client-card__img" loading="lazy" decoding="async">
-            <div class="client-card__overlay">
-              <button
-                type="button"
-                class="client-card__btn border-0"
-                data-client-trigger
-                data-client-id="{{ client.id }}"
-                aria-label="Виж повече за {{ client.name }}"
-              >
-                Виж повече
-              </button>
+            <div class="client-card__half">
+              <img src="{{ client.beforeImage | url }}" alt="" class="client-card__img" loading="lazy" decoding="async" draggable="false">
+              <span class="client-card__label">Преди</span>
+            </div>
+            <div class="client-card__half">
+              <img src="{{ client.afterImage | url }}" alt="" class="client-card__img" loading="lazy" decoding="async" draggable="false">
+              <span class="client-card__label">След</span>
             </div>
           </div>
-          <div class="client-card__body">
-            <div class="mb-3">
-              <div>
-                <h3 class="font-sans text-[11px] font-bold text-[#2c1a0e] uppercase tracking-[0.1em] leading-tight">{{ client.name }}</h3>
-                <div class="mt-1.5 flex flex-wrap gap-1.5">
-                  {% for svc in client.services %}
-                  <span class="inline-flex px-2 py-0.5 bg-[#2c1a0e]/5 text-[#a07850] text-[10px] font-semibold tracking-wide rounded-full border border-[#2c1a0e]/10">
-                    {{ svc }}
-                  </span>
-                  {% endfor %}
-                </div>
-              </div>
-            </div>
-            {% if client.review %}
-            <p class="text-xs text-[#7a6558] italic line-clamp-2 leading-relaxed">
-              {{ client.review }}
-            </p>
-            {% endif %}
-          </div>
+          <button
+            type="button"
+            class="client-card__btn-below"
+            data-client-trigger
+            data-client-id="{{ client.id }}"
+            aria-label="Виж повече за {{ client.name }}"
+          >
+            Виж повече
+          </button>
+          {% if client.services and client.services.length %}
+          <p class="client-card__procedure" aria-label="Процедура">
+            {% for svc in client.services %}
+            <span class="client-card__procedure-item">{{ svc }}</span>{% if not loop.last %}<span class="client-card__procedure-sep" aria-hidden="true">·</span>{% endif %}
+            {% endfor %}
+          </p>
+          {% endif %}
         </div>
         {% endfor %}
         </div>
@@ -115,83 +101,6 @@
   </div>
   {% endif %}
 
-  <!-- The Modal Template -->
-  <div
-    id="client-detail-modal"
-    class="client-modal"
-    role="dialog"
-    aria-modal="true"
-    aria-hidden="true"
-    aria-labelledby="client-modal-name"
-    style="display: none;"
-  >
-    <div class="client-modal__backdrop" data-client-close></div>
-    
-    <div class="client-modal__panel" role="document">
-      <button
-        type="button"
-        class="client-modal__close"
-        data-client-close
-        aria-label="Затвори"
-      >
-        &times;
-      </button>
-
-      <!-- Dynamically populated content -->
-      <div class="client-modal__content flex flex-col-reverse md:flex-row h-full md:items-stretch">
-        
-        <!-- Left: Image comparison (Bottom on mobile) -->
-        <div class="client-modal__visuals md:w-3/5 relative flex flex-col md:flex-row">
-          
-          <!-- Before Image -->
-          <div id="lightbox-trigger-before" class="relative w-full h-56 md:h-full md:flex-1 group cursor-zoom-in hover:opacity-95 transition-opacity">
-            <img id="client-modal-before" src="" class="w-full h-full object-cover block">
-            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4 pointer-events-none">
-              <span class="text-white text-xs font-medium uppercase tracking-widest bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm shadow-sm">Преди</span>
-            </div>
-          </div>
-          
-          <!-- Separator Line (desktop only, optional visual cue) -->
-          <div class="hidden md:block w-1 h-full bg-white/20 z-10 shrink-0"></div>
-
-          <!-- After Image -->
-          <div id="lightbox-trigger-after" class="relative w-full h-64 md:h-full md:flex-1 cursor-zoom-in hover:opacity-95 transition-opacity">
-            <img id="client-modal-after" src="" class="w-full h-full object-cover block">
-            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4 pointer-events-none">
-              <span class="text-white text-xs font-medium uppercase tracking-widest bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm shadow-sm">След</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Text Content -->
-        <div class="client-modal__text md:w-2/5 p-6 pt-14 md:p-8 flex flex-col bg-white">
-          <div class="mb-6 pb-6">
-            <div>
-              <h3 id="client-modal-name" class="font-mak text-2xl text-[#2c1a0e] leading-tight mb-1">Име</h3>
-              <div id="client-modal-service" class="flex flex-wrap gap-1.5 mt-2"></div>
-            </div>
-          </div>
-          
-          <div class="prose prose-sm prose-[#7a6558] max-w-none mb-8 pb-8">
-            <p id="client-modal-desc" class="text-base leading-relaxed text-[#5a483e]"></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Lightbox Modal -->
-  <div
-    id="clients-lightbox"
-    class="clients-lightbox"
-    role="dialog"
-    aria-modal="true"
-    aria-hidden="true"
-    style="display: none;"
-  >
-    <div class="clients-lightbox__backdrop" data-lightbox-close></div>
-    <button type="button" class="clients-lightbox__close" data-lightbox-close>&times;</button>
-    <img id="clients-lightbox-img" src="" class="clients-lightbox__img">
-  </div>
 </section>
 
 <!-- Injecting the JSON data into window object for quick JS access -->
@@ -276,6 +185,9 @@
     }
 
     function onDown(e) {
+      if (e.target.closest("[data-client-trigger]")) return;
+      if (typeof e.button === "number" && e.button !== 0) return;
+      if (e.cancelable) e.preventDefault();
       dragging = true;
       startX = getClientX(e);
       startPos = position;
@@ -301,6 +213,9 @@
       ensureSetMinWidth();
       refreshMeasurements();
       strip.style.willChange = "transform";
+      strip.addEventListener("dragstart", function (e) {
+        e.preventDefault();
+      });
       strip.addEventListener("mousedown", onDown);
       strip.addEventListener("touchstart", onDown, { passive: true });
       window.addEventListener("mousemove", onMove);
@@ -355,67 +270,85 @@
       updateArrows();
     }
 
-    // 3. Modal Logic
+    /*
+     * Client detail modal + lightbox removed from markup for now.
+     * Data stays in window.ValetoClientsData; "Виж повече" buttons are CSS-hidden.
+     * To restore: add #client-detail-modal + #clients-lightbox from git history and re-enable block below.
+     */
     var modal = document.getElementById("client-detail-modal");
-    var triggers = document.querySelectorAll("button[data-client-trigger]");
-    var closes = document.querySelectorAll("[data-client-close]");
-    
     if (modal && window.ValetoClientsData) {
+      var triggers = document.querySelectorAll("button[data-client-trigger]");
+      var closes = document.querySelectorAll("[data-client-close]");
       var domName = document.getElementById("client-modal-name");
-      var domService = document.getElementById("client-modal-service");
-      var domDesc = document.getElementById("client-modal-desc");
+      var domProcedure = document.getElementById("client-modal-procedure");
       var domBefore = document.getElementById("client-modal-before");
       var domAfter = document.getElementById("client-modal-after");
-
       var triggerBefore = document.getElementById("lightbox-trigger-before");
       var triggerAfter = document.getElementById("lightbox-trigger-after");
       var lightbox = document.getElementById("clients-lightbox");
       var lightboxImg = document.getElementById("clients-lightbox-img");
       var lightboxCloses = document.querySelectorAll("[data-lightbox-close]");
 
-      // Lightbox logic
       function openLightbox(src, altText) {
-        if (!src) return;
+        if (!lightbox || !lightboxImg || !src) return;
         lightboxImg.src = src;
         lightboxImg.alt = altText || "";
         lightbox.style.display = "grid";
         lightbox.setAttribute("aria-hidden", "false");
       }
       function closeLightbox() {
+        if (!lightbox || !lightboxImg) return;
         lightbox.style.display = "none";
         lightbox.setAttribute("aria-hidden", "true");
         lightboxImg.src = "";
         lightboxImg.alt = "";
       }
-      
-      triggerBefore.addEventListener("click", function() {
-        openLightbox(domBefore.src, "Преди");
-      });
-      triggerAfter.addEventListener("click", function() {
-        openLightbox(domAfter.src, "След");
-      });
-      
-      lightboxCloses.forEach(function(btn) {
+
+      if (triggerBefore && domBefore) {
+        triggerBefore.addEventListener("click", function () {
+          openLightbox(domBefore.src, domBefore.alt || "Преди");
+        });
+      }
+      if (triggerAfter && domAfter) {
+        triggerAfter.addEventListener("click", function () {
+          openLightbox(domAfter.src, domAfter.alt || "След");
+        });
+      }
+
+      lightboxCloses.forEach(function (btn) {
         btn.addEventListener("click", closeLightbox);
       });
 
+      function escapeHtml(str) {
+        if (!str) return "";
+        var d = document.createElement("div");
+        d.textContent = str;
+        return d.innerHTML;
+      }
+
       function openModal(clientId) {
-        var client = window.ValetoClientsData.find(c => c.id === clientId);
-        if (!client) return;
+        var client = window.ValetoClientsData.find(function (c) {
+          return c.id === clientId;
+        });
+        if (!client || !domName || !domProcedure || !domBefore || !domAfter) return;
 
         domName.textContent = client.name;
-        
-        var servicesHtml = "";
+
+        var procHtml = "";
         if (client.services && client.services.length) {
-          client.services.forEach(function(svc) {
-            servicesHtml += '<span class="inline-flex px-2 py-0.5 bg-[#2c1a0e]/5 text-[#a07850] text-[10px] font-semibold tracking-wide rounded-full border border-[#2c1a0e]/10">' + svc + '</span>';
+          client.services.forEach(function (svc) {
+            procHtml +=
+              '<span class="client-modal__proc-chip">' +
+              escapeHtml(svc) +
+              "</span>";
           });
         }
-        domService.innerHTML = servicesHtml;
-        
-        domDesc.textContent = client.description;
+        domProcedure.innerHTML = procHtml;
+
         domBefore.src = client.beforeImage;
+        domBefore.alt = client.name ? client.name + " — преди" : "Преди";
         domAfter.src = client.afterImage;
+        domAfter.alt = client.name ? client.name + " — след" : "След";
 
         modal.style.display = "grid";
         modal.setAttribute("aria-hidden", "false");
@@ -432,21 +365,20 @@
         btn.addEventListener("click", function (e) {
           e.preventDefault();
           e.stopPropagation();
-          openModal(this.getAttribute("data-client-id"));
+          openModal(btn.getAttribute("data-client-id"));
         });
       });
 
-      closes.forEach(function(btn) {
+      closes.forEach(function (btn) {
         btn.addEventListener("click", closeModal);
       });
 
-      document.addEventListener("keydown", function(e) {
-        if (e.key === "Escape") {
-          if (lightbox && lightbox.style.display !== "none") {
-            closeLightbox();
-          } else if (modal.style.display !== "none") {
-            closeModal();
-          }
+      document.addEventListener("keydown", function (e) {
+        if (e.key !== "Escape") return;
+        if (lightbox && lightbox.style.display !== "none") {
+          closeLightbox();
+        } else if (modal.style.display !== "none") {
+          closeModal();
         }
       });
     }
