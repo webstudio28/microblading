@@ -71,6 +71,90 @@
     @apply max-w-screen-xl mx-auto px-4 md:px-6;
   }
 
+  .site-footer {
+    margin-top: 0;
+    padding: 2.75rem 0 3rem;
+    border-top: 1px solid rgba(201, 169, 138, 0.32);
+  }
+
+  .site-footer__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    text-align: center;
+  }
+
+  .site-footer__brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0.92;
+    transition: opacity 150ms ease;
+  }
+
+  .site-footer__brand:hover {
+    opacity: 1;
+  }
+
+  .site-footer__logo {
+    height: 2rem;
+    width: auto;
+  }
+
+  .site-footer__tagline {
+    margin: 0;
+    max-width: 22rem;
+    font-family: "Montserrat Alternates", "Montserrat", sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    line-height: 1.5;
+    color: rgba(122, 101, 88, 0.82);
+  }
+
+  .site-footer__nav,
+  .site-footer__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem 0.65rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .site-footer__nav a,
+  .site-footer__meta a {
+    color: rgba(74, 55, 40, 0.88);
+    text-decoration: none;
+    transition: color 150ms ease;
+  }
+
+  .site-footer__nav a:hover,
+  .site-footer__meta a:hover {
+    color: var(--color-ink);
+  }
+
+  .site-footer__sep {
+    color: rgba(201, 169, 138, 0.65);
+    user-select: none;
+  }
+
+  .site-footer__copy {
+    margin: 0.35rem 0 0;
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    color: rgba(122, 101, 88, 0.58);
+  }
+
+  .site-footer__copy small {
+    font-size: inherit;
+  }
+
   /*
    * Homepage sections: use .section-padding on every major <section>
    * so vertical spacing matches the hero (py-16 → md:py-24).

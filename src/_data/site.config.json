@@ -16,6 +16,9 @@
     "defaultDescription": "PhiBrows микроблейдинг, ламиниране на вежди и мигли в Пловдив и Асеновград. Естествени, балансирани резултати.",
     "twitterCard": "summary_large_image"
   },
+  "footer": {
+    "tagline": "PhiBrows · микроблейдинг и ламиниране"
+  },
   "nav": {
     "header": [
       { "label": "Начало",        "url": "#hero",         "icon": "home" },

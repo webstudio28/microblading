@@ -1,0 +1,53 @@
+{% set c = home.contact if home and home.contact else {} %}
+{% set headerCta = home.hero.ctaPrimary if home and home.hero and home.hero.ctaPrimary else { "label": "Запази час", "url": "https://s24.bg/m/3844", "openBookingModal": false, "external": true } %}
+{% set footerTagline = site.footer.tagline if site and site.footer and site.footer.tagline else "PhiBrows · микроблейдинг и ламиниране" %}
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container-custom site-footer__inner">
+    <a href="{{ '/' | url }}#hero" class="site-footer__brand" aria-label="{% if site and site.brand %}{{ site.brand.logoAlt | default(site.brand.name) }}{% else %}Начало{% endif %}">
+      {% if site and site.brand and site.brand.logo %}
+        <img
+          src="{{ site.brand.logo | url }}"
+          alt=""
+          class="site-footer__logo"
+          width="100"
+          height="34"
+          loading="lazy"
+          decoding="async"
+        >
+      {% else %}
+        <span>{{ site.brand.name | default("Valeto") }}</span>
+      {% endif %}
+    </a>
+
+    <p class="site-footer__tagline">{{ footerTagline }}</p>
+
+    <nav class="site-footer__nav" aria-label="Footer">
+      <a href="#contact">Контакти</a>
+      <span class="site-footer__sep" aria-hidden="true">·</span>
+      <a href="#faq">Въпроси</a>
+      <span class="site-footer__sep" aria-hidden="true">·</span>
+      <a
+        href="{{ headerCta.url }}"
+        {% if headerCta.openBookingModal %}
+        data-booking-open
+        aria-haspopup="dialog"
+        aria-controls="booking-modal"
+        {% endif %}
+        {% if headerCta.external %}target="_blank" rel="noopener noreferrer"{% endif %}
+      >{{ headerCta.label | default("Запази час") }}</a>
+    </nav>
+
+    <div class="site-footer__meta">
+      <a href="tel:{{ c.phoneHref | default('+359887621922') }}">{{ c.phoneLabel | default('0887 621 922') }}</a>
+      {% if c.instagram %}
+      <span class="site-footer__sep" aria-hidden="true">·</span>
+      <a href="{{ c.instagram }}" target="_blank" rel="noopener noreferrer">Instagram</a>
+      {% endif %}
+    </div>
+
+    <p class="site-footer__copy">
+      <small>© {{ currentYear }} {% if site and site.brand %}{{ site.brand.name }}{% else %}Valeto{% endif %}</small>
+    </p>
+  </div>
+</footer>

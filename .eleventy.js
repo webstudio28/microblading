@@ -21,6 +21,7 @@ module.exports = function (eleventyConfig) {
 
   // Useful for sitemaps/lastmod (if added later)
   eleventyConfig.addGlobalData("buildDate", () => new Date().toISOString().slice(0, 10));
+  eleventyConfig.addGlobalData("currentYear", () => new Date().getFullYear());
 
   // pathPrefix from env (for subfolder hosting)
   const pathPrefix = process.env.PATH_PREFIX || "/";
