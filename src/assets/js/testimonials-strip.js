@@ -4,17 +4,24 @@
   var setWidth = 0;
   var position = 0;
   var dragging = false;
+  var touchPending = false;
   var startX = 0;
+  var startY = 0;
   var startPos = 0;
   var speed = 0.15;
+  var AXIS_LOCK_PX = 10;
 
   function getClientX(e) {
     return e.touches ? e.touches[0].clientX : e.clientX;
   }
 
+  function getClientY(e) {
+    return e.touches ? e.touches[0].clientY : e.clientY;
+  }
+
   function tick() {
     if (!strip || !setWidth) return;
-    if (!dragging) {
+    if (!dragging && !touchPending) {
       position -= speed;
       if (position < -setWidth) position += setWidth;
       if (position > 0) position -= setWidth;
@@ -25,20 +32,45 @@
 
   function onDown(e) {
     if (e.target.closest("[data-testimonial-open]")) return;
-    if (typeof e.button === "number" && e.button !== 0) return;
-    dragging = true;
+    if (typeof e.button === "number" && e.button !== 0 && !e.touches) return;
+
     startX = getClientX(e);
+    startY = getClientY(e);
     startPos = position;
+
+    if (e.touches) {
+      touchPending = true;
+      dragging = false;
+      return;
+    }
+
+    dragging = true;
     strip.style.cursor = "grabbing";
   }
 
   function onMove(e) {
+    if (touchPending && !dragging) {
+      var x = getClientX(e);
+      var y = getClientY(e);
+      var dx = Math.abs(x - startX);
+      var dy = Math.abs(y - startY);
+      if (dx < AXIS_LOCK_PX && dy < AXIS_LOCK_PX) return;
+      if (dy >= dx) {
+        touchPending = false;
+        return;
+      }
+      touchPending = false;
+      dragging = true;
+      strip.style.cursor = "grabbing";
+    }
+
     if (!dragging) return;
-    var x = getClientX(e);
-    position = startPos + (x - startX);
+    var moveX = getClientX(e);
+    position = startPos + (moveX - startX);
   }
 
   function onUp() {
+    touchPending = false;
     dragging = false;
     if (!strip || !setWidth) return;
     strip.style.cursor = "grab";
@@ -56,6 +88,7 @@
     window.addEventListener("touchmove", onMove, { passive: true });
     window.addEventListener("mouseup", onUp);
     window.addEventListener("touchend", onUp);
+    window.addEventListener("touchcancel", onUp);
 
     if (setWidth > 0) requestAnimationFrame(tick);
     else
