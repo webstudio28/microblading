@@ -21,8 +21,9 @@
       {# Nav — centered against full header width #}
       <nav class="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-3 whitespace-nowrap md:flex md:gap-5 xl:gap-8" aria-label="Main">
         {% for item in site.nav.header %}
+          {% set navHref = (('/' | url) ~ item.url) if item.url and item.url[0] == '#' else (item.url | url) %}
           <a
-            href="{{ item.url }}"
+            href="{{ navHref }}"
             class="shrink-0 text-[14px] font-medium leading-snug text-[#4a3728] hover:text-brand-primary transition-colors duration-150"
           >{{ item.label }}</a>
         {% endfor %}
@@ -81,7 +82,8 @@
 
     <nav class="mobile-menu-nav" aria-label="Mobile">
       {% for item in site.nav.header %}
-        <a href="{{ item.url }}" class="mobile-menu-link">{{ item.label }}</a>
+        {% set navHref = (('/' | url) ~ item.url) if item.url and item.url[0] == '#' else (item.url | url) %}
+        <a href="{{ navHref }}" class="mobile-menu-link">{{ item.label }}</a>
       {% endfor %}
 
       <a

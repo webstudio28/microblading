@@ -1,0 +1,46 @@
+---
+layout: base.njk
+title: Често задавани въпроси
+description: Отговори на въпроси за микроблейдинг, ламиниране, грижа след процедура и записване на час при Brows and lashes ValyaMatovska.
+permalink: /faq/
+---
+
+{% set f = home.faq if home and home.faq else {} %}
+{% set items = f.items if f.items else [] %}
+
+<main id="main">
+  <section
+    class="mb-section section-padding bg-white/70 scroll-mt-20"
+    aria-labelledby="faq-page-heading"
+  >
+    <div class="container-custom">
+      <header class="mb-header mx-auto mb-8 text-center md:mb-10">
+        <span class="mb-eyebrow justify-center">{{ f.eyebrow | default("Въпроси и отговори") }}</span>
+        <h1 id="faq-page-heading" class="mb-title mt-2 text-center">
+          {{ f.title | default("Често задавани въпроси") }}
+        </h1>
+        {% if f.pageLead %}
+        <p class="site-lead mx-auto mt-4 max-w-2xl text-center text-muted">
+          {{ f.pageLead }}
+        </p>
+        {% endif %}
+      </header>
+
+      {% if items and items.length %}
+      {% set faqItems = items %}
+      {% set faqAccordionName = "faq-page" %}
+      {% include "faq-accordion.njk" %}
+      {% else %}
+      <p class="text-center text-muted">Скоро ще добавим отговори на често задавани въпроси.</p>
+      {% endif %}
+
+      <p class="faq-page__back">
+        <a href="{{ '/' | url }}#contact" class="faq-page__back-link">Контакти и записване</a>
+        <span class="site-footer__sep" aria-hidden="true">·</span>
+        <a href="{{ '/' | url }}" class="faq-page__back-link">Начална страница</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+{% include "faq-accordion-script.njk" %}

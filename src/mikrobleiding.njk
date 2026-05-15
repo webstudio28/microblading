@@ -1,0 +1,744 @@
+---
+layout: base.njk
+title: Микроблейдинг Пловдив — PhiBrows | Валя Матовска
+description: Прецизен микроблейдинг по метода PhiBrows в Пловдив и Асеновград. Естествени, симетрични и дълготрайни вежди — 12 до 18 месеца без грим. Запази час онлайн.
+---
+
+{% set mb = microblading if microblading else {} %}
+{% set bookingUrl = home.hero.ctaPrimary.url if home and home.hero and home.hero.ctaPrimary else "https://s24.bg/m/3844" %}
+{% set phone = home.contact.phoneHref if home and home.contact else "+359887621922" %}
+{% set phoneLabel = home.contact.phoneLabel if home and home.contact else "0887 621 922" %}
+
+<main>
+
+  {# ═══════════════════════════════════════════════
+     1. HERO
+  ═══════════════════════════════════════════════ #}
+  <section class="hero-section section-padding" id="lp-hero" aria-labelledby="lp-hero-heading">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-center">
+
+        {# Text column #}
+        <div class="order-1 flex w-full min-w-0 flex-col items-center gap-5 text-center md:items-start md:text-left">
+          <span class="hero-badge hero-badge--signature hidden md:inline-flex">PhiBrows · Сертифициран специалист</span>
+
+          <h1 id="lp-hero-heading" class="font-mak text-[2.35rem] leading-[1.12] text-ink md:text-6xl md:leading-[1.1] xl:text-[4.25rem] xl:leading-[1.08]">
+            Събуди се с перфектни вежди — всеки ден
+          </h1>
+
+          {# Mobile image #}
+          <div class="flex w-full justify-center md:hidden">
+            <div class="hero-photo-wrap w-full max-w-none">
+              <picture>
+                <source media="(max-width: 767px)" srcset="{{ '/assets/images/hero-img-mobile.jpg' | url }}">
+                <img
+                  src="{{ '/assets/images/hero-img.jpeg' | url }}"
+                  alt="Микроблейдинг — Валя Матовска"
+                  class="hero-photo"
+                  width="460" height="540"
+                  loading="eager"
+                >
+              </picture>
+            </div>
+          </div>
+
+          <p class="site-lead max-w-xl">
+            Микроблейдинг с техника PhiBrows в Пловдив и Асеновград. Прецизни, естествени и дълготрайни вежди, съобразени само с теб — без ежедневен молив, без компромис.
+          </p>
+
+          <div class="mt-1 hidden w-full min-w-0 flex-row flex-nowrap gap-3 md:flex">
+            <a href="{{ bookingUrl }}" class="btn-primary min-w-0 flex-1" target="_blank" rel="noopener noreferrer">
+              Запази час
+            </a>
+            <a href="#lp-gallery" class="btn-secondary min-w-0 flex-1">
+              Виж резултати
+            </a>
+          </div>
+        </div>
+
+        {# Image column — desktop #}
+        <div class="order-2 hidden justify-center md:flex lg:justify-end">
+          <div class="hero-photo-wrap">
+            <picture>
+              <source media="(max-width: 767px)" srcset="{{ '/assets/images/hero-img-mobile.jpg' | url }}">
+              <img
+                src="{{ '/assets/images/hero-img.jpeg' | url }}"
+                alt="Микроблейдинг — Валя Матовска"
+                class="hero-photo"
+                width="460" height="540"
+                loading="eager"
+              >
+            </picture>
+          </div>
+        </div>
+
+        {# Mobile CTAs #}
+        <div class="order-3 mt-0.5 flex w-full min-w-0 flex-row flex-nowrap gap-2 md:hidden">
+          <a href="{{ bookingUrl }}" class="btn-primary min-w-0 flex-1 px-4 py-2 text-sm" target="_blank" rel="noopener noreferrer">
+            Запази час
+          </a>
+          <a href="#lp-gallery" class="btn-secondary min-w-0 flex-1 px-4 py-2 text-sm">
+            Виж резултати
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  {# ═══════════════════════════════════════════════
+     2. TRUST BAR
+  ═══════════════════════════════════════════════ #}
+  <div class="bg-white/70 border-y border-[rgba(201,169,138,0.3)]">
+    <div class="container-custom">
+      <ul class="flex flex-col items-center gap-4 py-6 text-center sm:flex-row sm:justify-center sm:gap-0 sm:divide-x sm:divide-[rgba(201,169,138,0.4)]" aria-label="Защо Валя Матовска">
+        <li class="flex items-center gap-2.5 px-6 text-sm font-medium text-ink sm:text-base">
+          <svg class="h-5 w-5 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span>PhiBrows Сертифициран специалист</span>
+        </li>
+        <li class="flex items-center gap-2.5 px-6 text-sm font-medium text-ink sm:text-base">
+          <svg class="h-5 w-5 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>12–18 месеца дълготрайност</span>
+        </li>
+        <li class="flex items-center gap-2.5 px-6 text-sm font-medium text-ink sm:text-base">
+          <svg class="h-5 w-5 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Пловдив & Асеновград</span>
+        </li>
+        <li class="flex items-center gap-2.5 px-6 text-sm font-medium text-ink sm:text-base">
+          <svg class="h-5 w-5 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span>Индивидуален подход за всеки клиент</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  {# ═══════════════════════════════════════════════
+     3. GALLERY
+  ═══════════════════════════════════════════════ #}
+  <section
+    id="lp-gallery"
+    class="mb-section section-padding"
+    aria-labelledby="lp-gallery-heading"
+  >
+    <div class="container-custom">
+      <header class="mb-header text-center mx-auto mb-5">
+        <span class="mb-eyebrow justify-center">Резултати</span>
+        <h2 id="lp-gallery-heading" class="mb-title text-center mt-2">
+          Снимките говорят сами
+        </h2>
+        <p class="mb-lead text-center mt-3">
+          Всяка двойка вежди е уникална — оформена специално за чертите и желанията на клиента.
+        </p>
+      </header>
+    </div>
+
+    {% if mb.gallery and mb.gallery.length %}
+    <div class="mb-bubbles-wrap pt-5" data-lp-mb-bubbles-wrap>
+      <div class="container-custom">
+        <div class="mb-bubbles-head">
+          <p class="mb-bubbles-label" id="lp-mb-gallery-label">Галерия</p>
+          <div class="mb-bubbles-nav" aria-hidden="true">
+            <button type="button" class="mb-bubbles-arrow mb-bubbles-arrow--prev" data-lp-mb-prev aria-label="Предишна снимка">
+              <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="21 8 12 16 21 24" vector-effect="non-scaling-stroke"/></svg>
+            </button>
+            <button type="button" class="mb-bubbles-arrow mb-bubbles-arrow--next" data-lp-mb-next aria-label="Следваща снимка">
+              <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="11 8 20 16 11 24" vector-effect="non-scaling-stroke"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-bubbles" role="list" data-lp-mb-bubbles aria-labelledby="lp-mb-gallery-label">
+        {% for item in mb.gallery %}
+        <figure
+          class="mb-bubble"
+          role="listitem"
+          data-lp-mb-gallery-trigger
+          data-lp-mb-gallery-index="{{ loop.index0 }}"
+        >
+          {% if item.src | isVideoPath %}
+          <video
+            src="{{ item.src | url }}"
+            data-lp-mb-gallery-item
+            data-lp-mb-gallery-index="{{ loop.index0 }}"
+            muted playsinline loop preload="metadata"
+            aria-label="{{ item.alt | default('Микроблейдинг — видео') }}"
+          ></video>
+          <span class="mb-bubble__video-badge" aria-hidden="true">
+            <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="28" cy="28" r="26" fill="rgba(255,255,255,0.92)" stroke="rgba(44,26,14,0.1)" stroke-width="1"/>
+              <path fill="#3a2415" d="M23 17v22l18-11-18-11Z"/>
+            </svg>
+          </span>
+          {% else %}
+          <img
+            src="{{ item.src | url }}"
+            alt="{{ item.alt | default('Микроблейдинг снимка') }}"
+            data-lp-mb-gallery-item
+            data-lp-mb-gallery-index="{{ loop.index0 }}"
+            loading="lazy"
+            decoding="async"
+          />
+          {% endif %}
+        </figure>
+        {% endfor %}
+      </div>
+    </div>
+
+    {# Gallery lightbox modal #}
+    <div
+      id="lp-mb-gallery-modal"
+      class="mb-gallery-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-label="Галерия микроблейдинг"
+      hidden
+    >
+      <div class="mb-gallery-modal__backdrop" data-lp-mb-gallery-close></div>
+      <div class="mb-gallery-modal__panel" role="document">
+        <button type="button" class="mb-gallery-modal__close" data-lp-mb-gallery-close aria-label="Затвори галерията">&times;</button>
+        <button type="button" class="mb-gallery-modal__arrow mb-gallery-modal__arrow--prev" data-lp-mb-gallery-prev aria-label="Предишна снимка">
+          <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="21 8 12 16 21 24" vector-effect="non-scaling-stroke"/></svg>
+        </button>
+        <div class="mb-gallery-modal__stage" data-lp-mb-gallery-stage>
+          <div class="mb-gallery-modal__clip">
+            <img class="mb-gallery-modal__image" data-lp-mb-gallery-image src="" alt="" />
+            <video class="mb-gallery-modal__image" data-lp-mb-gallery-video playsinline controls hidden></video>
+          </div>
+        </div>
+        <button type="button" class="mb-gallery-modal__arrow mb-gallery-modal__arrow--next" data-lp-mb-gallery-next aria-label="Следваща снимка">
+          <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="11 8 20 16 11 24" vector-effect="non-scaling-stroke"/></svg>
+        </button>
+      </div>
+    </div>
+    {% endif %}
+
+  </section>
+
+
+  {# ═══════════════════════════════════════════════
+     4. BENEFITS / PAIN POINTS
+  ═══════════════════════════════════════════════ #}
+  <section
+    class="mb-section section-padding bg-white/70"
+    aria-labelledby="lp-benefits-heading"
+  >
+    <div class="container-custom">
+      <header class="mb-header text-center mx-auto mb-10">
+        <span class="mb-eyebrow justify-center">Подходящо ли е за теб?</span>
+        <h2 id="lp-benefits-heading" class="mb-title text-center mt-2">
+          Разпознаваш ли се?
+        </h2>
+      </header>
+
+      <div class="grid grid-cols-1 gap-5 sm:grid-cols-3 max-w-4xl mx-auto">
+
+        <div class="rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
+          <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
+            <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="text-base font-semibold text-ink mb-2">Губиш 10+ минути всяка сутрин</h3>
+          <p class="text-sm leading-relaxed text-[#7a6558]">Рисуваш вежди, търсиш симетрия, поправяш грешки — и всичко това преди кафето.</p>
+        </div>
+
+        <div class="rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
+          <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
+            <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3 class="text-base font-semibold text-ink mb-2">Веждите ти не са симетрични</h3>
+          <p class="text-sm leading-relaxed text-[#7a6558]">Едната е по-висока, по-дебела или по-тъмна — независимо колко се стараеш.</p>
+        </div>
+
+        <div class="rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
+          <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
+            <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <h3 class="text-base font-semibold text-ink mb-2">Веждите са редки или без форма</h3>
+          <p class="text-sm leading-relaxed text-[#7a6558]">Липсата на обем или ясна форма кара погледа ти да изглежда незавършен.</p>
+        </div>
+      </div>
+
+      <div class="mx-auto mt-12 max-w-2xl text-center">
+        <p class="mb-lead">
+          Микроблейдингът с техника <strong>PhiBrows</strong> решава всичко това с <em>един</em> часа. Резултатът — естествени, симетрични вежди, съобразени с чертите на лицето ти, без ежедневен грим, за <strong>12 до 18 месеца</strong>.
+        </p>
+        <div class="mt-7">
+          <a href="{{ bookingUrl }}" class="btn-primary" target="_blank" rel="noopener noreferrer">
+            Запази час сега
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  {# ═══════════════════════════════════════════════
+     5. WHAT IS MICROBLADING
+  ═══════════════════════════════════════════════ #}
+  <section
+    class="mb-section section-padding"
+    aria-labelledby="lp-what-heading"
+  >
+    <div class="container-custom">
+      <div class="mx-auto max-w-3xl text-center">
+        <header class="mb-header mb-8">
+          <span class="mb-eyebrow justify-center">Какво е микроблейдинг</span>
+          <h2 id="lp-what-heading" class="mb-title text-center mt-2">
+            Прецизна техника, естествен резултат
+          </h2>
+        </header>
+
+        <div class="space-y-4 text-left">
+          <p class="mb-lead">
+            Микроблейдингът е полуперманентна техника за оформяне на вежди, при която с ръчен инструмент се нанасят фини косъмчета, имитиращи естествения растеж. Работя по метода <strong>PhiBrows</strong> — световен стандарт за симетрия, прецизност и дълготраен ефект.
+          </p>
+          <p class="mb-lead">
+            Всяка форма се изгражда индивидуално — анализирам чертите на лицето ти и определяме заедно цвят и форма, преди да се започне. Процедурата е щадяща и почти безболезнена (с локална упойка). Резултатът изглежда толкова естествено, че повечето хора не могат да различат дали са твои или направени.
+          </p>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 text-left">
+          <div class="rounded-xl bg-[#f9f3ee] px-5 py-5">
+            <p class="text-2xl font-bold text-[#c9a98a] mb-1">12–18</p>
+            <p class="text-sm font-medium text-ink">месеца дълготрайност</p>
+          </div>
+          <div class="rounded-xl bg-[#f9f3ee] px-5 py-5">
+            <p class="text-2xl font-bold text-[#c9a98a] mb-1">~2 ч.</p>
+            <p class="text-sm font-medium text-ink">продължителност на процедурата</p>
+          </div>
+          <div class="rounded-xl bg-[#f9f3ee] px-5 py-5">
+            <p class="text-2xl font-bold text-[#c9a98a] mb-1">PhiBrows</p>
+            <p class="text-sm font-medium text-ink">сертифицирана техника</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  {# ═══════════════════════════════════════════════
+     6. PROCESS STEPS
+  ═══════════════════════════════════════════════ #}
+  {% if mb.steps and mb.steps.length %}
+  <section
+    class="home-procedure section-padding relative bg-white/70 overflow-hidden"
+    aria-labelledby="lp-process-heading"
+  >
+    <div class="mb-steps" data-lp-procedure-steps>
+      <div class="container-custom">
+        <header class="mb-header text-center mx-auto mb-6">
+          <span class="mb-eyebrow justify-center">Процес</span>
+          <h2 id="lp-process-heading" class="mb-title text-center mt-2">Какво да очакваш</h2>
+          <p class="mb-lead text-center mt-3">Прозрачен процес от началото до края — никакви изненади.</p>
+        </header>
+      </div>
+
+      <div class="mb-steps__viewport" data-lp-procedure-steps-viewport>
+        <ol class="mb-steps__list">
+          {% for step in mb.steps %}
+          <li class="mb-step">
+            <span class="mb-step__num" aria-hidden="true">{{ step.number }}</span>
+            <div class="mb-step__body">
+              <h3 class="mb-step__title">{{ step.title }}</h3>
+              <p class="mb-step__desc">{{ step.description }}</p>
+            </div>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+
+    <div class="container-custom mt-10 text-center">
+      <a href="{{ bookingUrl }}" class="btn-primary" target="_blank" rel="noopener noreferrer">
+        Запази час
+      </a>
+    </div>
+  </section>
+  {% endif %}
+
+
+  {# ═══════════════════════════════════════════════
+     7. TESTIMONIALS
+  ═══════════════════════════════════════════════ #}
+  {% set testimonials = home.testimonials.items if home and home.testimonials and home.testimonials.items else [] %}
+  {% if testimonials.length %}
+  <section
+    class="mb-section section-padding"
+    aria-labelledby="lp-testimonials-heading"
+  >
+    <div class="container-custom">
+      <header class="mb-header mx-auto mb-10 text-center">
+        <span class="mb-eyebrow justify-center">Отзиви</span>
+        <h2 id="lp-testimonials-heading" class="mb-title mt-2 text-center">
+          Какво казват клиентите
+        </h2>
+        <p class="site-lead mx-auto mt-4 max-w-2xl text-center text-muted">
+          Реални отзиви от реални жени — с реални вежди.
+        </p>
+      </header>
+
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-3 max-w-5xl mx-auto">
+        {# Pick 3 specific testimonials that mention microblading #}
+        {% for item in testimonials %}
+          {% if loop.index0 == 1 or loop.index0 == 2 or loop.index0 == 6 %}
+          <article class="rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] flex flex-col">
+            <div class="testimonial-card__stars mb-3" aria-hidden="true">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="testimonial-card__quote flex-1">{{ item.quote }}</p>
+            <p class="testimonial-card__name mt-4">– {{ item.name }}</p>
+          </article>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-sm text-muted mb-4">Всички отзиви са 100% автентични — от реални клиенти.</p>
+        <a href="{{ bookingUrl }}" class="btn-primary" target="_blank" rel="noopener noreferrer">
+          Стани следващата
+        </a>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+
+  {# ═══════════════════════════════════════════════
+     8. FAQ
+  ═══════════════════════════════════════════════ #}
+  <section
+    class="mb-section section-padding bg-white/70"
+    aria-labelledby="lp-faq-heading"
+  >
+    <div class="container-custom">
+      <header class="mb-header mx-auto mb-8 text-center md:mb-10">
+        <span class="mb-eyebrow justify-center">Въпроси и отговори</span>
+        <h2 id="lp-faq-heading" class="mb-title mt-2 text-center">
+          Имаш въпроси? Имам отговори.
+        </h2>
+      </header>
+
+      <div class="faq-stack w-full max-w-3xl mx-auto" data-lp-faq-accordion>
+
+        <details class="faq-details" name="lp-faq">
+          <summary class="faq-details__summary">
+            <span class="faq-details__question">Болезнена ли е процедурата?</span>
+            <span class="faq-details__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="faq-details__chevron-svg"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </summary>
+          <div class="faq-details__content"><div class="faq-details__inner">
+            <p class="faq-details__answer">Нивото на дискомфорт варира, но повечето клиенти описват усещането като леко одраскване. Използвам локална упойка, така че самата процедура е много по-поносима от очакваното. Голяма част от клиентите се отпускат и дори се засмиват по средата.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-details" name="lp-faq">
+          <summary class="faq-details__summary">
+            <span class="faq-details__question">Колко дълго издържа микроблейдингът?</span>
+            <span class="faq-details__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="faq-details__chevron-svg"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </summary>
+          <div class="faq-details__content"><div class="faq-details__inner">
+            <p class="faq-details__answer">Резултатите издържат средно 12 до 18 месеца, в зависимост от типа кожа и начина на живот. За оптимален ефект се прави ретуш около 40–90 дни след първата процедура, а след това — веднъж годишно при нужда.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-details" name="lp-faq">
+          <summary class="faq-details__summary">
+            <span class="faq-details__question">Как изглеждат веждите веднага след процедурата?</span>
+            <span class="faq-details__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="faq-details__chevron-svg"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </summary>
+          <div class="faq-details__content"><div class="faq-details__inner">
+            <p class="faq-details__answer">Веднага след процедурата веждите изглеждат по-тъмни и по-наситени. В рамките на 7–14 дни цветът избледнява с около 30–40% и достига своя естествен финален тон. Важно е да спазваш насоките за грижа в периода на заздравяване.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-details" name="lp-faq">
+          <summary class="faq-details__summary">
+            <span class="faq-details__question">Каква е грижата след процедурата?</span>
+            <span class="faq-details__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="faq-details__chevron-svg"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </summary>
+          <div class="faq-details__content"><div class="faq-details__inner">
+            <p class="faq-details__answer">Около 7–10 дни след процедурата е важно да избягваш пряко слънце, сауна, басейн и интензивни физически усилия. Ще получиш детайлни писмени насоки за грижа, за да осигуриш перфектен резултат.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-details" name="lp-faq">
+          <summary class="faq-details__summary">
+            <span class="faq-details__question">Подходящо ли е за всички типове кожа?</span>
+            <span class="faq-details__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="faq-details__chevron-svg"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </summary>
+          <div class="faq-details__content"><div class="faq-details__inner">
+            <p class="faq-details__answer">Процедурата е подходяща за повечето типове кожа. При по-мазна кожа резултатите може да издържат малко по-кратко, но с правилна поддръжка и ретуш резултатът остава красив. На консултацията обсъждаме твоя конкретен случай и очаквания.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-details" name="lp-faq">
+          <summary class="faq-details__summary">
+            <span class="faq-details__question">Колко струва микроблейдингът?</span>
+            <span class="faq-details__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="faq-details__chevron-svg"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </summary>
+          <div class="faq-details__content"><div class="faq-details__inner">
+            <p class="faq-details__answer">Цената варира в зависимост от процедурата и опита на специалиста. За точна информация относно цените ми, свържи се с мен директно — ще ти отговоря бързо и с удоволствие.</p>
+          </div></div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+
+  {# ═══════════════════════════════════════════════
+     9. ABOUT CREDIBILITY + FINAL CTA
+  ═══════════════════════════════════════════════ #}
+  <section
+    class="relative section-padding bg-gradient-to-br from-[#A48C77] to-[#C1AE9A]"
+    aria-labelledby="lp-cta-heading"
+  >
+    <div class="container-custom relative z-10">
+      <div class="mx-auto max-w-3xl text-center">
+
+        <span class="mb-eyebrow justify-center text-white/80">Запази своя час</span>
+        <h2 id="lp-cta-heading" class="mb-title mt-2 text-center text-white">
+          Готова да събуждаш вежди?
+        </h2>
+
+        <p class="mb-lead mt-4 text-white/90 max-w-xl mx-auto">
+          Свободните часове се запълват бързо. Запази своя сега — консултацията е включена в процедурата, без допълнително заплащане.
+        </p>
+
+        <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <a
+            href="{{ bookingUrl }}"
+            class="inline-flex min-w-[220px] items-center justify-center rounded-3xl bg-[#2c1a0e] px-8 py-3.5 text-center font-['Montserrat_Alternates'] text-base font-medium tracking-wide text-white shadow-[0px_4px_4px_0px_rgba(0,0,0,0.21)] transition-colors hover:bg-zinc-800"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Запази час онлайн
+          </a>
+          <a
+            href="tel:{{ phone }}"
+            class="inline-flex min-w-[220px] items-center justify-center gap-2 rounded-3xl border-2 border-white/60 px-8 py-3.5 text-center font-['Montserrat_Alternates'] text-base font-medium tracking-wide text-white transition-colors hover:bg-white/10"
+          >
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 12 19.79 19.79 0 0 1 1.07 3.38 2 2 0 0 1 3.05 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 5.99 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            {{ phoneLabel }}
+          </a>
+        </div>
+
+        <div class="mt-8 flex flex-col items-center gap-1">
+          <p class="text-sm text-white/70">Или пиши директно:</p>
+          <div class="flex items-center gap-5 mt-2">
+            {% set c = home.contact if home and home.contact else {} %}
+            {% if c.whatsapp %}
+            <a href="{{ c.whatsapp }}" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors text-sm underline underline-offset-2">WhatsApp</a>
+            {% endif %}
+            {% if c.viber %}
+            <a href="{{ c.viber }}" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors text-sm underline underline-offset-2">Viber</a>
+            {% endif %}
+            {% if c.instagram %}
+            <a href="{{ c.instagram }}" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors text-sm underline underline-offset-2">Instagram</a>
+            {% endif %}
+          </div>
+        </div>
+
+        <p class="mt-8 text-xs text-white/60">
+          Пловдив, ул. „Борис Сарафов" 11 &nbsp;·&nbsp; Асеновград, ул. „Христо Ботев" 3
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+{# ═══════════════════════════════════════════════
+   SCRIPTS
+═══════════════════════════════════════════════ #}
+
+{# Gallery carousel + lightbox #}
+{% if mb.gallery and mb.gallery.length %}
+<script>
+(function initLpMbGallery() {
+  function enableHorizontalDrag(viewport) {
+    if (!viewport) return;
+    var isDown = false, startX = 0, startScroll = 0, moved = false;
+    viewport.addEventListener("pointerdown", function(e) {
+      if (e.pointerType === "touch") return;
+      isDown = true; moved = false; startX = e.clientX; startScroll = viewport.scrollLeft;
+      viewport.classList.add("is-dragging");
+      try { viewport.setPointerCapture(e.pointerId); } catch(err) {}
+    });
+    viewport.addEventListener("pointermove", function(e) {
+      if (!isDown) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      viewport.scrollLeft = startScroll - dx;
+    });
+    function end(e) {
+      if (!isDown) return; isDown = false;
+      viewport.classList.remove("is-dragging");
+      if (e && e.pointerId != null) { try { viewport.releasePointerCapture(e.pointerId); } catch(err) {} }
+    }
+    viewport.addEventListener("pointerup", end);
+    viewport.addEventListener("pointercancel", end);
+    viewport.addEventListener("pointerleave", end);
+    viewport.addEventListener("click", function(e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+    viewport.addEventListener("dragstart", function(e) { e.preventDefault(); });
+  }
+
+  var wrap = document.querySelector("[data-lp-mb-bubbles-wrap]");
+  if (wrap) {
+    var strip = wrap.querySelector("[data-lp-mb-bubbles]");
+    var prevBtn = wrap.querySelector("[data-lp-mb-prev]");
+    var nextBtn = wrap.querySelector("[data-lp-mb-next]");
+    if (strip) {
+      function cardWidth() {
+        var card = strip.querySelector(".mb-bubble");
+        if (!card) return strip.clientWidth * 0.8;
+        var cs = getComputedStyle(strip);
+        var gap = parseFloat(cs.columnGap || cs.gap || "0") || 0;
+        return card.getBoundingClientRect().width + gap;
+      }
+      function updateArrows() {
+        var max = strip.scrollWidth - strip.clientWidth;
+        if (prevBtn) prevBtn.toggleAttribute("disabled", strip.scrollLeft <= 2);
+        if (nextBtn) nextBtn.toggleAttribute("disabled", strip.scrollLeft >= max - 2);
+      }
+      if (prevBtn) prevBtn.addEventListener("click", function() { strip.scrollBy({ left: -cardWidth(), behavior: "smooth" }); });
+      if (nextBtn) nextBtn.addEventListener("click", function() { strip.scrollBy({ left: cardWidth(), behavior: "smooth" }); });
+      strip.addEventListener("scroll", updateArrows, { passive: true });
+      window.addEventListener("resize", updateArrows);
+      updateArrows();
+      if (window.matchMedia("(max-width: 767px)").matches) enableHorizontalDrag(strip);
+    }
+  }
+
+  var galleryModal = document.getElementById("lp-mb-gallery-modal");
+  if (!galleryModal) return;
+  var galleryImage = galleryModal.querySelector("[data-lp-mb-gallery-image]");
+  var galleryVideo = galleryModal.querySelector("[data-lp-mb-gallery-video]");
+  var galleryStage = galleryModal.querySelector("[data-lp-mb-gallery-stage]");
+  var galleryItems = Array.prototype.slice.call(document.querySelectorAll("[data-lp-mb-gallery-item]"));
+  var galleryTriggers = Array.prototype.slice.call(document.querySelectorAll("[data-lp-mb-gallery-trigger]"));
+  var closeGalleryBtns = galleryModal.querySelectorAll("[data-lp-mb-gallery-close]");
+  var prevGalleryBtn = galleryModal.querySelector("[data-lp-mb-gallery-prev]");
+  var nextGalleryBtn = galleryModal.querySelector("[data-lp-mb-gallery-next]");
+  var galleryIndex = 0;
+
+  function pauseModalVideo() {
+    if (!galleryVideo) return;
+    galleryVideo.pause(); galleryVideo.src = "";
+    try { galleryVideo.load(); } catch(err) {}
+  }
+  function renderGalleryImage() {
+    if (!galleryItems.length) return;
+    var source = galleryItems[galleryIndex];
+    var isVideo = source.tagName === "VIDEO";
+    if (isVideo) {
+      if (galleryImage) { galleryImage.src = ""; galleryImage.style.display = "none"; }
+      if (galleryVideo) {
+        galleryVideo.src = source.currentSrc || source.getAttribute("src") || "";
+        galleryVideo.style.display = "block"; galleryVideo.muted = false;
+        try { galleryVideo.play(); } catch(err) {}
+      }
+    } else {
+      pauseModalVideo();
+      if (galleryVideo) galleryVideo.style.display = "none";
+      if (galleryImage) { galleryImage.style.display = "block"; galleryImage.src = source.currentSrc || source.src; galleryImage.alt = source.alt || ""; }
+    }
+  }
+  function openGallery(index) {
+    galleryIndex = Math.max(0, Math.min(index, galleryItems.length - 1));
+    renderGalleryImage();
+    galleryModal.hidden = false;
+    galleryModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+  }
+  function closeGallery() {
+    pauseModalVideo();
+    if (galleryVideo) galleryVideo.style.display = "none";
+    if (galleryImage) { galleryImage.style.display = "none"; galleryImage.src = ""; }
+    galleryModal.hidden = true;
+    galleryModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+  }
+  function nextImage() { if (!galleryItems.length) return; galleryIndex = (galleryIndex + 1) % galleryItems.length; renderGalleryImage(); }
+  function prevImage() { if (!galleryItems.length) return; galleryIndex = (galleryIndex - 1 + galleryItems.length) % galleryItems.length; renderGalleryImage(); }
+
+  galleryTriggers.forEach(function(item) {
+    item.addEventListener("click", function(e) {
+      var idx = Number(e.currentTarget.getAttribute("data-lp-mb-gallery-index"));
+      openGallery(isFinite(idx) ? idx : 0);
+    });
+  });
+  closeGalleryBtns.forEach(function(btn) { btn.addEventListener("click", closeGallery); });
+  if (nextGalleryBtn) nextGalleryBtn.addEventListener("click", nextImage);
+  if (prevGalleryBtn) prevGalleryBtn.addEventListener("click", prevImage);
+
+  var swipeStartX = null;
+  if (galleryStage) {
+    galleryStage.addEventListener("touchstart", function(e) {
+      if (e.touches && e.touches.length) swipeStartX = e.touches[0].clientX;
+    }, { passive: true });
+    galleryStage.addEventListener("touchend", function(e) {
+      if (swipeStartX === null || !e.changedTouches || !e.changedTouches.length) return;
+      var dx = e.changedTouches[0].clientX - swipeStartX; swipeStartX = null;
+      if (Math.abs(dx) < 40) return;
+      if (dx < 0) nextImage(); else prevImage();
+    });
+  }
+  document.addEventListener("keydown", function(e) {
+    if (galleryModal.hidden) return;
+    if (e.key === "Escape") closeGallery();
+    if (e.key === "ArrowRight") nextImage();
+    if (e.key === "ArrowLeft") prevImage();
+  });
+})();
+</script>
+{% endif %}
+
+{# Process steps drag on mobile #}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll("[data-lp-procedure-steps]").forEach(function(root) {
+    var viewport = root.querySelector("[data-lp-procedure-steps-viewport]");
+    if (!viewport || !window.matchMedia("(max-width: 1023px)").matches) return;
+    var isDown = false, startX, scrollLeft;
+    viewport.addEventListener("mousedown", function(e) { isDown = true; viewport.classList.add("is-dragging"); startX = e.pageX - viewport.offsetLeft; scrollLeft = viewport.scrollLeft; });
+    viewport.addEventListener("mouseleave", function() { isDown = false; viewport.classList.remove("is-dragging"); });
+    viewport.addEventListener("mouseup", function() { isDown = false; viewport.classList.remove("is-dragging"); });
+    viewport.addEventListener("mousemove", function(e) {
+      if (!isDown) return; e.preventDefault();
+      viewport.scrollLeft = scrollLeft - (e.pageX - viewport.offsetLeft - startX) * 2;
+    });
+  });
+});
+</script>
+
+{# FAQ accordion #}
+<script>
+(function() {
+  var root = document.querySelector("[data-lp-faq-accordion]");
+  if (!root) return;
+  var panels = root.querySelectorAll(".faq-details");
+  panels.forEach(function(panel) {
+    panel.addEventListener("toggle", function() {
+      if (!panel.open) return;
+      panels.forEach(function(other) { if (other !== panel) other.removeAttribute("open"); });
+    });
+  });
+})();
+</script>

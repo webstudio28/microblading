@@ -1,0 +1,840 @@
+---
+layout: base.njk
+title: Ламиниране на вежди и мигли — Пловдив | Валя Матовска
+description: Ламиниране на вежди и мигли в Пловдив и Асеновград. Естествен, изразителен поглед без спирала и без грим. Резултатът трае 4–8 седмици. Запази час онлайн.
+---
+
+{% set lb = lamination if lamination else {} %}
+{% set bookingUrl = home.hero.ctaPrimary.url if home and home.hero and home.hero.ctaPrimary else "https://s24.bg/m/3844" %}
+{% set phone = home.contact.phoneHref if home and home.contact else "+359887621922" %}
+{% set phoneLabel = home.contact.phoneLabel if home and home.contact else "0887 621 922" %}
+
+<main>
+
+  {# ═══════════════════════════════════════════════
+     1. HERO
+  ═══════════════════════════════════════════════ #}
+  <section class="hero-section section-padding" id="lam-hero" aria-labelledby="lam-hero-heading">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-center">
+
+        {# Text column #}
+        <div class="order-1 flex w-full min-w-0 flex-col items-center gap-5 text-center md:items-start md:text-left">
+          <span class="hero-badge hero-badge--signature hidden md:inline-flex">Вежди · Мигли · Ламиниране</span>
+
+          <h1 id="lam-hero-heading" class="font-mak text-[2.35rem] leading-[1.12] text-ink md:text-6xl md:leading-[1.1] xl:text-[4.25rem] xl:leading-[1.08]">
+            Отворен поглед и красиви вежди — без усилие
+          </h1>
+
+          {# Mobile image #}
+          <div class="flex w-full justify-center md:hidden">
+            <div class="hero-photo-wrap w-full max-w-none">
+              <picture>
+                <source media="(max-width: 767px)" srcset="{{ '/assets/images/hero-img-mobile.jpg' | url }}">
+                <img
+                  src="{{ '/assets/images/hero-img.jpeg' | url }}"
+                  alt="Ламиниране на вежди и мигли — Валя Матовска"
+                  class="hero-photo"
+                  width="460" height="540"
+                  loading="eager"
+                >
+              </picture>
+            </div>
+          </div>
+
+          <p class="site-lead max-w-xl">
+            Ламиниране на вежди и мигли в Пловдив и Асеновград. Изразителни, наредени и подхранени — естествен резултат, траещ седмици, без ежедневна спирала или гел.
+          </p>
+
+          <div class="mt-1 hidden w-full min-w-0 flex-row flex-nowrap gap-3 md:flex">
+            <a href="{{ bookingUrl }}" class="btn-primary min-w-0 flex-1" target="_blank" rel="noopener noreferrer">
+              Запази час
+            </a>
+            <a href="#lam-gallery" class="btn-secondary min-w-0 flex-1">
+              Виж резултати
+            </a>
+          </div>
+        </div>
+
+        {# Image column — desktop #}
+        <div class="order-2 hidden justify-center md:flex lg:justify-end">
+          <div class="hero-photo-wrap">
+            <picture>
+              <source media="(max-width: 767px)" srcset="{{ '/assets/images/hero-img-mobile.jpg' | url }}">
+              <img
+                src="{{ '/assets/images/hero-img.jpeg' | url }}"
+                alt="Ламиниране на вежди и мигли — Валя Матовска"
+                class="hero-photo"
+                width="460" height="540"
+                loading="eager"
+              >
+            </picture>
+          </div>
+        </div>
+
+        {# Mobile CTAs #}
+        <div class="order-3 mt-0.5 flex w-full min-w-0 flex-row flex-nowrap gap-2 md:hidden">
+          <a href="{{ bookingUrl }}" class="btn-primary min-w-0 flex-1 px-4 py-2 text-sm" target="_blank" rel="noopener noreferrer">
+            Запази час
+          </a>
+          <a href="#lam-gallery" class="btn-secondary min-w-0 flex-1 px-4 py-2 text-sm">
+            Виж резултати
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  {# ═══════════════════════════════════════════════
+     2. TRUST BAR
+  ═══════════════════════════════════════════════ #}
+  <div class="bg-white/70 border-y border-[rgba(201,169,138,0.3)]">
+    <div class="container-custom">
+      <ul class="flex flex-col items-center gap-4 py-6 text-center sm:flex-row sm:justify-center sm:gap-0 sm:divide-x sm:divide-[rgba(201,169,138,0.4)]" aria-label="Защо Валя Матовска">
+        <li class="flex items-center gap-2.5 px-6 text-sm font-medium text-ink sm:text-base">
+          <svg class="h-5 w-5 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span>Вежди и мигли — в едно</span>
+        </li>
+        <li class="flex items-center gap-2.5 px-6 text-sm font-medium text-ink sm:text-base">
+          <svg class="h-5 w-5 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>4–8 седмици дълготрайност</span>
+        </li>
+        <li class="flex items-center gap-2.5 px-6 text-sm font-medium text-ink sm:text-base">
+          <svg class="h-5 w-5 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Пловдив & Асеновград</span>
+        </li>
+        <li class="flex items-center gap-2.5 px-6 text-sm font-medium text-ink sm:text-base">
+          <svg class="h-5 w-5 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Подхранващ ефект за косъма</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  {# ═══════════════════════════════════════════════
+     3. TWO SERVICE CARDS
+  ═══════════════════════════════════════════════ #}
+  <section
+    class="mb-section section-padding"
+    aria-labelledby="lam-services-heading"
+  >
+    <div class="container-custom">
+      <header class="mb-header text-center mx-auto mb-10">
+        <span class="mb-eyebrow justify-center">Две процедури, един поглед</span>
+        <h2 id="lam-services-heading" class="mb-title text-center mt-2">
+          Вежди или мигли — или и двете
+        </h2>
+        <p class="mb-lead text-center mt-3 max-w-2xl mx-auto">
+          Ламинирането е щадяща процедура, която изважда максимума от това, което вече имаш — без изкуственото, без натовареността.
+        </p>
+      </header>
+
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+
+        {# Eyebrow lamination card #}
+        <div class="rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-7 py-8 shadow-[0_8px_22px_rgba(44,26,14,0.06)]">
+          <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
+            <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-ink mb-3">Ламиниране на вежди</h3>
+          <p class="text-sm leading-relaxed text-[#7a6558] mb-5">
+            Оформя, фиксира и подрежда косъмчетата на веждите в желаната посока за по-плътен и изразителен вид. Без нужда от ежедневен гел или молив. При желание се комбинира с боядисване.
+          </p>
+          <ul class="space-y-2 text-sm text-ink">
+            <li class="flex items-center gap-2">
+              <svg class="h-4 w-4 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Подходящо за непокорни и редки вежди
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="h-4 w-4 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Резултатът трае 4–6 седмици
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="h-4 w-4 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Подхранващо действие върху косъма
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="h-4 w-4 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Може да се комбинира с боядисване
+            </li>
+          </ul>
+        </div>
+
+        {# Lash lamination card #}
+        <div class="rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-7 py-8 shadow-[0_8px_22px_rgba(44,26,14,0.06)]">
+          <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
+            <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/><path d="M12 5V3M17 7l1.5-1.5M19 12h2M17 17l1.5 1.5M12 19v2M7 17l-1.5 1.5M5 12H3M7 7 5.5 5.5"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-ink mb-3">Ламиниране на мигли</h3>
+          <p class="text-sm leading-relaxed text-[#7a6558] mb-5">
+            Извива, подхранва и визуално удължава естествените мигли без изкуствени косъмчета. По-отворен и изразителен поглед с естествен резултат — без спирала.
+          </p>
+          <ul class="space-y-2 text-sm text-ink">
+            <li class="flex items-center gap-2">
+              <svg class="h-4 w-4 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Без изкуствени мигли или лепило
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="h-4 w-4 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Резултатът трае 6–8 седмици
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="h-4 w-4 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Подхранва в дълбочина
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="h-4 w-4 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Може да се добави оцветяване
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="mt-10 text-center">
+        <a href="{{ bookingUrl }}" class="btn-primary" target="_blank" rel="noopener noreferrer">
+          Запази час
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  {# ═══════════════════════════════════════════════
+     4. GALLERY
+  ═══════════════════════════════════════════════ #}
+  <section
+    id="lam-gallery"
+    class="mb-section section-padding bg-white/70"
+    aria-labelledby="lam-gallery-heading"
+  >
+    <div class="container-custom">
+      <header class="mb-header text-center mx-auto mb-5">
+        <span class="mb-eyebrow justify-center">Резултати</span>
+        <h2 id="lam-gallery-heading" class="mb-title text-center mt-2">
+          Снимките говорят сами
+        </h2>
+        <p class="mb-lead text-center mt-3">
+          Естествен резултат, подчертан поглед — без грим, без натоварване.
+        </p>
+      </header>
+    </div>
+
+    {% if lb.gallery and lb.gallery.length %}
+    <div class="mb-bubbles-wrap pt-5" data-lp-lam-bubbles-wrap>
+      <div class="container-custom">
+        <div class="mb-bubbles-head">
+          <p class="mb-bubbles-label" id="lp-lam-gallery-label">Галерия</p>
+          <div class="mb-bubbles-nav" aria-hidden="true">
+            <button type="button" class="mb-bubbles-arrow mb-bubbles-arrow--prev" data-lp-lam-prev aria-label="Предишна снимка">
+              <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="21 8 12 16 21 24" vector-effect="non-scaling-stroke"/></svg>
+            </button>
+            <button type="button" class="mb-bubbles-arrow mb-bubbles-arrow--next" data-lp-lam-next aria-label="Следваща снимка">
+              <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="11 8 20 16 11 24" vector-effect="non-scaling-stroke"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-bubbles" role="list" data-lp-lam-bubbles aria-labelledby="lp-lam-gallery-label">
+        {% for item in lb.gallery %}
+        <figure
+          class="mb-bubble{% if item.src | isVideoPath %} mb-bubble--video{% endif %}"
+          role="listitem"
+          data-lp-lam-gallery-trigger
+          data-lp-lam-gallery-index="{{ loop.index0 }}"
+        >
+          {% if item.src | isVideoPath %}
+          <video
+            src="{{ item.src | url }}"
+            data-lp-lam-gallery-item
+            data-lp-lam-gallery-index="{{ loop.index0 }}"
+            muted playsinline loop preload="metadata"
+            aria-label="{{ item.alt | default('Ламиниране — видео') }}"
+          ></video>
+          <span class="mb-bubble__video-badge" aria-hidden="true">
+            <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="28" cy="28" r="26" fill="rgba(255,255,255,0.92)" stroke="rgba(44,26,14,0.1)" stroke-width="1"/>
+              <path fill="#3a2415" d="M23 17v22l18-11-18-11Z"/>
+            </svg>
+          </span>
+          {% else %}
+          <img
+            src="{{ item.src | url }}"
+            alt="{{ item.alt | default('Ламиниране — снимка') }}"
+            data-lp-lam-gallery-item
+            data-lp-lam-gallery-index="{{ loop.index0 }}"
+            loading="lazy"
+            decoding="async"
+          />
+          {% endif %}
+        </figure>
+        {% endfor %}
+      </div>
+    </div>
+
+    {# Gallery lightbox modal #}
+    <div
+      id="lp-lam-gallery-modal"
+      class="mb-gallery-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-label="Галерия ламиниране"
+      hidden
+    >
+      <div class="mb-gallery-modal__backdrop" data-lp-lam-gallery-close></div>
+      <div class="mb-gallery-modal__panel" role="document">
+        <button type="button" class="mb-gallery-modal__close" data-lp-lam-gallery-close aria-label="Затвори галерията">&times;</button>
+        <button type="button" class="mb-gallery-modal__arrow mb-gallery-modal__arrow--prev" data-lp-lam-gallery-prev aria-label="Предишна снимка">
+          <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="21 8 12 16 21 24" vector-effect="non-scaling-stroke"/></svg>
+        </button>
+        <div class="mb-gallery-modal__stage" data-lp-lam-gallery-stage>
+          <div class="mb-gallery-modal__clip">
+            <img class="mb-gallery-modal__image" data-lp-lam-gallery-image src="" alt="" />
+            <video class="mb-gallery-modal__image" data-lp-lam-gallery-video playsinline controls hidden></video>
+          </div>
+        </div>
+        <button type="button" class="mb-gallery-modal__arrow mb-gallery-modal__arrow--next" data-lp-lam-gallery-next aria-label="Следваща снимка">
+          <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="11 8 20 16 11 24" vector-effect="non-scaling-stroke"/></svg>
+        </button>
+      </div>
+    </div>
+    {% endif %}
+
+  </section>
+
+
+  {# ═══════════════════════════════════════════════
+     5. PAIN POINTS
+  ═══════════════════════════════════════════════ #}
+  <section
+    class="mb-section section-padding"
+    aria-labelledby="lam-pain-heading"
+  >
+    <div class="container-custom">
+      <header class="mb-header text-center mx-auto mb-10">
+        <span class="mb-eyebrow justify-center">Подходящо ли е за теб?</span>
+        <h2 id="lam-pain-heading" class="mb-title text-center mt-2">
+          Разпознаваш ли се?
+        </h2>
+      </header>
+
+      <div class="grid grid-cols-1 gap-5 sm:grid-cols-3 max-w-4xl mx-auto">
+
+        <div class="rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
+          <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
+            <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="text-base font-semibold text-ink mb-2">Сутринта е rush — грим или природа?</h3>
+          <p class="text-sm leading-relaxed text-[#7a6558]">Нанасяш спирала, оправяш вежди с гел — и вече си закъсняла. Дори в почивен ден.</p>
+        </div>
+
+        <div class="rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
+          <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
+            <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3 class="text-base font-semibold text-ink mb-2">Веждите или миглите изглеждат плоски</h3>
+          <p class="text-sm leading-relaxed text-[#7a6558]">Редки, прави или непокорни косъмчета, от които погледът ти изглежда умален и неизразителен.</p>
+        </div>
+
+        <div class="rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
+          <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
+            <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 class="text-base font-semibold text-ink mb-2">Искаш естествено, не изкуствено</h3>
+          <p class="text-sm leading-relaxed text-[#7a6558]">Уморила си се от тежките екстеншъни или натрапчивия грим. Искаш да изглеждаш добре и без нищо по лицето.</p>
+        </div>
+
+      </div>
+
+      <div class="mx-auto mt-12 max-w-2xl text-center">
+        <p class="mb-lead">
+          Ламинирането е отговорът: процедура с <em>щадящи продукти</em>, без изкуствено, без болка — и с резултат, за който хората ще питат какво е различното по теб, без да могат да го посочат.
+        </p>
+        <div class="mt-7">
+          <a href="{{ bookingUrl }}" class="btn-primary" target="_blank" rel="noopener noreferrer">
+            Запази час сега
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  {# ═══════════════════════════════════════════════
+     6. COMPARISON — THE NATURAL CHOICE
+  ═══════════════════════════════════════════════ #}
+  <section
+    class="mb-section section-padding bg-white/70"
+    aria-labelledby="lam-compare-heading"
+  >
+    <div class="container-custom">
+      <div class="mx-auto max-w-3xl">
+        <header class="mb-header text-center mb-10">
+          <span class="mb-eyebrow justify-center">Защо ламиниране</span>
+          <h2 id="lam-compare-heading" class="mb-title text-center mt-2">
+            Естественото е новото красиво
+          </h2>
+        </header>
+
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+
+          <div class="rounded-2xl border-2 border-[rgba(201,169,138,0.3)] bg-[#fdf8f4] px-6 py-6">
+            <p class="mb-3 text-xs font-bold uppercase tracking-widest text-[#7a6558]">Преди ламиниране</p>
+            <ul class="space-y-3 text-sm text-[#7a6558]">
+              <li class="flex items-start gap-2"><span class="mt-0.5 shrink-0 text-[#ccc]">✕</span>Спирала всеки ден, петна под очите до вечерта</li>
+              <li class="flex items-start gap-2"><span class="mt-0.5 shrink-0 text-[#ccc]">✕</span>Вежди в различни посоки, гел вече не помага</li>
+              <li class="flex items-start gap-2"><span class="mt-0.5 shrink-0 text-[#ccc]">✕</span>Тежки екстеншъни, поддръжка на 2–3 седмици</li>
+              <li class="flex items-start gap-2"><span class="mt-0.5 shrink-0 text-[#ccc]">✕</span>В басейна или на море изглеждаш различно</li>
+            </ul>
+          </div>
+
+          <div class="rounded-2xl border-2 border-[#c9a98a] bg-white px-6 py-6">
+            <p class="mb-3 text-xs font-bold uppercase tracking-widest text-[#c9a98a]">След ламиниране</p>
+            <ul class="space-y-3 text-sm text-ink">
+              <li class="flex items-start gap-2"><span class="mt-0.5 shrink-0 text-[#c9a98a]">✓</span>Мигли с извивка и обем — без спирала</li>
+              <li class="flex items-start gap-2"><span class="mt-0.5 shrink-0 text-[#c9a98a]">✓</span>Вежди наредени и фиксирани точно така</li>
+              <li class="flex items-start gap-2"><span class="mt-0.5 shrink-0 text-[#c9a98a]">✓</span>Резултатът трае 4–8 седмици без поддръжка</li>
+              <li class="flex items-start gap-2"><span class="mt-0.5 shrink-0 text-[#c9a98a]">✓</span>На море, в басейна — изглеждаш перфектно</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 text-center">
+          <div class="rounded-xl bg-[#f9f3ee] px-5 py-5">
+            <p class="text-2xl font-bold text-[#c9a98a] mb-1">4–6 нед.</p>
+            <p class="text-sm font-medium text-ink">Ламиниране на вежди</p>
+          </div>
+          <div class="rounded-xl bg-[#f9f3ee] px-5 py-5">
+            <p class="text-2xl font-bold text-[#c9a98a] mb-1">6–8 нед.</p>
+            <p class="text-sm font-medium text-ink">Ламиниране на мигли</p>
+          </div>
+          <div class="rounded-xl bg-[#f9f3ee] px-5 py-5">
+            <p class="text-2xl font-bold text-[#c9a98a] mb-1">~1 ч.</p>
+            <p class="text-sm font-medium text-ink">Продължителност</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  {# ═══════════════════════════════════════════════
+     7. PROCESS STEPS
+  ═══════════════════════════════════════════════ #}
+  {% if lb.steps and lb.steps.length %}
+  <section
+    class="home-procedure section-padding relative overflow-hidden"
+    aria-labelledby="lam-process-heading"
+  >
+    <div class="mb-steps" data-lp-lam-procedure-steps>
+      <div class="container-custom">
+        <header class="mb-header text-center mx-auto mb-6">
+          <span class="mb-eyebrow justify-center">Процес</span>
+          <h2 id="lam-process-heading" class="mb-title text-center mt-2">Какво да очакваш</h2>
+          <p class="mb-lead text-center mt-3">Просто, приятно и без изненади — от консултацията до финалния резултат.</p>
+        </header>
+      </div>
+
+      <div class="mb-steps__viewport" data-lp-lam-procedure-steps-viewport>
+        <ol class="mb-steps__list">
+          {% for step in lb.steps %}
+          <li class="mb-step">
+            <span class="mb-step__num" aria-hidden="true">{{ step.number }}</span>
+            <div class="mb-step__body">
+              <h3 class="mb-step__title">{{ step.title }}</h3>
+              <p class="mb-step__desc">{{ step.description }}</p>
+            </div>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+
+    <div class="container-custom mt-10 text-center">
+      <a href="{{ bookingUrl }}" class="btn-primary" target="_blank" rel="noopener noreferrer">
+        Запази час
+      </a>
+    </div>
+  </section>
+  {% endif %}
+
+
+  {# ═══════════════════════════════════════════════
+     8. TESTIMONIALS
+  ═══════════════════════════════════════════════ #}
+  {% set testimonials = home.testimonials.items if home and home.testimonials and home.testimonials.items else [] %}
+  {% if testimonials.length %}
+  <section
+    class="mb-section section-padding bg-white/70"
+    aria-labelledby="lam-testimonials-heading"
+  >
+    <div class="container-custom">
+      <header class="mb-header mx-auto mb-10 text-center">
+        <span class="mb-eyebrow justify-center">Отзиви</span>
+        <h2 id="lam-testimonials-heading" class="mb-title mt-2 text-center">
+          Какво казват клиентите
+        </h2>
+        <p class="site-lead mx-auto mt-4 max-w-2xl text-center text-muted">
+          Реални отзиви от реални жени — с реален резултат.
+        </p>
+      </header>
+
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-3 max-w-5xl mx-auto">
+        {# Pick Василена (mentions lash lamination), Катето (regular client), Михаела (natural result) #}
+        {% for item in testimonials %}
+          {% if loop.index0 == 0 or loop.index0 == 3 or loop.index0 == 7 %}
+          <article class="rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] flex flex-col">
+            <div class="testimonial-card__stars mb-3" aria-hidden="true">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="testimonial-card__quote flex-1">{{ item.quote }}</p>
+            <p class="testimonial-card__name mt-4">– {{ item.name }}</p>
+          </article>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-sm text-muted mb-4">Всички отзиви са 100% автентични — от реални клиенти.</p>
+        <a href="{{ bookingUrl }}" class="btn-primary" target="_blank" rel="noopener noreferrer">
+          Стани следващата
+        </a>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+
+  {# ═══════════════════════════════════════════════
+     9. FAQ
+  ═══════════════════════════════════════════════ #}
+  <section
+    class="mb-section section-padding"
+    aria-labelledby="lam-faq-heading"
+  >
+    <div class="container-custom">
+      <header class="mb-header mx-auto mb-8 text-center md:mb-10">
+        <span class="mb-eyebrow justify-center">Въпроси и отговори</span>
+        <h2 id="lam-faq-heading" class="mb-title mt-2 text-center">
+          Имаш въпроси? Имам отговори.
+        </h2>
+      </header>
+
+      <div class="faq-stack w-full max-w-3xl mx-auto" data-lp-lam-faq-accordion>
+
+        <details class="faq-details" name="lam-lp-faq">
+          <summary class="faq-details__summary">
+            <span class="faq-details__question">Каква е разликата между ламиниране на вежди и мигли?</span>
+            <span class="faq-details__chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" class="faq-details__chevron-svg"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </summary>
+          <div class="faq-details__content"><div class="faq-details__inner">
+            <p class="faq-details__answer">Ламинирането на вежди оформя и фиксира косъмчетата в желана посока за по-плътен и подреден вид. Ламинирането на мигли ги извива и подхранва за по-отворен поглед без спирала. Двете процедури са независими и могат да се правят самостоятелно или заедно.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-details" name="lam-lp-faq">
+          <summary class="faq-details__summary">
+            <span class="faq-details__question">Болезнено ли е ламинирането?</span>
+            <span class="faq-details__chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" class="faq-details__chevron-svg"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </summary>
+          <div class="faq-details__content"><div class="faq-details__inner">
+            <p class="faq-details__answer">Не, процедурата е напълно безболезнена и много релаксираща. Повечето клиенти се отпускат по средата. Ползвам висококачествени продукти, щадящи за кожата и косъма.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-details" name="lam-lp-faq">
+          <summary class="faq-details__summary">
+            <span class="faq-details__question">Колко дълго издържа резултатът?</span>
+            <span class="faq-details__chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" class="faq-details__chevron-svg"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </summary>
+          <div class="faq-details__content"><div class="faq-details__inner">
+            <p class="faq-details__answer">Ламинирането на вежди трае средно 4–6 седмици, а ламинирането на мигли — 6–8 седмици в зависимост от естествения цикъл на растеж. С правилна грижа у дома можеш да удължиш ефекта.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-details" name="lam-lp-faq">
+          <summary class="faq-details__summary">
+            <span class="faq-details__question">Мога ли да се мокря след процедурата?</span>
+            <span class="faq-details__chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" class="faq-details__chevron-svg"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </summary>
+          <div class="faq-details__content"><div class="faq-details__inner">
+            <p class="faq-details__answer">Препоръчително е зоната да остане суха около 24–48 часа след процедурата. След това можеш да се мокриш нормално — включително плуване и душ. Ще получиш писмени насоки за грижа след всяка процедура.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-details" name="lam-lp-faq">
+          <summary class="faq-details__summary">
+            <span class="faq-details__question">Може ли да се комбинира ламинирането с боядисване?</span>
+            <span class="faq-details__chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" class="faq-details__chevron-svg"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </summary>
+          <div class="faq-details__content"><div class="faq-details__inner">
+            <p class="faq-details__answer">Да! Ламинирането на вежди може да се комбинира с боядисване на веждите за по-изразен, наситен резултат. Ламинирането на мигли — с оцветяване за допълнителен акцент. Обсъждаме заедно кое е най-подходящо за теб.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-details" name="lam-lp-faq">
+          <summary class="faq-details__summary">
+            <span class="faq-details__question">За кого е подходящо ламинирането?</span>
+            <span class="faq-details__chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" class="faq-details__chevron-svg"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </summary>
+          <div class="faq-details__content"><div class="faq-details__inner">
+            <p class="faq-details__answer">Ламинирането е подходящо за почти всеки. За вежди — особено за непокорни, редки или с неравномерен растеж. За мигли — за прави, редки или слабо извити мигли. На консултацията преценяваме заедно кой вид е най-подходящ за твоя тип.</p>
+          </div></div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+
+  {# ═══════════════════════════════════════════════
+     10. FINAL CTA
+  ═══════════════════════════════════════════════ #}
+  <section
+    class="relative section-padding bg-gradient-to-br from-[#A48C77] to-[#C1AE9A]"
+    aria-labelledby="lam-cta-heading"
+  >
+    <div class="container-custom relative z-10">
+      <div class="mx-auto max-w-3xl text-center">
+
+        <span class="mb-eyebrow justify-center text-white/80">Запази своя час</span>
+        <h2 id="lam-cta-heading" class="mb-title mt-2 text-center text-white">
+          Готова за нов поглед?
+        </h2>
+
+        <p class="mb-lead mt-4 text-white/90 max-w-xl mx-auto">
+          Свободните часове се запълват бързо. Запази своя сега — консултацията е включена, без допълнително заплащане.
+        </p>
+
+        <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <a
+            href="{{ bookingUrl }}"
+            class="inline-flex min-w-[220px] items-center justify-center rounded-3xl bg-[#2c1a0e] px-8 py-3.5 text-center font-['Montserrat_Alternates'] text-base font-medium tracking-wide text-white shadow-[0px_4px_4px_0px_rgba(0,0,0,0.21)] transition-colors hover:bg-zinc-800"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Запази час онлайн
+          </a>
+          <a
+            href="tel:{{ phone }}"
+            class="inline-flex min-w-[220px] items-center justify-center gap-2 rounded-3xl border-2 border-white/60 px-8 py-3.5 text-center font-['Montserrat_Alternates'] text-base font-medium tracking-wide text-white transition-colors hover:bg-white/10"
+          >
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 12 19.79 19.79 0 0 1 1.07 3.38 2 2 0 0 1 3.05 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 5.99 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            {{ phoneLabel }}
+          </a>
+        </div>
+
+        <div class="mt-8 flex flex-col items-center gap-1">
+          <p class="text-sm text-white/70">Или пиши директно:</p>
+          <div class="flex items-center gap-5 mt-2">
+            {% set c = home.contact if home and home.contact else {} %}
+            {% if c.whatsapp %}
+            <a href="{{ c.whatsapp }}" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors text-sm underline underline-offset-2">WhatsApp</a>
+            {% endif %}
+            {% if c.viber %}
+            <a href="{{ c.viber }}" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors text-sm underline underline-offset-2">Viber</a>
+            {% endif %}
+            {% if c.instagram %}
+            <a href="{{ c.instagram }}" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors text-sm underline underline-offset-2">Instagram</a>
+            {% endif %}
+          </div>
+        </div>
+
+        <p class="mt-8 text-xs text-white/60">
+          Пловдив, ул. „Борис Сарафов" 11 &nbsp;·&nbsp; Асеновград, ул. „Христо Ботев" 3
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+{# ═══════════════════════════════════════════════
+   SCRIPTS
+═══════════════════════════════════════════════ #}
+
+{% if lb.gallery and lb.gallery.length %}
+<script>
+(function initLpLamGallery() {
+  function enableHorizontalDrag(viewport) {
+    if (!viewport) return;
+    var isDown = false, startX = 0, startScroll = 0, moved = false;
+    viewport.addEventListener("pointerdown", function(e) {
+      if (e.pointerType === "touch") return;
+      isDown = true; moved = false; startX = e.clientX; startScroll = viewport.scrollLeft;
+      viewport.classList.add("is-dragging");
+      try { viewport.setPointerCapture(e.pointerId); } catch(err) {}
+    });
+    viewport.addEventListener("pointermove", function(e) {
+      if (!isDown) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      viewport.scrollLeft = startScroll - dx;
+    });
+    function end(e) {
+      if (!isDown) return; isDown = false;
+      viewport.classList.remove("is-dragging");
+      if (e && e.pointerId != null) { try { viewport.releasePointerCapture(e.pointerId); } catch(err) {} }
+    }
+    viewport.addEventListener("pointerup", end);
+    viewport.addEventListener("pointercancel", end);
+    viewport.addEventListener("pointerleave", end);
+    viewport.addEventListener("click", function(e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+    viewport.addEventListener("dragstart", function(e) { e.preventDefault(); });
+  }
+
+  var wrap = document.querySelector("[data-lp-lam-bubbles-wrap]");
+  if (wrap) {
+    var strip = wrap.querySelector("[data-lp-lam-bubbles]");
+    var prevBtn = wrap.querySelector("[data-lp-lam-prev]");
+    var nextBtn = wrap.querySelector("[data-lp-lam-next]");
+    if (strip) {
+      function cardWidth() {
+        var card = strip.querySelector(".mb-bubble");
+        if (!card) return strip.clientWidth * 0.8;
+        var cs = getComputedStyle(strip);
+        var gap = parseFloat(cs.columnGap || cs.gap || "0") || 0;
+        return card.getBoundingClientRect().width + gap;
+      }
+      function updateArrows() {
+        var max = strip.scrollWidth - strip.clientWidth;
+        if (prevBtn) prevBtn.toggleAttribute("disabled", strip.scrollLeft <= 2);
+        if (nextBtn) nextBtn.toggleAttribute("disabled", strip.scrollLeft >= max - 2);
+      }
+      if (prevBtn) prevBtn.addEventListener("click", function() { strip.scrollBy({ left: -cardWidth(), behavior: "smooth" }); });
+      if (nextBtn) nextBtn.addEventListener("click", function() { strip.scrollBy({ left: cardWidth(), behavior: "smooth" }); });
+      strip.addEventListener("scroll", updateArrows, { passive: true });
+      window.addEventListener("resize", updateArrows);
+      updateArrows();
+      if (window.matchMedia("(max-width: 767px)").matches) enableHorizontalDrag(strip);
+    }
+  }
+
+  var galleryModal = document.getElementById("lp-lam-gallery-modal");
+  if (!galleryModal) return;
+  var galleryImage = galleryModal.querySelector("[data-lp-lam-gallery-image]");
+  var galleryVideo = galleryModal.querySelector("[data-lp-lam-gallery-video]");
+  var galleryStage = galleryModal.querySelector("[data-lp-lam-gallery-stage]");
+  var galleryItems = Array.prototype.slice.call(document.querySelectorAll("[data-lp-lam-gallery-item]"));
+  var galleryTriggers = Array.prototype.slice.call(document.querySelectorAll("[data-lp-lam-gallery-trigger]"));
+  var closeGalleryBtns = galleryModal.querySelectorAll("[data-lp-lam-gallery-close]");
+  var prevGalleryBtn = galleryModal.querySelector("[data-lp-lam-gallery-prev]");
+  var nextGalleryBtn = galleryModal.querySelector("[data-lp-lam-gallery-next]");
+  var galleryIndex = 0;
+
+  function pauseModalVideo() {
+    if (!galleryVideo) return;
+    galleryVideo.pause();
+    galleryVideo.removeAttribute("src");
+    try { galleryVideo.load(); } catch(err) {}
+  }
+  function renderGalleryImage() {
+    if (!galleryItems.length) return;
+    var source = galleryItems[galleryIndex];
+    var isVideo = source.tagName === "VIDEO";
+    if (isVideo) {
+      if (galleryImage) { galleryImage.src = ""; galleryImage.style.display = "none"; }
+      if (galleryVideo) {
+        galleryVideo.src = source.currentSrc || source.getAttribute("src") || "";
+        galleryVideo.setAttribute("aria-label", source.getAttribute("aria-label") || "Галерия ламиниране");
+        galleryVideo.style.display = "block"; galleryVideo.muted = false;
+        try { galleryVideo.play(); } catch(err) {}
+      }
+    } else {
+      pauseModalVideo();
+      if (galleryVideo) galleryVideo.style.display = "none";
+      if (galleryImage) {
+        galleryImage.style.display = "block";
+        galleryImage.src = source.currentSrc || source.src;
+        galleryImage.alt = source.alt || "Галерия ламиниране";
+      }
+    }
+  }
+  function openGallery(index) {
+    galleryIndex = Math.max(0, Math.min(index, galleryItems.length - 1));
+    renderGalleryImage();
+    galleryModal.hidden = false;
+    galleryModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+  }
+  function closeGallery() {
+    pauseModalVideo();
+    if (galleryVideo) galleryVideo.style.display = "none";
+    if (galleryImage) { galleryImage.style.display = "none"; galleryImage.src = ""; galleryImage.alt = ""; }
+    galleryModal.hidden = true;
+    galleryModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+  }
+  function nextImage() { if (!galleryItems.length) return; galleryIndex = (galleryIndex + 1) % galleryItems.length; renderGalleryImage(); }
+  function prevImage() { if (!galleryItems.length) return; galleryIndex = (galleryIndex - 1 + galleryItems.length) % galleryItems.length; renderGalleryImage(); }
+
+  galleryTriggers.forEach(function(item) {
+    item.addEventListener("click", function(e) {
+      var idx = Number(e.currentTarget.getAttribute("data-lp-lam-gallery-index"));
+      openGallery(isFinite(idx) ? idx : 0);
+    });
+  });
+  closeGalleryBtns.forEach(function(btn) { btn.addEventListener("click", closeGallery); });
+  if (nextGalleryBtn) nextGalleryBtn.addEventListener("click", nextImage);
+  if (prevGalleryBtn) prevGalleryBtn.addEventListener("click", prevImage);
+
+  var swipeStartX = null;
+  if (galleryStage) {
+    galleryStage.addEventListener("touchstart", function(e) {
+      if (e.touches && e.touches.length) swipeStartX = e.touches[0].clientX;
+    }, { passive: true });
+    galleryStage.addEventListener("touchend", function(e) {
+      if (swipeStartX === null || !e.changedTouches || !e.changedTouches.length) return;
+      var dx = e.changedTouches[0].clientX - swipeStartX; swipeStartX = null;
+      if (Math.abs(dx) < 40) return;
+      if (dx < 0) nextImage(); else prevImage();
+    });
+  }
+  document.addEventListener("keydown", function(e) {
+    if (galleryModal.hidden) return;
+    if (e.key === "Escape") closeGallery();
+    if (e.key === "ArrowRight") nextImage();
+    if (e.key === "ArrowLeft") prevImage();
+  });
+})();
+</script>
+{% endif %}
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll("[data-lp-lam-procedure-steps]").forEach(function(root) {
+    var viewport = root.querySelector("[data-lp-lam-procedure-steps-viewport]");
+    if (!viewport || !window.matchMedia("(max-width: 1023px)").matches) return;
+    var isDown = false, startX, scrollLeft;
+    viewport.addEventListener("mousedown", function(e) { isDown = true; viewport.classList.add("is-dragging"); startX = e.pageX - viewport.offsetLeft; scrollLeft = viewport.scrollLeft; });
+    viewport.addEventListener("mouseleave", function() { isDown = false; viewport.classList.remove("is-dragging"); });
+    viewport.addEventListener("mouseup", function() { isDown = false; viewport.classList.remove("is-dragging"); });
+    viewport.addEventListener("mousemove", function(e) {
+      if (!isDown) return; e.preventDefault();
+      viewport.scrollLeft = scrollLeft - (e.pageX - viewport.offsetLeft - startX) * 2;
+    });
+  });
+});
+</script>
+
+<script>
+(function() {
+  var root = document.querySelector("[data-lp-lam-faq-accordion]");
+  if (!root) return;
+  var panels = root.querySelectorAll(".faq-details");
+  panels.forEach(function(panel) {
+    panel.addEventListener("toggle", function() {
+      if (!panel.open) return;
+      panels.forEach(function(other) { if (other !== panel) other.removeAttribute("open"); });
+    });
+  });
+})();
+</script>

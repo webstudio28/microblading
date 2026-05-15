@@ -1,8 +1,9 @@
 {% set f = home.faq if home and home.faq else {} %}
 {% set items = f.items if f.items else [] %}
+{% set previewCount = f.homePreviewCount | default(5) %}
 <section
   id="faq"
-  class="mb-section section-padding bg-white/70"
+  class="mb-section section-padding bg-white/70 scroll-mt-20"
   aria-labelledby="faq-heading"
 >
   <div class="container-custom">
@@ -14,42 +15,25 @@
     </header>
 
     {% if items and items.length %}
-    <div class="faq-stack w-full" data-faq-accordion>
-      {% for item in items %}
-      <details class="faq-details" name="home-faq">
-        <summary class="faq-details__summary">
-          <span class="faq-details__question">{{ item.question }}</span>
-          <span class="faq-details__chevron" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="faq-details__chevron-svg">
-              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </summary>
-        <div class="faq-details__content">
-          <div class="faq-details__inner">
-            <p class="faq-details__answer">{{ item.answer }}</p>
-          </div>
-        </div>
-      </details>
-      {% endfor %}
-    </div>
+    {% set faqItems = items %}
+    {% set faqLimit = previewCount %}
+    {% set faqAccordionName = "home-faq" %}
+    {% include "faq-accordion.njk" %}
+
+    {% if items.length > previewCount %}
+    <p class="faq-section__cta">
+      <a href="{{ (f.viewAllUrl | default('/faq/')) | url }}" class="faq-section__cta-btn">
+        {{ f.viewAllLabel | default("Виж всички") }}
+        <span class="faq-section__cta-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+    </p>
+    {% endif %}
     {% endif %}
   </div>
 </section>
 
-<script>
-  (function () {
-    var root = document.querySelector("[data-faq-accordion]");
-    if (!root) return;
-
-    var detailsList = root.querySelectorAll(".faq-details");
-    detailsList.forEach(function (panel) {
-      panel.addEventListener("toggle", function () {
-        if (!panel.open) return;
-        detailsList.forEach(function (other) {
-          if (other !== panel) other.removeAttribute("open");
-        });
-      });
-    });
-  })();
-</script>
+{% include "faq-accordion-script.njk" %}

@@ -1,0 +1,25 @@
+{% set list = faqItems if faqItems else items %}
+{% set max = faqLimit if faqLimit else limit %}
+{% if list and list.length %}
+<div class="faq-stack w-full" data-faq-accordion>
+  {% for item in list %}
+  {% if not max or loop.index <= max %}
+  <details class="faq-details" name="{{ faqAccordionName | default(accordionName | default('faq')) }}">
+    <summary class="faq-details__summary">
+      <span class="faq-details__question">{{ item.question }}</span>
+      <span class="faq-details__chevron" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="faq-details__chevron-svg">
+          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </summary>
+    <div class="faq-details__content">
+      <div class="faq-details__inner">
+        <p class="faq-details__answer">{{ item.answer }}</p>
+      </div>
+    </div>
+  </details>
+  {% endif %}
+  {% endfor %}
+</div>
+{% endif %}
