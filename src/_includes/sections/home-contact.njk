@@ -2,7 +2,7 @@
 {% set addr = c.addresses if c.addresses else [] %}
 <section
   id="contact"
-  class="mb-section scroll-mt-20 section-padding bg-white/70"
+  class="mb-section section-padding bg-white/70"
   aria-labelledby="contact-heading"
 >
   <div class="container-custom">
@@ -32,7 +32,7 @@
               </span>
               <div class="min-w-0 pt-0.5">
                 {% if addrTitle %}
-                <p class="text-sm font-semibold tracking-tight text-ink">{{ addrTitle }}</p>
+                <p class="text-lg font-semibold tracking-tight text-ink md:text-xl">{{ addrTitle }}</p>
                 {% endif %}
                 <p class="{% if addrTitle %}mt-1 {% endif %}text-base font-medium leading-snug text-muted">{{ addrLine }}</p>
               </div>
@@ -77,7 +77,7 @@
             <div class="min-w-0 pt-0.5">
               <p class="text-xs font-semibold uppercase tracking-wide text-muted">Viber</p>
               <a href="{{ c.viber | default('viber://chat?number=%2B359887621922') }}" target="_blank" rel="noopener noreferrer" class="mt-0.5 inline-block text-base font-medium text-ink underline decoration-brand-accent/50 underline-offset-2 transition-colors hover:text-brand-primary hover:decoration-brand-accent">
-                Пиши във Viber
+                Пиши ми във Viber
               </a>
             </div>
           </div>
@@ -89,7 +89,7 @@
             <div class="min-w-0 pt-0.5">
               <p class="text-xs font-semibold uppercase tracking-wide text-muted">WhatsApp</p>
               <a href="{{ c.whatsapp | default('https://wa.me/359887621922') }}" target="_blank" rel="noopener noreferrer" class="mt-0.5 inline-block text-base font-medium text-ink underline decoration-brand-accent/50 underline-offset-2 transition-colors hover:text-brand-primary hover:decoration-brand-accent">
-                Отвори WhatsApp
+                Пиши ми в WhatsApp
               </a>
             </div>
           </div>

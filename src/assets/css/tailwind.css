@@ -28,6 +28,9 @@
   /* Section vertical rhythm — mirrors .section-padding (py-16 / md:py-24) */
   --section-padding-y:     4rem;
   --section-padding-y-md:  6rem;
+
+  /* Sticky header (top-4 + pill) — single source for anchor scroll offset */
+  --header-scroll-offset: 5.75rem;
 }
 
 @tailwind base;
@@ -37,7 +40,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 7rem;
+    scroll-padding-top: var(--header-scroll-offset);
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
