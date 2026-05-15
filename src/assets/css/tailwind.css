@@ -1984,6 +1984,17 @@
     opacity: 0.4;
   }
 
+  @media (min-width: 1024px) {
+    .clients-strip,
+    .clients-strip-set {
+      gap: 5.5rem;
+    }
+
+    .client-card {
+      flex: 0 0 23.75rem;
+    }
+  }
+
   @keyframes modal-fade-in {
     from { opacity: 0; }
     to { opacity: 1; }
