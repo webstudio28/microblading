@@ -13,7 +13,14 @@ module.exports = {
       "PhiBrows microblading in Plovdiv and Asenovgrad. Precise, natural, long-lasting brows tailored to you—no daily pencil, no compromise.",
     ctaPrimary: "Book appointment",
     ctaSecondary: "See results",
-    imageAlt: "Microblading — Valya Matovska",
+    imageAlt: "PhiBrows microblading — before and after",
+  },
+  beforeAfter: {
+    eyebrow: "Results",
+    title: "Before / After",
+    lead: "If your brows don't frame your face, your whole look suffers.",
+    imageAlt: "Microblading before and after",
+    modalLabel: "Before / after — microblading",
   },
   trust: {
     ariaLabel: "Why Valya Matovska",
@@ -25,9 +32,6 @@ module.exports = {
     ],
   },
   gallery: {
-    eyebrow: "Results",
-    title: "The results speak for themselves",
-    lead: "If your brows don't frame your face, your whole look suffers.",
     label: "Gallery",
     videoAlt: "Microblading — video",
     imageAlt: "Microblading photo",

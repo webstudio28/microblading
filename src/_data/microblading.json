@@ -1,4 +1,29 @@
 {
+  "landing": {
+    "hero": {
+      "srcDesktop": "/assets/images/landing-microblading/landing-hero-desktop.jpeg",
+      "srcMobile": "/assets/images/landing-microblading/landing-hero-mobile.jpeg",
+      "alt": "Микроблейдинг PhiBrows — преди и след"
+    },
+    "beforeAfter": [
+      {
+        "src": "/assets/images/landing-microblading/ba1.jpeg",
+        "alt": "Микроблейдинг — преди и след, резултат 1"
+      },
+      {
+        "src": "/assets/images/landing-microblading/ba2.jpeg",
+        "alt": "Микроблейдинг — преди и след, резултат 2"
+      },
+      {
+        "src": "/assets/images/landing-microblading/ba3.jpeg",
+        "alt": "Микроблейдинг — преди и след, резултат 3"
+      },
+      {
+        "src": "/assets/images/landing-microblading/ba4.jpeg",
+        "alt": "Микроблейдинг — преди и след, резултат 4"
+      }
+    ]
+  },
   "gallery": [
     {
       "src": "/assets/images/microblading1.jpg",

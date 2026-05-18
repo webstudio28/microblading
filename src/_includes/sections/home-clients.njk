@@ -25,6 +25,7 @@
       <div class="clients-strip" role="list" data-clients-strip>
         <div class="clients-strip-set">
         {% for client in clients %}
+        {% set clientIdx = loop.index0 %}
         <div
           class="client-card"
           data-client-id="{{ client.id }}"
@@ -51,7 +52,7 @@
           {% if client.services and client.services.length %}
           <p class="client-card__procedure" aria-label="Процедура">
             {% for svc in client.services %}
-            <span class="client-card__procedure-item">{{ svc }}</span>{% if not loop.last %}<span class="client-card__procedure-sep" aria-hidden="true">·</span>{% endif %}
+            <span class="client-card__procedure-item" data-i18n="clients.{{ clientIdx }}.services.0">{{ svc }}</span>{% if not loop.last %}<span class="client-card__procedure-sep" aria-hidden="true">·</span>{% endif %}
             {% endfor %}
           </p>
           {% endif %}
@@ -60,6 +61,7 @@
         </div>
         <div class="clients-strip-set" aria-hidden="true">
         {% for client in clients %}
+        {% set clientIdx = loop.index0 %}
         <div class="client-card" data-client-id="{{ client.id }}">
           <div class="client-card__visual">
             <div class="client-card__half">
@@ -83,7 +85,7 @@
           {% if client.services and client.services.length %}
           <p class="client-card__procedure" aria-label="Процедура">
             {% for svc in client.services %}
-            <span class="client-card__procedure-item">{{ svc }}</span>{% if not loop.last %}<span class="client-card__procedure-sep" aria-hidden="true">·</span>{% endif %}
+            <span class="client-card__procedure-item" data-i18n="clients.{{ clientIdx }}.services.0">{{ svc }}</span>{% if not loop.last %}<span class="client-card__procedure-sep" aria-hidden="true">·</span>{% endif %}
             {% endfor %}
           </p>
           {% endif %}

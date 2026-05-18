@@ -885,6 +885,8 @@
   .mb-section:has(#lam-info-modal:not([hidden])),
   .mb-section:has(#mb-gallery-modal:not([hidden])),
   .mb-section:has(#lam-gallery-modal:not([hidden])),
+  .mb-section:has(#lp-ba-gallery-modal:not([hidden])),
+  .mb-section:has(#lp-mb-gallery-modal:not([hidden])),
   .mb-section:has(#client-detail-modal[aria-hidden="false"]) {
     isolation: auto;
   }
@@ -925,6 +927,111 @@
     width: 28px;
     height: 1px;
     background: linear-gradient(to left, transparent, var(--color-brand-accent) 40%, var(--color-brand-accent));
+  }
+
+  /* Full-width strip — gutter inset matches .mb-bubbles / .container-custom */
+  .lp-before-after__wrap {
+    width: 100%;
+  }
+
+  .lp-before-after__scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 1.25rem;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    touch-action: pan-x pan-y;
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 0.25rem;
+    padding-bottom: 0.5rem;
+    padding-right: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
+    padding-left: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
+    scroll-padding-left: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
+    scroll-padding-right: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
+  }
+  .lp-before-after__scroll::-webkit-scrollbar {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .lp-before-after__scroll {
+      padding-right: max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem));
+      padding-left: max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem));
+      scroll-padding-left: max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem));
+      scroll-padding-right: max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem));
+    }
+  }
+  @media (max-width: 1023px) {
+    .lp-before-after__scroll {
+      cursor: grab;
+    }
+  }
+  .lp-before-after__scroll.is-dragging {
+    cursor: grabbing;
+    user-select: none;
+  }
+  .lp-before-after__scroll.is-dragging * {
+    pointer-events: none;
+  }
+
+  .lp-before-after__card {
+    flex: 0 0 auto;
+    width: min(78vw, 14.5rem);
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 1.1rem;
+    border: 1px solid rgba(44, 26, 14, 0.08);
+    background: #f0e9df;
+    box-shadow: 0 10px 24px rgba(44, 26, 14, 0.06);
+    aspect-ratio: 1;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .lp-before-after__card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(44, 26, 14, 0.1);
+  }
+  .lp-before-after__card:focus-visible {
+    outline: 2px solid var(--color-brand-accent);
+    outline-offset: 3px;
+  }
+
+  @media (min-width: 1024px) {
+    .lp-before-after__scroll {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: clamp(1rem, 1.8vw, 1.75rem);
+      overflow-x: visible;
+      padding-top: 0.35rem;
+      padding-bottom: 0.85rem;
+      cursor: default;
+    }
+    .lp-before-after__card {
+      flex: none;
+      width: auto;
+      max-width: none;
+      border-radius: 1.35rem;
+      box-shadow: 0 14px 32px rgba(44, 26, 14, 0.08);
+    }
+    .lp-before-after__card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(44, 26, 14, 0.12);
+    }
+  }
+
+  .lp-before-after__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
   }
 
   .lp-benefits-scroll {
@@ -1762,7 +1869,8 @@
   .mb-gallery-modal {
     position: fixed;
     inset: 0;
-    z-index: 1400;
+    /* Above sticky header (z-50) and booking modal (1200); matches testimonial overlay tier */
+    z-index: 5000;
     display: grid;
     place-items: center;
     padding: 1rem;

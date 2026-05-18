@@ -6,7 +6,7 @@ description: Прецизен микроблейдинг по метода PhiBr
 pageI18nKey: mikrobleiding
 pageNav:
   - label: "Резултати"
-    url: "#lp-gallery"
+    url: "#lp-before-after"
   - label: "Какво е"
     url: "#lp-what"
   - label: "Процес"
@@ -22,6 +22,11 @@ pageNav:
 {% set bookingUrl = home.hero.ctaPrimary.url if home and home.hero and home.hero.ctaPrimary else "https://s24.bg/m/3844" %}
 {% set phone = home.contact.phoneHref if home and home.contact else "+359887621922" %}
 {% set phoneLabel = home.contact.phoneLabel if home and home.contact else "0887 621 922" %}
+{% set lpHero = mb.landing.hero if mb.landing and mb.landing.hero else {} %}
+{% set lpHeroAlt = lpHero.alt | default('Микроблейдинг — Валя Матовска') %}
+{% set lpHeroDesktop = lpHero.srcDesktop | default(lpHero.src) | default('/assets/images/hero-img.jpeg') %}
+{% set lpHeroMobile = lpHero.srcMobile | default(lpHero.src) | default('/assets/images/hero-img-mobile.jpg') %}
+{% set lpBeforeAfter = mb.landing.beforeAfter if mb.landing and mb.landing.beforeAfter else [] %}
 
 <main>
 
@@ -43,16 +48,14 @@ pageNav:
           {# Mobile image #}
           <div class="flex w-full justify-center md:hidden">
             <div class="hero-photo-wrap w-full max-w-none">
-              <picture>
-                <source media="(max-width: 767px)" srcset="{{ '/assets/images/hero-img-mobile.jpg' | url }}">
-                <img
-                  src="{{ '/assets/images/hero-img.jpeg' | url }}"
-                  alt="Микроблейдинг — Валя Матовска"
-                  class="hero-photo"
-                  width="460" height="540"
-                  loading="eager"
-                >
-              </picture>
+              <img
+                src="{{ lpHeroMobile | url }}"
+                alt="{{ lpHeroAlt }}"
+                class="hero-photo"
+                width="460" height="540"
+                loading="eager"
+                data-i18n-attr="alt:pages.mikrobleiding.hero.imageAlt"
+              >
             </div>
           </div>
 
@@ -64,7 +67,7 @@ pageNav:
             <a href="{{ bookingUrl }}" class="btn-primary min-w-0 flex-1" target="_blank" rel="noopener noreferrer" data-i18n="pages.mikrobleiding.hero.ctaPrimary">
               Запази час
             </a>
-            <a href="#lp-gallery" class="btn-secondary min-w-0 flex-1" data-i18n="pages.mikrobleiding.hero.ctaSecondary">
+            <a href="#lp-before-after" class="btn-secondary min-w-0 flex-1" data-i18n="pages.mikrobleiding.hero.ctaSecondary">
               Виж резултати
             </a>
           </div>
@@ -73,16 +76,14 @@ pageNav:
         {# Image column — desktop #}
         <div class="order-2 hidden justify-center md:flex lg:justify-end">
           <div class="hero-photo-wrap">
-            <picture>
-              <source media="(max-width: 767px)" srcset="{{ '/assets/images/hero-img-mobile.jpg' | url }}">
-              <img
-                src="{{ '/assets/images/hero-img.jpeg' | url }}"
-                alt="Микроблейдинг — Валя Матовска"
-                class="hero-photo"
-                width="460" height="540"
-                loading="eager"
-              >
-            </picture>
+            <img
+              src="{{ lpHeroDesktop | url }}"
+              alt="{{ lpHeroAlt }}"
+              class="hero-photo"
+              width="460" height="540"
+              loading="eager"
+              data-i18n-attr="alt:pages.mikrobleiding.hero.imageAlt"
+            >
           </div>
         </div>
 
@@ -91,7 +92,7 @@ pageNav:
           <a href="{{ bookingUrl }}" class="btn-primary min-w-0 flex-1 px-4 py-2 text-sm" target="_blank" rel="noopener noreferrer">
             Запази час
           </a>
-          <a href="#lp-gallery" class="btn-secondary min-w-0 flex-1 px-4 py-2 text-sm">
+          <a href="#lp-before-after" class="btn-secondary min-w-0 flex-1 px-4 py-2 text-sm">
             Виж резултати
           </a>
         </div>
@@ -129,112 +130,89 @@ pageNav:
 
 
   {# ═══════════════════════════════════════════════
-     3. GALLERY
+     2b. BEFORE / AFTER (mini)
   ═══════════════════════════════════════════════ #}
+  {% if lpBeforeAfter and lpBeforeAfter.length %}
   <section
-    id="lp-gallery"
-    class="mb-section section-padding"
-    aria-labelledby="lp-gallery-heading"
+    id="lp-before-after"
+    class="lp-before-after mb-section section-padding"
+    aria-labelledby="lp-before-after-heading"
   >
     <div class="container-custom">
       <header class="mb-header text-center mx-auto mb-5">
-        <span class="mb-eyebrow justify-center">Резултати</span>
-        <h2 id="lp-gallery-heading" class="mb-title text-center mt-2" data-i18n="pages.mikrobleiding.gallery.title">
-          Резултатите говорят сами
+        <span class="mb-eyebrow justify-center" data-i18n="pages.mikrobleiding.beforeAfter.eyebrow">Резултати</span>
+        <h2 id="lp-before-after-heading" class="mb-title text-center mt-2" data-i18n="pages.mikrobleiding.beforeAfter.title">
+          Преди / След
         </h2>
-        <p class="mb-lead text-center mt-3" data-i18n="pages.mikrobleiding.gallery.lead">
+        <p class="mb-lead text-center mt-3 max-w-2xl mx-auto" data-i18n="pages.mikrobleiding.beforeAfter.lead">
           Ако веждите ви не подчертават лицето ви, цялото излъчване страда.
         </p>
       </header>
     </div>
 
-    {% if mb.gallery and mb.gallery.length %}
-    <div class="mb-bubbles-wrap pt-5" data-lp-mb-bubbles-wrap>
-      <div class="container-custom">
-        <div class="mb-bubbles-head">
-          <p class="mb-bubbles-label" id="lp-mb-gallery-label">Галерия</p>
-          <div class="mb-bubbles-nav" aria-hidden="true">
-            <button type="button" class="mb-bubbles-arrow mb-bubbles-arrow--prev" data-lp-mb-prev aria-label="Предишна снимка">
-              <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="21 8 12 16 21 24" vector-effect="non-scaling-stroke"/></svg>
-            </button>
-            <button type="button" class="mb-bubbles-arrow mb-bubbles-arrow--next" data-lp-mb-next aria-label="Следваща снимка">
-              <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="11 8 20 16 11 24" vector-effect="non-scaling-stroke"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="mb-bubbles" role="list" data-lp-mb-bubbles aria-labelledby="lp-mb-gallery-label">
-        {% for item in mb.gallery %}
-        <figure
-          class="mb-bubble{% if item.src | isVideoPath %} mb-bubble--video{% endif %}"
+    <div class="lp-before-after__wrap pt-5">
+      <div class="lp-before-after__scroll" data-lp-ba-scroll role="list" aria-labelledby="lp-before-after-heading">
+        {% for item in lpBeforeAfter %}
+        <button
+          type="button"
+          class="lp-before-after__card"
           role="listitem"
-          data-lp-mb-gallery-trigger
-          data-lp-mb-gallery-index="{{ loop.index0 }}"
+          data-lp-ba-gallery-trigger
+          data-lp-ba-gallery-index="{{ loop.index0 }}"
+          aria-label="{{ item.alt | default('Микроблейдинг — преди и след') }}"
         >
-          {% if item.src | isVideoPath %}
-          <video
-            src="{{ item.src | url }}"
-            data-lp-mb-gallery-item
-            data-lp-mb-gallery-index="{{ loop.index0 }}"
-            muted playsinline loop preload="metadata"
-            aria-label="{{ item.alt | default('Микроблейдинг — видео') }}"
-          ></video>
-          <span class="mb-bubble__video-badge" aria-hidden="true">
-            <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="28" cy="28" r="26" fill="rgba(255,255,255,0.92)" stroke="rgba(44,26,14,0.1)" stroke-width="1"/>
-              <path fill="#3a2415" d="M23 17v22l18-11-18-11Z"/>
-            </svg>
-          </span>
-          {% else %}
           <img
             src="{{ item.src | url }}"
-            alt="{{ item.alt | default('Микроблейдинг снимка') }}"
-            data-lp-mb-gallery-item
-            data-lp-mb-gallery-index="{{ loop.index0 }}"
+            alt="{{ item.alt | default('Микроблейдинг — преди и след') }}"
+            class="lp-before-after__img"
+            width="480"
+            height="480"
             loading="lazy"
             decoding="async"
-          />
-          {% endif %}
-        </figure>
+            data-lp-ba-gallery-item
+            data-lp-ba-gallery-index="{{ loop.index0 }}"
+            data-i18n-attr="alt:pages.mikrobleiding.beforeAfter.imageAlt"
+            draggable="false"
+          >
+        </button>
         {% endfor %}
       </div>
     </div>
 
-    {# Gallery lightbox modal #}
     <div
-      id="lp-mb-gallery-modal"
+      id="lp-ba-gallery-modal"
       class="mb-gallery-modal"
       role="dialog"
       aria-modal="true"
       aria-hidden="true"
-      aria-label="Галерия микроблейдинг"
+      aria-label="Преди / След — микроблейдинг"
+      data-i18n-attr="aria-label:pages.mikrobleiding.beforeAfter.modalLabel"
       hidden
     >
-      <div class="mb-gallery-modal__backdrop" data-lp-mb-gallery-close></div>
+      <div class="mb-gallery-modal__backdrop" data-lp-ba-gallery-close></div>
       <div class="mb-gallery-modal__panel" role="document">
-        <button type="button" class="mb-gallery-modal__close" data-lp-mb-gallery-close aria-label="Затвори галерията">&times;</button>
-        <button type="button" class="mb-gallery-modal__arrow mb-gallery-modal__arrow--prev" data-lp-mb-gallery-prev aria-label="Предишна снимка">
+        <button type="button" class="mb-gallery-modal__close" data-lp-ba-gallery-close aria-label="Затвори">&times;</button>
+        <button type="button" class="mb-gallery-modal__arrow mb-gallery-modal__arrow--prev" data-lp-ba-gallery-prev aria-label="Предишна снимка">
           <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="21 8 12 16 21 24" vector-effect="non-scaling-stroke"/></svg>
         </button>
-        <div class="mb-gallery-modal__stage" data-lp-mb-gallery-stage>
+        <div class="mb-gallery-modal__stage" data-lp-ba-gallery-stage>
           <div class="mb-gallery-modal__clip">
-            <img class="mb-gallery-modal__image" data-lp-mb-gallery-image src="" alt="" />
-            <video class="mb-gallery-modal__image" data-lp-mb-gallery-video playsinline controls hidden></video>
+            <img class="mb-gallery-modal__image" data-lp-ba-gallery-image src="" alt="" />
           </div>
         </div>
-        <button type="button" class="mb-gallery-modal__arrow mb-gallery-modal__arrow--next" data-lp-mb-gallery-next aria-label="Следваща снимка">
+        <button type="button" class="mb-gallery-modal__arrow mb-gallery-modal__arrow--next" data-lp-ba-gallery-next aria-label="Следваща снимка">
           <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="11 8 20 16 11 24" vector-effect="non-scaling-stroke"/></svg>
         </button>
       </div>
     </div>
-    {% endif %}
-
   </section>
+  {% endif %}
+
+
 
 
   {# ═══════════════════════════════════════════════
-     4. BENEFITS / PAIN POINTS
+     3. BENEFITS / PAIN POINTS
   ═══════════════════════════════════════════════ #}
   <section
     class="mb-section section-padding bg-white/70"
@@ -268,7 +246,11 @@ pageNav:
 
         <div class="lp-benefits-scroll__card rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
           <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
-            <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/><path d="M12 8v4l3 3"/></svg>
+            <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3.5 15.5c2.4-2.6 5.2-3 8.5-2.2"/>
+              <path d="M12 15.5c2.4-2.6 5.2-3 8.5-2.2"/>
+              <path d="M6.5 17.2h1.8M9.8 17.5h1.2M14.2 17.5h1.2M17.5 17.2h1.8" stroke-width="1.35" opacity="0.5"/>
+            </svg>
           </div>
           <h3 class="font-sans text-base font-semibold text-ink mb-2" data-i18n="pages.mikrobleiding.benefits.cards.2.title">Веждите са редки или без форма</h3>
           <p class="text-sm leading-relaxed text-[#7a6558]">Липсата на обем или ясна форма кара погледа ти да изглежда незавършен.</p>
@@ -631,7 +613,99 @@ pageNav:
 
 
   {# ═══════════════════════════════════════════════
-     9. ABOUT CREDIBILITY + FINAL CTA
+     GALLERY (compact, above final CTA)
+  ═══════════════════════════════════════════════ #}
+  {% if mb.gallery and mb.gallery.length %}
+  <section
+    id="lp-gallery"
+    class="mb-section section-padding pb-8 md:pb-12 pt-10 md:pt-14"
+    aria-labelledby="lp-mb-gallery-label"
+  >
+    <div class="mb-bubbles-wrap" data-lp-mb-bubbles-wrap>
+      <div class="container-custom">
+        <div class="mb-bubbles-head">
+          <p class="mb-bubbles-label" id="lp-mb-gallery-label" data-i18n="pages.mikrobleiding.gallery.label">Галерия</p>
+          <div class="mb-bubbles-nav" aria-hidden="true">
+            <button type="button" class="mb-bubbles-arrow mb-bubbles-arrow--prev" data-lp-mb-prev aria-label="Предишна снимка">
+              <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="21 8 12 16 21 24" vector-effect="non-scaling-stroke"/></svg>
+            </button>
+            <button type="button" class="mb-bubbles-arrow mb-bubbles-arrow--next" data-lp-mb-next aria-label="Следваща снимка">
+              <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="11 8 20 16 11 24" vector-effect="non-scaling-stroke"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-bubbles" role="list" data-lp-mb-bubbles aria-labelledby="lp-mb-gallery-label">
+        {% for item in mb.gallery %}
+        <figure
+          class="mb-bubble{% if item.src | isVideoPath %} mb-bubble--video{% endif %}"
+          role="listitem"
+          data-lp-mb-gallery-trigger
+          data-lp-mb-gallery-index="{{ loop.index0 }}"
+        >
+          {% if item.src | isVideoPath %}
+          <video
+            src="{{ item.src | url }}"
+            data-lp-mb-gallery-item
+            data-lp-mb-gallery-index="{{ loop.index0 }}"
+            muted playsinline loop preload="metadata"
+            aria-label="{{ item.alt | default('Микроблейдинг — видео') }}"
+          ></video>
+          <span class="mb-bubble__video-badge" aria-hidden="true">
+            <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="28" cy="28" r="26" fill="rgba(255,255,255,0.92)" stroke="rgba(44,26,14,0.1)" stroke-width="1"/>
+              <path fill="#3a2415" d="M23 17v22l18-11-18-11Z"/>
+            </svg>
+          </span>
+          {% else %}
+          <img
+            src="{{ item.src | url }}"
+            alt="{{ item.alt | default('Микроблейдинг снимка') }}"
+            data-lp-mb-gallery-item
+            data-lp-mb-gallery-index="{{ loop.index0 }}"
+            loading="lazy"
+            decoding="async"
+          />
+          {% endif %}
+        </figure>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div
+      id="lp-mb-gallery-modal"
+      class="mb-gallery-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-label="Галерия микроблейдинг"
+      data-i18n-attr="aria-label:pages.mikrobleiding.gallery.modalLabel"
+      hidden
+    >
+      <div class="mb-gallery-modal__backdrop" data-lp-mb-gallery-close></div>
+      <div class="mb-gallery-modal__panel" role="document">
+        <button type="button" class="mb-gallery-modal__close" data-lp-mb-gallery-close aria-label="Затвори галерията">&times;</button>
+        <button type="button" class="mb-gallery-modal__arrow mb-gallery-modal__arrow--prev" data-lp-mb-gallery-prev aria-label="Предишна снимка">
+          <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="21 8 12 16 21 24" vector-effect="non-scaling-stroke"/></svg>
+        </button>
+        <div class="mb-gallery-modal__stage" data-lp-mb-gallery-stage>
+          <div class="mb-gallery-modal__clip">
+            <img class="mb-gallery-modal__image" data-lp-mb-gallery-image src="" alt="" />
+            <video class="mb-gallery-modal__image" data-lp-mb-gallery-video playsinline controls hidden></video>
+          </div>
+        </div>
+        <button type="button" class="mb-gallery-modal__arrow mb-gallery-modal__arrow--next" data-lp-mb-gallery-next aria-label="Следваща снимка">
+          <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="11 8 20 16 11 24" vector-effect="non-scaling-stroke"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+
+  {# ═══════════════════════════════════════════════
+     FINAL CTA
   ═══════════════════════════════════════════════ #}
   <section
     class="relative section-padding bg-gradient-to-br from-[#A48C77] to-[#C1AE9A]"
@@ -681,6 +755,109 @@ pageNav:
 {# ═══════════════════════════════════════════════
    SCRIPTS
 ═══════════════════════════════════════════════ #}
+
+{# Before / after strip + lightbox #}
+{% if lpBeforeAfter and lpBeforeAfter.length %}
+<script>
+(function initLpBeforeAfterGallery() {
+  function enableHorizontalDrag(viewport) {
+    if (!viewport) return;
+    var isDown = false, startX = 0, startScroll = 0, moved = false;
+    viewport.addEventListener("pointerdown", function(e) {
+      if (e.pointerType === "touch") return;
+      isDown = true; moved = false; startX = e.clientX; startScroll = viewport.scrollLeft;
+      viewport.classList.add("is-dragging");
+      try { viewport.setPointerCapture(e.pointerId); } catch(err) {}
+    });
+    viewport.addEventListener("pointermove", function(e) {
+      if (!isDown) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      viewport.scrollLeft = startScroll - dx;
+    });
+    function end(e) {
+      if (!isDown) return; isDown = false;
+      viewport.classList.remove("is-dragging");
+      if (e && e.pointerId != null) { try { viewport.releasePointerCapture(e.pointerId); } catch(err) {} }
+    }
+    viewport.addEventListener("pointerup", end);
+    viewport.addEventListener("pointercancel", end);
+    viewport.addEventListener("pointerleave", end);
+    viewport.addEventListener("click", function(e) {
+      if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+    }, true);
+    viewport.addEventListener("dragstart", function(e) { e.preventDefault(); });
+  }
+
+  var scrollEl = document.querySelector("[data-lp-ba-scroll]");
+  if (scrollEl && window.matchMedia("(max-width: 1023px)").matches) {
+    enableHorizontalDrag(scrollEl);
+  }
+
+  var modal = document.getElementById("lp-ba-gallery-modal");
+  if (!modal) return;
+  var modalImage = modal.querySelector("[data-lp-ba-gallery-image]");
+  var modalStage = modal.querySelector("[data-lp-ba-gallery-stage]");
+  var items = Array.prototype.slice.call(document.querySelectorAll("[data-lp-ba-gallery-item]"));
+  var triggers = Array.prototype.slice.call(document.querySelectorAll("[data-lp-ba-gallery-trigger]"));
+  var closeBtns = modal.querySelectorAll("[data-lp-ba-gallery-close]");
+  var prevBtn = modal.querySelector("[data-lp-ba-gallery-prev]");
+  var nextBtn = modal.querySelector("[data-lp-ba-gallery-next]");
+  var index = 0;
+
+  function render() {
+    if (!items.length || !modalImage) return;
+    var source = items[index];
+    modalImage.src = source.currentSrc || source.src;
+    modalImage.alt = source.getAttribute("alt") || "";
+  }
+  function openAt(i) {
+    index = Math.max(0, Math.min(i, items.length - 1));
+    render();
+    modal.hidden = false;
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+  }
+  function close() {
+    if (modalImage) { modalImage.src = ""; modalImage.alt = ""; }
+    modal.hidden = true;
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+  }
+  function next() { if (!items.length) return; index = (index + 1) % items.length; render(); }
+  function prev() { if (!items.length) return; index = (index - 1 + items.length) % items.length; render(); }
+
+  triggers.forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var idx = Number(btn.getAttribute("data-lp-ba-gallery-index"));
+      openAt(isFinite(idx) ? idx : 0);
+    });
+  });
+  closeBtns.forEach(function(btn) { btn.addEventListener("click", close); });
+  if (prevBtn) prevBtn.addEventListener("click", prev);
+  if (nextBtn) nextBtn.addEventListener("click", next);
+
+  var swipeStartX = null;
+  if (modalStage) {
+    modalStage.addEventListener("touchstart", function(e) {
+      if (e.touches && e.touches.length) swipeStartX = e.touches[0].clientX;
+    }, { passive: true });
+    modalStage.addEventListener("touchend", function(e) {
+      if (swipeStartX === null || !e.changedTouches || !e.changedTouches.length) return;
+      var dx = e.changedTouches[0].clientX - swipeStartX; swipeStartX = null;
+      if (Math.abs(dx) < 40) return;
+      if (dx < 0) next(); else prev();
+    });
+  }
+  document.addEventListener("keydown", function(e) {
+    if (modal.hidden) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+  });
+})();
+</script>
+{% endif %}
 
 {# Gallery carousel + lightbox #}
 {% if mb.gallery and mb.gallery.length %}
