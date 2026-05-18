@@ -9,7 +9,7 @@
 {% set baList = baClients if baClients else [] %}
 {% set baId = baSectionId | default("clients") %}
 {% set baHeading = baHeadingId | default(baId ~ "-heading") %}
-{% set baClass = baSectionClass | default("mb-section clients-section section-padding") %}
+{% set baClass = baSectionClass | default("clients-section section-padding") %}
 
 {% if baList and baList.length %}
 <section

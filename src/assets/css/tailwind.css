@@ -891,8 +891,21 @@
     isolation: auto;
   }
 
-  .mb-section.clients-section {
+  .clients-section {
     background: transparent;
+  }
+
+  /* In-section modals (microblading "learn more"): same stacking behavior as .mb-section */
+  #microblading,
+  #lp-what {
+    position: relative;
+    isolation: isolate;
+  }
+  #microblading:has(#mb-info-modal:not([hidden])),
+  #lp-what:has(#lp-mb-info-modal:not([hidden])) {
+    isolation: auto;
+    /* Entire section context must beat sticky header (z-50) and mobile sheet (z-60); modal is fixed inside */
+    z-index: 100;
   }
 
   /* Lamination block: same layout tokens as .mb-section; background 0 alpha to tune later */
@@ -1789,7 +1802,7 @@
   .mb-info-modal {
     position: fixed;
     inset: 0;
-    z-index: 1300;
+    z-index: 5000;
     display: grid;
     place-items: center;
     padding: 1.2rem;

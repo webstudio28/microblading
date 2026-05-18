@@ -2,7 +2,7 @@
 {% set mb = microblading if microblading else {} %}
 <section
   id="microblading"
-  class="mb-section section-padding"
+  class="mb-section section-padding bg-white/70"
   aria-labelledby="microblading-heading"
 >
   <div class="container-custom relative">
@@ -299,16 +299,17 @@
       }
     });
 
-      var galleryModal = document.getElementById("mb-gallery-modal");
-    if (galleryModal) {
+    var microSection = document.getElementById("microblading");
+    var galleryModal = document.getElementById("mb-gallery-modal");
+    if (galleryModal && microSection) {
       var galleryImage = galleryModal.querySelector("[data-mb-gallery-image]");
       var galleryVideo = galleryModal.querySelector("[data-mb-gallery-video]");
       var galleryStage = galleryModal.querySelector("[data-mb-gallery-stage]");
       var galleryItems = Array.prototype.slice.call(
-        document.querySelectorAll("[data-mb-gallery-item]")
+        microSection.querySelectorAll("[data-mb-gallery-item]")
       );
       var galleryTriggers = Array.prototype.slice.call(
-        document.querySelectorAll("[data-mb-gallery-trigger]")
+        microSection.querySelectorAll("[data-mb-gallery-trigger]")
       );
       var closeGalleryBtns = galleryModal.querySelectorAll("[data-mb-gallery-close]");
       var prevGalleryBtn = galleryModal.querySelector("[data-mb-gallery-prev]");
@@ -318,7 +319,7 @@
       function pauseModalVideo() {
         if (!galleryVideo) return;
         galleryVideo.pause();
-        galleryVideo.src = "";
+        galleryVideo.removeAttribute("src");
         try { galleryVideo.load(); } catch (err) {}
       }
 

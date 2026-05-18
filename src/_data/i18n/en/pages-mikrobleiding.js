@@ -1,7 +1,7 @@
 module.exports = {
   nav: [
     { label: "Results" },
-    { label: "What it is" },
+    { label: "Microblading" },
     { label: "Process" },
     { label: "Reviews" },
     { label: "FAQ" },
