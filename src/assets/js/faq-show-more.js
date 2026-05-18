@@ -22,40 +22,62 @@
     return { more: "Виж още", less: "По-малко" };
   }
 
-  /**
-   * @param {HTMLElement} extra
-   * @param {HTMLElement} inner
-   * @param {{ instant?: boolean }} [opts]
-   */
+  function measureFullHeight(inner) {
+    var prev = inner.style.maxHeight;
+    inner.style.maxHeight = "none";
+    var h = inner.scrollHeight;
+    inner.style.maxHeight = prev;
+    return h;
+  }
+
+  function onHeightTransitionEnd(inner, extra, cb) {
+    function onEnd(e) {
+      if (e.target !== inner || e.propertyName !== "max-height") return;
+      inner.removeEventListener("transitionend", onEnd);
+      cb();
+    }
+    inner.addEventListener("transitionend", onEnd);
+  }
+
   function collapseExtra(extra, inner, opts) {
     opts = opts || {};
     extra.classList.remove("is-expanded");
+
     if (opts.instant || reducedMotion) {
-      inner.style.maxHeight = COLLAPSED_PEEK;
+      inner.style.maxHeight = "";
       return;
     }
-    var h = inner.scrollHeight;
-    inner.style.maxHeight = h + "px";
+
+    var full = measureFullHeight(inner);
+    inner.style.maxHeight = full + "px";
     inner.getBoundingClientRect();
     inner.style.maxHeight = COLLAPSED_PEEK;
+
+    onHeightTransitionEnd(inner, extra, function () {
+      if (!extra.classList.contains("is-expanded")) {
+        inner.style.maxHeight = "";
+      }
+    });
   }
 
   function expandExtra(extra, inner) {
     extra.classList.add("is-expanded");
+
     if (reducedMotion) {
       inner.style.maxHeight = "";
       return;
     }
-    var target = inner.scrollHeight;
-    inner.style.maxHeight = target + "px";
-    inner.addEventListener(
-      "transitionend",
-      function onEnd(e) {
-        if (e.propertyName !== "max-height" || !extra.classList.contains("is-expanded")) return;
+
+    var full = measureFullHeight(inner);
+    inner.style.maxHeight = COLLAPSED_PEEK;
+    inner.getBoundingClientRect();
+    inner.style.maxHeight = full + "px";
+
+    onHeightTransitionEnd(inner, extra, function () {
+      if (extra.classList.contains("is-expanded")) {
         inner.style.maxHeight = "";
-      },
-      { once: true }
-    );
+      }
+    });
   }
 
   function setButtonState(btn, expanded) {
@@ -70,11 +92,6 @@
   function closeOpenInExtra(extra) {
     extra.querySelectorAll("details.faq-details[open]").forEach(function (d) {
       d.open = false;
-      var panel = d.querySelector(".faq-details__content");
-      if (panel) {
-        panel.style.height = "";
-        panel.style.transition = "";
-      }
     });
   }
 
@@ -87,7 +104,7 @@
     if (!inner) return;
 
     btn.dataset.faqExpandBound = "1";
-    collapseExtra(extra, inner, { instant: true });
+    inner.style.maxHeight = "";
     setButtonState(btn, false);
 
     btn.addEventListener("click", function () {
@@ -108,7 +125,11 @@
     if (listRoot) bindBlock(listRoot);
   }
 
-  init();
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 
   document.addEventListener("valeto:langchange", function () {
     var listRoot = root.querySelector("[data-faq-list]");
@@ -119,7 +140,7 @@
     if (!extra || !inner || !btn) return;
     var expanded = extra.classList.contains("is-expanded");
     if (!expanded) {
-      collapseExtra(extra, inner, { instant: true });
+      inner.style.maxHeight = "";
     }
     setButtonState(btn, expanded);
   });

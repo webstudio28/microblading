@@ -46,7 +46,8 @@
         </div>
 
         {% if items.length > faqVisibleCount %}
-        <div class="faq-extra relative mt-4" data-faq-extra>
+        <div class="faq-extra relative mt-2" data-faq-extra>
+          <div class="faq-extra-peek relative">
           <div class="faq-stack faq-extra-inner w-full" data-faq-extra-inner>
             {% for item in items %}
             {% if loop.index0 >= faqVisibleCount %}
@@ -68,26 +69,24 @@
             {% endif %}
             {% endfor %}
           </div>
-          <div class="faq-extra-fade pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-28" data-faq-fade aria-hidden="true"></div>
+          <div class="faq-extra-fade pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-20" data-faq-fade aria-hidden="true"></div>
+          </div>
+          <div class="faq-extra-actions relative z-[2] flex justify-center">
+            <button
+              type="button"
+              class="faq-see-more inline-flex items-center gap-2 rounded-2xl border border-[rgba(193,163,138,0.55)] bg-[#faf9f6] px-6 py-3 text-base font-semibold text-ink shadow-[0_8px_22px_rgba(44,26,14,0.06)] transition-colors hover:border-[rgba(173,143,121,0.75)] hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a98a] focus-visible:ring-offset-2"
+              data-faq-expand
+              aria-expanded="false"
+            >
+              <span data-faq-expand-label>Виж още</span>
+              <svg class="faq-see-more-icon h-4 w-4 shrink-0 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+          </div>
         </div>
         {% endif %}
       </div>
-
-      {% if items.length > faqVisibleCount %}
-      <div class="relative z-[2] mt-6 flex justify-center">
-        <button
-          type="button"
-          class="faq-see-more inline-flex items-center gap-2 rounded-2xl border border-[rgba(193,163,138,0.55)] bg-[#faf9f6] px-6 py-3 text-base font-semibold text-ink shadow-[0_8px_22px_rgba(44,26,14,0.06)] transition-colors hover:border-[rgba(173,143,121,0.75)] hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a98a] focus-visible:ring-offset-2"
-          data-faq-expand
-          aria-expanded="false"
-        >
-          <span data-faq-expand-label>Виж още</span>
-          <svg class="faq-see-more-icon h-4 w-4 shrink-0 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M6 9l6 6 6-6"/>
-          </svg>
-        </button>
-      </div>
-      {% endif %}
     </div>
     {% endif %}
   </div>

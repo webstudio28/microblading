@@ -1702,10 +1702,17 @@
     transform: translateX(3px);
   }
 
-  /* Peek + expand: max-height only when collapsed (matches raboteriya; avoids fighting JS) */
+  /* Peek + expand — padding so card shadows are not clipped */
+  .faq-extra,
+  .faq-extra-peek {
+    overflow: visible;
+  }
+
   .faq-extra-inner {
     overflow: hidden;
     transition: max-height 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+    padding: 6px 14px 10px;
+    margin: -6px -14px 0;
   }
 
   .faq-extra:not(.is-expanded) .faq-extra-inner {
@@ -1715,6 +1722,19 @@
 
   .faq-extra.is-expanded .faq-extra-inner {
     max-height: none;
+    overflow: visible;
+    padding-bottom: 1.5rem;
+    margin-bottom: -1.5rem;
+  }
+
+  .faq-extra-actions {
+    margin-top: -2.25rem;
+    padding-top: 0.25rem;
+  }
+
+  .faq-extra.is-expanded .faq-extra-actions {
+    margin-top: 0.75rem;
+    padding-top: 0;
   }
 
   .faq-extra-fade {
