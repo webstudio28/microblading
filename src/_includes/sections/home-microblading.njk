@@ -9,15 +9,15 @@
 
     <header class="mb-header text-center mx-auto mb-5">
       {% if m.eyebrow %}
-      <span class="mb-eyebrow justify-center">{{ m.eyebrow }}</span>
+      <span class="mb-eyebrow justify-center" data-i18n="home.microblading.eyebrow">{{ m.eyebrow }}</span>
       {% endif %}
 
-      <h2 id="microblading-heading" class="mb-title text-center mt-2">
+      <h2 id="microblading-heading" class="mb-title text-center mt-2" data-i18n="home.microblading.title">
         {{ m.title | default("Микроблейдинг") }}
       </h2>
 
       {% if m.lead %}
-      <p class="mb-lead mb-lead--clamped text-center mt-3">{{ m.lead }}</p>
+      <p class="mb-lead mb-lead--clamped text-center mt-3" data-i18n="home.microblading.lead">{{ m.lead }}</p>
       {% endif %}
 
       {% if m.sub %}
@@ -29,7 +29,7 @@
           aria-haspopup="dialog"
           aria-controls="mb-info-modal"
         >
-          Научи повече
+          <span data-i18n="ui.learnMore">Научи повече</span>
         </button>
       </p>
       {% endif %}

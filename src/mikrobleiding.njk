@@ -2,6 +2,18 @@
 layout: base.njk
 title: Микроблейдинг Пловдив — PhiBrows | Валя Матовска
 description: Прецизен микроблейдинг по метода PhiBrows в Пловдив и Асеновград. Естествени, симетрични и дълготрайни вежди — 12 до 18 месеца без грим. Запази час онлайн.
+pageI18nKey: mikrobleiding
+pageNav:
+  - label: "Резултати"
+    url: "#lp-gallery"
+  - label: "Какво е"
+    url: "#lp-what"
+  - label: "Процес"
+    url: "#lp-process"
+  - label: "Отзиви"
+    url: "#lp-testimonials"
+  - label: "Въпроси"
+    url: "#lp-faq"
 ---
 
 {% set mb = microblading if microblading else {} %}
@@ -20,10 +32,10 @@ description: Прецизен микроблейдинг по метода PhiBr
 
         {# Text column #}
         <div class="order-1 flex w-full min-w-0 flex-col items-center gap-5 text-center md:items-start md:text-left">
-          <span class="hero-badge hero-badge--signature hidden md:inline-flex">PhiBrows · Сертифициран специалист</span>
+          <span class="hero-badge hero-badge--signature hidden md:inline-flex" data-i18n="pages.mikrobleiding.hero.badge">PhiBrows · Сертифициран специалист</span>
 
-          <h1 id="lp-hero-heading" class="font-mak text-[2.35rem] leading-[1.12] text-ink md:text-6xl md:leading-[1.1] xl:text-[4.25rem] xl:leading-[1.08]">
-            Събуди се с перфектни вежди — всеки ден
+          <h1 id="lp-hero-heading" class="font-mak text-[2.35rem] leading-[1.12] text-ink md:text-6xl md:leading-[1.1] xl:text-[4.25rem] xl:leading-[1.08]" data-i18n="pages.mikrobleiding.hero.headline">
+            Събуди се с перфектни вежди
           </h1>
 
           {# Mobile image #}
@@ -42,15 +54,15 @@ description: Прецизен микроблейдинг по метода PhiBr
             </div>
           </div>
 
-          <p class="site-lead max-w-xl">
+          <p class="site-lead max-w-xl" data-i18n="pages.mikrobleiding.hero.lead">
             Микроблейдинг с техника PhiBrows в Пловдив и Асеновград. Прецизни, естествени и дълготрайни вежди, съобразени само с теб — без ежедневен молив, без компромис.
           </p>
 
           <div class="mt-1 hidden w-full min-w-0 flex-row flex-nowrap gap-3 md:flex">
-            <a href="{{ bookingUrl }}" class="btn-primary min-w-0 flex-1" target="_blank" rel="noopener noreferrer">
+            <a href="{{ bookingUrl }}" class="btn-primary min-w-0 flex-1" target="_blank" rel="noopener noreferrer" data-i18n="pages.mikrobleiding.hero.ctaPrimary">
               Запази час
             </a>
-            <a href="#lp-gallery" class="btn-secondary min-w-0 flex-1">
+            <a href="#lp-gallery" class="btn-secondary min-w-0 flex-1" data-i18n="pages.mikrobleiding.hero.ctaSecondary">
               Виж резултати
             </a>
           </div>
@@ -92,22 +104,22 @@ description: Прецизен микроблейдинг по метода PhiBr
   ═══════════════════════════════════════════════ #}
   <div class="bg-white/70 border-y border-[rgba(201,169,138,0.3)]">
     <div class="container-custom">
-      <ul class="flex flex-col items-center gap-4 py-6 text-center sm:flex-row sm:justify-center sm:gap-0 sm:divide-x sm:divide-[rgba(201,169,138,0.4)]" aria-label="Защо Валя Матовска">
-        <li class="flex items-center gap-2.5 px-6 text-sm font-medium text-ink sm:text-base">
+      <ul class="grid grid-cols-2 gap-x-4 gap-y-5 py-6 px-1 max-w-md mx-auto sm:max-w-none sm:flex sm:flex-row sm:items-center sm:justify-center sm:gap-0 sm:divide-x sm:divide-[rgba(201,169,138,0.4)] sm:py-6 sm:px-0" aria-label="Защо Валя Матовска" data-i18n-attr="aria-label:pages.mikrobleiding.trust.ariaLabel">
+        <li class="flex items-start gap-2.5 text-left text-sm font-medium leading-snug text-ink sm:items-center sm:justify-center sm:px-6 sm:text-center sm:text-base">
           <svg class="h-5 w-5 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <span>PhiBrows Сертифициран специалист</span>
+          <span data-i18n="pages.mikrobleiding.trust.items.0">PhiBrows Сертифициран специалист</span>
         </li>
-        <li class="flex items-center gap-2.5 px-6 text-sm font-medium text-ink sm:text-base">
+        <li class="flex items-start gap-2.5 text-left text-sm font-medium leading-snug text-ink sm:items-center sm:justify-center sm:px-6 sm:text-center sm:text-base">
           <svg class="h-5 w-5 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span>12–18 месеца дълготрайност</span>
+          <span data-i18n="pages.mikrobleiding.trust.items.1">12–18 месеца дълготрайност</span>
         </li>
-        <li class="flex items-center gap-2.5 px-6 text-sm font-medium text-ink sm:text-base">
+        <li class="flex items-start gap-2.5 text-left text-sm font-medium leading-snug text-ink sm:items-center sm:justify-center sm:px-6 sm:text-center sm:text-base">
           <svg class="h-5 w-5 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>Пловдив & Асеновград</span>
+          <span data-i18n="pages.mikrobleiding.trust.items.2">Пловдив & Асеновград</span>
         </li>
-        <li class="flex items-center gap-2.5 px-6 text-sm font-medium text-ink sm:text-base">
+        <li class="flex items-start gap-2.5 text-left text-sm font-medium leading-snug text-ink sm:items-center sm:justify-center sm:px-6 sm:text-center sm:text-base">
           <svg class="h-5 w-5 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          <span>Индивидуален подход за всеки клиент</span>
+          <span data-i18n="pages.mikrobleiding.trust.items.3">Индивидуален подход за всеки клиент</span>
         </li>
       </ul>
     </div>
@@ -128,8 +140,8 @@ description: Прецизен микроблейдинг по метода PhiBr
         <h2 id="lp-gallery-heading" class="mb-title text-center mt-2">
           Снимките говорят сами
         </h2>
-        <p class="mb-lead text-center mt-3">
-          Всяка двойка вежди е уникална — оформена специално за чертите и желанията на клиента.
+        <p class="mb-lead text-center mt-3" data-i18n="pages.mikrobleiding.gallery.lead">
+          Ако веждите ви не подчертават лицето ви, цялото излъчване страда.
         </p>
       </header>
     </div>
@@ -228,9 +240,8 @@ description: Прецизен микроблейдинг по метода PhiBr
   >
     <div class="container-custom">
       <header class="mb-header text-center mx-auto mb-10">
-        <span class="mb-eyebrow justify-center">Подходящо ли е за теб?</span>
-        <h2 id="lp-benefits-heading" class="mb-title text-center mt-2">
-          Разпознаваш ли се?
+        <h2 id="lp-benefits-heading" class="mb-title text-center" data-i18n="pages.mikrobleiding.benefits.title">
+          Ако това си ти…
         </h2>
       </header>
 
@@ -240,15 +251,15 @@ description: Прецизен микроблейдинг по метода PhiBr
           <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
             <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
-          <h3 class="text-base font-semibold text-ink mb-2">Губиш 10+ минути всяка сутрин</h3>
-          <p class="text-sm leading-relaxed text-[#7a6558]">Рисуваш вежди, търсиш симетрия, поправяш грешки — и всичко това преди кафето.</p>
+          <h3 class="font-sans text-base font-semibold text-ink mb-2" data-i18n="pages.mikrobleiding.benefits.cards.0.title">Губиш време всеки ден</h3>
+          <p class="text-sm leading-relaxed text-[#7a6558]" data-i18n="pages.mikrobleiding.benefits.cards.0.text">Рисуваш вежди, търсиш симетрия, поправяш грешки,</p>
         </div>
 
         <div class="rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
           <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
             <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </div>
-          <h3 class="text-base font-semibold text-ink mb-2">Веждите ти не са симетрични</h3>
+          <h3 class="font-sans text-base font-semibold text-ink mb-2" data-i18n="pages.mikrobleiding.benefits.cards.1.title">Веждите ти не са симетрични</h3>
           <p class="text-sm leading-relaxed text-[#7a6558]">Едната е по-висока, по-дебела или по-тъмна — независимо колко се стараеш.</p>
         </div>
 
@@ -256,14 +267,14 @@ description: Прецизен микроблейдинг по метода PhiBr
           <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
             <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/><path d="M12 8v4l3 3"/></svg>
           </div>
-          <h3 class="text-base font-semibold text-ink mb-2">Веждите са редки или без форма</h3>
+          <h3 class="font-sans text-base font-semibold text-ink mb-2" data-i18n="pages.mikrobleiding.benefits.cards.2.title">Веждите са редки или без форма</h3>
           <p class="text-sm leading-relaxed text-[#7a6558]">Липсата на обем или ясна форма кара погледа ти да изглежда незавършен.</p>
         </div>
       </div>
 
       <div class="mx-auto mt-12 max-w-2xl text-center">
-        <p class="mb-lead">
-          Микроблейдингът с техника <strong>PhiBrows</strong> решава всичко това с <em>един</em> часа. Резултатът — естествени, симетрични вежди, съобразени с чертите на лицето ти, без ежедневен грим, за <strong>12 до 18 месеца</strong>.
+        <p class="mb-lead font-medium text-ink" data-i18n="pages.mikrobleiding.benefits.lead">
+          Микроблейдингът с техника PhiBrows решава всичко това с една процедура!
         </p>
         <div class="mt-7">
           <a href="{{ bookingUrl }}" class="btn-primary" target="_blank" rel="noopener noreferrer">
@@ -279,6 +290,7 @@ description: Прецизен микроблейдинг по метода PhiBr
      5. WHAT IS MICROBLADING
   ═══════════════════════════════════════════════ #}
   <section
+    id="lp-what"
     class="mb-section section-padding"
     aria-labelledby="lp-what-heading"
   >
@@ -324,6 +336,7 @@ description: Прецизен микроблейдинг по метода PhiBr
   ═══════════════════════════════════════════════ #}
   {% if mb.steps and mb.steps.length %}
   <section
+    id="lp-process"
     class="home-procedure section-padding relative bg-white/70 overflow-hidden"
     aria-labelledby="lp-process-heading"
   >
@@ -366,6 +379,7 @@ description: Прецизен микроблейдинг по метода PhiBr
   {% set testimonials = home.testimonials.items if home and home.testimonials and home.testimonials.items else [] %}
   {% if testimonials.length %}
   <section
+    id="lp-testimonials"
     class="mb-section section-padding"
     aria-labelledby="lp-testimonials-heading"
   >
@@ -410,6 +424,7 @@ description: Прецизен микроблейдинг по метода PhiBr
      8. FAQ
   ═══════════════════════════════════════════════ #}
   <section
+    id="lp-faq"
     class="mb-section section-padding bg-white/70"
     aria-labelledby="lp-faq-heading"
   >

@@ -20,12 +20,12 @@
       {% endif %}
     </a>
 
-    <p class="site-footer__tagline">{{ footerTagline }}</p>
+    <p class="site-footer__tagline" data-i18n="site.footer.tagline">{{ footerTagline }}</p>
 
     <nav class="site-footer__nav" aria-label="Footer">
-      <a href="#contact">Контакти</a>
+      <a href="#contact" data-i18n="site.footer.contact">Контакти</a>
       <span class="site-footer__sep" aria-hidden="true">·</span>
-      <a href="{{ '/' | url }}#faq">Често задавани въпроси</a>
+      <a href="{{ '/' | url }}#faq" data-i18n="site.footer.faq">Често задавани въпроси</a>
       <span class="site-footer__sep" aria-hidden="true">·</span>
       <a
         href="{{ headerCta.url }}"
@@ -35,6 +35,7 @@
         aria-controls="booking-modal"
         {% endif %}
         {% if headerCta.external %}target="_blank" rel="noopener noreferrer"{% endif %}
+        data-i18n="home.hero.ctaPrimary.label"
       >{{ headerCta.label | default("Запази час") }}</a>
     </nav>
 

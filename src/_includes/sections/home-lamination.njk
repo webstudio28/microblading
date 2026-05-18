@@ -9,15 +9,15 @@
 
     <header class="mb-header text-center mx-auto mb-5">
       {% if l.eyebrow %}
-      <span class="mb-eyebrow justify-center">{{ l.eyebrow }}</span>
+      <span class="mb-eyebrow justify-center" data-i18n="home.lamination.eyebrow">{{ l.eyebrow }}</span>
       {% endif %}
 
-      <h2 id="laminating-heading" class="mb-title text-center mt-2">
+      <h2 id="laminating-heading" class="mb-title text-center mt-2" data-i18n="home.lamination.title">
         {{ l.title | default("Ламиниране") }}
       </h2>
 
       {% if l.lead %}
-      <p class="mb-lead mb-lead--clamped text-center mt-3">{{ l.lead }}</p>
+      <p class="mb-lead mb-lead--clamped text-center mt-3" data-i18n="home.lamination.lead">{{ l.lead }}</p>
       {% endif %}
 
       {% if l.sub %}

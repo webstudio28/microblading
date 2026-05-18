@@ -7,12 +7,12 @@
 >
   <div class="container-custom">
     <header class="mb-header mx-auto mb-10 text-center md:mb-14">
-      <span class="mb-eyebrow justify-center">Свържи се с мен</span>
-      <h2 id="contact-heading" class="mb-title mt-2 text-center">
+      <span class="mb-eyebrow justify-center" data-i18n="ui.getInTouch">Свържи се с мен</span>
+      <h2 id="contact-heading" class="mb-title mt-2 text-center" data-i18n="ui.contacts">
         Контакти
       </h2>
       {% if c.lead %}
-      <p class="site-lead mx-auto mt-4 max-w-2xl text-center text-muted">
+      <p class="site-lead mx-auto mt-4 max-w-2xl text-center text-muted" data-i18n="home.contact.lead">
         {{ c.lead }}
       </p>
       {% endif %}
@@ -32,9 +32,9 @@
               </span>
               <div class="min-w-0 pt-0.5">
                 {% if addrTitle %}
-                <p class="text-lg font-semibold tracking-tight text-ink md:text-xl">{{ addrTitle }}</p>
+                <p class="text-lg font-semibold tracking-tight text-ink md:text-xl" data-i18n="home.contact.addresses.{{ loop.index0 }}.title">{{ addrTitle }}</p>
                 {% endif %}
-                <p class="{% if addrTitle %}mt-1 {% endif %}text-base font-medium leading-snug text-muted">{{ addrLine }}</p>
+                <p class="{% if addrTitle %}mt-1 {% endif %}text-base font-medium leading-snug text-muted" data-i18n="home.contact.addresses.{{ loop.index0 }}.line">{{ addrLine }}</p>
               </div>
             </div>
             {% endfor %}

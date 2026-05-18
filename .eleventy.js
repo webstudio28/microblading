@@ -8,6 +8,9 @@ module.exports = function (eleventyConfig) {
 
   // Passthrough copy: src/assets → _site/assets
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  eleventyConfig.addPassthroughCopy({
+    "src/assets/js/i18n.js": "assets/js/i18n.js",
+  });
   // Passthrough copy: tiny PHP API endpoint for cPanel
   eleventyConfig.addPassthroughCopy({ "src/api": "api" });
 

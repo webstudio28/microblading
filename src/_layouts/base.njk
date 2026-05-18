@@ -1,10 +1,28 @@
+{% set i18nPageKey = pageI18nKey | default('index') %}
 <!DOCTYPE html>
-<html lang="{% if site and site.brand %}{{ site.brand.language }}{% else %}en{% endif %}">
+<html lang="{% if site and site.brand %}{{ site.brand.language }}{% else %}bg{% endif %}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if title %}{{ title }}{% elif site and site.seo %}{{ site.seo.defaultTitle }}{% else %}Valeto{% endif %}</title>
-  <meta name="description" content="{% if description %}{{ description }}{% elif site and site.seo %}{{ site.seo.defaultDescription }}{% endif %}">
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem("valeto-lang") === "en") {
+          document.documentElement.lang = "en";
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <title
+    data-i18n-title="meta.{{ i18nPageKey }}.title"
+    data-i18n-title-bg="{% if title %}{{ title }}{% elif site and site.seo %}{{ site.seo.defaultTitle }}{% else %}Valeto{% endif %}"
+  >{% if title %}{{ title }}{% elif site and site.seo %}{{ site.seo.defaultTitle }}{% else %}Valeto{% endif %}</title>
+  <meta
+    name="description"
+    data-i18n-desc="meta.{{ i18nPageKey }}.description"
+    data-i18n-desc-bg="{% if description %}{{ description }}{% elif site and site.seo %}{{ site.seo.defaultDescription }}{% endif %}"
+    content="{% if description %}{{ description }}{% elif site and site.seo %}{{ site.seo.defaultDescription }}{% endif %}"
+  >
   {% if site and site.seo and site.seo.siteUrl %}
   <link rel="canonical" href="{{ site.seo.siteUrl }}{{ page.url | url }}">
   {% endif %}
@@ -23,6 +41,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@200;300;400;500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/styles.css' | url }}">
+  <script>window.__I18N__ = { en: {{ i18n.en | dump | safe }} };</script>
+  <script src="{{ '/assets/js/i18n.js' | url }}" defer></script>
 </head>
 <body>
   {# Full-page texture overlay — sits above gradient, below all content #}
@@ -54,56 +74,57 @@
         class="booking-modal__close"
         data-booking-close
         aria-label="Затвори модалния прозорец"
+        data-i18n-attr="aria-label:ui.closeModal"
       >
         &times;
       </button>
-      <h2 id="booking-modal-title" class="booking-modal__title">Запази час</h2>
-      <p class="booking-modal__subtitle">Стъпка <span data-booking-step-current>1</span> от 3</p>
+      <h2 id="booking-modal-title" class="booking-modal__title" data-i18n="ui.bookingTitle">Запази час</h2>
+      <p class="booking-modal__subtitle"><span data-i18n="ui.bookingStep">Стъпка</span> <span data-booking-step-current>1</span> <span data-i18n="ui.bookingOf">от</span> 3</p>
 
       <form class="booking-form" data-booking-form novalidate>
         <div class="booking-step" data-booking-step="0">
-          <p class="booking-step__label">Избери услуга</p>
+          <p class="booking-step__label" data-i18n="ui.bookingChooseService">Избери услуга</p>
           <div class="booking-service-grid">
             <label class="booking-service-card">
               <input type="radio" name="serviceType" value="microblading" class="booking-service-input">
-              <span class="booking-service-text">Микроблейдинг</span>
+              <span class="booking-service-text" data-i18n="ui.bookingMicroblading">Микроблейдинг</span>
             </label>
             <label class="booking-service-card">
               <input type="radio" name="serviceType" value="lamination" class="booking-service-input">
-              <span class="booking-service-text">Ламиниране</span>
+              <span class="booking-service-text" data-i18n="ui.bookingLamination">Ламиниране</span>
             </label>
           </div>
         </div>
 
         <div class="booking-step" data-booking-step="1" hidden>
-          <p class="booking-step__label">Избери дата и час</p>
+          <p class="booking-step__label" data-i18n="ui.bookingChooseDateTime">Избери дата и час</p>
           <input name="date" type="hidden" data-booking-selected-date required>
           <input name="time" type="hidden" data-booking-selected-time required>
 
           <div class="booking-availability">
-            <p class="booking-availability__title">Свободни дни</p>
+            <p class="booking-availability__title" data-i18n="ui.bookingAvailableDays">Свободни дни</p>
             <div class="booking-day-list" data-booking-day-list></div>
           </div>
 
           <div class="booking-availability booking-availability--slots">
-            <p class="booking-availability__title">Свободни часове</p>
+            <p class="booking-availability__title" data-i18n="ui.bookingAvailableSlots">Свободни часове</p>
             <div class="booking-slot-list" data-booking-slot-list></div>
           </div>
           <p class="booking-availability__status" data-booking-slot-status></p>
         </div>
 
         <div class="booking-step" data-booking-step="2" hidden>
-          <p class="booking-step__label">Лични данни</p>
+          <p class="booking-step__label" data-i18n="ui.bookingPersonalDetails">Лични данни</p>
           <div class="booking-field-wrap">
-            <label class="booking-field-label" for="booking-full-name">Име и фамилия</label>
+            <label class="booking-field-label" for="booking-full-name" data-i18n="ui.bookingFullName">Име и фамилия</label>
             <input id="booking-full-name" name="fullName" type="text" class="booking-field-input" required>
           </div>
           <div class="booking-field-wrap">
-            <label class="booking-field-label" for="booking-phone">Телефон</label>
+            <label class="booking-field-label" for="booking-phone" data-i18n="ui.bookingPhone">Телефон</label>
             <input id="booking-phone" name="phone" type="tel" class="booking-field-input" required>
           </div>
           <div class="booking-field-wrap">
-            <label class="booking-field-label" for="booking-email">Имейл</label>
+            <label class="booking-field-label" for="booking-email" data-i18n="ui.bookingEmail">Имейл</label>
             <input id="booking-email" name="email" type="email" class="booking-field-input" required>
           </div>
 
@@ -117,8 +138,8 @@
         <p class="booking-form__feedback" data-booking-feedback aria-live="polite"></p>
 
         <div class="booking-form__actions">
-          <button type="button" class="booking-btn booking-btn--ghost" data-booking-prev disabled>Назад</button>
-          <button type="button" class="booking-btn booking-btn--primary" data-booking-next>Напред</button>
+          <button type="button" class="booking-btn booking-btn--ghost" data-booking-prev disabled data-i18n="ui.bookingBack">Назад</button>
+          <button type="button" class="booking-btn booking-btn--primary" data-booking-next data-i18n="ui.bookingNext">Напред</button>
         </div>
       </form>
     </div>

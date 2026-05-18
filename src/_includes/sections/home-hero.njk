@@ -6,17 +6,14 @@
       {# ── Left: text ── #}
       <div class="order-1 flex w-full min-w-0 flex-col items-center gap-5 text-center md:order-1 md:items-start md:text-left">
 
-        {# Badge pill #}
         {% if h.badge %}
-        <span class="hero-badge hero-badge--signature hidden md:inline-flex">{{ h.badge }}</span>
+        <span class="hero-badge hero-badge--signature hidden md:inline-flex" data-i18n="home.hero.badge">{{ h.badge }}</span>
         {% endif %}
 
-        {# Headline — MAK font #}
-        <h1 class="font-mak text-[2.35rem] leading-[1.12] text-ink md:text-6xl md:leading-[1.1] xl:text-[4.25rem] xl:leading-[1.08]">
+        <h1 class="font-mak text-[2.35rem] leading-[1.12] text-ink md:text-6xl md:leading-[1.1] xl:text-[4.25rem] xl:leading-[1.08]" data-i18n="home.hero.headline">
           {{ h.headline | default("Микроблейдинг и ламиниране в Пловдив") }}
         </h1>
 
-        {# Mobile-only image between label and description #}
         <div class="flex w-full justify-center md:hidden">
           <div class="hero-photo-wrap w-full max-w-none">
             <picture>
@@ -30,19 +27,18 @@
                 class="hero-photo"
                 width="460" height="540"
                 loading="eager"
+                data-i18n-attr="alt:home.hero.imageAlt"
               >
             </picture>
           </div>
         </div>
 
-        {# Sub-text — Montserrat #}
         {% if h.subheadline %}
-        <p class="site-lead max-w-xl">
+        <p class="site-lead max-w-xl" data-i18n="home.hero.subheadline">
           {{ h.subheadline }}
         </p>
         {% endif %}
 
-        {# CTAs — full width of column; buttons share row equally on sm+ #}
         <div class="mt-1 hidden w-full min-w-0 flex-row flex-nowrap gap-3 md:flex">
           {% if h.ctaPrimary %}
           <a
@@ -54,12 +50,13 @@
             aria-controls="booking-modal"
             {% endif %}
             {% if h.ctaPrimary.external %}target="_blank" rel="noopener noreferrer"{% endif %}
+            data-i18n="home.hero.ctaPrimary.label"
           >
             {{ h.ctaPrimary.label }}
           </a>
           {% endif %}
           {% if h.ctaSecondary %}
-          <a href="{{ h.ctaSecondary.url }}" class="btn-secondary min-w-0 flex-1">
+          <a href="{{ h.ctaSecondary.url }}" class="btn-secondary min-w-0 flex-1" data-i18n="home.hero.ctaSecondary.label">
             {{ h.ctaSecondary.label }}
           </a>
           {% endif %}
@@ -67,7 +64,6 @@
 
       </div>
 
-      {# ── Right: photo card ── #}
       <div class="order-2 hidden justify-center md:flex md:order-2 lg:justify-end">
         <div class="hero-photo-wrap">
           <picture>
@@ -81,12 +77,12 @@
               class="hero-photo"
               width="460" height="540"
               loading="eager"
+              data-i18n-attr="alt:home.hero.imageAlt"
             >
           </picture>
         </div>
       </div>
 
-      {# ── Mobile CTAs (below image) ── #}
       <div class="order-3 mt-0.5 flex w-full min-w-0 flex-row flex-nowrap gap-2 md:hidden">
         {% if h.ctaPrimary %}
         <a
@@ -98,12 +94,13 @@
           aria-controls="booking-modal"
           {% endif %}
           {% if h.ctaPrimary.external %}target="_blank" rel="noopener noreferrer"{% endif %}
+          data-i18n="home.hero.ctaPrimary.label"
         >
           {{ h.ctaPrimary.label }}
         </a>
         {% endif %}
         {% if h.ctaSecondary %}
-        <a href="{{ h.ctaSecondary.url }}" class="btn-secondary min-w-0 flex-1 px-4 py-2 text-sm">
+        <a href="{{ h.ctaSecondary.url }}" class="btn-secondary min-w-0 flex-1 px-4 py-2 text-sm" data-i18n="home.hero.ctaSecondary.label">
           {{ h.ctaSecondary.label }}
         </a>
         {% endif %}

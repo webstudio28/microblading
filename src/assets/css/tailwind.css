@@ -208,6 +208,37 @@
       0 8px 24px rgba(44, 26, 14, 0.14);
   }
 
+  .header-end {
+    @apply ml-auto;
+  }
+
+  .lang-toggle {
+    @apply inline-flex shrink-0 items-center rounded-full p-0.5;
+    background: rgba(249, 243, 238, 0.95);
+    border: 1px solid rgba(201, 169, 138, 0.45);
+    box-shadow: 0 1px 3px rgba(44, 26, 14, 0.06);
+  }
+
+  .lang-toggle__btn {
+    @apply min-w-[2.35rem] rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide transition-colors duration-150;
+    color: rgba(74, 55, 40, 0.72);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .lang-toggle__btn.is-active {
+    color: #fdf4f2;
+    background: linear-gradient(145deg, #5c4349 0%, #4a363d 45%, #3b2a30 100%);
+    box-shadow: 0 1px 4px rgba(44, 26, 14, 0.2);
+  }
+
+  .lang-toggle__btn:not(.is-active):hover {
+    color: #4a3728;
+    background: rgba(255, 255, 255, 0.55);
+  }
+
   /* Header “Запази час” — soft blush, warm accents */
   .header-book-cta {
     font-family: "Montserrat Alternates", "Montserrat", ui-sans-serif, system-ui, sans-serif;

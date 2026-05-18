@@ -3,6 +3,7 @@ layout: base.njk
 title: Често задавани въпроси
 description: Отговори на въпроси за микроблейдинг, ламиниране, грижа след процедура и записване на час при Brows and lashes ValyaMatovska.
 permalink: /faq/
+pageI18nKey: faq
 ---
 
 {% set f = home.faq if home and home.faq else {} %}
@@ -15,12 +16,12 @@ permalink: /faq/
   >
     <div class="container-custom">
       <header class="mb-header mx-auto mb-8 text-center md:mb-10">
-        <span class="mb-eyebrow justify-center">{{ f.eyebrow | default("Въпроси и отговори") }}</span>
-        <h1 id="faq-page-heading" class="mb-title mt-2 text-center">
+        <span class="mb-eyebrow justify-center" data-i18n="home.faq.eyebrow">{{ f.eyebrow | default("Въпроси и отговори") }}</span>
+        <h1 id="faq-page-heading" class="mb-title mt-2 text-center" data-i18n="home.faq.title">
           {{ f.title | default("Често задавани въпроси") }}
         </h1>
         {% if f.pageLead %}
-        <p class="site-lead mx-auto mt-4 max-w-2xl text-center text-muted">
+        <p class="site-lead mx-auto mt-4 max-w-2xl text-center text-muted" data-i18n="home.faq.pageLead">
           {{ f.pageLead }}
         </p>
         {% endif %}
@@ -31,13 +32,13 @@ permalink: /faq/
       {% set faqAccordionName = "faq-page" %}
       {% include "faq-accordion.njk" %}
       {% else %}
-      <p class="text-center text-muted">Скоро ще добавим отговори на често задавани въпроси.</p>
+      <p class="text-center text-muted" data-i18n="ui.comingSoonFaq">Скоро ще добавим отговори на често задавани въпроси.</p>
       {% endif %}
 
       <p class="faq-page__back">
-        <a href="{{ '/' | url }}#contact" class="faq-page__back-link">Контакти и записване</a>
+        <a href="{{ '/' | url }}#contact" class="faq-page__back-link" data-i18n="ui.faqBackContact">Контакти и записване</a>
         <span class="site-footer__sep" aria-hidden="true">·</span>
-        <a href="{{ '/' | url }}" class="faq-page__back-link">Начална страница</a>
+        <a href="{{ '/' | url }}" class="faq-page__back-link" data-i18n="ui.faqBackHome">Начална страница</a>
       </p>
     </div>
   </section>

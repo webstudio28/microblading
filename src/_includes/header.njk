@@ -1,9 +1,27 @@
 {% set headerCta = home.hero.ctaPrimary if home and home.hero and home.hero.ctaPrimary else { "label": "Запази час", "url": "https://s24.bg/m/3844", "openBookingModal": false, "external": true } %}
+{# pageNav: when set in page front matter, use isolated nav (no home page links) #}
+{% set activeNav = pageNav if pageNav else site.nav.header %}
+{% set navI18nPrefix = pageI18nKey ~ '.nav' if pageI18nKey and pageNav else 'site.nav.header' %}
 <header class="sticky top-4 z-50">
   <div class="container-custom">
     <div class="site-header-surface js-header-surface">
 
-      {# Logo #}
+      {# Logo — on landing pages (pageNav set) it stays on the same page; otherwise goes to home #}
+      {% if pageNav %}
+      <span class="shrink-0">
+        {% if site and site.brand and site.brand.logo %}
+          <img
+            src="{{ site.brand.logo | url }}"
+            alt="{{ site.brand.logoAlt | default(site.brand.name) }}"
+            class="h-10 w-auto"
+            width="120" height="40"
+            fetchpriority="high"
+          >
+        {% else %}
+          <span class="text-ink font-semibold text-lg">{{ site.brand.name | default("Valeto") }}</span>
+        {% endif %}
+      </span>
+      {% else %}
       <a href="{{ '/' | url }}" class="shrink-0" aria-label="{% if site and site.brand %}{{ site.brand.logoAlt | default(site.brand.name) }}{% else %}Home{% endif %}">
         {% if site and site.brand and site.brand.logo %}
           <img
@@ -17,41 +35,53 @@
           <span class="text-ink font-semibold text-lg">{{ site.brand.name | default("Valeto") }}</span>
         {% endif %}
       </a>
+      {% endif %}
 
       {# Nav — centered against full header width #}
       <nav class="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-3 whitespace-nowrap md:flex md:gap-5 xl:gap-8" aria-label="Main">
-        {% for item in site.nav.header %}
-          {% set navHref = (('/' | url) ~ item.url) if item.url and item.url[0] == '#' else (item.url | url) %}
+        {% for item in activeNav %}
+          {% if pageNav %}
+            {% set navHref = item.url %}
+          {% else %}
+            {% set navHref = (('/' | url) ~ item.url) if item.url and item.url[0] == '#' else (item.url | url) %}
+          {% endif %}
           <a
             href="{{ navHref }}"
             class="shrink-0 text-[14px] font-medium leading-snug text-[#4a3728] hover:text-brand-primary transition-colors duration-150"
+            data-i18n="{{ navI18nPrefix }}.{{ loop.index0 }}.label"
           >{{ item.label }}</a>
         {% endfor %}
       </nav>
 
-      <button
-        type="button"
-        class="mobile-menu-toggle md:hidden"
-        id="mobile-menu-toggle"
-        aria-label="Отвори меню"
-        aria-expanded="false"
-        aria-controls="mobile-menu-panel"
-      >
-        <span class="mobile-menu-toggle__line"></span>
-        <span class="mobile-menu-toggle__line"></span>
-        <span class="mobile-menu-toggle__line"></span>
-      </button>
+      <div class="header-end flex shrink-0 items-center gap-2 sm:gap-3">
+        <a
+          href="{{ headerCta.url }}"
+          class="header-book-cta hidden md:inline-flex"
+          {% if headerCta.openBookingModal %}
+          data-booking-open
+          aria-haspopup="dialog"
+          aria-controls="booking-modal"
+          {% endif %}
+          {% if headerCta.external %}target="_blank" rel="noopener noreferrer"{% endif %}
+          data-i18n="home.hero.ctaPrimary.label"
+        >{{ headerCta.label }}</a>
 
-      <a
-        href="{{ headerCta.url }}"
-        class="header-book-cta hidden md:inline-flex"
-        {% if headerCta.openBookingModal %}
-        data-booking-open
-        aria-haspopup="dialog"
-        aria-controls="booking-modal"
-        {% endif %}
-        {% if headerCta.external %}target="_blank" rel="noopener noreferrer"{% endif %}
-      >{{ headerCta.label }}</a>
+        {% include "lang-toggle.njk" %}
+
+        <button
+          type="button"
+          class="mobile-menu-toggle md:hidden"
+          id="mobile-menu-toggle"
+          aria-label="Отвори меню"
+          aria-expanded="false"
+          aria-controls="mobile-menu-panel"
+          data-i18n-attr="aria-label:ui.openMenu"
+        >
+          <span class="mobile-menu-toggle__line"></span>
+          <span class="mobile-menu-toggle__line"></span>
+          <span class="mobile-menu-toggle__line"></span>
+        </button>
+      </div>
 
     </div>
   </div>
@@ -76,14 +106,23 @@
       class="mobile-menu-close"
       id="mobile-menu-close"
       aria-label="Затвори меню"
+      data-i18n-attr="aria-label:ui.closeMenu"
     >
       &times;
     </button>
 
     <nav class="mobile-menu-nav" aria-label="Mobile">
-      {% for item in site.nav.header %}
-        {% set navHref = (('/' | url) ~ item.url) if item.url and item.url[0] == '#' else (item.url | url) %}
-        <a href="{{ navHref }}" class="mobile-menu-link">{{ item.label }}</a>
+      {% for item in activeNav %}
+        {% if pageNav %}
+          {% set navHref = item.url %}
+        {% else %}
+          {% set navHref = (('/' | url) ~ item.url) if item.url and item.url[0] == '#' else (item.url | url) %}
+        {% endif %}
+        <a
+          href="{{ navHref }}"
+          class="mobile-menu-link"
+          data-i18n="{{ navI18nPrefix }}.{{ loop.index0 }}.label"
+        >{{ item.label }}</a>
       {% endfor %}
 
       <a
@@ -95,6 +134,7 @@
         aria-controls="booking-modal"
         {% endif %}
         {% if headerCta.external %}target="_blank" rel="noopener noreferrer"{% endif %}
+        data-i18n="home.hero.ctaPrimary.label"
       >{{ headerCta.label }}</a>
     </nav>
   </div>

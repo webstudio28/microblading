@@ -6,8 +6,8 @@
 >
   <div class="container-custom relative">
     <header class="mb-header text-center mx-auto mb-10">
-      <span class="mb-eyebrow justify-center">Резултати</span>
-      <h2 id="clients-heading" class="mb-title text-center mt-2">
+      <span class="mb-eyebrow justify-center" data-i18n="home.clientsSection.eyebrow">Резултати</span>
+      <h2 id="clients-heading" class="mb-title text-center mt-2" data-i18n="home.clientsSection.title">
         Преди / След
       </h2>
       {% if cs.lead %}
@@ -32,11 +32,11 @@
           <div class="client-card__visual">
             <div class="client-card__half">
               <img src="{{ client.beforeImage | url }}" alt="{{ client.name }} преди" class="client-card__img" loading="lazy" decoding="async" draggable="false">
-              <span class="client-card__label">Преди</span>
+              <span class="client-card__label" data-i18n="ui.before">Преди</span>
             </div>
             <div class="client-card__half">
               <img src="{{ client.afterImage | url }}" alt="{{ client.name }} след" class="client-card__img" loading="lazy" decoding="async" draggable="false">
-              <span class="client-card__label">След</span>
+              <span class="client-card__label" data-i18n="ui.after">След</span>
             </div>
           </div>
           <button
@@ -46,7 +46,7 @@
             data-client-id="{{ client.id }}"
             aria-label="Виж повече за {{ client.name }}"
           >
-            Виж повече
+            <span data-i18n="ui.seeMore">Виж повече</span>
           </button>
           {% if client.services and client.services.length %}
           <p class="client-card__procedure" aria-label="Процедура">
@@ -64,11 +64,11 @@
           <div class="client-card__visual">
             <div class="client-card__half">
               <img src="{{ client.beforeImage | url }}" alt="" class="client-card__img" loading="lazy" decoding="async" draggable="false">
-              <span class="client-card__label">Преди</span>
+              <span class="client-card__label" data-i18n="ui.before">Преди</span>
             </div>
             <div class="client-card__half">
               <img src="{{ client.afterImage | url }}" alt="" class="client-card__img" loading="lazy" decoding="async" draggable="false">
-              <span class="client-card__label">След</span>
+              <span class="client-card__label" data-i18n="ui.after">След</span>
             </div>
           </div>
           <button
@@ -78,7 +78,7 @@
             data-client-id="{{ client.id }}"
             aria-label="Виж повече за {{ client.name }}"
           >
-            Виж повече
+            <span data-i18n="ui.seeMore">Виж повече</span>
           </button>
           {% if client.services and client.services.length %}
           <p class="client-card__procedure" aria-label="Процедура">

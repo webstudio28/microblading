@@ -11,10 +11,11 @@
       <h2
         id="about-heading"
         class="mb-title mt-2 text-center text-white"
+      data-i18n="home.about.title"
       >{{ a.title | default("За мен") }}</h2>
 
       {% if a.intro %}
-      <p class="site-lead mt-3 hidden text-center text-white md:mx-auto md:block md:max-w-2xl">
+      <p class="site-lead mt-3 hidden text-center text-white md:mx-auto md:block md:max-w-2xl" data-i18n="home.about.intro">
         {{ a.intro }}
       </p>
       {% endif %}
@@ -52,7 +53,7 @@
     </div>
 
     <div class="mx-auto mt-6 flex w-full max-w-3xl flex-col items-center text-center md:mt-8">
-      <p class="mb-lead mt-0 max-w-none text-white/90">
+      <p class="mb-lead mt-0 max-w-none text-white/90" data-i18n="home.about.body">
         {{ a.body | default("") }}
       </p>
 
@@ -64,6 +65,7 @@
           data-about-info-open
           aria-haspopup="dialog"
           aria-controls="about-info-modal"
+        data-i18n="home.about.cta.label"
         >{{ a.cta.label }}</button>
       </div>
       {% endif %}
@@ -94,7 +96,7 @@
         {{ a.title | default("За мен") }}
       </h3>
       {% if a.body2 %}
-      <p class="mb-info-modal__text text-[1.02rem] leading-[1.72]">
+      <p class="mb-info-modal__text text-[1.02rem] leading-[1.72]" data-i18n="home.about.body2">
         {{ a.body2 }}
       </p>
       {% endif %}
