@@ -6,6 +6,11 @@ module.exports = {
     { label: "Reviews" },
     { label: "FAQ" },
   ],
+  beforeAfter: {
+    eyebrow: "Results",
+    title: "Before / After",
+    lead: "Real lamination results — before and after the procedure.",
+  },
   hero: {
     badge: "Brows · Lashes · Lamination",
     headline: "An open gaze and beautiful brows — effortlessly",

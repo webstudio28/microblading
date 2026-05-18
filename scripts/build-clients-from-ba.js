@@ -56,7 +56,8 @@ const en = out.map((o) => {
   return { name: label, services: [label] };
 });
 
-out.forEach((o) => {
+out.forEach((o, index) => {
+  o.i18nIndex = index;
   delete o._num;
   delete o._slug;
 });

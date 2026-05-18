@@ -26,7 +26,6 @@ pageNav:
 {% set lpHeroAlt = lpHero.alt | default('Микроблейдинг — Валя Матовска') %}
 {% set lpHeroDesktop = lpHero.srcDesktop | default(lpHero.src) | default('/assets/images/hero-img.jpeg') %}
 {% set lpHeroMobile = lpHero.srcMobile | default(lpHero.src) | default('/assets/images/hero-img-mobile.jpg') %}
-{% set lpBeforeAfter = mb.landing.beforeAfter if mb.landing and mb.landing.beforeAfter else [] %}
 
 <main>
 
@@ -130,85 +129,18 @@ pageNav:
 
 
   {# ═══════════════════════════════════════════════
-     2b. BEFORE / AFTER (mini)
+     2b. BEFORE / AFTER
   ═══════════════════════════════════════════════ #}
-  {% if lpBeforeAfter and lpBeforeAfter.length %}
-  <section
-    id="lp-before-after"
-    class="lp-before-after mb-section section-padding"
-    aria-labelledby="lp-before-after-heading"
-  >
-    <div class="container-custom">
-      <header class="mb-header text-center mx-auto mb-5">
-        <span class="mb-eyebrow justify-center" data-i18n="pages.mikrobleiding.beforeAfter.eyebrow">Резултати</span>
-        <h2 id="lp-before-after-heading" class="mb-title text-center mt-2" data-i18n="pages.mikrobleiding.beforeAfter.title">
-          Преди / След
-        </h2>
-        <p class="mb-lead text-center mt-3 max-w-2xl mx-auto" data-i18n="pages.mikrobleiding.beforeAfter.lead">
-          Ако веждите ви не подчертават лицето ви, цялото излъчване страда.
-        </p>
-      </header>
-    </div>
-
-    <div class="lp-before-after__wrap pt-5">
-      <div class="lp-before-after__scroll" data-lp-ba-scroll role="list" aria-labelledby="lp-before-after-heading">
-        {% for item in lpBeforeAfter %}
-        <button
-          type="button"
-          class="lp-before-after__card"
-          role="listitem"
-          data-lp-ba-gallery-trigger
-          data-lp-ba-gallery-index="{{ loop.index0 }}"
-          aria-label="{{ item.alt | default('Микроблейдинг — преди и след') }}"
-        >
-          <img
-            src="{{ item.src | url }}"
-            alt="{{ item.alt | default('Микроблейдинг — преди и след') }}"
-            class="lp-before-after__img"
-            width="480"
-            height="480"
-            loading="lazy"
-            decoding="async"
-            data-lp-ba-gallery-item
-            data-lp-ba-gallery-index="{{ loop.index0 }}"
-            data-i18n-attr="alt:pages.mikrobleiding.beforeAfter.imageAlt"
-            draggable="false"
-          >
-        </button>
-        {% endfor %}
-      </div>
-    </div>
-
-    <div
-      id="lp-ba-gallery-modal"
-      class="mb-gallery-modal"
-      role="dialog"
-      aria-modal="true"
-      aria-hidden="true"
-      aria-label="Преди / След — микроблейдинг"
-      data-i18n-attr="aria-label:pages.mikrobleiding.beforeAfter.modalLabel"
-      hidden
-    >
-      <div class="mb-gallery-modal__backdrop" data-lp-ba-gallery-close></div>
-      <div class="mb-gallery-modal__panel" role="document">
-        <button type="button" class="mb-gallery-modal__close" data-lp-ba-gallery-close aria-label="Затвори">&times;</button>
-        <button type="button" class="mb-gallery-modal__arrow mb-gallery-modal__arrow--prev" data-lp-ba-gallery-prev aria-label="Предишна снимка">
-          <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="21 8 12 16 21 24" vector-effect="non-scaling-stroke"/></svg>
-        </button>
-        <div class="mb-gallery-modal__stage" data-lp-ba-gallery-stage>
-          <div class="mb-gallery-modal__clip">
-            <img class="mb-gallery-modal__image" data-lp-ba-gallery-image src="" alt="" />
-          </div>
-        </div>
-        <button type="button" class="mb-gallery-modal__arrow mb-gallery-modal__arrow--next" data-lp-ba-gallery-next aria-label="Следваща снимка">
-          <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="11 8 20 16 11 24" vector-effect="non-scaling-stroke"/></svg>
-        </button>
-      </div>
-    </div>
-  </section>
-  {% endif %}
-
-
+  {% set baClients = beforeAfter.microblading if beforeAfter and beforeAfter.microblading else [] %}
+  {% set baSectionId = "lp-before-after" %}
+  {% set baHeadingId = "lp-before-after-heading" %}
+  {% set baEyebrow = "Резултати" %}
+  {% set baTitle = "Преди / След" %}
+  {% set baLead = "Ако веждите ви не подчертават лицето ви, цялото излъчване страда." %}
+  {% set baEyebrowI18n = "pages.mikrobleiding.beforeAfter.eyebrow" %}
+  {% set baTitleI18n = "pages.mikrobleiding.beforeAfter.title" %}
+  {% set baLeadI18n = "pages.mikrobleiding.beforeAfter.lead" %}
+  {% include "sections/before-after-carousel.njk" %}
 
 
   {# ═══════════════════════════════════════════════
@@ -755,109 +687,6 @@ pageNav:
 {# ═══════════════════════════════════════════════
    SCRIPTS
 ═══════════════════════════════════════════════ #}
-
-{# Before / after strip + lightbox #}
-{% if lpBeforeAfter and lpBeforeAfter.length %}
-<script>
-(function initLpBeforeAfterGallery() {
-  function enableHorizontalDrag(viewport) {
-    if (!viewport) return;
-    var isDown = false, startX = 0, startScroll = 0, moved = false;
-    viewport.addEventListener("pointerdown", function(e) {
-      if (e.pointerType === "touch") return;
-      isDown = true; moved = false; startX = e.clientX; startScroll = viewport.scrollLeft;
-      viewport.classList.add("is-dragging");
-      try { viewport.setPointerCapture(e.pointerId); } catch(err) {}
-    });
-    viewport.addEventListener("pointermove", function(e) {
-      if (!isDown) return;
-      var dx = e.clientX - startX;
-      if (Math.abs(dx) > 4) moved = true;
-      viewport.scrollLeft = startScroll - dx;
-    });
-    function end(e) {
-      if (!isDown) return; isDown = false;
-      viewport.classList.remove("is-dragging");
-      if (e && e.pointerId != null) { try { viewport.releasePointerCapture(e.pointerId); } catch(err) {} }
-    }
-    viewport.addEventListener("pointerup", end);
-    viewport.addEventListener("pointercancel", end);
-    viewport.addEventListener("pointerleave", end);
-    viewport.addEventListener("click", function(e) {
-      if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
-    }, true);
-    viewport.addEventListener("dragstart", function(e) { e.preventDefault(); });
-  }
-
-  var scrollEl = document.querySelector("[data-lp-ba-scroll]");
-  if (scrollEl && window.matchMedia("(max-width: 1023px)").matches) {
-    enableHorizontalDrag(scrollEl);
-  }
-
-  var modal = document.getElementById("lp-ba-gallery-modal");
-  if (!modal) return;
-  var modalImage = modal.querySelector("[data-lp-ba-gallery-image]");
-  var modalStage = modal.querySelector("[data-lp-ba-gallery-stage]");
-  var items = Array.prototype.slice.call(document.querySelectorAll("[data-lp-ba-gallery-item]"));
-  var triggers = Array.prototype.slice.call(document.querySelectorAll("[data-lp-ba-gallery-trigger]"));
-  var closeBtns = modal.querySelectorAll("[data-lp-ba-gallery-close]");
-  var prevBtn = modal.querySelector("[data-lp-ba-gallery-prev]");
-  var nextBtn = modal.querySelector("[data-lp-ba-gallery-next]");
-  var index = 0;
-
-  function render() {
-    if (!items.length || !modalImage) return;
-    var source = items[index];
-    modalImage.src = source.currentSrc || source.src;
-    modalImage.alt = source.getAttribute("alt") || "";
-  }
-  function openAt(i) {
-    index = Math.max(0, Math.min(i, items.length - 1));
-    render();
-    modal.hidden = false;
-    modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("modal-open");
-  }
-  function close() {
-    if (modalImage) { modalImage.src = ""; modalImage.alt = ""; }
-    modal.hidden = true;
-    modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("modal-open");
-  }
-  function next() { if (!items.length) return; index = (index + 1) % items.length; render(); }
-  function prev() { if (!items.length) return; index = (index - 1 + items.length) % items.length; render(); }
-
-  triggers.forEach(function(btn) {
-    btn.addEventListener("click", function() {
-      var idx = Number(btn.getAttribute("data-lp-ba-gallery-index"));
-      openAt(isFinite(idx) ? idx : 0);
-    });
-  });
-  closeBtns.forEach(function(btn) { btn.addEventListener("click", close); });
-  if (prevBtn) prevBtn.addEventListener("click", prev);
-  if (nextBtn) nextBtn.addEventListener("click", next);
-
-  var swipeStartX = null;
-  if (modalStage) {
-    modalStage.addEventListener("touchstart", function(e) {
-      if (e.touches && e.touches.length) swipeStartX = e.touches[0].clientX;
-    }, { passive: true });
-    modalStage.addEventListener("touchend", function(e) {
-      if (swipeStartX === null || !e.changedTouches || !e.changedTouches.length) return;
-      var dx = e.changedTouches[0].clientX - swipeStartX; swipeStartX = null;
-      if (Math.abs(dx) < 40) return;
-      if (dx < 0) next(); else prev();
-    });
-  }
-  document.addEventListener("keydown", function(e) {
-    if (modal.hidden) return;
-    if (e.key === "Escape") close();
-    if (e.key === "ArrowRight") next();
-    if (e.key === "ArrowLeft") prev();
-  });
-})();
-</script>
-{% endif %}
 
 {# Gallery carousel + lightbox #}
 {% if mb.gallery and mb.gallery.length %}

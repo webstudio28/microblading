@@ -18,7 +18,7 @@ module.exports = {
   beforeAfter: {
     eyebrow: "Results",
     title: "Before / After",
-    lead: "If your brows don't frame your face, your whole look suffers.",
+    lead: "Real microblading results — before and after the procedure.",
     imageAlt: "Microblading before and after",
     modalLabel: "Before / after — microblading",
   },

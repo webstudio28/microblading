@@ -6,6 +6,8 @@ pageI18nKey: laminirane
 pageNav:
   - label: "Услуги"
     url: "#lam-services"
+  - label: "Преди / След"
+    url: "#lam-before-after"
   - label: "Резултати"
     url: "#lam-gallery"
   - label: "Процес"
@@ -62,7 +64,7 @@ pageNav:
             <a href="{{ bookingUrl }}" class="btn-primary min-w-0 flex-1" target="_blank" rel="noopener noreferrer">
               Запази час
             </a>
-            <a href="#lam-gallery" class="btn-secondary min-w-0 flex-1">
+            <a href="#lam-before-after" class="btn-secondary min-w-0 flex-1">
               Виж резултати
             </a>
           </div>
@@ -89,7 +91,7 @@ pageNav:
           <a href="{{ bookingUrl }}" class="btn-primary min-w-0 flex-1 px-4 py-2 text-sm" target="_blank" rel="noopener noreferrer">
             Запази час
           </a>
-          <a href="#lam-gallery" class="btn-secondary min-w-0 flex-1 px-4 py-2 text-sm">
+          <a href="#lam-before-after" class="btn-secondary min-w-0 flex-1 px-4 py-2 text-sm">
             Виж резултати
           </a>
         </div>
@@ -124,6 +126,21 @@ pageNav:
       </ul>
     </div>
   </div>
+
+
+  {# ═══════════════════════════════════════════════
+     2b. BEFORE / AFTER
+  ═══════════════════════════════════════════════ #}
+  {% set baClients = beforeAfter.lamination if beforeAfter and beforeAfter.lamination else [] %}
+  {% set baSectionId = "lam-before-after" %}
+  {% set baHeadingId = "lam-before-after-heading" %}
+  {% set baEyebrow = "Резултати" %}
+  {% set baTitle = "Преди / След" %}
+  {% set baLead = "Реални резултати от ламиниране — преди и след процедурата." %}
+  {% set baEyebrowI18n = "pages.laminirane.beforeAfter.eyebrow" %}
+  {% set baTitleI18n = "pages.laminirane.beforeAfter.title" %}
+  {% set baLeadI18n = "pages.laminirane.beforeAfter.lead" %}
+  {% include "sections/before-after-carousel.njk" %}
 
 
   {# ═══════════════════════════════════════════════

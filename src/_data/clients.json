@@ -6,7 +6,8 @@
       "Микроблейдинг"
     ],
     "beforeImage": "/assets/images/before-after/ba1-before-microblading.jpeg",
-    "afterImage": "/assets/images/before-after/ba1-after-microblading.jpeg"
+    "afterImage": "/assets/images/before-after/ba1-after-microblading.jpeg",
+    "i18nIndex": 0
   },
   {
     "id": "ba-01-laminirane-migli-vejdi",
@@ -15,7 +16,8 @@
       "Ламиниране на мигли и вежди"
     ],
     "beforeImage": "/assets/images/before-after/ba1-before-laminirane-migli-vejdi.jpeg",
-    "afterImage": "/assets/images/before-after/ba1-after-laminirane-migli-vejdi.jpeg"
+    "afterImage": "/assets/images/before-after/ba1-after-laminirane-migli-vejdi.jpeg",
+    "i18nIndex": 1
   },
   {
     "id": "ba-02-microblading",
@@ -24,7 +26,8 @@
       "Микроблейдинг"
     ],
     "beforeImage": "/assets/images/before-after/ba2-before-microblading.jpeg",
-    "afterImage": "/assets/images/before-after/ba2-after-microblading.jpeg"
+    "afterImage": "/assets/images/before-after/ba2-after-microblading.jpeg",
+    "i18nIndex": 2
   },
   {
     "id": "ba-02-laminirane-i-boqdisvane-vejdi",
@@ -33,7 +36,8 @@
       "Ламиниране и боядисване на вежди"
     ],
     "beforeImage": "/assets/images/before-after/ba2-before-laminirane-i-boqdisvane-vejdi.jpeg",
-    "afterImage": "/assets/images/before-after/ba2-after-laminirane-i-boqdisvane-vejdi.jpeg"
+    "afterImage": "/assets/images/before-after/ba2-after-laminirane-i-boqdisvane-vejdi.jpeg",
+    "i18nIndex": 3
   },
   {
     "id": "ba-03-microblading",
@@ -42,7 +46,8 @@
       "Микроблейдинг"
     ],
     "beforeImage": "/assets/images/before-after/ba3-before-microblading.jpeg",
-    "afterImage": "/assets/images/before-after/ba3-after-microblading.jpeg"
+    "afterImage": "/assets/images/before-after/ba3-after-microblading.jpeg",
+    "i18nIndex": 4
   },
   {
     "id": "ba-03-laminirane-vejdi-i-migli",
@@ -51,7 +56,8 @@
       "Ламиниране на вежди и мигли"
     ],
     "beforeImage": "/assets/images/before-after/ba3-before-laminirane-vejdi-i-migli.jpeg",
-    "afterImage": "/assets/images/before-after/ba3-after-laminirane-vejdi-i-migli.jpeg"
+    "afterImage": "/assets/images/before-after/ba3-after-laminirane-vejdi-i-migli.jpeg",
+    "i18nIndex": 5
   },
   {
     "id": "ba-04-microblading",
@@ -60,7 +66,8 @@
       "Микроблейдинг"
     ],
     "beforeImage": "/assets/images/before-after/ba4-before-microblading.jpeg",
-    "afterImage": "/assets/images/before-after/ba4-after-microblading.jpeg"
+    "afterImage": "/assets/images/before-after/ba4-after-microblading.jpeg",
+    "i18nIndex": 6
   },
   {
     "id": "ba-04-laminirane-vejdi-i-migli",
@@ -69,7 +76,8 @@
       "Ламиниране на вежди и мигли"
     ],
     "beforeImage": "/assets/images/before-after/ba4-before-laminirane-vejdi-i-migli.jpeg",
-    "afterImage": "/assets/images/before-after/ba4-after-laminirane-vejdi-i-migli.jpeg"
+    "afterImage": "/assets/images/before-after/ba4-after-laminirane-vejdi-i-migli.jpeg",
+    "i18nIndex": 7
   },
   {
     "id": "ba-05-microblading",
@@ -78,7 +86,8 @@
       "Микроблейдинг"
     ],
     "beforeImage": "/assets/images/before-after/ba5-before-microblading.jpeg",
-    "afterImage": "/assets/images/before-after/ba5-after-microblading.jpeg"
+    "afterImage": "/assets/images/before-after/ba5-after-microblading.jpeg",
+    "i18nIndex": 8
   },
   {
     "id": "ba-06-microblading",
@@ -87,7 +96,8 @@
       "Микроблейдинг"
     ],
     "beforeImage": "/assets/images/before-after/ba6-before-microblading.jpeg",
-    "afterImage": "/assets/images/before-after/ba6-after-microblading.jpeg"
+    "afterImage": "/assets/images/before-after/ba6-after-microblading.jpeg",
+    "i18nIndex": 9
   },
   {
     "id": "ba-07-microblading",
@@ -96,7 +106,8 @@
       "Микроблейдинг"
     ],
     "beforeImage": "/assets/images/before-after/ba7-before-microblading.jpeg",
-    "afterImage": "/assets/images/before-after/ba7-after-microblading.jpeg"
+    "afterImage": "/assets/images/before-after/ba7-after-microblading.jpeg",
+    "i18nIndex": 10
   },
   {
     "id": "ba-08-microblading",
@@ -105,7 +116,8 @@
       "Микроблейдинг"
     ],
     "beforeImage": "/assets/images/before-after/ba8-before-microblading.jpeg",
-    "afterImage": "/assets/images/before-after/ba8-after-microblading.jpeg"
+    "afterImage": "/assets/images/before-after/ba8-after-microblading.jpeg",
+    "i18nIndex": 11
   },
   {
     "id": "ba-09-microblading",
@@ -114,7 +126,8 @@
       "Микроблейдинг"
     ],
     "beforeImage": "/assets/images/before-after/ba9-before-microblading.jpeg",
-    "afterImage": "/assets/images/before-after/ba9-after-microblading.jpeg"
+    "afterImage": "/assets/images/before-after/ba9-after-microblading.jpeg",
+    "i18nIndex": 12
   },
   {
     "id": "ba-10-microblading",
@@ -123,7 +136,8 @@
       "Микроблейдинг"
     ],
     "beforeImage": "/assets/images/before-after/ba10-before-microblading.jpeg",
-    "afterImage": "/assets/images/before-after/ba10-after-microblading.jpeg"
+    "afterImage": "/assets/images/before-after/ba10-after-microblading.jpeg",
+    "i18nIndex": 13
   },
   {
     "id": "ba-11-microblading",
@@ -132,7 +146,8 @@
       "Микроблейдинг"
     ],
     "beforeImage": "/assets/images/before-after/ba11-before-microblading.jpeg",
-    "afterImage": "/assets/images/before-after/ba11-after-microblading.jpeg"
+    "afterImage": "/assets/images/before-after/ba11-after-microblading.jpeg",
+    "i18nIndex": 14
   },
   {
     "id": "ba-12-microblading",
@@ -141,7 +156,8 @@
       "Микроблейдинг"
     ],
     "beforeImage": "/assets/images/before-after/ba12-before-microblading.jpeg",
-    "afterImage": "/assets/images/before-after/ba12-after-microblading.jpeg"
+    "afterImage": "/assets/images/before-after/ba12-after-microblading.jpeg",
+    "i18nIndex": 15
   },
   {
     "id": "ba-13-microblading",
@@ -150,7 +166,8 @@
       "Микроблейдинг"
     ],
     "beforeImage": "/assets/images/before-after/ba13-before-microblading.jpeg",
-    "afterImage": "/assets/images/before-after/ba13-after-microblading.jpeg"
+    "afterImage": "/assets/images/before-after/ba13-after-microblading.jpeg",
+    "i18nIndex": 16
   },
   {
     "id": "ba-14-microblading",
@@ -159,7 +176,8 @@
       "Микроблейдинг"
     ],
     "beforeImage": "/assets/images/before-after/ba14-before-microblading.jpeg",
-    "afterImage": "/assets/images/before-after/ba14-after-microblading.jpeg"
+    "afterImage": "/assets/images/before-after/ba14-after-microblading.jpeg",
+    "i18nIndex": 17
   },
   {
     "id": "ba-15-microblading",
@@ -168,6 +186,7 @@
       "Микроблейдинг"
     ],
     "beforeImage": "/assets/images/before-after/ba15-before-microblading.jpeg",
-    "afterImage": "/assets/images/before-after/ba15-after-microblading.jpeg"
+    "afterImage": "/assets/images/before-after/ba15-after-microblading.jpeg",
+    "i18nIndex": 18
   }
 ]

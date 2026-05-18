@@ -1,0 +1,97 @@
+{#-
+  Required: baClients (array)
+  Optional:
+    baSectionId, baHeadingId, baSectionClass
+    baEyebrow, baTitle, baLead
+    baEyebrowI18n, baTitleI18n, baLeadI18n
+    baEmptyNote
+-#}
+{% set baList = baClients if baClients else [] %}
+{% set baId = baSectionId | default("clients") %}
+{% set baHeading = baHeadingId | default(baId ~ "-heading") %}
+{% set baClass = baSectionClass | default("mb-section clients-section section-padding") %}
+
+{% if baList and baList.length %}
+<section
+  id="{{ baId }}"
+  class="{{ baClass }}"
+  aria-labelledby="{{ baHeading }}"
+>
+  <div class="container-custom relative">
+    <header class="mb-header text-center mx-auto mb-10">
+      {% if baEyebrow or baEyebrowI18n %}
+      <span class="mb-eyebrow justify-center"{% if baEyebrowI18n %} data-i18n="{{ baEyebrowI18n }}"{% endif %}>{{ baEyebrow }}</span>
+      {% endif %}
+      <h2 id="{{ baHeading }}" class="mb-title text-center mt-2"{% if baTitleI18n %} data-i18n="{{ baTitleI18n }}"{% endif %}>
+        {{ baTitle | default("Преди / След") }}
+      </h2>
+      {% if baLead or baLeadI18n %}
+      <p class="site-lead mt-3 text-center opacity-80"{% if baLeadI18n %} data-i18n="{{ baLeadI18n }}"{% endif %}>
+        {{ baLead }}
+      </p>
+      {% endif %}
+    </header>
+  </div>
+
+  <div class="clients-wrap" data-clients-wrap>
+    <div class="clients-strip-wrapper">
+      <div class="clients-strip" role="list" data-clients-strip>
+        <div class="clients-strip-set">
+        {% for client in baList %}
+        {% set i18nIdx = client.i18nIndex if client.i18nIndex is defined else loop.index0 %}
+        <div class="client-card" data-client-id="{{ client.id }}">
+          <div class="client-card__visual">
+            <div class="client-card__half">
+              <img src="{{ client.beforeImage | url }}" alt="{{ client.name }} преди" class="client-card__img" loading="lazy" decoding="async" draggable="false">
+              <span class="client-card__label" data-i18n="ui.before">Преди</span>
+            </div>
+            <div class="client-card__half">
+              <img src="{{ client.afterImage | url }}" alt="{{ client.name }} след" class="client-card__img" loading="lazy" decoding="async" draggable="false">
+              <span class="client-card__label" data-i18n="ui.after">След</span>
+            </div>
+          </div>
+          {% if client.services and client.services.length %}
+          <p class="client-card__procedure" aria-label="Процедура">
+            {% for svc in client.services %}
+            <span class="client-card__procedure-item" data-i18n="clients.{{ i18nIdx }}.services.0">{{ svc }}</span>{% if not loop.last %}<span class="client-card__procedure-sep" aria-hidden="true">·</span>{% endif %}
+            {% endfor %}
+          </p>
+          {% endif %}
+        </div>
+        {% endfor %}
+        </div>
+        <div class="clients-strip-set" aria-hidden="true">
+        {% for client in baList %}
+        {% set i18nIdx = client.i18nIndex if client.i18nIndex is defined else loop.index0 %}
+        <div class="client-card" data-client-id="{{ client.id }}">
+          <div class="client-card__visual">
+            <div class="client-card__half">
+              <img src="{{ client.beforeImage | url }}" alt="" class="client-card__img" loading="lazy" decoding="async" draggable="false">
+              <span class="client-card__label" data-i18n="ui.before">Преди</span>
+            </div>
+            <div class="client-card__half">
+              <img src="{{ client.afterImage | url }}" alt="" class="client-card__img" loading="lazy" decoding="async" draggable="false">
+              <span class="client-card__label" data-i18n="ui.after">След</span>
+            </div>
+          </div>
+          {% if client.services and client.services.length %}
+          <p class="client-card__procedure" aria-label="Процедура">
+            {% for svc in client.services %}
+            <span class="client-card__procedure-item" data-i18n="clients.{{ i18nIdx }}.services.0">{{ svc }}</span>{% if not loop.last %}<span class="client-card__procedure-sep" aria-hidden="true">·</span>{% endif %}
+            {% endfor %}
+          </p>
+          {% endif %}
+        </div>
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% elif baEmptyNote %}
+<section id="{{ baId }}" class="{{ baClass }}">
+  <div class="container-custom">
+    <p class="mx-auto max-w-2xl text-center text-[#5a483e]">{{ baEmptyNote }}</p>
+  </div>
+</section>
+{% endif %}
