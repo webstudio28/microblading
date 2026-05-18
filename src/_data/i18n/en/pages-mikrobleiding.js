@@ -26,7 +26,7 @@ module.exports = {
   },
   gallery: {
     eyebrow: "Results",
-    title: "The photos speak for themselves",
+    title: "The results speak for themselves",
     lead: "If your brows don't frame your face, your whole look suffers.",
     label: "Gallery",
     videoAlt: "Microblading — video",
@@ -68,19 +68,16 @@ module.exports = {
   process: {
     eyebrow: "Process",
     title: "What to expect",
-    lead: "A transparent process from start to finish—no surprises.",
     cta: "Book appointment",
   },
   testimonials: {
     eyebrow: "Reviews",
     title: "What clients say",
-    lead: "Real reviews from real women—with real brows.",
-    note: "All reviews are 100% authentic—from real clients.",
-    cta: "Be the next one",
+    lead: "All reviews are 100% authentic—from real clients.",
   },
   faq: {
     eyebrow: "Questions and answers",
-    title: "Have questions? I have answers.",
+    title: "Frequently asked questions",
     items: [
       {
         question: "Is the procedure painful?",
@@ -116,11 +113,9 @@ module.exports = {
   },
   cta: {
     eyebrow: "Book your appointment",
-    title: "Ready to wake up with brows?",
+    title: "Wake up with styled brows — every day.",
     lead:
       "Available slots fill quickly. Book yours now—consultation is included in the procedure at no extra charge.",
     primary: "Book online",
-    orWrite: "Or message directly:",
-    addresses: 'Plovdiv, 11 Boris Sarafov St. · Asenovgrad, 3 Hristo Botev St.',
   },
 };

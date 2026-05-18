@@ -1,5 +1,6 @@
 ---
 layout: base.njk
+hideFooter: true
 title: Микроблейдинг Пловдив — PhiBrows | Валя Матовска
 description: Прецизен микроблейдинг по метода PhiBrows в Пловдив и Асеновград. Естествени, симетрични и дълготрайни вежди — 12 до 18 месеца без грим. Запази час онлайн.
 pageI18nKey: mikrobleiding
@@ -17,6 +18,7 @@ pageNav:
 ---
 
 {% set mb = microblading if microblading else {} %}
+{% set m = home.microblading if home and home.microblading else {} %}
 {% set bookingUrl = home.hero.ctaPrimary.url if home and home.hero and home.hero.ctaPrimary else "https://s24.bg/m/3844" %}
 {% set phone = home.contact.phoneHref if home and home.contact else "+359887621922" %}
 {% set phoneLabel = home.contact.phoneLabel if home and home.contact else "0887 621 922" %}
@@ -137,8 +139,8 @@ pageNav:
     <div class="container-custom">
       <header class="mb-header text-center mx-auto mb-5">
         <span class="mb-eyebrow justify-center">Резултати</span>
-        <h2 id="lp-gallery-heading" class="mb-title text-center mt-2">
-          Снимките говорят сами
+        <h2 id="lp-gallery-heading" class="mb-title text-center mt-2" data-i18n="pages.mikrobleiding.gallery.title">
+          Резултатите говорят сами
         </h2>
         <p class="mb-lead text-center mt-3" data-i18n="pages.mikrobleiding.gallery.lead">
           Ако веждите ви не подчертават лицето ви, цялото излъчване страда.
@@ -245,9 +247,10 @@ pageNav:
         </h2>
       </header>
 
-      <div class="grid grid-cols-1 gap-5 sm:grid-cols-3 max-w-4xl mx-auto">
+      <div class="lp-benefits-scroll max-w-4xl mx-auto">
+      <div class="lp-benefits-scroll__track">
 
-        <div class="rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
+        <div class="lp-benefits-scroll__card rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
           <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
             <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
@@ -255,7 +258,7 @@ pageNav:
           <p class="text-sm leading-relaxed text-[#7a6558]" data-i18n="pages.mikrobleiding.benefits.cards.0.text">Рисуваш вежди, търсиш симетрия, поправяш грешки,</p>
         </div>
 
-        <div class="rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
+        <div class="lp-benefits-scroll__card rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
           <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
             <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </div>
@@ -263,13 +266,14 @@ pageNav:
           <p class="text-sm leading-relaxed text-[#7a6558]">Едната е по-висока, по-дебела или по-тъмна — независимо колко се стараеш.</p>
         </div>
 
-        <div class="rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
+        <div class="lp-benefits-scroll__card rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
           <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
             <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/><path d="M12 8v4l3 3"/></svg>
           </div>
           <h3 class="font-sans text-base font-semibold text-ink mb-2" data-i18n="pages.mikrobleiding.benefits.cards.2.title">Веждите са редки или без форма</h3>
           <p class="text-sm leading-relaxed text-[#7a6558]">Липсата на обем или ясна форма кара погледа ти да изглежда незавършен.</p>
         </div>
+      </div>
       </div>
 
       <div class="mx-auto mt-12 max-w-2xl text-center">
@@ -287,71 +291,152 @@ pageNav:
 
 
   {# ═══════════════════════════════════════════════
-     5. WHAT IS MICROBLADING
+     5. WHAT IS MICROBLADING (home microblading pattern + stat cards)
   ═══════════════════════════════════════════════ #}
   <section
     id="lp-what"
     class="mb-section section-padding"
     aria-labelledby="lp-what-heading"
   >
-    <div class="container-custom">
-      <div class="mx-auto max-w-3xl text-center">
-        <header class="mb-header mb-8">
-          <span class="mb-eyebrow justify-center">Какво е микроблейдинг</span>
-          <h2 id="lp-what-heading" class="mb-title text-center mt-2">
-            Прецизна техника, естествен резултат
-          </h2>
-        </header>
+    <div class="container-custom relative">
+      <header class="mb-header text-center mx-auto mb-5">
+        {% if m.eyebrow %}
+        <span class="mb-eyebrow justify-center" data-i18n="home.microblading.eyebrow">{{ m.eyebrow }}</span>
+        {% endif %}
 
-        <div class="space-y-4 text-left">
-          <p class="mb-lead">
-            Микроблейдингът е полуперманентна техника за оформяне на вежди, при която с ръчен инструмент се нанасят фини косъмчета, имитиращи естествения растеж. Работя по метода <strong>PhiBrows</strong> — световен стандарт за симетрия, прецизност и дълготраен ефект.
-          </p>
-          <p class="mb-lead">
-            Всяка форма се изгражда индивидуално — анализирам чертите на лицето ти и определяме заедно цвят и форма, преди да се започне. Процедурата е щадяща и почти безболезнена (с локална упойка). Резултатът изглежда толкова естествено, че повечето хора не могат да различат дали са твои или направени.
-          </p>
+        <h2 id="lp-what-heading" class="mb-title text-center mt-2" data-i18n="home.microblading.title">
+          {{ m.title | default("Микроблейдинг") }}
+        </h2>
+
+        {% if m.lead %}
+        <p class="mb-lead mb-lead--clamped text-center mt-3" data-i18n="home.microblading.lead">{{ m.lead }}</p>
+        {% endif %}
+
+        {% if m.sub %}
+        <p class="mb-learn-inline justify-center mt-3">
+          <button
+            type="button"
+            class="mb-learn-more-btn"
+            data-lp-mb-info-open
+            aria-haspopup="dialog"
+            aria-controls="lp-mb-info-modal"
+          >
+            <span data-i18n="ui.learnMore">Научи повече</span>
+          </button>
+        </p>
+        {% endif %}
+      </header>
+
+      <div class="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-3 max-w-3xl mx-auto text-center">
+        <div class="rounded-xl bg-[#f9f3ee] px-5 py-5">
+          <p class="text-2xl font-bold text-[#c9a98a] mb-1" data-i18n="pages.mikrobleiding.what.stats.0.value">12–18</p>
+          <p class="text-sm font-medium text-ink" data-i18n="pages.mikrobleiding.what.stats.0.label">месеца дълготрайност</p>
         </div>
-
-        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 text-left">
-          <div class="rounded-xl bg-[#f9f3ee] px-5 py-5">
-            <p class="text-2xl font-bold text-[#c9a98a] mb-1">12–18</p>
-            <p class="text-sm font-medium text-ink">месеца дълготрайност</p>
-          </div>
-          <div class="rounded-xl bg-[#f9f3ee] px-5 py-5">
-            <p class="text-2xl font-bold text-[#c9a98a] mb-1">~2 ч.</p>
-            <p class="text-sm font-medium text-ink">продължителност на процедурата</p>
-          </div>
-          <div class="rounded-xl bg-[#f9f3ee] px-5 py-5">
-            <p class="text-2xl font-bold text-[#c9a98a] mb-1">PhiBrows</p>
-            <p class="text-sm font-medium text-ink">сертифицирана техника</p>
-          </div>
+        <div class="rounded-xl bg-[#f9f3ee] px-5 py-5">
+          <p class="text-2xl font-bold text-[#c9a98a] mb-1" data-i18n="pages.mikrobleiding.what.stats.1.value">~2 ч.</p>
+          <p class="text-sm font-medium text-ink" data-i18n="pages.mikrobleiding.what.stats.1.label">продължителност на процедурата</p>
+        </div>
+        <div class="rounded-xl bg-[#f9f3ee] px-5 py-5">
+          <p class="text-2xl font-bold text-[#c9a98a] mb-1" data-i18n="pages.mikrobleiding.what.stats.2.value">PhiBrows</p>
+          <p class="text-sm font-medium text-ink" data-i18n="pages.mikrobleiding.what.stats.2.label">сертифицирана техника</p>
         </div>
       </div>
     </div>
+
+    {% if m.sub %}
+    <div
+      id="lp-mb-info-modal"
+      class="mb-info-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-labelledby="lp-mb-info-modal-title"
+      hidden
+    >
+      <div class="mb-info-modal__backdrop" data-lp-mb-info-close></div>
+      <div class="mb-info-modal__panel" role="document" tabindex="-1">
+        <button
+          type="button"
+          class="mb-info-modal__close"
+          data-lp-mb-info-close
+          aria-label="Затвори"
+        >
+          &times;
+        </button>
+        <h3 id="lp-mb-info-modal-title" class="mb-info-modal__title" data-i18n="home.microblading.sub.title">
+          {{ m.sub.title }}
+        </h3>
+        {% if m.sub.paragraphs and m.sub.paragraphs.length %}
+          {% for p in m.sub.paragraphs %}
+          <p class="mb-info-modal__text{% if not loop.first %} mt-3{% endif %}">{{ p }}</p>
+          {% endfor %}
+        {% elif m.sub.body %}
+        <p class="mb-info-modal__text">{{ m.sub.body }}</p>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
   </section>
+
+  {% if m.sub %}
+  <script>
+  (function initLpMbInfoModal() {
+    var infoModal = document.getElementById("lp-mb-info-modal");
+    if (!infoModal) return;
+    var panel = infoModal.querySelector(".mb-info-modal__panel");
+    var openBtns = document.querySelectorAll("[data-lp-mb-info-open]");
+    var closeBtns = infoModal.querySelectorAll("[data-lp-mb-info-close]");
+
+    function openInfoModal() {
+      infoModal.hidden = false;
+      infoModal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+      if (panel) panel.focus();
+    }
+
+    function closeInfoModal() {
+      infoModal.hidden = true;
+      infoModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+    }
+
+    openBtns.forEach(function (btn) {
+      btn.addEventListener("click", openInfoModal);
+    });
+    closeBtns.forEach(function (btn) {
+      btn.addEventListener("click", closeInfoModal);
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !infoModal.hidden) closeInfoModal();
+    });
+  })();
+  </script>
+  {% endif %}
 
 
   {# ═══════════════════════════════════════════════
-     6. PROCESS STEPS
+     6. PROCESS STEPS (same 3 cards as home)
   ═══════════════════════════════════════════════ #}
-  {% if mb.steps and mb.steps.length %}
+  {% set proc3 = procedureThreeCards if procedureThreeCards else {} %}
+  {% set procedureSteps = proc3.steps if proc3.steps and proc3.steps.length else [] %}
+  {% if procedureSteps.length %}
   <section
     id="lp-process"
     class="home-procedure section-padding relative bg-white/70 overflow-hidden"
     aria-labelledby="lp-process-heading"
   >
-    <div class="mb-steps" data-lp-procedure-steps>
+    <div class="mb-steps" data-procedure-steps>
       <div class="container-custom">
         <header class="mb-header text-center mx-auto mb-6">
-          <span class="mb-eyebrow justify-center">Процес</span>
-          <h2 id="lp-process-heading" class="mb-title text-center mt-2">Какво да очакваш</h2>
-          <p class="mb-lead text-center mt-3">Прозрачен процес от началото до края — никакви изненади.</p>
+          <span class="mb-eyebrow justify-center">{{ proc3.eyebrow | default("Процес") }}</span>
+          <h2 id="lp-process-heading" class="mb-title text-center mt-2">{{ proc3.title | default("Какво да очакваш") }}</h2>
         </header>
       </div>
 
-      <div class="mb-steps__viewport" data-lp-procedure-steps-viewport>
+      <div class="mb-steps__viewport" data-procedure-steps-viewport>
         <ol class="mb-steps__list">
-          {% for step in mb.steps %}
+          {% for step in procedureSteps %}
           <li class="mb-step">
             <span class="mb-step__num" aria-hidden="true">{{ step.number }}</span>
             <div class="mb-step__body">
@@ -365,7 +450,7 @@ pageNav:
     </div>
 
     <div class="container-custom mt-10 text-center">
-      <a href="{{ bookingUrl }}" class="btn-primary" target="_blank" rel="noopener noreferrer">
+      <a href="{{ bookingUrl }}" class="btn-primary" target="_blank" rel="noopener noreferrer" data-i18n="pages.mikrobleiding.process.cta">
         Запази час
       </a>
     </div>
@@ -374,49 +459,79 @@ pageNav:
 
 
   {# ═══════════════════════════════════════════════
-     7. TESTIMONIALS
+     7. TESTIMONIALS (microblading only, scrolling strip like home)
   ═══════════════════════════════════════════════ #}
-  {% set testimonials = home.testimonials.items if home and home.testimonials and home.testimonials.items else [] %}
-  {% if testimonials.length %}
+  {% set t = home.testimonials if home and home.testimonials else {} %}
+  {% set allTestimonials = t.items if t.items else [] %}
+  {% set mbTestimonials = allTestimonials | filterMicrobladingTestimonials %}
+  {% if mbTestimonials.length %}
   <section
     id="lp-testimonials"
     class="mb-section section-padding"
     aria-labelledby="lp-testimonials-heading"
   >
     <div class="container-custom">
-      <header class="mb-header mx-auto mb-10 text-center">
-        <span class="mb-eyebrow justify-center">Отзиви</span>
-        <h2 id="lp-testimonials-heading" class="mb-title mt-2 text-center">
+      <header class="mb-header mx-auto mb-8 text-center md:mb-10">
+        <span class="mb-eyebrow justify-center" data-i18n="pages.mikrobleiding.testimonials.eyebrow">Отзиви</span>
+        <h2 id="lp-testimonials-heading" class="mb-title mt-2 text-center" data-i18n="pages.mikrobleiding.testimonials.title">
           Какво казват клиентите
         </h2>
-        <p class="site-lead mx-auto mt-4 max-w-2xl text-center text-muted">
-          Реални отзиви от реални жени — с реални вежди.
+        <p class="site-lead mx-auto mt-4 max-w-2xl text-center text-muted" data-i18n="pages.mikrobleiding.testimonials.lead">
+          Всички отзиви са 100% автентични — от реални клиенти.
         </p>
       </header>
+    </div>
 
-      <div class="grid grid-cols-1 gap-5 md:grid-cols-3 max-w-5xl mx-auto">
-        {# Pick 3 specific testimonials that mention microblading #}
-        {% for item in testimonials %}
-          {% if loop.index0 == 1 or loop.index0 == 2 or loop.index0 == 6 %}
-          <article class="rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] flex flex-col">
-            <div class="testimonial-card__stars mb-3" aria-hidden="true">
+    <div class="testimonials-strip-wrapper">
+      <div class="testimonials-strip" aria-label="Отзиви от клиенти — микроблейдинг">
+        <div class="testimonials-strip-set">
+          {% for item in mbTestimonials %}
+          <article class="testimonial-card" data-testimonial-index="{{ loop.index0 }}">
+            <div class="testimonial-card__stars" aria-hidden="true">
               <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
             </div>
-            <p class="testimonial-card__quote flex-1">{{ item.quote }}</p>
-            <p class="testimonial-card__name mt-4">– {{ item.name }}</p>
+            <p class="testimonial-card__quote" data-i18n="home.testimonials.items.{{ item.sourceIndex }}.quote">{{ item.quote }}</p>
+            <button
+              type="button"
+              class="testimonial-card__expand"
+              hidden
+              data-testimonial-open
+              data-testimonial-index="{{ loop.index0 }}"
+            >
+              Виж целия отзив
+            </button>
+            <p class="testimonial-card__name">– <span data-i18n="home.testimonials.items.{{ item.sourceIndex }}.name">{{ item.name }}</span></p>
           </article>
-          {% endif %}
-        {% endfor %}
-      </div>
-
-      <div class="mt-12 text-center">
-        <p class="text-sm text-muted mb-4">Всички отзиви са 100% автентични — от реални клиенти.</p>
-        <a href="{{ bookingUrl }}" class="btn-primary" target="_blank" rel="noopener noreferrer">
-          Стани следващата
-        </a>
+          {% endfor %}
+        </div>
+        <div class="testimonials-strip-set" aria-hidden="true">
+          {% for item in mbTestimonials %}
+          <article class="testimonial-card" data-testimonial-index="{{ loop.index0 }}">
+            <div class="testimonial-card__stars" aria-hidden="true">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="testimonial-card__quote">{{ item.quote }}</p>
+            <button
+              type="button"
+              class="testimonial-card__expand"
+              hidden
+              data-testimonial-open
+              data-testimonial-index="{{ loop.index0 }}"
+            >
+              Виж целия отзив
+            </button>
+            <p class="testimonial-card__name">– {{ item.name }}</p>
+          </article>
+          {% endfor %}
+        </div>
       </div>
     </div>
   </section>
+
+  <script>
+    window.ValetoTestimonialsData = {{ mbTestimonials | dump | safe }};
+  </script>
+  <script src="{{ '/assets/js/testimonials-strip.js' | url }}"></script>
   {% endif %}
 
 
@@ -431,12 +546,12 @@ pageNav:
     <div class="container-custom">
       <header class="mb-header mx-auto mb-8 text-center md:mb-10">
         <span class="mb-eyebrow justify-center">Въпроси и отговори</span>
-        <h2 id="lp-faq-heading" class="mb-title mt-2 text-center">
-          Имаш въпроси? Имам отговори.
+        <h2 id="lp-faq-heading" class="mb-title mt-2 text-center" data-i18n="home.faq.title">
+          Често задавани въпроси
         </h2>
       </header>
 
-      <div class="faq-stack w-full max-w-3xl mx-auto" data-lp-faq-accordion>
+      <div class="faq-stack w-full" data-lp-faq-accordion>
 
         <details class="faq-details" name="lp-faq">
           <summary class="faq-details__summary">
@@ -525,12 +640,12 @@ pageNav:
     <div class="container-custom relative z-10">
       <div class="mx-auto max-w-3xl text-center">
 
-        <span class="mb-eyebrow justify-center text-white/80">Запази своя час</span>
-        <h2 id="lp-cta-heading" class="mb-title mt-2 text-center text-white">
-          Готова да събуждаш вежди?
+        <span class="mb-eyebrow justify-center text-white/80" data-i18n="pages.mikrobleiding.cta.eyebrow">Запази своя час</span>
+        <h2 id="lp-cta-heading" class="mb-title mt-2 text-center text-white" data-i18n="pages.mikrobleiding.cta.title">
+          Събуждай се с оформени вежди — всеки ден.
         </h2>
 
-        <p class="mb-lead mt-4 text-white/90 max-w-xl mx-auto">
+        <p class="mb-lead mt-4 text-white/90 max-w-xl mx-auto" data-i18n="pages.mikrobleiding.cta.lead">
           Свободните часове се запълват бързо. Запази своя сега — консултацията е включена в процедурата, без допълнително заплащане.
         </p>
 
@@ -541,7 +656,7 @@ pageNav:
             target="_blank"
             rel="noopener noreferrer"
           >
-            Запази час онлайн
+            <span data-i18n="pages.mikrobleiding.cta.primary">Запази час онлайн</span>
           </a>
           <a
             href="tel:{{ phone }}"
@@ -552,27 +667,11 @@ pageNav:
           </a>
         </div>
 
-        <div class="mt-8 flex flex-col items-center gap-1">
-          <p class="text-sm text-white/70">Или пиши директно:</p>
-          <div class="flex items-center gap-5 mt-2">
-            {% set c = home.contact if home and home.contact else {} %}
-            {% if c.whatsapp %}
-            <a href="{{ c.whatsapp }}" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors text-sm underline underline-offset-2">WhatsApp</a>
-            {% endif %}
-            {% if c.viber %}
-            <a href="{{ c.viber }}" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors text-sm underline underline-offset-2">Viber</a>
-            {% endif %}
-            {% if c.instagram %}
-            <a href="{{ c.instagram }}" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors text-sm underline underline-offset-2">Instagram</a>
-            {% endif %}
-          </div>
-        </div>
-
-        <p class="mt-8 text-xs text-white/60">
-          Пловдив, ул. „Борис Сарафов" 11 &nbsp;·&nbsp; Асеновград, ул. „Христо Ботев" 3
-        </p>
-
       </div>
+
+      {% set c = home.contact if home and home.contact else {} %}
+      {% set addr = c.addresses if c.addresses else [] %}
+      {% include "lp-cta-contact.njk" %}
     </div>
   </section>
 
@@ -725,22 +824,41 @@ pageNav:
 </script>
 {% endif %}
 
-{# Process steps drag on mobile #}
+{# Process steps drag on mobile (same as home) #}
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll("[data-lp-procedure-steps]").forEach(function(root) {
-    var viewport = root.querySelector("[data-lp-procedure-steps-viewport]");
-    if (!viewport || !window.matchMedia("(max-width: 1023px)").matches) return;
-    var isDown = false, startX, scrollLeft;
-    viewport.addEventListener("mousedown", function(e) { isDown = true; viewport.classList.add("is-dragging"); startX = e.pageX - viewport.offsetLeft; scrollLeft = viewport.scrollLeft; });
-    viewport.addEventListener("mouseleave", function() { isDown = false; viewport.classList.remove("is-dragging"); });
-    viewport.addEventListener("mouseup", function() { isDown = false; viewport.classList.remove("is-dragging"); });
-    viewport.addEventListener("mousemove", function(e) {
-      if (!isDown) return; e.preventDefault();
-      viewport.scrollLeft = scrollLeft - (e.pageX - viewport.offsetLeft - startX) * 2;
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("[data-procedure-steps]").forEach(function (root) {
+      var viewport = root.querySelector("[data-procedure-steps-viewport]");
+      if (!viewport) return;
+      if (!window.matchMedia("(max-width: 1023px)").matches) return;
+
+      var isDown = false;
+      var startX;
+      var scrollLeft;
+
+      viewport.addEventListener("mousedown", function(e) {
+        isDown = true;
+        viewport.classList.add("is-dragging");
+        startX = e.pageX - viewport.offsetLeft;
+        scrollLeft = viewport.scrollLeft;
+      });
+      viewport.addEventListener("mouseleave", function() {
+        isDown = false;
+        viewport.classList.remove("is-dragging");
+      });
+      viewport.addEventListener("mouseup", function() {
+        isDown = false;
+        viewport.classList.remove("is-dragging");
+      });
+      viewport.addEventListener("mousemove", function(e) {
+        if (!isDown) return;
+        e.preventDefault();
+        var x = e.pageX - viewport.offsetLeft;
+        var walk = (x - startX) * 2;
+        viewport.scrollLeft = scrollLeft - walk;
+      });
     });
   });
-});
 </script>
 
 {# FAQ accordion #}

@@ -22,6 +22,25 @@ module.exports = function (eleventyConfig) {
     return /\.mp4(\?|#|$)/i.test(src.trim());
   });
 
+  eleventyConfig.addFilter("filterMicrobladingTestimonials", function (items) {
+    if (!Array.isArray(items)) return [];
+    const mbPattern = /микроблейдинг|microblading|phibrows/i;
+    return items
+      .map(function (item, index) {
+        return Object.assign({}, item, { sourceIndex: index });
+      })
+      .filter(function (item) {
+        const quote = item.quote || "";
+        if (mbPattern.test(quote)) return true;
+        if (/почистване/i.test(quote)) return false;
+        if (/молив/i.test(quote) && /вежд/i.test(quote) && !/ламиниран/i.test(quote)) {
+          return true;
+        }
+        if (/перманентно/i.test(quote) && /лицето/i.test(quote)) return true;
+        return false;
+      });
+  });
+
   // Useful for sitemaps/lastmod (if added later)
   eleventyConfig.addGlobalData("buildDate", () => new Date().toISOString().slice(0, 10));
   eleventyConfig.addGlobalData("currentYear", () => new Date().getFullYear());

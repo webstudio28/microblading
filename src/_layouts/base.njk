@@ -51,7 +51,9 @@
   <div class="relative z-10">
     {% include "header.njk" %}
     {{ content | safe }}
+    {% if not hideFooter %}
     {% include "footer.njk" %}
+    {% endif %}
   </div>
 
   {% include "testimonial-read-modal.njk" %}

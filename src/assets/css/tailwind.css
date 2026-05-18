@@ -927,6 +927,60 @@
     background: linear-gradient(to left, transparent, var(--color-brand-accent) 40%, var(--color-brand-accent));
   }
 
+  .lp-benefits-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    touch-action: pan-x pan-y;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    /* Room for card box-shadow (0 8px 22px) inside scrollport */
+    padding-bottom: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .lp-benefits-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .lp-benefits-scroll__track {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1.25rem;
+    width: max-content;
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1rem;
+  }
+  .lp-benefits-scroll__card {
+    flex: 0 0 auto;
+    width: min(78vw, 17.5rem);
+  }
+  @media (min-width: 640px) {
+    .lp-benefits-scroll {
+      overflow: visible;
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 2rem;
+      margin-bottom: 0.75rem;
+    }
+    .lp-benefits-scroll__track {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+      width: 100%;
+      max-width: 56rem;
+      padding-bottom: 0.5rem;
+    }
+    .lp-benefits-scroll__card {
+      width: auto;
+    }
+  }
+
   .mb-title {
     font-family: "MAK", Georgia, serif;
     font-weight: 700;
