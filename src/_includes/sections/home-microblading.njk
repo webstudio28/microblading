@@ -72,7 +72,7 @@
     <div class="mb-bubbles" role="list" data-mb-bubbles aria-labelledby="mb-gallery-heading">
       {% for item in mb.gallery %}
       <figure
-        class="mb-bubble"
+        class="mb-bubble{% if item.src | isVideoPath %} mb-bubble--video{% endif %}"
         role="listitem"
         data-mb-gallery-trigger
         data-mb-gallery-index="{{ loop.index0 }}"

@@ -1,20 +1,17 @@
 module.exports = {
   gallery: [
     { alt: "Microblading result — softly shaped brows" },
+    { alt: "Microblading — procedure video" },
     { alt: "Process — outlining and symmetry" },
-    { alt: "Detail of manual hair-stroke technique" },
-    { alt: "Finished result — natural and refined" },
-    { alt: "Close-up of line precision" },
+    { alt: "Microblading — detail video" },
     { alt: "Shaping stage of the procedure" },
     { alt: "Fine detail in the natural effect" },
     { alt: "Preparation and brow symmetry" },
-    { alt: "Finished result with soft lines" },
     { alt: "Final frame of the microblading look" },
     { alt: "Gentle result after the procedure" },
     { alt: "Precisely crafted hair strokes" },
     { alt: "Natural shape and balance" },
-    { alt: "Close-up of the line work" },
-    { alt: "Defined yet natural effect" },
+    { alt: "Finished result — natural and refined" },
   ],
   steps: [
     {

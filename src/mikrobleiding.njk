@@ -167,7 +167,7 @@ pageNav:
       <div class="mb-bubbles" role="list" data-lp-mb-bubbles aria-labelledby="lp-mb-gallery-label">
         {% for item in mb.gallery %}
         <figure
-          class="mb-bubble"
+          class="mb-bubble{% if item.src | isVideoPath %} mb-bubble--video{% endif %}"
           role="listitem"
           data-lp-mb-gallery-trigger
           data-lp-mb-gallery-index="{{ loop.index0 }}"

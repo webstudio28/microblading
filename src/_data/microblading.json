@@ -5,36 +5,24 @@
       "alt": "Резултат от микроблейдинг – нежно оформени вежди"
     },
     {
+      "src": "/assets/images/microblading1.mp4",
+      "alt": "Микроблейдинг — видео от процедурата"
+    },
+    {
       "src": "/assets/images/microblading2.jpg",
       "alt": "Процес по очертаване и симетрия"
     },
     {
-      "src": "/assets/images/microblading3.jpg",
-      "alt": "Детайл при ръчна техника на косъмчета"
-    },
-    {
-      "src": "/assets/images/microblading4.jpg",
-      "alt": "Готов резултат – естествен и изискан"
-    },
-    {
-      "src": "/assets/images/microblading5.jpg",
-      "alt": "Поглед отблизо върху прецизността на линиите"
-    },
-    {
-      "src": "/assets/images/microblading6.jpg",
+      "src": "/assets/images/microblading6.jpeg",
       "alt": "Етап от процедурата по оформяне"
     },
     {
-      "src": "/assets/images/microblading7.jpg",
+      "src": "/assets/images/microblading7.jpeg",
       "alt": "Фин детайл в естествения ефект"
     },
     {
-      "src": "/assets/images/microblading8.jpg",
+      "src": "/assets/images/microblading8.jpeg",
       "alt": "Подготовка и симетрия на веждите"
-    },
-    {
-      "src": "/assets/images/microblading9.jpg",
-      "alt": "Готов резултат с мека линия"
     },
     {
       "src": "/assets/images/microblading10.jpg",
@@ -54,11 +42,7 @@
     },
     {
       "src": "/assets/images/microblading14.jpg",
-      "alt": "Детайл отблизо на линията"
-    },
-    {
-      "src": "/assets/images/microblading15.jpg",
-      "alt": "Подчертан, но натурален ефект"
+      "alt": "Готов резултат – естествен и изискан"
     }
   ],
   "steps": [

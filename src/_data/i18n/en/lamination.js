@@ -2,8 +2,16 @@ module.exports = {
   gallery: [
     { alt: "Lamination — result" },
     { alt: "Lamination — detail" },
+    { alt: "Lamination — shaped brows" },
     { alt: "Lamination — video" },
     { alt: "Lamination — process" },
+    { alt: "Lamination — procedure video" },
+    { alt: "Lamination — studio work" },
+    { alt: "Lamination — procedure detail video" },
+    { alt: "Lamination — result video" },
+    { alt: "Lamination — styled brows video" },
+    { alt: "Lamination — final effect video" },
+    { alt: "Lamination — result showcase video" },
   ],
   steps: [
     {
