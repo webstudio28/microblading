@@ -9,6 +9,9 @@ module.exports = function (eleventyConfig) {
   // Passthrough copy: src/assets → _site/assets
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({
+    "src/assets/images/favicon.png": "favicon.png",
+  });
+  eleventyConfig.addPassthroughCopy({
     "src/assets/js/i18n.js": "assets/js/i18n.js",
     "src/assets/js/clients-strip.js": "assets/js/clients-strip.js",
   });

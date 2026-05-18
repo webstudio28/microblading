@@ -118,8 +118,7 @@ module.exports = {
   cta: {
     eyebrow: "Book your appointment",
     title: "Wake up with styled brows — every day.",
-    lead:
-      "Available slots fill quickly. Book yours now—consultation is included in the procedure at no extra charge.",
+    lead: "Book your appointment now—the schedule fills up quickly.",
     primary: "Book online",
   },
 };
