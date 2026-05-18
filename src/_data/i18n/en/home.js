@@ -1,28 +1,23 @@
 const faqItems = [
   {
-    question: "What is microblading?",
+    question: "How long do the procedures take?",
     answer:
-      "Microblading is a semi-permanent brow technique that uses a micro-needle tool to deposit pigment into the skin, mimicking natural brow hairs.",
+      "Microblading usually takes about 2–3 hours. Lash or brow lamination takes about 1–1.5 hours.",
   },
   {
-    question: "How long does the procedure take?",
+    question: "What should I do after lamination?",
     answer:
-      "The appointment usually takes about 2–3 hours, including consultation, brow design, and pigment application.",
+      "Avoid getting your lashes or brows wet for the first 24 hours after the procedure. Do not use oily products, as they can reduce how long the result lasts.",
   },
   {
-    question: "Is the procedure painful?",
+    question: "Is microblading painful?",
     answer:
-      "Discomfort varies from person to person, but most clients report minimal pain—often compared to light scratching. Topical numbing is typically used.",
+      "Discomfort varies from person to person, but most clients report minimal pain—often compared to plucking a hair or light scratching. Topical numbing is typically used.",
   },
   {
-    question: "How long do results last?",
+    question: "What is the healing process after microblading?",
     answer:
-      "PhiBrows microblading results can last between 12 and 18 months, depending on skin type and lifestyle.",
-  },
-  {
-    question: "What is the healing process like?",
-    answer:
-      "Follow aftercare instructions: avoid direct sun, saunas, pools, and intense exercise for about 7–10 days. Mild redness and flaking are normal in the first days.",
+      "Follow the aftercare instructions your specialist gives you. Mild redness is normal and usually settles within a day or two.",
   },
   {
     question: "What is the difference between microblading and brow tattooing?",
@@ -30,29 +25,9 @@ const faqItems = [
       "Microblading uses finer, more superficial pigment for a natural look, while traditional brow tattooing is deeper and more permanent.",
   },
   {
-    question: "What should be avoided before the procedure?",
+    question: "What should be avoided before microblading?",
     answer:
       "Avoid alcohol, caffeine, and blood-thinning medications such as aspirin or ibuprofen for at least 24 hours beforehand.",
-  },
-  {
-    question: "Is it suitable for all skin types?",
-    answer:
-      "It suits most skin types, though results may vary. Oily skin may retain pigment for a shorter time than normal or dry skin.",
-  },
-  {
-    question: "What are the risks and complications?",
-    answer:
-      "As with any cosmetic procedure, there are risks of infection, allergic reaction, or unsatisfactory results. Choose a qualified specialist and follow aftercare.",
-  },
-  {
-    question: "How much does the procedure cost?",
-    answer:
-      "PhiBrows microblading prices vary by location and experience, typically ranging from 300 to 600 BGN.",
-  },
-  {
-    question: "How do I choose a good PhiBrows specialist?",
-    answer:
-      "Choose a certified PhiBrows artist with proven experience. Review their portfolio, client feedback, and hygiene standards.",
   },
   {
     question: "What pigments are used in microblading?",
@@ -65,7 +40,7 @@ const faqItems = [
       "Yes—pregnancy, menstruation, breastfeeding, and contraceptives can affect pigment retention and healing. The procedure is best avoided during these periods.",
   },
   {
-    question: "Can it be combined with other brow techniques?",
+    question: "Can microblading be combined with other brow techniques?",
     answer:
       "Yes. Microblading is often combined with shading (powder effect) for fuller brows—ideal for oily skin or a denser result.",
   },
@@ -73,31 +48,6 @@ const faqItems = [
     question: "What happens if I skip the touch-up?",
     answer:
       "Without a touch-up, results may fade unevenly. A touch-up 4–6 weeks after the first session is important for corrections and colour refresh.",
-  },
-  {
-    question: "How do brows look immediately after the procedure?",
-    answer:
-      "They appear darker and more intense at first. Within 7–14 days the colour fades by about 30–40% to the final tone.",
-  },
-  {
-    question: "Is there a best season for microblading?",
-    answer:
-      "Cooler months (autumn, winter, spring) are recommended, as heat and sun in summer can affect pigment retention.",
-  },
-  {
-    question: "Can microblading be removed or corrected if I dislike the result?",
-    answer:
-      "Yes—laser and non-invasive removers can lighten pigment gradually. Choosing a qualified specialist helps avoid corrections.",
-  },
-  {
-    question: "What are common microblading mistakes and how to avoid them?",
-    answer:
-      "Common issues include wrong shape, overly thick or thin brows, poor pigments, or technique. Choose an experienced specialist and follow aftercare.",
-  },
-  {
-    question: "How do I care for my brows long-term after the procedure?",
-    answer:
-      "Avoid harsh exfoliants and retinol near the brows, use SPF to prevent fading, and book a touch-up every 12–18 months to maintain the look.",
   },
 ];
 
@@ -233,7 +183,6 @@ module.exports = {
     title: "Frequently asked questions",
     pageLead:
       "Everything clients often ask about microblading, lamination, and aftercare.",
-    viewAllLabel: "View all",
     items: faqItems,
   },
 };

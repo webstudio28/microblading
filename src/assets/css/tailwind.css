@@ -1702,6 +1702,54 @@
     transform: translateX(3px);
   }
 
+  /* Peek + expand: max-height only when collapsed (matches raboteriya; avoids fighting JS) */
+  .faq-extra-inner {
+    overflow: hidden;
+    transition: max-height 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  .faq-extra:not(.is-expanded) .faq-extra-inner {
+    max-height: 5.25rem;
+    pointer-events: none;
+  }
+
+  .faq-extra.is-expanded .faq-extra-inner {
+    max-height: none;
+  }
+
+  .faq-extra-fade {
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      rgba(250, 249, 246, 0),
+      rgba(250, 249, 246, 0.88) 40%,
+      #faf9f6
+    );
+    opacity: 1;
+    transition: opacity 240ms ease;
+  }
+
+  .faq-extra.is-expanded .faq-extra-fade {
+    opacity: 0;
+  }
+
+  .faq-see-more-icon {
+    transition: transform 240ms ease;
+  }
+
+  /* Button lives outside .faq-extra; use aria-expanded (set by JS) */
+  [data-faq-expand][aria-expanded="true"] .faq-see-more-icon {
+    transform: rotate(180deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .faq-extra-inner,
+    .faq-extra-fade,
+    .faq-see-more-icon {
+      transition-duration: 1ms;
+    }
+  }
+
   .faq-page__back {
     display: flex;
     flex-wrap: wrap;

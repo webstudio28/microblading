@@ -14,9 +14,4 @@ module.exports = {
     description:
       "Brow and lash lamination in Plovdiv and Asenovgrad. Expressive, natural look without mascara. Results last 4–8 weeks. Book online.",
   },
-  faq: {
-    title: "Frequently asked questions",
-    description:
-      "Answers about microblading, lamination, aftercare, and booking at Brows and lashes ValyaMatovska.",
-  },
 };
