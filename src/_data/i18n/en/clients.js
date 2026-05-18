@@ -18,12 +18,6 @@ module.exports = [
     ]
   },
   {
-    "name": "Brow lamination and tinting",
-    "services": [
-      "Brow lamination and tinting"
-    ]
-  },
-  {
     "name": "Microblading",
     "services": [
       "Microblading"
