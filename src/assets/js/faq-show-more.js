@@ -131,7 +131,7 @@
     init();
   }
 
-  document.addEventListener("valeto:langchange", function () {
+  document.addEventListener("valyamatovska:langchange", function () {
     var listRoot = root.querySelector("[data-faq-list]");
     if (!listRoot) return;
     var extra = listRoot.querySelector("[data-faq-extra]");

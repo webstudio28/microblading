@@ -98,7 +98,7 @@
       });
   }
 
-  var data = window.ValetoTestimonialsData;
+  var data = window.ValyamatovskaTestimonialsData;
   var previousFocus = null;
   var modalCloseWired = false;
 
@@ -124,7 +124,7 @@
     var els = getModalEls();
     if (!els.modal || !els.name || !els.quote || !data || !data[index]) return;
     var item = data[index];
-    var lang = window.ValetoI18n ? window.ValetoI18n.getLang() : "bg";
+    var lang = window.ValyamatovskaI18n ? window.ValyamatovskaI18n.getLang() : "bg";
     var enItems = window.__I18N__ && window.__I18N__.en && window.__I18N__.en.home && window.__I18N__.en.home.testimonials && window.__I18N__.en.home.testimonials.items;
     var enIndex = (item.sourceIndex !== undefined) ? item.sourceIndex : index;
     var enItem = (lang === "en" && enItems && enItems[enIndex]) ? enItems[enIndex] : null;

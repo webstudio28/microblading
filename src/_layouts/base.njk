@@ -7,7 +7,8 @@
   <script>
     (function () {
       try {
-        if (localStorage.getItem("valeto-lang") === "en") {
+        var stored = localStorage.getItem("valyamatovska-lang");
+        if (stored === "en") {
           document.documentElement.lang = "en";
         }
       } catch (e) {}
@@ -15,14 +16,30 @@
   </script>
   <title
     data-i18n-title="meta.{{ i18nPageKey }}.title"
-    data-i18n-title-bg="{% if title %}{{ title }}{% elif site and site.seo %}{{ site.seo.defaultTitle }}{% else %}Valeto{% endif %}"
-  >{% if title %}{{ title }}{% elif site and site.seo %}{{ site.seo.defaultTitle }}{% else %}Valeto{% endif %}</title>
+    data-i18n-title-bg="{% if title %}{{ title }}{% elif site and site.seo %}{{ site.seo.defaultTitle }}{% else %}Валя Матовска{% endif %}"
+  >{% if title %}{{ title }}{% elif site and site.seo %}{{ site.seo.defaultTitle }}{% else %}Валя Матовска{% endif %}</title>
   <meta
     name="description"
     data-i18n-desc="meta.{{ i18nPageKey }}.description"
     data-i18n-desc-bg="{% if description %}{{ description }}{% elif site and site.seo %}{{ site.seo.defaultDescription }}{% endif %}"
     content="{% if description %}{{ description }}{% elif site and site.seo %}{{ site.seo.defaultDescription }}{% endif %}"
   >
+
+  {% set _ogTitle %}{% if title %}{{ title }}{% elif site and site.seo %}{{ site.seo.defaultTitle }}{% else %}Валя Матовска{% endif %}{% endset %}
+  {% set _ogDesc %}{% if description %}{{ description }}{% elif site and site.seo %}{{ site.seo.defaultDescription }}{% endif %}{% endset %}
+  {% set _ogImg = ogImage | default(site.seo.defaultOgImage) | default('/assets/images/hero-img2.jpeg') %}
+  {% set _siteUrl = site.seo.siteUrl | default('https://www.valyamatovska.bg') %}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Валя Матовска">
+  <meta property="og:url" content="{{ _siteUrl }}{{ page.url | url }}">
+  <meta property="og:title" content="{{ _ogTitle }}">
+  <meta property="og:description" content="{{ _ogDesc }}">
+  <meta property="og:image" content="{{ _siteUrl }}{{ _ogImg }}">
+  <meta name="twitter:card" content="{% if site and site.seo and site.seo.twitterCard %}{{ site.seo.twitterCard }}{% else %}summary_large_image{% endif %}">
+  <meta name="twitter:title" content="{{ _ogTitle }}">
+  <meta name="twitter:description" content="{{ _ogDesc }}">
+  <meta name="twitter:image" content="{{ _siteUrl }}{{ _ogImg }}">
+
   {% if site and site.seo and site.seo.siteUrl %}
   <link rel="canonical" href="{{ site.seo.siteUrl }}{{ page.url | url }}">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ '/sitemap.xml' | url }}">

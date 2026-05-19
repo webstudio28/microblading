@@ -2,7 +2,8 @@
 layout: base.njk
 hideFooter: true
 title: Ламиниране на вежди и мигли — Пловдив | Валя Матовска
-description: Ламиниране на вежди и мигли в Пловдив и Асеновград. Естествен, изразителен поглед без спирала и без грим. Резултатът трае 4–8 седмици. Запази час онлайн.
+description: Запази час за ламиниране на вежди и мигли в Пловдив и Асеновград при Валя Матовска. Изразителен, естествен поглед без спирала — резултат 4–8 седмици. Резервирай онлайн.
+ogImage: /assets/images/landing-microblading/landing-hero-desktop.jpeg
 pageI18nKey: laminirane
 sitemap:
   priority: 0.9
@@ -44,16 +45,14 @@ pageNav:
           {# Mobile image #}
           <div class="flex w-full justify-center md:hidden">
             <div class="hero-photo-wrap w-full max-w-none">
-              <picture>
-                <source media="(max-width: 767px)" srcset="{{ '/assets/images/hero-img-mobile.jpg' | url }}">
-                <img
-                  src="{{ '/assets/images/hero-img.jpeg' | url }}"
-                  alt="Ламиниране на вежди и мигли — Валя Матовска"
-                  class="hero-photo"
-                  width="460" height="540"
-                  loading="eager"
-                >
-              </picture>
+              <img
+                src="{{ '/assets/images/landing-microblading/landing-hero-mobile.jpeg' | url }}"
+                alt="Ламиниране на вежди и мигли — Валя Матовска"
+                class="hero-photo"
+                width="460" height="540"
+                loading="eager"
+                data-i18n-attr="alt:pages.laminirane.hero.imageAlt"
+              >
             </div>
           </div>
 
@@ -74,16 +73,14 @@ pageNav:
         {# Image column — desktop #}
         <div class="order-2 hidden justify-center md:flex lg:justify-end">
           <div class="hero-photo-wrap">
-            <picture>
-              <source media="(max-width: 767px)" srcset="{{ '/assets/images/hero-img-mobile.jpg' | url }}">
-              <img
-                src="{{ '/assets/images/hero-img.jpeg' | url }}"
-                alt="Ламиниране на вежди и мигли — Валя Матовска"
-                class="hero-photo"
-                width="460" height="540"
-                loading="eager"
-              >
-            </picture>
+            <img
+              src="{{ '/assets/images/landing-microblading/landing-hero-desktop.jpeg' | url }}"
+              alt="Ламиниране на вежди и мигли — Валя Матовска"
+              class="hero-photo"
+              width="460" height="540"
+              loading="eager"
+              data-i18n-attr="alt:pages.laminirane.hero.imageAlt"
+            >
           </div>
         </div>
 
@@ -451,7 +448,7 @@ pageNav:
   </section>
 
   <script>
-    window.ValetoTestimonialsData = {{ lamTestimonials | dump | safe }};
+    window.ValyamatovskaTestimonialsData = {{ lamTestimonials | dump | safe }};
   </script>
   <script src="{{ '/assets/js/testimonials-strip.js' | url }}"></script>
   {% endif %}

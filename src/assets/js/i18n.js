@@ -1,5 +1,5 @@
 (function () {
-  var STORAGE_KEY = "valeto-lang";
+  var STORAGE_KEY = "valyamatovska-lang";
   var DEFAULT_LANG = "bg";
 
   function getNested(obj, path) {
@@ -31,7 +31,7 @@
     applyTranslations();
     updateToggleUI();
     document.dispatchEvent(
-      new CustomEvent("valeto:langchange", { detail: { lang: lang } })
+      new CustomEvent("valyamatovska:langchange", { detail: { lang: lang } })
     );
   }
 
@@ -147,7 +147,7 @@
     });
   }
 
-  window.ValetoI18n = {
+  window.ValyamatovskaI18n = {
     getLang: getLang,
     setLang: setLang,
     t: function (key) {

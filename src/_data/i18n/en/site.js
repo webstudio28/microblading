@@ -1,9 +1,9 @@
 module.exports = {
   seo: {
     defaultTitle:
-      "Brows and lashes ValyaMatovska — microblading and lamination",
+      "Valya Matovska — Microblading in Plovdiv | PhiBrows",
     defaultDescription:
-      "PhiBrows microblading, brow and lash lamination in Plovdiv and Asenovgrad. Natural, balanced results.",
+      "PhiBrows microblading and brow & lash lamination in Plovdiv and Asenovgrad by Valya Matovska — natural, symmetrical, long-lasting results.",
   },
   footer: {
     tagline: "PhiBrows · microblading and lamination",

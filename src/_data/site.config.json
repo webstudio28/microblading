@@ -1,8 +1,8 @@
 {
   "brand": {
-    "name": "Brows and lashes ValyaMatovska",
+    "name": "Валя Матовска",
     "logo": "/assets/images/logo.png",
-    "logoAlt": "Brows and lashes ValyaMatovska",
+    "logoAlt": "Валя Матовска — микроблейдинг и ламиниране",
     "language": "bg"
   },
   "colors": {
@@ -11,9 +11,10 @@
     "accent": "#c9a98a"
   },
   "seo": {
-    "siteUrl": "https://example.com",
-    "defaultTitle": "Brows and lashes ValyaMatovska — микроблейдинг и ламиниране",
-    "defaultDescription": "PhiBrows микроблейдинг, ламиниране на вежди и мигли в Пловдив и Асеновград. Естествени, балансирани резултати.",
+    "siteUrl": "https://www.valyamatovska.bg",
+    "defaultTitle": "Валя Матовска — Микроблейдинг в Пловдив | PhiBrows",
+    "defaultDescription": "Микроблейдинг PhiBrows и ламиниране на вежди и мигли в Пловдив и Асеновград от Валя Матовска — естествени, симетрични и дълготрайни резултати.",
+    "defaultOgImage": "/assets/images/hero-img2.jpeg",
     "twitterCard": "summary_large_image"
   },
   "footer": {
