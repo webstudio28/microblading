@@ -3,6 +3,8 @@ module.exports = {
   ui: require("./en/ui"),
   home: require("./en/home"),
   clients: require("./en/clients"),
+  homeBeforeAfter: require("./en/homeBeforeAfter"),
+  mikrobleidingBeforeAfter: require("./en/mikrobleidingBeforeAfter"),
   microblading: require("./en/microblading"),
   lamination: require("./en/lamination"),
   procedureThreeCards: require("./en/procedureThreeCards"),

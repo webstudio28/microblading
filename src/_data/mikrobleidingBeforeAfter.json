@@ -1,0 +1,68 @@
+[
+  {
+    "id": "ba-mb-new-01",
+    "image": "/assets/images/before-after-new/before-after1.jpeg",
+    "alt": "Преди и след — микроблейдинг",
+    "i18nIndex": 0
+  },
+  {
+    "id": "ba-mb-new-02",
+    "image": "/assets/images/before-after-new/before-after2.jpeg",
+    "alt": "Преди и след — микроблейдинг",
+    "i18nIndex": 1
+  },
+  {
+    "id": "ba-mb-new-03",
+    "image": "/assets/images/before-after-new/before-after3.jpeg",
+    "alt": "Преди и след — микроблейдинг",
+    "i18nIndex": 2
+  },
+  {
+    "id": "ba-mb-new-04",
+    "image": "/assets/images/before-after-new/before-after4.jpeg",
+    "alt": "Преди и след — микроблейдинг",
+    "i18nIndex": 3
+  },
+  {
+    "id": "ba-mb-new-05",
+    "image": "/assets/images/before-after-new/before-after5.jpeg",
+    "alt": "Преди и след — микроблейдинг",
+    "i18nIndex": 4
+  },
+  {
+    "id": "ba-mb-new-06",
+    "image": "/assets/images/before-after-new/before-after6.jpeg",
+    "alt": "Преди и след — микроблейдинг",
+    "i18nIndex": 5
+  },
+  {
+    "id": "ba-mb-new-07",
+    "image": "/assets/images/before-after-new/before-after7.jpeg",
+    "alt": "Преди и след — микроблейдинг",
+    "i18nIndex": 6
+  },
+  {
+    "id": "ba-mb-new-08",
+    "image": "/assets/images/before-after-new/before-after8.jpeg",
+    "alt": "Преди и след — микроблейдинг",
+    "i18nIndex": 7
+  },
+  {
+    "id": "ba-mb-new-09",
+    "image": "/assets/images/before-after-new/before-after9.jpeg",
+    "alt": "Преди и след — микроблейдинг",
+    "i18nIndex": 8
+  },
+  {
+    "id": "ba-mb-new-10",
+    "image": "/assets/images/before-after-new/before-after10.jpeg",
+    "alt": "Преди и след — микроблейдинг",
+    "i18nIndex": 9
+  },
+  {
+    "id": "ba-mb-new-11",
+    "image": "/assets/images/before-after-new/before-after11.jpeg",
+    "alt": "Преди и след — микроблейдинг",
+    "i18nIndex": 10
+  }
+]

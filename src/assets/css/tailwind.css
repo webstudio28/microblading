@@ -2354,6 +2354,17 @@
     }
   }
 
+  /* Combined before/after images are portrait — match frame ratio, fill with cover */
+  .client-card--single .client-card__visual {
+    aspect-ratio: 3 / 4;
+    background: #f0e9df;
+  }
+  @media (min-width: 768px) {
+    .client-card--single .client-card__visual {
+      aspect-ratio: 4 / 5;
+    }
+  }
+
   .client-card__half {
     position: relative;
     flex: 1;
@@ -2425,6 +2436,10 @@
     opacity: 0.4;
   }
 
+  .client-card--single {
+    flex: 0 0 clamp(17rem, 54vw, 21rem);
+  }
+
   @media (min-width: 1024px) {
     .clients-strip,
     .clients-strip-set {
@@ -2433,6 +2448,10 @@
 
     .client-card {
       flex: 0 0 23.75rem;
+    }
+
+    .client-card--single {
+      flex: 0 0 24rem;
     }
   }
 

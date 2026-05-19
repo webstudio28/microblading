@@ -131,7 +131,9 @@ pageNav:
   {# ═══════════════════════════════════════════════
      2b. BEFORE / AFTER
   ═══════════════════════════════════════════════ #}
-  {% set baClients = beforeAfter.microblading if beforeAfter and beforeAfter.microblading else [] %}
+  {% set baClients = mikrobleidingBeforeAfter if mikrobleidingBeforeAfter else [] %}
+  {% set baSingleImage = true %}
+  {% set baAltI18nPrefix = "mikrobleidingBeforeAfter" %}
   {% set baSectionId = "lp-before-after" %}
   {% set baHeadingId = "lp-before-after-heading" %}
   {% set baEyebrow = "Резултати" %}

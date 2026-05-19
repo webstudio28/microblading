@@ -1,5 +1,6 @@
 {% set cs = home.clientsSection if home and home.clientsSection else {} %}
-{% set baClients = clients if clients else [] %}
+{% set baClients = homeBeforeAfter if homeBeforeAfter else [] %}
+{% set baSingleImage = true %}
 {% set baSectionId = "clients" %}
 {% set baHeadingId = "clients-heading" %}
 {% set baEyebrow = "Резултати" %}
