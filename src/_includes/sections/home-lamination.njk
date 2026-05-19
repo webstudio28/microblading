@@ -8,8 +8,10 @@
   <div class="container-custom relative">
 
     <header class="mb-header text-center mx-auto mb-5">
-      {% if l.eyebrow %}
-      <span class="mb-eyebrow justify-center" data-i18n="home.lamination.eyebrow">{{ l.eyebrow }}</span>
+      {% set sectionEyebrow = lamSectionEyebrow if lamSectionEyebrow is defined else l.eyebrow %}
+      {% set sectionEyebrowI18n = lamSectionEyebrowI18n if lamSectionEyebrowI18n is defined else "home.lamination.eyebrow" %}
+      {% if sectionEyebrow %}
+      <span class="mb-eyebrow justify-center" data-i18n="{{ sectionEyebrowI18n }}">{{ sectionEyebrow }}</span>
       {% endif %}
 
       <h2 id="laminating-heading" class="mb-title text-center mt-2" data-i18n="home.lamination.title">

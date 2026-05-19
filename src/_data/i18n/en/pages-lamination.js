@@ -12,11 +12,14 @@ module.exports = {
     title: "Before / After",
     lead: "Real lamination results — before and after the procedure.",
   },
+  laminationSection: {
+    eyebrow: "RESULTS",
+  },
   hero: {
     badge: "Brows · Lashes · Lamination",
-    headline: "An open gaze and beautiful brows — effortlessly",
+    headline: "A beautiful look without the daily makeup struggle.",
     lead:
-      "Brow and lash lamination in Plovdiv and Asenovgrad. Expressive, neat, and nourished—a natural result lasting weeks without daily mascara or gel.",
+      "Brow and lash lamination in Plovdiv and Asenovgrad. Expressive and nourished—a natural result lasting weeks without daily mascara or gel.",
     ctaPrimary: "Book appointment",
     ctaSecondary: "See results",
     imageAlt: "Brow and lash lamination — Valya Matovska",
