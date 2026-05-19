@@ -35,10 +35,11 @@ module.exports = {
   },
   services: {
     eyebrow: "Two procedures, one look",
-    title: "Brows or lashes — or both",
+    title: "Brows, lashes and a natural look",
     lead: "Lamination is a gentle procedure that brings out the best in what you already have — no artificial additions, no heaviness.",
     browCard: {
       title: "Brow lamination",
+      duration: "4–6 weeks",
       lead: "Shapes, sets, and arranges brow hairs in the desired direction for a fuller, more defined look. No need for daily gel or pencil. Can be combined with tinting.",
       items: [
         "Ideal for unruly or sparse brows",
@@ -49,6 +50,7 @@ module.exports = {
     },
     lashCard: {
       title: "Lash lamination",
+      duration: "6–8 weeks",
       lead: "Lifts, nourishes, and visually lengthens natural lashes without artificial fibres. A more open, expressive look with a natural result — no mascara needed.",
       items: [
         "No artificial lashes or adhesive",
