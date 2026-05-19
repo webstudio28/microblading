@@ -8,9 +8,8 @@ module.exports = function (eleventyConfig) {
 
   // Passthrough copy: src/assets → _site/assets
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
-  eleventyConfig.addPassthroughCopy({
-    "src/assets/images/favicon.png": "favicon.png",
-  });
+  eleventyConfig.addPassthroughCopy({ "src/assets/images/favicon.png": "favicon.png" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/images/favicon.png": "favicon.ico" });
   eleventyConfig.addPassthroughCopy({
     "src/assets/js/i18n.js": "assets/js/i18n.js",
     "src/assets/js/clients-strip.js": "assets/js/clients-strip.js",
@@ -45,9 +44,29 @@ module.exports = function (eleventyConfig) {
       });
   });
 
-  // Useful for sitemaps/lastmod (if added later)
   eleventyConfig.addGlobalData("buildDate", () => new Date().toISOString().slice(0, 10));
   eleventyConfig.addGlobalData("currentYear", () => new Date().getFullYear());
+
+  eleventyConfig.addCollection("sitemap", function (collectionApi) {
+    return collectionApi
+      .getAll()
+      .filter(function (item) {
+        if (!item.url || item.data.sitemap === false) return false;
+        if (!item.outputPath || !/\.html$/i.test(item.outputPath)) return false;
+        const path = item.url.replace(/\/$/, "") || "/";
+        if (path === "/sitemap.xml" || path === "/robots.txt") return false;
+        return true;
+      })
+      .sort(function (a, b) {
+        const rank = function (page) {
+          if (page.url === "/" || page.url === "") return 0;
+          if (page.url === "/mikrobleiding/") return 1;
+          if (page.url === "/laminirane/") return 2;
+          return 3;
+        };
+        return rank(a) - rank(b);
+      });
+  });
 
   // pathPrefix from env (for subfolder hosting)
   const pathPrefix = process.env.PATH_PREFIX || "/";

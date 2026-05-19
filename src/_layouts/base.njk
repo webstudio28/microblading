@@ -25,11 +25,13 @@
   >
   {% if site and site.seo and site.seo.siteUrl %}
   <link rel="canonical" href="{{ site.seo.siteUrl }}{{ page.url | url }}">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ '/sitemap.xml' | url }}">
   {% endif %}
 
   <meta name="theme-color" content="{% if site and site.colors %}{{ site.colors.primary }}{% else %}#0f172a{% endif %}">
 
-  <link rel="icon" href="{{ '/assets/images/favicon.png' | url }}" type="image/png">
+  <link rel="icon" href="{{ '/favicon.png' | url }}" type="image/png">
+  <link rel="shortcut icon" href="{{ '/favicon.png' | url }}" type="image/png">
   <link rel="apple-touch-icon" href="{{ '/assets/images/favicon.png' | url }}">
 
   <style>
