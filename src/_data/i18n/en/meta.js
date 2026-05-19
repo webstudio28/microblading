@@ -2,7 +2,7 @@ module.exports = {
   index: {
     title: "Valya Matovska — Microblading in Plovdiv | PhiBrows",
     description:
-      "PhiBrows microblading and brow & lash lamination in Plovdiv and Asenovgrad by Valya Matovska — natural, symmetrical, long-lasting results. Book online.",
+      "Microblading in Plovdiv with PhiBrows technique — natural, symmetrical, long-lasting brows. Brow and lash lamination. Valya Matovska.",
   },
   mikrobleiding: {
     title: "Microblading Plovdiv — PhiBrows | Valya Matovska",
