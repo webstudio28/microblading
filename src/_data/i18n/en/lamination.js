@@ -15,14 +15,9 @@ module.exports = {
   ],
   steps: [
     {
-      title: "Personal consultation",
+      title: "Consultation and design",
       description:
-        "Individual analysis and discussion of your wishes and the best solution for your facial features.",
-    },
-    {
-      title: "Design and precise planning",
-      description:
-        "Shaping and agreeing on direction and effect according to natural growth and your expectations.",
+        "Individual analysis of your wishes and facial features, then we shape and agree on the direction and effect according to your natural growth and expectations.",
     },
     {
       title: "Procedure execution",
@@ -32,7 +27,7 @@ module.exports = {
     {
       title: "Aftercare",
       description:
-        "Home-care guidance to maintain optimal results between appointments.",
+        "You receive home-care guidance to maintain optimal results between appointments.",
     },
   ],
 };
