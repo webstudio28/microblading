@@ -27,13 +27,9 @@ jobs:
 
       - name: Build
         env:
-          CPANEL_SERVER_DIR: ${{ secrets.CPANEL_SERVER_DIR || 'microblading/' }}
           SITE_URL: ${{ secrets.SITE_URL }}
         run: |
-          DIR="${CPANEL_SERVER_DIR#/}"
-          DIR="${DIR%/}"
-          export PATH_PREFIX="/${DIR}/"
-          echo "PATH_PREFIX=$PATH_PREFIX"
+          export PATH_PREFIX="/"
           if [ -n "$SITE_URL" ]; then echo "SITE_URL=$SITE_URL"; fi
           npm run build
 
