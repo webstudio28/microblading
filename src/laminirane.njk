@@ -2,21 +2,25 @@
 layout: base.njk
 hideFooter: true
 title: Ламиниране на вежди и мигли — Пловдив | Валя Матовска
-description: Запази час за ламиниране на вежди и мигли в Пловдив и Асеновград при Валя Матовска. Изразителен, естествен поглед без спирала — резултат 4–8 седмици. Резервирай онлайн.
+description: Запази час за ламиниране на вежди и мигли в Пловдив и Асеновград при Валя Матовска. Изразителен, естествен поглед без спирала — резултат 6–8 седмици. Резервирай онлайн.
 ogImage: /assets/images/landing-microblading/landing-hero-desktop.jpeg
 pageI18nKey: laminirane
 sitemap:
   priority: 0.9
   changefreq: monthly
 pageNav:
+  - label: "Начало"
+    url: "#lam-hero"
   - label: "Резултати"
     url: "#laminating"
-  - label: "Услуги"
+  - label: "Процедури"
     url: "#lam-services"
   - label: "Процес"
     url: "#lam-process"
   - label: "Въпроси"
     url: "#lam-faq"
+  - label: "За мен"
+    url: "#lp-lam-about"
 ---
 
 {% set lb = lamination if lamination else {} %}
@@ -277,8 +281,8 @@ pageNav:
     <div class="mb-steps" data-lp-lam-procedure-steps>
       <div class="container-custom">
         <header class="mb-header text-center mx-auto mb-6">
-          <span class="mb-eyebrow justify-center">Процес</span>
-          <h2 id="lam-process-heading" class="mb-title text-center mt-2">Какво да очакваш</h2>
+          <span class="mb-eyebrow justify-center" data-i18n="pages.laminirane.process.eyebrow">Процес</span>
+          <h2 id="lam-process-heading" class="mb-title text-center mt-2" data-i18n="pages.laminirane.process.title">Какво да очакваш</h2>
         </header>
       </div>
 
@@ -288,8 +292,8 @@ pageNav:
           <li class="mb-step">
             <span class="mb-step__num" aria-hidden="true">{{ step.number }}</span>
             <div class="mb-step__body">
-              <h3 class="mb-step__title">{{ step.title }}</h3>
-              <p class="mb-step__desc">{{ step.description }}</p>
+              <h3 class="mb-step__title" data-i18n="pages.laminirane.process.steps.{{ loop.index0 }}.title">{{ step.title }}</h3>
+              <p class="mb-step__desc" data-i18n="pages.laminirane.process.steps.{{ loop.index0 }}.description">{{ step.description }}</p>
             </div>
           </li>
           {% endfor %}
@@ -316,8 +320,8 @@ pageNav:
   >
     <div class="container-custom">
       <header class="mb-header mx-auto mb-8 text-center">
-        <span class="mb-eyebrow justify-center" style="color:rgba(255,255,255,0.75)">За мен</span>
-        <h2 id="lp-lam-about-heading" class="mb-title mt-2 text-center text-white">Валя Матовска</h2>
+        <span class="mb-eyebrow justify-center" style="color:rgba(255,255,255,0.75)" data-i18n="pages.laminirane.about.eyebrow">За мен</span>
+        <h2 id="lp-lam-about-heading" class="mb-title mt-2 text-center text-white" data-i18n="pages.laminirane.about.title">Валя Матовска</h2>
       </header>
 
       <div class="mx-auto grid max-w-4xl gap-8 md:grid-cols-[340px_1fr] md:items-start md:gap-12">
@@ -329,18 +333,19 @@ pageNav:
           height="453"
           loading="lazy"
           decoding="async"
+          data-i18n-attr="alt:pages.laminirane.about.imageAlt"
         >
 
         <div class="flex flex-col justify-center">
-          <p class="mb-lead text-white/90">
+          <p class="mb-lead text-white/90" data-i18n="pages.laminirane.about.intro">
             Казвам се Валя Матовска и съм специалист по ламиниране на вежди и мигли. Работя с фокус върху естествена визия, подредена форма и здрав вид на косъма, без излишна натовареност или изкуствен ефект.
           </p>
 
           <div id="lp-lam-about-more" class="hidden md:block">
-            <p class="mb-lead mt-5 text-white/90">
+            <p class="mb-lead mt-5 text-white/90" data-i18n="pages.laminirane.about.body1">
               За мен ламинирането не е просто фиксация, а начин да се подчертае естествената красота на веждите и миглите така, че да изглеждат по-подредени, по-плътни и по-изразителни — без грим.
             </p>
-            <p class="mb-lead mt-5 text-white/90">
+            <p class="mb-lead mt-5 text-white/90" data-i18n="pages.laminirane.about.body2">
               Всяка процедура при мен е съобразена с индивидуалната посока на косъма и чертите на лицето, с цел резултат, който изглежда свеж, лек и поддържан в ежедневието без усилие.
             </p>
           </div>
@@ -351,6 +356,7 @@ pageNav:
             class="mt-6 self-start font-['Montserrat_Alternates'] text-sm font-medium text-white underline underline-offset-4 transition-opacity hover:opacity-70 md:hidden"
             aria-expanded="false"
             aria-controls="lp-lam-about-more"
+            data-i18n="pages.laminirane.about.toggle"
           >
             Виж повече за мен
           </button>

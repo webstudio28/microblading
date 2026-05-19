@@ -1,11 +1,11 @@
 module.exports = {
   nav: [
-    { label: "Services" },
-    { label: "Before / After" },
+    { label: "Home" },
     { label: "Results" },
+    { label: "Procedures" },
     { label: "Process" },
-    { label: "Reviews" },
     { label: "FAQ" },
+    { label: "About me" },
   ],
   beforeAfter: {
     eyebrow: "Results",
@@ -74,6 +74,25 @@ module.exports = {
     note: "All reviews are 100% authentic — from real clients.",
     cta: "Become the next one",
   },
+  benefits: {
+    title: "If this is you…",
+    cards: [
+      {
+        title: "You waste time in the morning",
+        text: "Mascara, brow gel, fixing directions — and you're already running late.",
+      },
+      {
+        title: "Your lashes or brows look flat",
+        text: "Sparse, straight or unruly hairs — your look is unexpressive.",
+      },
+      {
+        title: "You want natural, not artificial",
+        text: "Tired of heavy extensions — you want to look good with nothing on your face.",
+      },
+    ],
+    lead: "Lamination solves all of this in one procedure.",
+    cta: "Book now",
+  },
   faq: {
     eyebrow: "Questions and answers",
     title: "Questions? I have answers.",
@@ -114,6 +133,35 @@ module.exports = {
     eyebrow: "Process",
     title: "What to expect",
     lead: "Simple, pleasant, and no surprises — from consultation to the final result.",
+    steps: [
+      {
+        title: "Consultation & design",
+        description:
+          "Individual analysis of your wishes and facial features — we shape and agree on the direction and effect based on natural growth and your expectations.",
+      },
+      {
+        title: "The procedure",
+        description:
+          "Work with premium products, with a focus on natural look, comfort and longevity.",
+      },
+      {
+        title: "Aftercare",
+        description:
+          "You receive home care guidelines to maintain the result optimally between sessions.",
+      },
+    ],
+  },
+  about: {
+    eyebrow: "About me",
+    title: "Valya Matovska",
+    imageAlt: "Valya Matovska — lamination specialist",
+    intro:
+      "My name is Valya Matovska and I am a brow and lash lamination specialist. I work with a focus on a natural look, tidy shape and healthy hair — without heaviness or artificial effects.",
+    body1:
+      "For me lamination is not just fixation — it is a way to highlight the natural beauty of brows and lashes so they look tidier, fuller and more expressive, without makeup.",
+    body2:
+      "Every procedure is tailored to the individual hair direction and facial features, aiming for a result that looks fresh, light and effortlessly maintained every day.",
+    toggle: "Learn more about me",
   },
   cta: {
     eyebrow: "Book your appointment",

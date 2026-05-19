@@ -19,6 +19,8 @@ pageNav:
     url: "#lp-testimonials"
   - label: "Въпроси"
     url: "#lp-faq"
+  - label: "За мен"
+    url: "#lp-mb-about"
 ---
 
 {% set mb = microblading if microblading else {} %}
@@ -388,8 +390,8 @@ pageNav:
   >
     <div class="container-custom">
       <header class="mb-header mx-auto mb-8 text-center">
-        <span class="mb-eyebrow justify-center" style="color:rgba(255,255,255,0.75)">За мен</span>
-        <h2 id="lp-mb-about-heading" class="mb-title mt-2 text-center text-white">Валя Матовска</h2>
+        <span class="mb-eyebrow justify-center" style="color:rgba(255,255,255,0.75)" data-i18n="pages.mikrobleiding.about.eyebrow">За мен</span>
+        <h2 id="lp-mb-about-heading" class="mb-title mt-2 text-center text-white" data-i18n="pages.mikrobleiding.about.title">Валя Матовска</h2>
       </header>
 
       <div class="mx-auto grid max-w-4xl gap-8 md:grid-cols-[340px_1fr] md:items-start md:gap-12">
@@ -401,18 +403,19 @@ pageNav:
           height="453"
           loading="lazy"
           decoding="async"
+          data-i18n-attr="alt:pages.mikrobleiding.about.imageAlt"
         >
 
         <div class="flex flex-col justify-center">
-          <p class="mb-lead text-white/90">
+          <p class="mb-lead text-white/90" data-i18n="pages.mikrobleiding.about.intro">
             Казвам се Валя Матовска и съм специалист по микроблейдинг PhiBrows, ламиниране на вежди и ламиниране на мигли. Работя с фокус върху естествени, симетрични и дълготрайни резултати, съобразени с индивидуалните черти на всяко лице.
           </p>
 
           <div id="lp-mb-about-more" class="hidden md:block">
-            <p class="mb-lead mt-5 text-white/90">
+            <p class="mb-lead mt-5 text-white/90" data-i18n="pages.mikrobleiding.about.body1">
               Вярвам, че веждите и погледът определят цялото излъчване на лицето. Затова подхождам към всяка процедура като към прецизна работа по баланс, форма и детайл — не просто като козметична услуга.
             </p>
-            <p class="mb-lead mt-5 text-white/90">
+            <p class="mb-lead mt-5 text-white/90" data-i18n="pages.mikrobleiding.about.body2">
               Всяка клиентка е различна, затова и подходът ми винаги е индивидуален. Целта ми е резултат, който не изглежда „направен", а естествено допълва лицето и остава красив във времето.
             </p>
           </div>
@@ -423,6 +426,7 @@ pageNav:
             class="mt-6 self-start font-['Montserrat_Alternates'] text-sm font-medium text-white underline underline-offset-4 transition-opacity hover:opacity-70 md:hidden"
             aria-expanded="false"
             aria-controls="lp-mb-about-more"
+            data-i18n="pages.mikrobleiding.about.toggle"
           >
             Виж повече за мен
           </button>

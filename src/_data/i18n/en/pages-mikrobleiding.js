@@ -5,6 +5,7 @@ module.exports = {
     { label: "Process" },
     { label: "Reviews" },
     { label: "FAQ" },
+    { label: "About me" },
   ],
   hero: {
     badge: "PhiBrows · Certified specialist",
@@ -115,6 +116,18 @@ module.exports = {
           "Price depends on the service and specialist experience. Contact me directly for current pricing—I will reply quickly and gladly.",
       },
     ],
+  },
+  about: {
+    eyebrow: "About me",
+    title: "Valya Matovska",
+    imageAlt: "Valya Matovska — microblading specialist",
+    intro:
+      "My name is Valya Matovska and I am a PhiBrows microblading, brow lamination and lash lamination specialist. I work with a focus on natural, symmetrical and long-lasting results tailored to the individual features of each face.",
+    body1:
+      "I believe that brows and eyes define the whole expression of the face. That is why I approach every procedure as precision work on balance, shape and detail — not just a cosmetic service.",
+    body2:
+      "Every client is different, so my approach is always individual. My goal is a result that does not look 'done', but naturally complements the face and stays beautiful over time.",
+    toggle: "Learn more about me",
   },
   cta: {
     eyebrow: "Book your appointment",
