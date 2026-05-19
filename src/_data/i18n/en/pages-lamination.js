@@ -117,7 +117,7 @@ module.exports = {
   },
   cta: {
     eyebrow: "Book your appointment",
-    title: "Ready for effortless beauty?",
+    title: "Ready for a perfect look?",
     lead: "Book your appointment now—the schedule fills up quickly.",
     primary: "Book online",
     orWrite: "Or message directly:",

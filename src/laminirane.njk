@@ -11,13 +11,12 @@ pageNav:
     url: "#lam-services"
   - label: "Процес"
     url: "#lam-process"
-  - label: "Отзиви"
-    url: "#lam-testimonials"
   - label: "Въпроси"
     url: "#lam-faq"
 ---
 
 {% set lb = lamination if lamination else {} %}
+{% set lamShowTestimonials = false %}
 {% set bookingUrl = home.hero.ctaPrimary.url if home and home.hero and home.hero.ctaPrimary else "https://studio24.bg/m/p16841" %}
 {% set phone = home.contact.phoneHref if home and home.contact else "+359887621922" %}
 {% set phoneLabel = home.contact.phoneLabel if home and home.contact else "0887 621 922" %}
@@ -211,7 +210,8 @@ pageNav:
      4. BENEFITS / PAIN POINTS
   ═══════════════════════════════════════════════ #}
   <section
-    class="mb-section section-padding bg-white/70"
+    id="lam-benefits"
+    class="section-padding"
     aria-labelledby="lam-benefits-heading"
   >
     <div class="container-custom">
@@ -271,7 +271,7 @@ pageNav:
   {% if lb.steps and lb.steps.length %}
   <section
     id="lam-process"
-    class="home-procedure section-padding relative overflow-hidden"
+    class="home-procedure section-padding relative bg-white/70 overflow-hidden"
     aria-labelledby="lam-process-heading"
   >
     <div class="mb-steps" data-lp-lam-procedure-steps>
@@ -310,7 +310,7 @@ pageNav:
      6. TESTIMONIALS (scrolling strip)
   ═══════════════════════════════════════════════ #}
   {% set lamTestimonials = home.testimonials.items if home and home.testimonials and home.testimonials.items else [] %}
-  {% if lamTestimonials.length %}
+  {% if lamShowTestimonials and lamTestimonials.length %}
   <section
     id="lam-testimonials"
     class="clients-section section-padding bg-white/70"
@@ -386,7 +386,7 @@ pageNav:
   ═══════════════════════════════════════════════ #}
   <section
     id="lam-faq"
-    class="mb-section section-padding bg-white/70"
+    class="section-padding"
     aria-labelledby="lam-faq-heading"
   >
     <div class="container-custom">
@@ -397,7 +397,7 @@ pageNav:
         </h2>
       </header>
 
-      <div class="faq-stack w-full max-w-3xl mx-auto" data-lp-lam-faq-accordion>
+      <div class="faq-stack w-full" data-lp-lam-faq-accordion>
 
         <details class="faq-details" name="lam-lp-faq">
           <summary class="faq-details__summary">
@@ -476,7 +476,7 @@ pageNav:
 
         <span class="mb-eyebrow justify-center text-white/80" data-i18n="pages.laminirane.cta.eyebrow">Запази своя час</span>
         <h2 id="lam-cta-heading" class="mb-title mt-2 text-center text-white" data-i18n="pages.laminirane.cta.title">
-          Готова за нов поглед?
+          Готова ли си за перфектен поглед?
         </h2>
 
         <p class="mb-lead mt-4 text-white/90 max-w-xl mx-auto" data-i18n="pages.laminirane.cta.lead">
