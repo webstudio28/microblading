@@ -18,7 +18,6 @@ module.exports = {
       { label: "Microblading" },
       { label: "Lamination" },
       { label: "Reviews" },
-      { label: "FAQ" },
       { label: "Contact" },
     ],
   },

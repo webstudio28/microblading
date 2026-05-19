@@ -14,9 +14,6 @@ module.exports = function (eleventyConfig) {
     "src/assets/js/i18n.js": "assets/js/i18n.js",
     "src/assets/js/clients-strip.js": "assets/js/clients-strip.js",
   });
-  // Passthrough copy: tiny PHP API endpoint for cPanel
-  eleventyConfig.addPassthroughCopy({ "src/api": "api" });
-
   // Watch data so navigation/content tweaks trigger rebuild
   eleventyConfig.addWatchTarget("src/_data");
 

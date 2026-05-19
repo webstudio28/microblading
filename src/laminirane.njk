@@ -310,6 +310,79 @@ pageNav:
 
 
   {# ═══════════════════════════════════════════════
+     5b. ABOUT ME
+  ═══════════════════════════════════════════════ #}
+  <section
+    id="lp-lam-about"
+    class="section-padding relative bg-gradient-to-br from-[#A48C77] to-[#C1AE9A]"
+    aria-labelledby="lp-lam-about-heading"
+  >
+    <div class="container-custom">
+      <header class="mb-header mx-auto mb-8 text-center">
+        <span class="mb-eyebrow justify-center" style="color:rgba(255,255,255,0.75)">За мен</span>
+        <h2 id="lp-lam-about-heading" class="mb-title mt-2 text-center text-white">Валя Матовска</h2>
+      </header>
+
+      <div class="mx-auto grid max-w-4xl gap-8 md:grid-cols-[340px_1fr] md:items-start md:gap-12">
+        <img
+          src="{{ '/assets/images/za-men1.jpg' | url }}"
+          alt="Валя Матовска — специалист по ламиниране"
+          class="aspect-[3/4] w-full rounded-2xl object-cover shadow-[0_8px_32px_rgba(0,0,0,0.18)]"
+          width="340"
+          height="453"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <div class="flex flex-col justify-center">
+          <p class="mb-lead text-white/90">
+            Казвам се Валя Матовска и съм специалист по ламиниране на вежди и мигли. Работя с фокус върху естествена визия, подредена форма и здрав вид на косъма, без излишна натовареност или изкуствен ефект.
+          </p>
+
+          <div id="lp-lam-about-more" class="hidden md:block">
+            <p class="mb-lead mt-5 text-white/90">
+              За мен ламинирането не е просто фиксация, а начин да се подчертае естествената красота на веждите и миглите така, че да изглеждат по-подредени, по-плътни и по-изразителни — без грим.
+            </p>
+            <p class="mb-lead mt-5 text-white/90">
+              Всяка процедура при мен е съобразена с индивидуалната посока на косъма и чертите на лицето, с цел резултат, който изглежда свеж, лек и поддържан в ежедневието без усилие.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            id="lp-lam-about-toggle"
+            class="mt-6 self-start font-['Montserrat_Alternates'] text-sm font-medium text-white underline underline-offset-4 transition-opacity hover:opacity-70 md:hidden"
+            aria-expanded="false"
+            aria-controls="lp-lam-about-more"
+          >
+            Виж повече за мен
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btn = document.getElementById("lp-lam-about-toggle");
+      var more = document.getElementById("lp-lam-about-more");
+      if (!btn || !more) return;
+      btn.addEventListener("click", function () {
+        var expanded = btn.getAttribute("aria-expanded") === "true";
+        if (expanded) {
+          more.classList.add("hidden");
+          btn.setAttribute("aria-expanded", "false");
+          btn.textContent = "Виж повече за мен";
+        } else {
+          more.classList.remove("hidden");
+          btn.setAttribute("aria-expanded", "true");
+          btn.textContent = "Виж по-малко";
+        }
+      });
+    })();
+  </script>
+
+
+  {# ═══════════════════════════════════════════════
      6. TESTIMONIALS (scrolling strip)
   ═══════════════════════════════════════════════ #}
   {% set lamTestimonials = home.testimonials.items if home and home.testimonials and home.testimonials.items else [] %}

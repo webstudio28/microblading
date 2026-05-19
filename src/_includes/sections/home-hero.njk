@@ -44,11 +44,6 @@
           <a
             href="{{ h.ctaPrimary.url }}"
             class="btn-primary min-w-0 flex-1"
-            {% if h.ctaPrimary.openBookingModal %}
-            data-booking-open
-            aria-haspopup="dialog"
-            aria-controls="booking-modal"
-            {% endif %}
             {% if h.ctaPrimary.external %}target="_blank" rel="noopener noreferrer"{% endif %}
             data-i18n="home.hero.ctaPrimary.label"
           >
@@ -88,11 +83,6 @@
         <a
           href="{{ h.ctaPrimary.url }}"
           class="btn-primary min-w-0 flex-1 px-4 py-2 text-sm"
-          {% if h.ctaPrimary.openBookingModal %}
-          data-booking-open
-          aria-haspopup="dialog"
-          aria-controls="booking-modal"
-          {% endif %}
           {% if h.ctaPrimary.external %}target="_blank" rel="noopener noreferrer"{% endif %}
           data-i18n="home.hero.ctaPrimary.label"
         >

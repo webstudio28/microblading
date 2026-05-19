@@ -1,5 +1,5 @@
 {% set c = home.contact if home and home.contact else {} %}
-{% set headerCta = home.hero.ctaPrimary if home and home.hero and home.hero.ctaPrimary else { "label": "Запази час", "url": "https://studio24.bg/m/p16841", "openBookingModal": false, "external": true } %}
+{% set headerCta = home.hero.ctaPrimary if home and home.hero and home.hero.ctaPrimary else { "label": "Запази час", "url": "https://studio24.bg/m/p16841", "external": true } %}
 {% set footerTagline = site.footer.tagline if site and site.footer and site.footer.tagline else "PhiBrows · микроблейдинг и ламиниране" %}
 
 <footer class="site-footer" role="contentinfo">
@@ -29,11 +29,6 @@
       <span class="site-footer__sep" aria-hidden="true">·</span>
       <a
         href="{{ headerCta.url }}"
-        {% if headerCta.openBookingModal %}
-        data-booking-open
-        aria-haspopup="dialog"
-        aria-controls="booking-modal"
-        {% endif %}
         {% if headerCta.external %}target="_blank" rel="noopener noreferrer"{% endif %}
         data-i18n="home.hero.ctaPrimary.label"
       >{{ headerCta.label | default("Запази час") }}</a>

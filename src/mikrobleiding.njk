@@ -378,6 +378,79 @@ pageNav:
 
 
   {# ═══════════════════════════════════════════════
+     6b. ABOUT ME
+  ═══════════════════════════════════════════════ #}
+  <section
+    id="lp-mb-about"
+    class="section-padding relative bg-gradient-to-br from-[#A48C77] to-[#C1AE9A]"
+    aria-labelledby="lp-mb-about-heading"
+  >
+    <div class="container-custom">
+      <header class="mb-header mx-auto mb-8 text-center">
+        <span class="mb-eyebrow justify-center" style="color:rgba(255,255,255,0.75)">За мен</span>
+        <h2 id="lp-mb-about-heading" class="mb-title mt-2 text-center text-white">Валя Матовска</h2>
+      </header>
+
+      <div class="mx-auto grid max-w-4xl gap-8 md:grid-cols-[340px_1fr] md:items-start md:gap-12">
+        <img
+          src="{{ '/assets/images/za-men2.jpg' | url }}"
+          alt="Валя Матовска — специалист по микроблейдинг"
+          class="aspect-[3/4] w-full rounded-2xl object-cover shadow-[0_8px_32px_rgba(0,0,0,0.18)]"
+          width="340"
+          height="453"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <div class="flex flex-col justify-center">
+          <p class="mb-lead text-white/90">
+            Казвам се Валя Матовска и съм специалист по микроблейдинг PhiBrows, ламиниране на вежди и ламиниране на мигли. Работя с фокус върху естествени, симетрични и дълготрайни резултати, съобразени с индивидуалните черти на всяко лице.
+          </p>
+
+          <div id="lp-mb-about-more" class="hidden md:block">
+            <p class="mb-lead mt-5 text-white/90">
+              Вярвам, че веждите и погледът определят цялото излъчване на лицето. Затова подхождам към всяка процедура като към прецизна работа по баланс, форма и детайл — не просто като козметична услуга.
+            </p>
+            <p class="mb-lead mt-5 text-white/90">
+              Всяка клиентка е различна, затова и подходът ми винаги е индивидуален. Целта ми е резултат, който не изглежда „направен", а естествено допълва лицето и остава красив във времето.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            id="lp-mb-about-toggle"
+            class="mt-6 self-start font-['Montserrat_Alternates'] text-sm font-medium text-white underline underline-offset-4 transition-opacity hover:opacity-70 md:hidden"
+            aria-expanded="false"
+            aria-controls="lp-mb-about-more"
+          >
+            Виж повече за мен
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btn = document.getElementById("lp-mb-about-toggle");
+      var more = document.getElementById("lp-mb-about-more");
+      if (!btn || !more) return;
+      btn.addEventListener("click", function () {
+        var expanded = btn.getAttribute("aria-expanded") === "true";
+        if (expanded) {
+          more.classList.add("hidden");
+          btn.setAttribute("aria-expanded", "false");
+          btn.textContent = "Виж повече за мен";
+        } else {
+          more.classList.remove("hidden");
+          btn.setAttribute("aria-expanded", "true");
+          btn.textContent = "Виж по-малко";
+        }
+      });
+    })();
+  </script>
+
+
+  {# ═══════════════════════════════════════════════
      7. TESTIMONIALS (microblading only, scrolling strip like home)
   ═══════════════════════════════════════════════ #}
   {% set t = home.testimonials if home and home.testimonials else {} %}
@@ -655,7 +728,7 @@ pageNav:
 
         <span class="mb-eyebrow justify-center text-white/80" data-i18n="pages.mikrobleiding.cta.eyebrow">Запази своя час</span>
         <h2 id="lp-cta-heading" class="mb-title mt-2 text-center text-white" data-i18n="pages.mikrobleiding.cta.title">
-          Събуждай се с оформени вежди — всеки ден.
+          Събуждай се с перкфектни вежди — всеки ден.
         </h2>
 
         <p class="mb-lead mt-4 text-white/90 max-w-xl mx-auto" data-i18n="pages.mikrobleiding.cta.lead">
