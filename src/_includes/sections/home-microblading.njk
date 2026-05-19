@@ -41,7 +41,7 @@
   <div class="mb-bubbles-wrap pt-5" data-mb-bubbles-wrap>
     <div class="container-custom">
       <div class="mb-bubbles-head">
-        <p class="mb-bubbles-label" id="mb-gallery-heading">
+        <p class="mb-bubbles-label" id="mb-gallery-heading" data-i18n="home.microblading.galleryLabel">
           {{ m.galleryLabel | default("Галерия") }}
         </p>
         <div class="mb-bubbles-nav" aria-hidden="true">
@@ -130,12 +130,12 @@
       >
         &times;
       </button>
-      <h3 id="mb-info-modal-title" class="mb-info-modal__title">
+      <h3 id="mb-info-modal-title" class="mb-info-modal__title" data-i18n="home.microblading.sub.title">
         {{ m.sub.title }}
       </h3>
       {% if m.sub.paragraphs and m.sub.paragraphs.length %}
         {% for p in m.sub.paragraphs %}
-        <p class="mb-info-modal__text{% if not loop.first %} mt-3{% endif %}">{{ p }}</p>
+        <p class="mb-info-modal__text{% if not loop.first %} mt-3{% endif %}" data-i18n="home.microblading.sub.paragraphs.{{ loop.index0 }}">{{ p }}</p>
         {% endfor %}
       {% elif m.sub.body %}
       <p class="mb-info-modal__text">

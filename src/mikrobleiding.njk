@@ -282,7 +282,7 @@ pageNav:
         </h3>
         {% if m.sub.paragraphs and m.sub.paragraphs.length %}
           {% for p in m.sub.paragraphs %}
-          <p class="mb-info-modal__text{% if not loop.first %} mt-3{% endif %}">{{ p }}</p>
+          <p class="mb-info-modal__text{% if not loop.first %} mt-3{% endif %}" data-i18n="home.microblading.sub.paragraphs.{{ loop.index0 }}">{{ p }}</p>
           {% endfor %}
         {% elif m.sub.body %}
         <p class="mb-info-modal__text">{{ m.sub.body }}</p>
@@ -343,8 +343,8 @@ pageNav:
     <div class="mb-steps" data-procedure-steps>
       <div class="container-custom">
         <header class="mb-header text-center mx-auto mb-6">
-          <span class="mb-eyebrow justify-center">{{ proc3.eyebrow | default("Процес") }}</span>
-          <h2 id="lp-process-heading" class="mb-title text-center mt-2">{{ proc3.title | default("Какво да очакваш") }}</h2>
+          <span class="mb-eyebrow justify-center" data-i18n="procedureThreeCards.eyebrow">{{ proc3.eyebrow | default("Процес") }}</span>
+          <h2 id="lp-process-heading" class="mb-title text-center mt-2" data-i18n="procedureThreeCards.title">{{ proc3.title | default("Какво да очакваш") }}</h2>
         </header>
       </div>
 
@@ -354,8 +354,8 @@ pageNav:
           <li class="mb-step">
             <span class="mb-step__num" aria-hidden="true">{{ step.number }}</span>
             <div class="mb-step__body">
-              <h3 class="mb-step__title">{{ step.title }}</h3>
-              <p class="mb-step__desc">{{ step.description }}</p>
+              <h3 class="mb-step__title" data-i18n="procedureThreeCards.steps.{{ loop.index0 }}.title">{{ step.title }}</h3>
+              <p class="mb-step__desc" data-i18n="procedureThreeCards.steps.{{ loop.index0 }}.description">{{ step.description }}</p>
             </div>
           </li>
           {% endfor %}
@@ -411,6 +411,7 @@ pageNav:
               hidden
               data-testimonial-open
               data-testimonial-index="{{ loop.index0 }}"
+              data-i18n="ui.readFullReview"
             >
               Виж целия отзив
             </button>
@@ -424,17 +425,18 @@ pageNav:
             <div class="testimonial-card__stars" aria-hidden="true">
               <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
             </div>
-            <p class="testimonial-card__quote">{{ item.quote }}</p>
+            <p class="testimonial-card__quote" data-i18n="home.testimonials.items.{{ item.sourceIndex }}.quote">{{ item.quote }}</p>
             <button
               type="button"
               class="testimonial-card__expand"
               hidden
               data-testimonial-open
               data-testimonial-index="{{ loop.index0 }}"
+              data-i18n="ui.readFullReview"
             >
               Виж целия отзив
             </button>
-            <p class="testimonial-card__name">– {{ item.name }}</p>
+            <p class="testimonial-card__name">– <span data-i18n="home.testimonials.items.{{ item.sourceIndex }}.name">{{ item.name }}</span></p>
           </article>
           {% endfor %}
         </div>

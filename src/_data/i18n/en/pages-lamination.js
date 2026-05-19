@@ -1,6 +1,7 @@
 module.exports = {
   nav: [
     { label: "Services" },
+    { label: "Before / After" },
     { label: "Results" },
     { label: "Process" },
     { label: "Reviews" },
@@ -103,6 +104,11 @@ module.exports = {
           "Lamination is suitable for almost everyone. For brows — especially unruly, sparse, or unevenly growing ones. For lashes — straight, sparse, or weakly curled ones. At the consultation we decide together which type is best for you.",
       },
     ],
+  },
+  process: {
+    eyebrow: "Process",
+    title: "What to expect",
+    lead: "Simple, pleasant, and no surprises — from consultation to the final result.",
   },
   cta: {
     eyebrow: "Book your appointment",

@@ -26,7 +26,7 @@
           <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         </span>
         <div class="min-w-0 pt-0.5">
-          <p class="text-xs font-semibold uppercase tracking-wide text-muted">Телефон</p>
+          <p class="text-xs font-semibold uppercase tracking-wide text-muted" data-i18n="ui.phone">Телефон</p>
           <a href="tel:{{ c.phoneHref | default('+359887621922') }}" class="mt-0.5 inline-block text-base font-medium text-ink underline decoration-brand-accent/50 underline-offset-2 transition-colors hover:text-brand-primary hover:decoration-brand-accent">
             {{ c.phoneLabel | default('0887 621 922') }}
           </a>
@@ -38,7 +38,7 @@
           <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         </span>
         <div class="min-w-0 pt-0.5">
-          <p class="text-xs font-semibold uppercase tracking-wide text-muted">Имейл</p>
+          <p class="text-xs font-semibold uppercase tracking-wide text-muted" data-i18n="ui.email">Имейл</p>
           <a href="mailto:{{ c.email | default('phibrowsvm@gmail.com') }}" class="mt-0.5 inline-block break-all text-base font-medium text-ink underline decoration-brand-accent/50 underline-offset-2 transition-colors hover:text-brand-primary hover:decoration-brand-accent">
             {{ c.email | default('phibrowsvm@gmail.com') }}
           </a>
@@ -49,7 +49,7 @@
 
   {# ── Дясна колона: една бяла кутия — съобщения и социални ── #}
   <div class="flex min-h-0 h-full flex-col rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.08)] md:px-8 md:py-8">
-    <p class="text-xs font-semibold uppercase tracking-wide text-muted">Съобщения</p>
+    <p class="text-xs font-semibold uppercase tracking-wide text-muted" data-i18n="ui.messages">Съобщения</p>
     <div class="mt-4 space-y-5">
       <div class="flex items-start gap-4">
         <span class="shrink-0 pt-0.5 text-[#665CAC]" aria-hidden="true">
@@ -58,7 +58,7 @@
         <div class="min-w-0 pt-0.5">
           <p class="text-xs font-semibold uppercase tracking-wide text-muted">Viber</p>
           <a href="{{ c.viber | default('viber://chat?number=%2B359887621922') }}" target="_blank" rel="noopener noreferrer" class="mt-0.5 inline-block text-base font-medium text-ink underline decoration-brand-accent/50 underline-offset-2 transition-colors hover:text-brand-primary hover:decoration-brand-accent">
-            Пиши ми във Viber
+            <span data-i18n="ui.writeViber">Пиши ми във Viber</span>
           </a>
         </div>
       </div>
@@ -70,14 +70,14 @@
         <div class="min-w-0 pt-0.5">
           <p class="text-xs font-semibold uppercase tracking-wide text-muted">WhatsApp</p>
           <a href="{{ c.whatsapp | default('https://wa.me/359887621922') }}" target="_blank" rel="noopener noreferrer" class="mt-0.5 inline-block text-base font-medium text-ink underline decoration-brand-accent/50 underline-offset-2 transition-colors hover:text-brand-primary hover:decoration-brand-accent">
-            Пиши ми в WhatsApp
+            <span data-i18n="ui.writeWhatsApp">Пиши ми в WhatsApp</span>
           </a>
         </div>
       </div>
     </div>
 
     <div class="mt-8 border-t border-[rgba(201,169,138,0.28)] pt-8">
-      <p class="text-xs font-semibold uppercase tracking-wide text-muted">Социални мрежи</p>
+      <p class="text-xs font-semibold uppercase tracking-wide text-muted" data-i18n="ui.social">Социални мрежи</p>
       <div class="mt-3 flex flex-wrap items-center gap-5">
         {% if c.instagram %}
         <a

@@ -1,15 +1,14 @@
 ---
 layout: base.njk
+hideFooter: true
 title: Ламиниране на вежди и мигли — Пловдив | Валя Матовска
 description: Ламиниране на вежди и мигли в Пловдив и Асеновград. Естествен, изразителен поглед без спирала и без грим. Резултатът трае 4–8 седмици. Запази час онлайн.
 pageI18nKey: laminirane
 pageNav:
+  - label: "Резултати"
+    url: "#lam-before-after"
   - label: "Услуги"
     url: "#lam-services"
-  - label: "Преди / След"
-    url: "#lam-before-after"
-  - label: "Резултати"
-    url: "#lam-gallery"
   - label: "Процес"
     url: "#lam-process"
   - label: "Отзиви"
@@ -88,10 +87,10 @@ pageNav:
 
         {# Mobile CTAs #}
         <div class="order-3 mt-0.5 flex w-full min-w-0 flex-row flex-nowrap gap-2 md:hidden">
-          <a href="{{ bookingUrl }}" class="btn-primary min-w-0 flex-1 px-4 py-2 text-sm" target="_blank" rel="noopener noreferrer" data-i18n="pages.laminirane.hero.ctaPrimary">
+          <a href="{{ bookingUrl }}" class="btn-primary min-w-0 flex-1 px-4 py-2 text-sm" target="_blank" rel="noopener noreferrer">
             Запази час
           </a>
-          <a href="#lam-before-after" class="btn-secondary min-w-0 flex-1 px-4 py-2 text-sm" data-i18n="pages.laminirane.hero.ctaSecondary">
+          <a href="#lam-before-after" class="btn-secondary min-w-0 flex-1 px-4 py-2 text-sm">
             Виж резултати
           </a>
         </div>
@@ -106,20 +105,20 @@ pageNav:
   ═══════════════════════════════════════════════ #}
   <div class="bg-white/70 border-y border-[rgba(201,169,138,0.3)]">
     <div class="container-custom">
-      <ul class="flex flex-col items-center gap-4 py-6 text-center sm:flex-row sm:justify-center sm:gap-0 sm:divide-x sm:divide-[rgba(201,169,138,0.4)]" aria-label="Защо Валя Матовска" data-i18n-attr="aria-label:pages.laminirane.trust.ariaLabel">
-        <li class="flex items-center gap-2.5 px-6 text-sm font-medium text-ink sm:text-base">
+      <ul class="grid grid-cols-2 gap-x-4 gap-y-5 py-6 px-1 max-w-md mx-auto sm:max-w-none sm:flex sm:flex-row sm:items-center sm:justify-center sm:gap-0 sm:divide-x sm:divide-[rgba(201,169,138,0.4)] sm:py-6 sm:px-0" aria-label="Защо Валя Матовска" data-i18n-attr="aria-label:pages.laminirane.trust.ariaLabel">
+        <li class="flex items-start gap-2.5 text-left text-sm font-medium leading-snug text-ink sm:items-center sm:justify-center sm:px-6 sm:text-center sm:text-base">
           <svg class="h-5 w-5 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <span data-i18n="pages.laminirane.trust.items.0">Вежди и мигли — в едно</span>
         </li>
-        <li class="flex items-center gap-2.5 px-6 text-sm font-medium text-ink sm:text-base">
+        <li class="flex items-start gap-2.5 text-left text-sm font-medium leading-snug text-ink sm:items-center sm:justify-center sm:px-6 sm:text-center sm:text-base">
           <svg class="h-5 w-5 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           <span data-i18n="pages.laminirane.trust.items.1">4–8 седмици дълготрайност</span>
         </li>
-        <li class="flex items-center gap-2.5 px-6 text-sm font-medium text-ink sm:text-base">
+        <li class="flex items-start gap-2.5 text-left text-sm font-medium leading-snug text-ink sm:items-center sm:justify-center sm:px-6 sm:text-center sm:text-base">
           <svg class="h-5 w-5 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
           <span data-i18n="pages.laminirane.trust.items.2">Пловдив & Асеновград</span>
         </li>
-        <li class="flex items-center gap-2.5 px-6 text-sm font-medium text-ink sm:text-base">
+        <li class="flex items-start gap-2.5 text-left text-sm font-medium leading-snug text-ink sm:items-center sm:justify-center sm:px-6 sm:text-center sm:text-base">
           <svg class="h-5 w-5 shrink-0 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <span data-i18n="pages.laminirane.trust.items.3">Подхранващ ефект за косъма</span>
         </li>
@@ -234,30 +233,192 @@ pageNav:
 
 
   {# ═══════════════════════════════════════════════
-     4. GALLERY
+     4. BENEFITS / PAIN POINTS
   ═══════════════════════════════════════════════ #}
   <section
-    id="lam-gallery"
     class="mb-section section-padding bg-white/70"
-    aria-labelledby="lam-gallery-heading"
+    aria-labelledby="lam-benefits-heading"
   >
     <div class="container-custom">
-      <header class="mb-header text-center mx-auto mb-5">
-        <span class="mb-eyebrow justify-center" data-i18n="pages.laminirane.gallery.eyebrow">Резултати</span>
-        <h2 id="lam-gallery-heading" class="mb-title text-center mt-2" data-i18n="pages.laminirane.gallery.title">
-          Резултатите говорят сами
+      <header class="mb-header text-center mx-auto mb-10">
+        <h2 id="lam-benefits-heading" class="mb-title text-center" data-i18n="pages.laminirane.benefits.title">
+          Ако това си ти…
         </h2>
-        <p class="mb-lead text-center mt-3" data-i18n="pages.laminirane.gallery.lead">
-          Естествен резултат, подчертан поглед — без грим, без натоварване.
+      </header>
+
+      <div class="lp-benefits-scroll max-w-4xl mx-auto">
+      <div class="lp-benefits-scroll__track">
+
+        <div class="lp-benefits-scroll__card rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
+          <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
+            <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="font-sans text-base font-semibold text-ink mb-2" data-i18n="pages.laminirane.benefits.cards.0.title">Сутринта губиш време</h3>
+          <p class="text-sm leading-relaxed text-[#7a6558]" data-i18n="pages.laminirane.benefits.cards.0.text">Спирала, гел за вежди, оправяш посоките — и вече закъсняваш.</p>
+        </div>
+
+        <div class="lp-benefits-scroll__card rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
+          <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
+            <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3 class="font-sans text-base font-semibold text-ink mb-2" data-i18n="pages.laminirane.benefits.cards.1.title">Миглите или веждите изглеждат плоски</h3>
+          <p class="text-sm leading-relaxed text-[#7a6558]" data-i18n="pages.laminirane.benefits.cards.1.text">Редки, прави или непокорни косъмчета — погледът изглежда неизразителен.</p>
+        </div>
+
+        <div class="lp-benefits-scroll__card rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
+          <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
+            <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 class="font-sans text-base font-semibold text-ink mb-2" data-i18n="pages.laminirane.benefits.cards.2.title">Искаш естествено, не изкуствено</h3>
+          <p class="text-sm leading-relaxed text-[#7a6558]" data-i18n="pages.laminirane.benefits.cards.2.text">Уморена си от тежките екстеншъни — искаш да изглеждаш добре и без нищо по лицето.</p>
+        </div>
+
+      </div>
+      </div>
+
+      <div class="mx-auto mt-6 max-w-2xl text-center">
+        <p class="mb-lead font-medium text-ink" data-i18n="pages.laminirane.benefits.lead">
+          Ламинирането решава всичко това с една процедура.
+        </p>
+        <div class="mt-7">
+          <a href="{{ bookingUrl }}" class="btn-primary" target="_blank" rel="noopener noreferrer" data-i18n="pages.laminirane.benefits.cta">
+            Запази час сега
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  {# ═══════════════════════════════════════════════
+     5. PROCESS STEPS
+  ═══════════════════════════════════════════════ #}
+  {% if lb.steps and lb.steps.length %}
+  <section
+    id="lam-process"
+    class="home-procedure section-padding relative overflow-hidden"
+    aria-labelledby="lam-process-heading"
+  >
+    <div class="mb-steps" data-lp-lam-procedure-steps>
+      <div class="container-custom">
+        <header class="mb-header text-center mx-auto mb-6">
+          <span class="mb-eyebrow justify-center">Процес</span>
+          <h2 id="lam-process-heading" class="mb-title text-center mt-2">Какво да очакваш</h2>
+        </header>
+      </div>
+
+      <div class="mb-steps__viewport" data-lp-lam-procedure-steps-viewport>
+        <ol class="mb-steps__list">
+          {% for step in lb.steps %}
+          <li class="mb-step">
+            <span class="mb-step__num" aria-hidden="true">{{ step.number }}</span>
+            <div class="mb-step__body">
+              <h3 class="mb-step__title">{{ step.title }}</h3>
+              <p class="mb-step__desc">{{ step.description }}</p>
+            </div>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+
+    <div class="container-custom mt-10 text-center">
+      <a href="{{ bookingUrl }}" class="btn-primary" target="_blank" rel="noopener noreferrer" data-i18n="pages.laminirane.services.cta">
+        Запази час
+      </a>
+    </div>
+  </section>
+  {% endif %}
+
+
+  {# ═══════════════════════════════════════════════
+     6. TESTIMONIALS (scrolling strip)
+  ═══════════════════════════════════════════════ #}
+  {% set lamTestimonials = home.testimonials.items if home and home.testimonials and home.testimonials.items else [] %}
+  {% if lamTestimonials.length %}
+  <section
+    id="lam-testimonials"
+    class="clients-section section-padding bg-white/70"
+    aria-labelledby="lam-testimonials-heading"
+  >
+    <div class="container-custom">
+      <header class="mb-header mx-auto mb-8 text-center md:mb-10">
+        <span class="mb-eyebrow justify-center" data-i18n="pages.laminirane.testimonials.eyebrow">Отзиви</span>
+        <h2 id="lam-testimonials-heading" class="mb-title mt-2 text-center" data-i18n="pages.laminirane.testimonials.title">
+          Какво казват клиентите
+        </h2>
+        <p class="site-lead mx-auto mt-4 max-w-2xl text-center text-muted" data-i18n="pages.laminirane.testimonials.lead">
+          Всички отзиви са 100% автентични — от реални клиенти.
         </p>
       </header>
     </div>
 
-    {% if lb.gallery and lb.gallery.length %}
-    <div class="mb-bubbles-wrap pt-5" data-lp-lam-bubbles-wrap>
+    <div class="testimonials-strip-wrapper">
+      <div class="testimonials-strip" aria-label="Отзиви от клиенти — ламиниране">
+        <div class="testimonials-strip-set">
+          {% for item in lamTestimonials %}
+          <article class="testimonial-card" data-testimonial-index="{{ loop.index0 }}">
+            <div class="testimonial-card__stars" aria-hidden="true">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="testimonial-card__quote" data-i18n="home.testimonials.items.{{ loop.index0 }}.quote">{{ item.quote }}</p>
+            <button
+              type="button"
+              class="testimonial-card__expand"
+              hidden
+              data-testimonial-open
+              data-testimonial-index="{{ loop.index0 }}"
+            >
+              Виж целия отзив
+            </button>
+            <p class="testimonial-card__name">– <span data-i18n="home.testimonials.items.{{ loop.index0 }}.name">{{ item.name }}</span></p>
+          </article>
+          {% endfor %}
+        </div>
+        <div class="testimonials-strip-set" aria-hidden="true">
+          {% for item in lamTestimonials %}
+          <article class="testimonial-card" data-testimonial-index="{{ loop.index0 }}">
+            <div class="testimonial-card__stars" aria-hidden="true">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="testimonial-card__quote">{{ item.quote }}</p>
+            <button
+              type="button"
+              class="testimonial-card__expand"
+              hidden
+              data-testimonial-open
+              data-testimonial-index="{{ loop.index0 }}"
+            >
+              Виж целия отзив
+            </button>
+            <p class="testimonial-card__name">– {{ item.name }}</p>
+          </article>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    window.ValetoTestimonialsData = {{ lamTestimonials | dump | safe }};
+  </script>
+  <script src="{{ '/assets/js/testimonials-strip.js' | url }}"></script>
+  {% endif %}
+
+
+  {# ═══════════════════════════════════════════════
+     7. GALLERY
+  ═══════════════════════════════════════════════ #}
+  {% if lb.gallery and lb.gallery.length %}
+  <section
+    id="lam-gallery"
+    class="mb-section section-padding pb-8 md:pb-12 pt-10 md:pt-14"
+    aria-labelledby="lp-lam-gallery-label"
+  >
+    <div class="mb-bubbles-wrap" data-lp-lam-bubbles-wrap>
       <div class="container-custom">
         <div class="mb-bubbles-head">
-          <p class="mb-bubbles-label" id="lp-lam-gallery-label">Галерия</p>
+          <p class="mb-bubbles-label" id="lp-lam-gallery-label" data-i18n="pages.laminirane.gallery.label">Галерия</p>
           <div class="mb-bubbles-nav" aria-hidden="true">
             <button type="button" class="mb-bubbles-arrow mb-bubbles-arrow--prev" data-lp-lam-prev aria-label="Предишна снимка">
               <svg class="mb-arrow-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="21 8 12 16 21 24" vector-effect="non-scaling-stroke"/></svg>
@@ -306,7 +467,6 @@ pageNav:
       </div>
     </div>
 
-    {# Gallery lightbox modal #}
     <div
       id="lp-lam-gallery-modal"
       class="mb-gallery-modal"
@@ -333,229 +493,23 @@ pageNav:
         </button>
       </div>
     </div>
-    {% endif %}
-
-  </section>
-
-
-  {# ═══════════════════════════════════════════════
-     5. PAIN POINTS
-  ═══════════════════════════════════════════════ #}
-  <section
-    class="mb-section section-padding"
-    aria-labelledby="lam-pain-heading"
-  >
-    <div class="container-custom">
-      <header class="mb-header text-center mx-auto mb-10">
-        <span class="mb-eyebrow justify-center">Подходящо ли е за теб?</span>
-        <h2 id="lam-pain-heading" class="mb-title text-center mt-2">
-          Разпознаваш ли се?
-        </h2>
-      </header>
-
-      <div class="grid grid-cols-1 gap-5 sm:grid-cols-3 max-w-4xl mx-auto">
-
-        <div class="rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
-          <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
-            <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h3 class="text-base font-semibold text-ink mb-2">Сутринта е rush — грим или природа?</h3>
-          <p class="text-sm leading-relaxed text-[#7a6558]">Нанасяш спирала, оправяш вежди с гел — и вече си закъсняла. Дори в почивен ден.</p>
-        </div>
-
-        <div class="rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
-          <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
-            <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-          </div>
-          <h3 class="text-base font-semibold text-ink mb-2">Веждите или миглите изглеждат плоски</h3>
-          <p class="text-sm leading-relaxed text-[#7a6558]">Редки, прави или непокорни косъмчета, от които погледът ти изглежда умален и неизразителен.</p>
-        </div>
-
-        <div class="rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] text-center">
-          <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#f5ede4]">
-            <svg class="h-6 w-6 text-[#c9a98a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </div>
-          <h3 class="text-base font-semibold text-ink mb-2">Искаш естествено, не изкуствено</h3>
-          <p class="text-sm leading-relaxed text-[#7a6558]">Уморила си се от тежките екстеншъни или натрапчивия грим. Искаш да изглеждаш добре и без нищо по лицето.</p>
-        </div>
-
-      </div>
-
-      <div class="mx-auto mt-12 max-w-2xl text-center">
-        <p class="mb-lead">
-          Ламинирането е отговорът: процедура с <em>щадящи продукти</em>, без изкуствено, без болка — и с резултат, за който хората ще питат какво е различното по теб, без да могат да го посочат.
-        </p>
-        <div class="mt-7">
-          <a href="{{ bookingUrl }}" class="btn-primary" target="_blank" rel="noopener noreferrer">
-            Запази час сега
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  {# ═══════════════════════════════════════════════
-     6. COMPARISON — THE NATURAL CHOICE
-  ═══════════════════════════════════════════════ #}
-  <section
-    class="mb-section section-padding bg-white/70"
-    aria-labelledby="lam-compare-heading"
-  >
-    <div class="container-custom">
-      <div class="mx-auto max-w-3xl">
-        <header class="mb-header text-center mb-10">
-          <span class="mb-eyebrow justify-center">Защо ламиниране</span>
-          <h2 id="lam-compare-heading" class="mb-title text-center mt-2">
-            Естественото е новото красиво
-          </h2>
-        </header>
-
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-
-          <div class="rounded-2xl border-2 border-[rgba(201,169,138,0.3)] bg-[#fdf8f4] px-6 py-6">
-            <p class="mb-3 text-xs font-bold uppercase tracking-widest text-[#7a6558]">Преди ламиниране</p>
-            <ul class="space-y-3 text-sm text-[#7a6558]">
-              <li class="flex items-start gap-2"><span class="mt-0.5 shrink-0 text-[#ccc]">✕</span>Спирала всеки ден, петна под очите до вечерта</li>
-              <li class="flex items-start gap-2"><span class="mt-0.5 shrink-0 text-[#ccc]">✕</span>Вежди в различни посоки, гел вече не помага</li>
-              <li class="flex items-start gap-2"><span class="mt-0.5 shrink-0 text-[#ccc]">✕</span>Тежки екстеншъни, поддръжка на 2–3 седмици</li>
-              <li class="flex items-start gap-2"><span class="mt-0.5 shrink-0 text-[#ccc]">✕</span>В басейна или на море изглеждаш различно</li>
-            </ul>
-          </div>
-
-          <div class="rounded-2xl border-2 border-[#c9a98a] bg-white px-6 py-6">
-            <p class="mb-3 text-xs font-bold uppercase tracking-widest text-[#c9a98a]">След ламиниране</p>
-            <ul class="space-y-3 text-sm text-ink">
-              <li class="flex items-start gap-2"><span class="mt-0.5 shrink-0 text-[#c9a98a]">✓</span>Мигли с извивка и обем — без спирала</li>
-              <li class="flex items-start gap-2"><span class="mt-0.5 shrink-0 text-[#c9a98a]">✓</span>Вежди наредени и фиксирани точно така</li>
-              <li class="flex items-start gap-2"><span class="mt-0.5 shrink-0 text-[#c9a98a]">✓</span>Резултатът трае 4–8 седмици без поддръжка</li>
-              <li class="flex items-start gap-2"><span class="mt-0.5 shrink-0 text-[#c9a98a]">✓</span>На море, в басейна — изглеждаш перфектно</li>
-            </ul>
-          </div>
-
-        </div>
-
-        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 text-center">
-          <div class="rounded-xl bg-[#f9f3ee] px-5 py-5">
-            <p class="text-2xl font-bold text-[#c9a98a] mb-1">4–6 нед.</p>
-            <p class="text-sm font-medium text-ink">Ламиниране на вежди</p>
-          </div>
-          <div class="rounded-xl bg-[#f9f3ee] px-5 py-5">
-            <p class="text-2xl font-bold text-[#c9a98a] mb-1">6–8 нед.</p>
-            <p class="text-sm font-medium text-ink">Ламиниране на мигли</p>
-          </div>
-          <div class="rounded-xl bg-[#f9f3ee] px-5 py-5">
-            <p class="text-2xl font-bold text-[#c9a98a] mb-1">~1 ч.</p>
-            <p class="text-sm font-medium text-ink">Продължителност</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  {# ═══════════════════════════════════════════════
-     7. PROCESS STEPS
-  ═══════════════════════════════════════════════ #}
-  {% if lb.steps and lb.steps.length %}
-  <section
-    id="lam-process"
-    class="home-procedure section-padding relative overflow-hidden"
-    aria-labelledby="lam-process-heading"
-  >
-    <div class="mb-steps" data-lp-lam-procedure-steps>
-      <div class="container-custom">
-        <header class="mb-header text-center mx-auto mb-6">
-          <span class="mb-eyebrow justify-center">Процес</span>
-          <h2 id="lam-process-heading" class="mb-title text-center mt-2">Какво да очакваш</h2>
-          <p class="mb-lead text-center mt-3">Просто, приятно и без изненади — от консултацията до финалния резултат.</p>
-        </header>
-      </div>
-
-      <div class="mb-steps__viewport" data-lp-lam-procedure-steps-viewport>
-        <ol class="mb-steps__list">
-          {% for step in lb.steps %}
-          <li class="mb-step">
-            <span class="mb-step__num" aria-hidden="true">{{ step.number }}</span>
-            <div class="mb-step__body">
-              <h3 class="mb-step__title">{{ step.title }}</h3>
-              <p class="mb-step__desc">{{ step.description }}</p>
-            </div>
-          </li>
-          {% endfor %}
-        </ol>
-      </div>
-    </div>
-
-    <div class="container-custom mt-10 text-center">
-      <a href="{{ bookingUrl }}" class="btn-primary" target="_blank" rel="noopener noreferrer" data-i18n="pages.laminirane.services.cta">
-        Запази час
-      </a>
-    </div>
   </section>
   {% endif %}
 
 
   {# ═══════════════════════════════════════════════
-     8. TESTIMONIALS
-  ═══════════════════════════════════════════════ #}
-  {% set testimonials = home.testimonials.items if home and home.testimonials and home.testimonials.items else [] %}
-  {% if testimonials.length %}
-  <section
-    id="lam-testimonials"
-    class="mb-section section-padding bg-white/70"
-    aria-labelledby="lam-testimonials-heading"
-  >
-    <div class="container-custom">
-      <header class="mb-header mx-auto mb-10 text-center">
-        <span class="mb-eyebrow justify-center" data-i18n="pages.laminirane.testimonials.eyebrow">Отзиви</span>
-        <h2 id="lam-testimonials-heading" class="mb-title mt-2 text-center" data-i18n="pages.laminirane.testimonials.title">
-          Какво казват клиентите
-        </h2>
-        <p class="site-lead mx-auto mt-4 max-w-2xl text-center text-muted" data-i18n="pages.laminirane.testimonials.lead">
-          Реални отзиви от реални жени — с реален резултат.
-        </p>
-      </header>
-
-      <div class="grid grid-cols-1 gap-5 md:grid-cols-3 max-w-5xl mx-auto">
-        {# Pick Василена (mentions lash lamination), Катето (regular client), Михаела (natural result) #}
-        {% for item in testimonials %}
-          {% if loop.index0 == 0 or loop.index0 == 3 or loop.index0 == 7 %}
-          <article class="rounded-2xl border border-[rgba(201,169,138,0.38)] bg-white px-6 py-7 shadow-[0_8px_22px_rgba(44,26,14,0.06)] flex flex-col">
-            <div class="testimonial-card__stars mb-3" aria-hidden="true">
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-            <p class="testimonial-card__quote flex-1">{{ item.quote }}</p>
-            <p class="testimonial-card__name mt-4">– {{ item.name }}</p>
-          </article>
-          {% endif %}
-        {% endfor %}
-      </div>
-
-      <div class="mt-12 text-center">
-        <p class="text-sm text-muted mb-4" data-i18n="pages.laminirane.testimonials.note">Всички отзиви са 100% автентични — от реални клиенти.</p>
-        <a href="{{ bookingUrl }}" class="btn-primary" target="_blank" rel="noopener noreferrer" data-i18n="pages.laminirane.testimonials.cta">
-          Стани следващата
-        </a>
-      </div>
-    </div>
-  </section>
-  {% endif %}
-
-
-  {# ═══════════════════════════════════════════════
-     9. FAQ
+     8. FAQ
   ═══════════════════════════════════════════════ #}
   <section
     id="lam-faq"
-    class="mb-section section-padding"
+    class="mb-section section-padding bg-white/70"
     aria-labelledby="lam-faq-heading"
   >
     <div class="container-custom">
       <header class="mb-header mx-auto mb-8 text-center md:mb-10">
         <span class="mb-eyebrow justify-center" data-i18n="pages.laminirane.faq.eyebrow">Въпроси и отговори</span>
         <h2 id="lam-faq-heading" class="mb-title mt-2 text-center" data-i18n="pages.laminirane.faq.title">
-          Имаш въпроси? Имам отговори.
+          Често задавани въпроси
         </h2>
       </header>
 
@@ -627,7 +581,7 @@ pageNav:
 
 
   {# ═══════════════════════════════════════════════
-     10. FINAL CTA
+     FINAL CTA
   ═══════════════════════════════════════════════ #}
   <section
     class="relative section-padding bg-gradient-to-br from-[#A48C77] to-[#C1AE9A]"
@@ -651,9 +605,8 @@ pageNav:
             class="inline-flex min-w-[220px] items-center justify-center rounded-3xl bg-[#2c1a0e] px-8 py-3.5 text-center font-['Montserrat_Alternates'] text-base font-medium tracking-wide text-white shadow-[0px_4px_4px_0px_rgba(0,0,0,0.21)] transition-colors hover:bg-zinc-800"
             target="_blank"
             rel="noopener noreferrer"
-            data-i18n="pages.laminirane.cta.primary"
           >
-            Запази час онлайн
+            <span data-i18n="pages.laminirane.cta.primary">Запази час онлайн</span>
           </a>
           <a
             href="tel:{{ phone }}"
@@ -664,27 +617,11 @@ pageNav:
           </a>
         </div>
 
-        <div class="mt-8 flex flex-col items-center gap-1">
-          <p class="text-sm text-white/70" data-i18n="pages.laminirane.cta.orWrite">Или пиши директно:</p>
-          <div class="flex items-center gap-5 mt-2">
-            {% set c = home.contact if home and home.contact else {} %}
-            {% if c.whatsapp %}
-            <a href="{{ c.whatsapp }}" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors text-sm underline underline-offset-2">WhatsApp</a>
-            {% endif %}
-            {% if c.viber %}
-            <a href="{{ c.viber }}" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors text-sm underline underline-offset-2">Viber</a>
-            {% endif %}
-            {% if c.instagram %}
-            <a href="{{ c.instagram }}" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors text-sm underline underline-offset-2">Instagram</a>
-            {% endif %}
-          </div>
-        </div>
-
-        <p class="mt-8 text-xs text-white/60" data-i18n="pages.laminirane.cta.addresses">
-          Пловдив, ул. „Борис Сарафов" 11 &nbsp;·&nbsp; Асеновград, ул. „Христо Ботев" 3
-        </p>
-
       </div>
+
+      {% set c = home.contact if home and home.contact else {} %}
+      {% set addr = c.addresses if c.addresses else [] %}
+      {% include "lp-cta-contact.njk" %}
     </div>
   </section>
 

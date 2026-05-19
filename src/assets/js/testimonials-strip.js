@@ -124,8 +124,12 @@
     var els = getModalEls();
     if (!els.modal || !els.name || !els.quote || !data || !data[index]) return;
     var item = data[index];
-    els.name.textContent = item.name || "";
-    els.quote.textContent = item.quote || "";
+    var lang = window.ValetoI18n ? window.ValetoI18n.getLang() : "bg";
+    var enItems = window.__I18N__ && window.__I18N__.en && window.__I18N__.en.home && window.__I18N__.en.home.testimonials && window.__I18N__.en.home.testimonials.items;
+    var enIndex = (item.sourceIndex !== undefined) ? item.sourceIndex : index;
+    var enItem = (lang === "en" && enItems && enItems[enIndex]) ? enItems[enIndex] : null;
+    els.name.textContent = (enItem && enItem.name) ? enItem.name : (item.name || "");
+    els.quote.textContent = (enItem && enItem.quote) ? enItem.quote : (item.quote || "");
     previousFocus = document.activeElement;
     els.modal.hidden = false;
     els.modal.setAttribute("aria-hidden", "false");

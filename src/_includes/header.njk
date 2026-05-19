@@ -1,7 +1,7 @@
 {% set headerCta = home.hero.ctaPrimary if home and home.hero and home.hero.ctaPrimary else { "label": "Запази час", "url": "https://studio24.bg/m/p16841", "openBookingModal": false, "external": true } %}
 {# pageNav: when set in page front matter, use isolated nav (no home page links) #}
 {% set activeNav = pageNav if pageNav else site.nav.header %}
-{% set navI18nPrefix = pageI18nKey ~ '.nav' if pageI18nKey and pageNav else 'site.nav.header' %}
+{% set navI18nPrefix = 'pages.' ~ pageI18nKey ~ '.nav' if pageI18nKey and pageNav else 'site.nav.header' %}
 <header class="sticky top-4 z-50">
   <div class="container-custom">
     <div class="site-header-surface js-header-surface">
