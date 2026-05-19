@@ -92,6 +92,11 @@ const testimonialItems = [
       "Valya, thank you from the heart for your golden hands! People say brows are like sisters, not twins—but after my visit I can say mine are fully identical, beautiful, and natural. Waking up without pencil, gel, or shadow on my brows is incomparable! You've gained a lifelong microblading client—and closing the circle with lash lamination is the cherry on top. Thank you for the work and art you created on my face.",
     name: "Vasilena Nikolova",
   },
+  {
+    quote:
+      "I had microblading and a touch-up with Valya over a year and a half ago. My brows still look wonderful, although I could now book a refresh. The whole experience was very pleasant—Valya is warm, kind, and attentive, especially knowing I was nervous about the procedure. I am so happy I went ahead with it. The difference is enormous and my brows look absolutely natural, hair by hair. Since then I've seen the work of several of her colleagues, even those with more experience—I haven't seen brows more beautiful than the ones she creates.",
+    name: "Aleksandra Fidanina",
+  },
 ];
 
 module.exports = {

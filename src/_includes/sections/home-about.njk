@@ -101,14 +101,47 @@
       </p>
       {% endif %}
 
-      <div class="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
-        <img src="{{ '/assets/images/za-men1.jpg' | url }}" alt="За мен - снимка 1" class="aspect-[3/4] w-full rounded-xl object-cover" width="480" height="640" loading="lazy" decoding="async" />
-        <img src="{{ '/assets/images/za-men2.jpg' | url }}" alt="За мен - снимка 2" class="aspect-[3/4] w-full rounded-xl object-cover" width="480" height="640" loading="lazy" decoding="async" />
-        <img src="{{ '/assets/images/za-men3.jpg' | url }}" alt="За мен - снимка 3" class="aspect-[3/4] w-full rounded-xl object-cover" width="480" height="640" loading="lazy" decoding="async" />
+      <div class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
+        <img src="{{ '/assets/images/za-men1.jpg' | url }}" alt="За мен - снимка 1" class="about-modal-media aspect-[3/4] w-full cursor-pointer rounded-xl object-cover" width="480" height="640" loading="lazy" decoding="async" data-about-media-trigger data-about-media-type="image" data-about-media-src="{{ '/assets/images/za-men1.jpg' | url }}" />
+        <img src="{{ '/assets/images/za-men2.jpg' | url }}" alt="За мен - снимка 2" class="about-modal-media aspect-[3/4] w-full cursor-pointer rounded-xl object-cover" width="480" height="640" loading="lazy" decoding="async" data-about-media-trigger data-about-media-type="image" data-about-media-src="{{ '/assets/images/za-men2.jpg' | url }}" />
+        <img src="{{ '/assets/images/za-men3.jpg' | url }}" alt="За мен - снимка 3" class="about-modal-media aspect-[3/4] w-full cursor-pointer rounded-xl object-cover" width="480" height="640" loading="lazy" decoding="async" data-about-media-trigger data-about-media-type="image" data-about-media-src="{{ '/assets/images/za-men3.jpg' | url }}" />
+        <div class="about-modal-media relative aspect-[3/4] w-full cursor-pointer overflow-hidden rounded-xl" data-about-media-trigger data-about-media-type="video" data-about-media-src="{{ '/assets/images/about-me1.mp4' | url }}">
+          <video src="{{ '/assets/images/about-me1.mp4' | url }}" class="h-full w-full object-cover" muted playsinline loop preload="metadata" aria-label="За мен — видео 1"></video>
+          <span class="pointer-events-none absolute inset-0 flex items-center justify-center"><svg viewBox="0 0 56 56" fill="none" class="h-14 w-14"><circle cx="28" cy="28" r="26" fill="rgba(255,255,255,0.88)"/><path fill="#3a2415" d="M23 17v22l18-11-18-11Z"/></svg></span>
+        </div>
+        <div class="about-modal-media relative aspect-[3/4] w-full cursor-pointer overflow-hidden rounded-xl" data-about-media-trigger data-about-media-type="video" data-about-media-src="{{ '/assets/images/about-me2.mp4' | url }}">
+          <video src="{{ '/assets/images/about-me2.mp4' | url }}" class="h-full w-full object-cover" muted playsinline loop preload="metadata" aria-label="За мен — видео 2"></video>
+          <span class="pointer-events-none absolute inset-0 flex items-center justify-center"><svg viewBox="0 0 56 56" fill="none" class="h-14 w-14"><circle cx="28" cy="28" r="26" fill="rgba(255,255,255,0.88)"/><path fill="#3a2415" d="M23 17v22l18-11-18-11Z"/></svg></span>
+        </div>
+        <div class="about-modal-media relative aspect-[3/4] w-full cursor-pointer overflow-hidden rounded-xl" data-about-media-trigger data-about-media-type="video" data-about-media-src="{{ '/assets/images/about-me3.mp4' | url }}">
+          <video src="{{ '/assets/images/about-me3.mp4' | url }}" class="h-full w-full object-cover" muted playsinline loop preload="metadata" aria-label="За мен — видео 3"></video>
+          <span class="pointer-events-none absolute inset-0 flex items-center justify-center"><svg viewBox="0 0 56 56" fill="none" class="h-14 w-14"><circle cx="28" cy="28" r="26" fill="rgba(255,255,255,0.88)"/><path fill="#3a2415" d="M23 17v22l18-11-18-11Z"/></svg></span>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
+
+{# Media lightbox — separate modal, above everything else #}
+<div
+  id="about-media-viewer"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Преглед на медия"
+  aria-hidden="true"
+  hidden
+  style="position:fixed;inset:0;z-index:6000;background:rgba(0,0,0,0.92);display:none;align-items:center;justify-content:center;"
+>
+  <button
+    type="button"
+    data-about-media-close
+    aria-label="Затвори"
+    style="position:absolute;top:1rem;right:1.25rem;background:none;border:none;color:#fff;font-size:2rem;line-height:1;cursor:pointer;"
+  >&times;</button>
+  <img id="about-media-viewer-image" src="" alt="" style="max-height:90vh;max-width:90vw;border-radius:0.75rem;object-fit:contain;display:none;" />
+  <video id="about-media-viewer-video" playsinline muted loop style="max-height:90vh;max-width:90vw;border-radius:0.75rem;display:none;"></video>
+</div>
 
 <script>
   (function initAboutModal() {
@@ -142,6 +175,61 @@
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && !modal.hidden) {
         closeModal();
+      }
+    });
+
+    // Media viewer (images + videos inside the modal)
+    var viewer = document.getElementById("about-media-viewer");
+    var viewerImage = document.getElementById("about-media-viewer-image");
+    var viewerVideo = document.getElementById("about-media-viewer-video");
+
+    function openViewer(type, src) {
+      if (!viewer) return;
+      viewer.hidden = false;
+      viewer.setAttribute("aria-hidden", "false");
+      viewer.style.display = "flex";
+      if (type === "video") {
+        if (viewerImage) viewerImage.style.display = "none";
+        if (viewerVideo) {
+          viewerVideo.src = src;
+          viewerVideo.style.display = "block";
+          viewerVideo.muted = true;
+          try { viewerVideo.play(); } catch (err) {}
+        }
+      } else {
+        if (viewerVideo) { viewerVideo.pause(); viewerVideo.style.display = "none"; }
+        if (viewerImage) { viewerImage.src = src; viewerImage.style.display = "block"; }
+      }
+    }
+
+    function closeViewer() {
+      if (!viewer) return;
+      viewer.hidden = true;
+      viewer.setAttribute("aria-hidden", "true");
+      viewer.style.display = "none";
+      if (viewerVideo) { viewerVideo.pause(); viewerVideo.src = ""; viewerVideo.style.display = "none"; }
+      if (viewerImage) { viewerImage.src = ""; viewerImage.style.display = "none"; }
+    }
+
+    // Attach triggers from the about-info modal panel
+    document.querySelectorAll("[data-about-media-trigger]").forEach(function (el) {
+      el.addEventListener("click", function () {
+        openViewer(el.getAttribute("data-about-media-type"), el.getAttribute("data-about-media-src"));
+      });
+    });
+
+    if (viewer) {
+      viewer.querySelectorAll("[data-about-media-close]").forEach(function (btn) {
+        btn.addEventListener("click", closeViewer);
+      });
+      viewer.addEventListener("click", function (e) {
+        if (e.target === viewer) closeViewer();
+      });
+    }
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        if (viewer && !viewer.hidden) { closeViewer(); return; }
       }
     });
   })();

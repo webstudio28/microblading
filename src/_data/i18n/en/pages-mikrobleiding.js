@@ -55,6 +55,7 @@ module.exports = {
     ],
     lead: "PhiBrows microblading solves all of this in one procedure!",
     cta: "Book now",
+    ctaBook: "Book appointment now",
   },
   what: {
     eyebrow: "What is microblading",

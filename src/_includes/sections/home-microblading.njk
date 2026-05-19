@@ -185,7 +185,8 @@
             class="mb-gallery-modal__image"
             data-mb-gallery-video
             playsinline
-            controls
+            muted
+            loop
             hidden
           ></video>
         </div>
@@ -339,7 +340,7 @@
             galleryVideo.src = vsrc;
             galleryVideo.setAttribute("aria-label", source.getAttribute("aria-label") || "Галерия микроблейдинг");
             galleryVideo.style.display = "block";
-            galleryVideo.muted = false;
+            galleryVideo.muted = true;
             try { galleryVideo.play(); } catch (err) {}
           }
         } else {
