@@ -43,7 +43,7 @@ module.exports = {
     cards: [
       {
         title: "You lose time every day",
-        text: "Drawing brows, chasing symmetry, fixing mistakes,",
+        text: "Trying to even out your brows and drawing them every time before you go out.",
       },
       {
         title: "Your brows aren't symmetrical",
@@ -88,7 +88,7 @@ module.exports = {
       {
         question: "Is the procedure painful?",
         answer:
-          "Discomfort varies, but most clients describe it as light scratching. I use topical numbing, so the procedure is much more comfortable than expected. Many clients relax and even laugh during it.",
+          "Discomfort varies, but most clients describe it as light scratching. I use topical numbing, so the procedure is much more comfortable than expected.",
       },
       {
         question: "How long does microblading last?",
@@ -108,12 +108,7 @@ module.exports = {
       {
         question: "Is it suitable for all skin types?",
         answer:
-          "It suits most skin types. Oily skin may retain pigment slightly less, but with proper care and touch-ups results stay beautiful. We discuss your case at consultation.",
-      },
-      {
-        question: "How much does microblading cost?",
-        answer:
-          "Price depends on the service and specialist experience. Contact me directly for current pricing—I will reply quickly and gladly.",
+          "Yes — for oily skin results may last slightly shorter, but with proper care and touch-ups results stay beautiful. We discuss your case at consultation.",
       },
     ],
   },

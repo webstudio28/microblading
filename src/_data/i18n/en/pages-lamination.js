@@ -125,7 +125,7 @@ module.exports = {
       {
         question: "Who is lamination suitable for?",
         answer:
-          "Lamination is suitable for almost everyone. For brows — especially unruly, sparse, or unevenly growing ones. For lashes — straight, sparse, or weakly curled ones. At the consultation we decide together which type is best for you.",
+          "Lamination is suitable for almost everyone. For brows — especially unruly, sparse, or unevenly growing ones. For lashes — straight, sparse, or weakly curled ones.",
       },
     ],
   },

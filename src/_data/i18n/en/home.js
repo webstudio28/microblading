@@ -7,7 +7,7 @@ const faqItems = [
   {
     question: "What should I do after lamination?",
     answer:
-      "Avoid getting your lashes or brows wet for the first 24 hours after the procedure. Do not use oily products, as they can reduce how long the result lasts.",
+      "Avoid getting your lashes or brows wet for the first 24 hours after the procedure. Avoid oily products, as they may shorten the longevity of the results.",
   },
   {
     question: "Is microblading painful?",
@@ -27,7 +27,7 @@ const faqItems = [
   {
     question: "What should be avoided before microblading?",
     answer:
-      "Avoid alcohol, caffeine, and blood-thinning medications such as aspirin or ibuprofen for at least 24 hours beforehand.",
+      "Avoid alcohol, caffeine, and blood-thinning medications such as aspirin or ibuprofen for at least 24 hours before microblading.",
   },
   {
     question: "What pigments are used in microblading?",
@@ -47,7 +47,7 @@ const faqItems = [
   {
     question: "What happens if I skip the touch-up?",
     answer:
-      "Without a touch-up, results may fade unevenly. A touch-up 4–6 weeks after the first session is important for corrections and colour refresh.",
+      "Without a touch-up, results may fade unevenly. A touch-up 40–90 days after the first session is important for corrections and colour refresh.",
   },
 ];
 
@@ -55,7 +55,7 @@ const testimonialItems = [
   {
     quote:
       "I am extremely happy with my visits to Valya! Every cleansing appointment is so pleasant and effortless, and my brows always look perfectly shaped and natural. Her professionalism and attention to detail really show. Highly recommend!",
-    name: "Kateto",
+    name: "Ekaterina Popova",
   },
   {
     quote:
@@ -91,6 +91,16 @@ const testimonialItems = [
     quote:
       "Valya, thank you from the heart for your golden hands! People say brows are like sisters, not twins—but after my visit I can say mine are fully identical, beautiful, and natural. Waking up without pencil, gel, or shadow on my brows is incomparable! You've gained a lifelong microblading client—and closing the circle with lash lamination is the cherry on top. Thank you for the work and art you created on my face.",
     name: "Vasilena Nikolova",
+  },
+  {
+    quote:
+      "I am absolutely in love with my new brows! They turned out so natural and exactly as I imagined — even better. Valya is an incredibly warm and positive person who makes you feel at ease from the very first minute. You can tell how much she loves what she does and how good she is at it. I left the studio with a huge smile and so much confidence. 🫶🏼",
+    name: "Polina Boeva",
+  },
+  {
+    quote:
+      "An incredible professional! I am extremely happy with my microblading procedure and the final result. For me, Valya creates the most beautiful and natural shapes, perfectly tailored to the features and contours of the face.\n\nI was incredibly lucky to find her after a long and thorough search — she was my clear choice.\n\nExceptionally attentive and precise, and the procedure itself is a true spa experience! 🤗",
+    name: "Ivana Taranska",
   },
   {
     quote:
