@@ -135,10 +135,11 @@ module.exports = {
     eyebrow: "PhiBrows",
     title: "Microblading",
     lead:
-      "Microblading is a precise semi-permanent brow technique using fine hair strokes matched to your natural growth and facial features. I work with the PhiBrows method for symmetry, a natural result, and longevity aligned with international standards.",
+      "Microblading is a precise semi-permanent brow technique using fine hair strokes matched to your natural growth and facial features.",
     sub: {
       title: "What is microblading",
       paragraphs: [
+        "I work with the PhiBrows method for symmetry, a natural result, and longevity aligned with international standards.",
         "Microblading is for anyone who wants shaped, symmetrical, natural-looking brows without daily makeup. It suits sparse, thin, uneven brows and complete lack of shape. Through careful facial analysis, the shape is tailored to enhance your features and balance your look.",
         "The procedure is detail-focused and includes a consultation to determine the best shape and colour. Work is done superficially in the skin, allowing exceptionally fine, realistic hair strokes.",
         "Results are long-lasting—typically 12 to 18 months depending on skin type, lifestyle, and aftercare. A touch-up around 40–90 days after the initial session is recommended, then yearly if needed.",
@@ -151,7 +152,7 @@ module.exports = {
     eyebrow: "Brows and lashes",
     title: "Lamination",
     lead:
-      "Brow lamination shapes, sets, and arranges hairs for a fuller, more expressive look with minimal daily upkeep. Lash lamination enhances natural lashes through lift and nourishment without mascara or extensions—a fresh, open-eyed look with lasting results.",
+      "Brow lamination shapes, sets, and arranges hairs for a fuller, more expressive look with minimal daily upkeep.",
     sub: {
       title: "Brow and lash lamination",
       sections: [
