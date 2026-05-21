@@ -1575,41 +1575,36 @@
     touch-action: pan-y;
   }
 
-  /* Sticky wrapper — keeps the close button pinned to the top of the
-     modal viewport even when the user scrolls the modal content */
-  .modal-sticky-close {
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    display: flex;
-    justify-content: flex-end;
-    pointer-events: none;
-    /* Pull the content below up so the button doesn't add extra space */
-    margin-bottom: -2.4rem;
-    padding-top: 0.4rem;
-    padding-right: 0.5rem;
-  }
-
   .mb-info-modal__close {
-    position: relative;
-    top: auto;
-    right: auto;
-    pointer-events: auto;
-    flex-shrink: 0;
+    position: sticky;
+    top: 0.15rem;
+    float: right;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
     border: 0;
-    background: transparent;
-    width: 2.2rem;
-    height: 2.2rem;
     border-radius: 9999px;
+    background: rgba(44, 26, 14, 0.1);
+    color: #6b2a2a;
     font-size: 1.75rem;
+    font-weight: 700;
     line-height: 1;
-    color: rgba(44, 26, 14, 0.72);
+    margin-top: -0.35rem;
+    margin-right: -1.15rem;
+    margin-left: 0.75rem;
+    margin-bottom: -2.6rem;
     cursor: pointer;
     transition: background-color 180ms ease, color 180ms ease;
   }
   .mb-info-modal__close:hover {
-    background: rgba(44, 26, 14, 0.1);
-    color: rgba(44, 26, 14, 0.95);
+    background: rgba(44, 26, 14, 0.16);
+    color: #5a2222;
+  }
+
+  .mb-info-modal__panel > .mb-info-modal__title {
+    padding-right: 3rem;
   }
 
   .mb-info-modal__title {
@@ -1736,17 +1731,23 @@
     position: absolute;
     top: -2.7rem;
     right: 0;
-    width: 2.4rem;
-    height: 2.4rem;
+    display: grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
     border-radius: 9999px;
-    border: 1px solid rgba(255, 255, 255, 0.38);
-    background: rgba(255, 255, 255, 0.14);
-    color: #fff;
-    font-size: 1.65rem;
+    border: 0;
+    background: rgba(255, 255, 255, 0.92);
+    color: #6b2a2a;
+    font-size: 1.75rem;
+    font-weight: 700;
     line-height: 1;
     cursor: pointer;
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 14px rgba(20, 12, 8, 0.18);
+  }
+  .mb-gallery-modal__close:hover {
+    background: #fff;
+    color: #5a2222;
   }
   @media (max-width: 767px) {
     .mb-gallery-modal__panel {
@@ -1774,7 +1775,7 @@
        viewport. Fix to viewport so the X can sit at the top of the screen. */
     .mb-gallery-modal__close {
       position: fixed;
-      top: calc(env(safe-area-inset-top, 0px) + 0.95rem);
+      top: calc(env(safe-area-inset-top, 0px) + 0.65rem);
       right: max(0.65rem, env(safe-area-inset-right, 0px));
       left: auto;
       z-index: 3;
@@ -1967,26 +1968,36 @@
   }
 
   .testimonial-modal__close {
-    position: relative;
-    top: auto;
-    right: auto;
-    pointer-events: auto;
-    flex-shrink: 0;
-    width: 2.25rem;
-    height: 2.25rem;
+    position: sticky;
+    top: 0.15rem;
+    float: right;
+    z-index: 2;
     display: grid;
     place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
     border: none;
     border-radius: 999px;
-    background: rgba(44, 26, 14, 0.06);
-    color: #2c1a0e;
-    font-size: 1.35rem;
+    background: rgba(44, 26, 14, 0.1);
+    color: #6b2a2a;
+    font-size: 1.75rem;
+    font-weight: 700;
     line-height: 1;
+    margin-top: -0.35rem;
+    margin-right: -0.85rem;
+    margin-left: 0.75rem;
+    margin-bottom: -2.6rem;
     cursor: pointer;
+    transition: background-color 180ms ease, color 180ms ease;
   }
 
   .testimonial-modal__close:hover {
-    background: rgba(44, 26, 14, 0.12);
+    background: rgba(44, 26, 14, 0.16);
+    color: #5a2222;
+  }
+
+  .testimonial-modal__panel > .testimonial-modal__name {
+    padding-right: 3rem;
   }
 
   .testimonial-modal__name {
