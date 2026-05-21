@@ -39,7 +39,8 @@
 
   </div>
 
-  {% if lb.gallery and lb.gallery.length %}
+  {% set activeGallery = lamGalleryOverride if lamGalleryOverride is defined and lamGalleryOverride.length else lb.gallery %}
+  {% if activeGallery and activeGallery.length %}
   <div class="mb-bubbles-wrap pt-5" data-lam-bubbles-wrap>
     <div class="container-custom">
       <div class="mb-bubbles-head">
@@ -72,7 +73,7 @@
     </div>
 
     <div class="mb-bubbles" role="list" data-lam-bubbles aria-labelledby="lam-gallery-heading">
-      {% for item in lb.gallery %}
+      {% for item in activeGallery %}
       <figure
         class="mb-bubble{% if item.src | isVideoPath %} mb-bubble--video{% endif %}"
         role="listitem"
@@ -154,7 +155,7 @@
   </div>
   {% endif %}
 
-  {% if lb.gallery and lb.gallery.length %}
+  {% if activeGallery and activeGallery.length %}
   <div
     id="lam-gallery-modal"
     class="mb-gallery-modal"

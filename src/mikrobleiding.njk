@@ -620,7 +620,7 @@ pageNav:
   {# ═══════════════════════════════════════════════
      GALLERY (compact, above final CTA)
   ═══════════════════════════════════════════════ #}
-  {% if mb.gallery and mb.gallery.length %}
+  {% if mb.landingGallery and mb.landingGallery.length %}
   <section
     id="lp-gallery"
     class="mb-section section-padding pb-8 md:pb-12 pt-10 md:pt-14"
@@ -642,7 +642,7 @@ pageNav:
       </div>
 
       <div class="mb-bubbles" role="list" data-lp-mb-bubbles aria-labelledby="lp-mb-gallery-label">
-        {% for item in mb.gallery %}
+        {% for item in mb.landingGallery %}
         <figure
           class="mb-bubble{% if item.src | isVideoPath %} mb-bubble--video{% endif %}"
           role="listitem"
@@ -762,7 +762,7 @@ pageNav:
 ═══════════════════════════════════════════════ #}
 
 {# Gallery carousel + lightbox #}
-{% if mb.gallery and mb.gallery.length %}
+{% if mb.landingGallery and mb.landingGallery.length %}
 <script>
 (function initLpMbGallery() {
   function enableHorizontalDrag(viewport) {

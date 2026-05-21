@@ -8,95 +8,189 @@
   },
   "gallery": [
     {
-      "src": "/assets/images/microblading1.jpg",
+      "src": "/assets/images/gallery/home-microblading/microblading1.jpg",
       "alt": "Резултат от микроблейдинг – нежно оформени вежди"
     },
     {
-      "src": "/assets/images/microblading1.mp4",
+      "src": "/assets/images/gallery/home-microblading/microblading1.mp4",
       "alt": "Микроблейдинг — видео от процедурата"
     },
     {
-      "src": "/assets/images/microblading2.jpg",
+      "src": "/assets/images/gallery/home-microblading/microblading2.jpg",
       "alt": "Процес по очертаване и симетрия"
     },
     {
-      "src": "/assets/images/microblading6.jpeg",
+      "src": "/assets/images/gallery/home-microblading/microblading6.jpeg",
       "alt": "Етап от процедурата по оформяне"
     },
     {
-      "src": "/assets/images/microblading7.jpeg",
+      "src": "/assets/images/gallery/home-microblading/microblading7.jpeg",
       "alt": "Фин детайл в естествения ефект"
     },
     {
-      "src": "/assets/images/microblading8.jpeg",
+      "src": "/assets/images/gallery/home-microblading/microblading8.jpeg",
       "alt": "Подготовка и симетрия на веждите"
     },
     {
-      "src": "/assets/images/microblading10.jpg",
+      "src": "/assets/images/gallery/home-microblading/microblading10.jpg",
       "alt": "Финален кадър от микроблейдинг визията"
     },
     {
-      "src": "/assets/images/microblading11.jpg",
+      "src": "/assets/images/gallery/home-microblading/microblading11.jpg",
       "alt": "Нежен резултат след процедура"
     },
     {
-      "src": "/assets/images/microblading12.jpg",
+      "src": "/assets/images/gallery/home-microblading/microblading12.jpg",
       "alt": "Прецизно изработени косъмчета"
     },
     {
-      "src": "/assets/images/microblading13.jpg",
+      "src": "/assets/images/gallery/home-microblading/microblading13.jpg",
       "alt": "Естествена форма и баланс"
     },
     {
-      "src": "/assets/images/microblading14.jpg",
+      "src": "/assets/images/gallery/home-microblading/microblading14.jpg",
       "alt": "Готов резултат – естествен и изискан"
     },
     {
-      "src": "/assets/images/before-after/ba2-after-microblading.jpeg",
+      "src": "/assets/images/gallery/home-microblading/ba2-after-microblading.jpeg",
       "alt": "Микроблейдинг — резултат след процедура"
     },
     {
-      "src": "/assets/images/before-after/ba3-after-microblading.jpeg",
+      "src": "/assets/images/gallery/home-microblading/ba3-after-microblading.jpeg",
       "alt": "Микроблейдинг — резултат след процедура"
     },
     {
-      "src": "/assets/images/before-after/ba4-after-microblading.jpeg",
+      "src": "/assets/images/gallery/home-microblading/ba4-after-microblading.jpeg",
       "alt": "Микроблейдинг — резултат след процедура"
     },
     {
-      "src": "/assets/images/before-after/ba5-after-microblading.jpeg",
+      "src": "/assets/images/gallery/home-microblading/ba5-after-microblading.jpeg",
       "alt": "Микроблейдинг — резултат след процедура"
     },
     {
-      "src": "/assets/images/before-after/ba7-after-microblading.jpeg",
+      "src": "/assets/images/gallery/home-microblading/ba7-after-microblading.jpeg",
       "alt": "Микроблейдинг — резултат след процедура"
     },
     {
-      "src": "/assets/images/before-after/ba8-after-microblading.jpeg",
+      "src": "/assets/images/gallery/home-microblading/ba8-after-microblading.jpeg",
       "alt": "Микроблейдинг — резултат след процедура"
     },
     {
-      "src": "/assets/images/before-after/ba9-after-microblading.jpeg",
+      "src": "/assets/images/gallery/home-microblading/ba9-after-microblading.jpeg",
       "alt": "Микроблейдинг — резултат след процедура"
     },
     {
-      "src": "/assets/images/before-after/ba10-after-microblading.jpeg",
+      "src": "/assets/images/gallery/home-microblading/ba10-after-microblading.jpeg",
       "alt": "Микроблейдинг — резултат след процедура"
     },
     {
-      "src": "/assets/images/before-after/ba12-after-microblading.jpeg",
+      "src": "/assets/images/gallery/home-microblading/ba12-after-microblading.jpeg",
       "alt": "Микроблейдинг — резултат след процедура"
     },
     {
-      "src": "/assets/images/before-after/ba13-after-microblading.jpeg",
+      "src": "/assets/images/gallery/home-microblading/ba13-after-microblading.jpeg",
       "alt": "Микроблейдинг — резултат след процедура"
     },
     {
-      "src": "/assets/images/before-after/ba14-after-microblading.jpeg",
+      "src": "/assets/images/gallery/home-microblading/ba14-after-microblading.jpeg",
       "alt": "Микроблейдинг — резултат след процедура"
     },
     {
-      "src": "/assets/images/before-after/ba15-after-microblading.jpeg",
+      "src": "/assets/images/gallery/home-microblading/ba15-after-microblading.jpeg",
+      "alt": "Микроблейдинг — резултат след процедура"
+    }
+  ],
+  "landingGallery": [
+    {
+      "src": "/assets/images/gallery/lp-microblading/microblading1.jpg",
+      "alt": "Резултат от микроблейдинг – нежно оформени вежди"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/microblading1.mp4",
+      "alt": "Микроблейдинг — видео от процедурата"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/microblading2.jpg",
+      "alt": "Процес по очертаване и симетрия"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/microblading6.jpeg",
+      "alt": "Етап от процедурата по оформяне"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/microblading7.jpeg",
+      "alt": "Фин детайл в естествения ефект"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/microblading8.jpeg",
+      "alt": "Подготовка и симетрия на веждите"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/microblading10.jpg",
+      "alt": "Финален кадър от микроблейдинг визията"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/microblading11.jpg",
+      "alt": "Нежен резултат след процедура"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/microblading12.jpg",
+      "alt": "Прецизно изработени косъмчета"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/microblading13.jpg",
+      "alt": "Естествена форма и баланс"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/microblading14.jpg",
+      "alt": "Готов резултат – естествен и изискан"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/ba2-after-microblading.jpeg",
+      "alt": "Микроблейдинг — резултат след процедура"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/ba3-after-microblading.jpeg",
+      "alt": "Микроблейдинг — резултат след процедура"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/ba4-after-microblading.jpeg",
+      "alt": "Микроблейдинг — резултат след процедура"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/ba5-after-microblading.jpeg",
+      "alt": "Микроблейдинг — резултат след процедура"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/ba7-after-microblading.jpeg",
+      "alt": "Микроблейдинг — резултат след процедура"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/ba8-after-microblading.jpeg",
+      "alt": "Микроблейдинг — резултат след процедура"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/ba9-after-microblading.jpeg",
+      "alt": "Микроблейдинг — резултат след процедура"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/ba10-after-microblading.jpeg",
+      "alt": "Микроблейдинг — резултат след процедура"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/ba12-after-microblading.jpeg",
+      "alt": "Микроблейдинг — резултат след процедура"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/ba13-after-microblading.jpeg",
+      "alt": "Микроблейдинг — резултат след процедура"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/ba14-after-microblading.jpeg",
+      "alt": "Микроблейдинг — резултат след процедура"
+    },
+    {
+      "src": "/assets/images/gallery/lp-microblading/ba15-after-microblading.jpeg",
       "alt": "Микроблейдинг — резултат след процедура"
     }
   ],

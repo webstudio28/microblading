@@ -135,6 +135,8 @@ pageNav:
   ═══════════════════════════════════════════════ #}
   {% set lamSectionEyebrow = "РЕЗУЛТАТИ" %}
   {% set lamSectionEyebrowI18n = "pages.laminirane.laminationSection.eyebrow" %}
+  {% set lb = lamination if lamination else {} %}
+  {% set lamGalleryOverride = lb.landingGallery %}
   {% include "sections/home-lamination.njk" %}
 
 
