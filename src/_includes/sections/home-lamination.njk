@@ -125,14 +125,16 @@
   >
     <div class="mb-info-modal__backdrop" data-lam-info-close></div>
     <div class="mb-info-modal__panel" role="document" tabindex="-1">
-      <button
-        type="button"
-        class="mb-info-modal__close"
-        data-lam-info-close
-        aria-label="Затвори"
-      >
-        &times;
-      </button>
+      <div class="modal-sticky-close">
+        <button
+          type="button"
+          class="mb-info-modal__close"
+          data-lam-info-close
+          aria-label="Затвори"
+        >
+          &times;
+        </button>
+      </div>
       <h3 id="lam-info-modal-title" class="mb-info-modal__title" data-i18n="home.lamination.sub.title">
         {{ l.sub.title }}
       </h3>

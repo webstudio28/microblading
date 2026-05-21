@@ -1575,10 +1575,27 @@
     touch-action: pan-y;
   }
 
+  /* Sticky wrapper — keeps the close button pinned to the top of the
+     modal viewport even when the user scrolls the modal content */
+  .modal-sticky-close {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    pointer-events: none;
+    /* Pull the content below up so the button doesn't add extra space */
+    margin-bottom: -2.4rem;
+    padding-top: 0.4rem;
+    padding-right: 0.5rem;
+  }
+
   .mb-info-modal__close {
-    position: absolute;
-    top: 0.55rem;
-    right: 0.7rem;
+    position: relative;
+    top: auto;
+    right: auto;
+    pointer-events: auto;
+    flex-shrink: 0;
     border: 0;
     background: transparent;
     width: 2.2rem;
@@ -1776,6 +1793,8 @@
     width: max-content;
     gap: 2.25rem;
     overflow-x: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     overflow-y: hidden;
     padding: 0.5rem 0 4.25rem 0;
     scrollbar-width: none;
@@ -1948,9 +1967,11 @@
   }
 
   .testimonial-modal__close {
-    position: absolute;
-    top: 0.55rem;
-    right: 0.55rem;
+    position: relative;
+    top: auto;
+    right: auto;
+    pointer-events: auto;
+    flex-shrink: 0;
     width: 2.25rem;
     height: 2.25rem;
     display: grid;

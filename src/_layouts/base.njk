@@ -68,6 +68,32 @@
   <script>window.__I18N__ = { en: {{ i18n.en | dump | safe }} };</script>
   <script src="{{ '/assets/js/i18n.js' | url }}" defer></script>
   <script src="{{ '/assets/js/clients-strip.js' | url }}" defer></script>
+  <script>
+    // iOS Safari does not render a video thumbnail unless the element has been
+    // seeked to a non-zero time. This forces the first frame to be decoded for
+    // every muted+playsinline video (gallery bubbles, about section, etc.).
+    (function () {
+      function fixVideoThumb(video) {
+        if (video.currentTime === 0) {
+          video.currentTime = 0.001;
+        }
+      }
+      function applyToAll() {
+        document.querySelectorAll("video[muted][playsinline]").forEach(function (v) {
+          if (v.readyState >= 1) {
+            fixVideoThumb(v);
+          } else {
+            v.addEventListener("loadedmetadata", function () { fixVideoThumb(v); }, { once: true });
+          }
+        });
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", applyToAll);
+      } else {
+        applyToAll();
+      }
+    })();
+  </script>
 </head>
 <body>
   {# Full-page texture overlay — sits above gradient, below all content #}

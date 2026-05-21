@@ -14,14 +14,16 @@
 >
   <div class="testimonial-modal__backdrop" data-testimonial-close></div>
   <div class="testimonial-modal__panel" role="document" tabindex="-1">
-    <button
-      type="button"
-      class="testimonial-modal__close"
-      data-testimonial-close
-      aria-label="Затвори"
-    >
-      &times;
-    </button>
+    <div class="modal-sticky-close">
+      <button
+        type="button"
+        class="testimonial-modal__close"
+        data-testimonial-close
+        aria-label="Затвори"
+      >
+        &times;
+      </button>
+    </div>
     <h3 id="testimonial-modal-name" class="testimonial-modal__name"></h3>
     <p id="testimonial-modal-quote" class="testimonial-modal__quote"></p>
   </div>

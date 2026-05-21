@@ -152,7 +152,14 @@
         );
       }
 
+      // Only re-measure when the viewport WIDTH changes (not height).
+      // On iOS the virtual keyboard and URL bar cause height-only resize
+      // events which would otherwise reset innerHTML and cause a visual flash.
+      var lastResizeWidth = window.innerWidth;
       window.addEventListener("resize", function () {
+        var newWidth = window.innerWidth;
+        if (newWidth === lastResizeWidth) return;
+        lastResizeWidth = newWidth;
         ensureSetMinWidth();
         refreshMeasurements();
       });

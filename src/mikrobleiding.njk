@@ -277,14 +277,16 @@ pageNav:
     >
       <div class="mb-info-modal__backdrop" data-lp-mb-info-close></div>
       <div class="mb-info-modal__panel" role="document" tabindex="-1">
-        <button
-          type="button"
-          class="mb-info-modal__close"
-          data-lp-mb-info-close
-          aria-label="Затвори"
-        >
-          &times;
-        </button>
+        <div class="modal-sticky-close">
+          <button
+            type="button"
+            class="mb-info-modal__close"
+            data-lp-mb-info-close
+            aria-label="Затвори"
+          >
+            &times;
+          </button>
+        </div>
         <h3 id="lp-mb-info-modal-title" class="mb-info-modal__title" data-i18n="home.microblading.sub.title">
           {{ m.sub.title }}
         </h3>
@@ -441,14 +443,17 @@ pageNav:
       if (!btn || !more) return;
       btn.addEventListener("click", function () {
         var expanded = btn.getAttribute("aria-expanded") === "true";
+        var lang = window.ValyamatovskaI18n ? window.ValyamatovskaI18n.getLang() : "bg";
         if (expanded) {
           more.classList.add("hidden");
           btn.setAttribute("aria-expanded", "false");
-          btn.textContent = "Виж повече за мен";
+          btn.setAttribute("data-i18n-bg", "Виж повече за мен");
+          btn.textContent = lang === "en" ? "Learn more about me" : "Виж повече за мен";
         } else {
           more.classList.remove("hidden");
           btn.setAttribute("aria-expanded", "true");
-          btn.textContent = "Виж по-малко";
+          btn.setAttribute("data-i18n-bg", "Виж по-малко");
+          btn.textContent = lang === "en" ? "See less" : "Виж по-малко";
         }
       });
     })();
