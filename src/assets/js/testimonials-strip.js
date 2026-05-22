@@ -1,101 +1,15 @@
 (function () {
-  var strip = document.querySelector(".testimonials-strip");
-  var setEl = strip ? strip.querySelector(".testimonials-strip-set") : null;
-  var setWidth = 0;
-  var position = 0;
-  var dragging = false;
-  var touchPending = false;
-  var startX = 0;
-  var startY = 0;
-  var startPos = 0;
-  var speed = 0.15;
-  var AXIS_LOCK_PX = 10;
+  function bootStrips() {
+    if (!window.initInfiniteStrip) return;
 
-  function getClientX(e) {
-    return e.touches ? e.touches[0].clientX : e.clientX;
-  }
-
-  function getClientY(e) {
-    return e.touches ? e.touches[0].clientY : e.clientY;
-  }
-
-  function tick() {
-    if (!strip || !setWidth) return;
-    if (!dragging && !touchPending) {
-      position -= speed;
-      if (position < -setWidth) position += setWidth;
-      if (position > 0) position -= setWidth;
-    }
-    strip.style.transform = "translateX(" + position + "px)";
-    requestAnimationFrame(tick);
-  }
-
-  function onDown(e) {
-    if (e.target.closest("[data-testimonial-open]")) return;
-    if (typeof e.button === "number" && e.button !== 0 && !e.touches) return;
-
-    startX = getClientX(e);
-    startY = getClientY(e);
-    startPos = position;
-
-    if (e.touches) {
-      touchPending = true;
-      dragging = false;
-      return;
-    }
-
-    dragging = true;
-    strip.style.cursor = "grabbing";
-  }
-
-  function onMove(e) {
-    if (touchPending && !dragging) {
-      var x = getClientX(e);
-      var y = getClientY(e);
-      var dx = Math.abs(x - startX);
-      var dy = Math.abs(y - startY);
-      if (dx < AXIS_LOCK_PX && dy < AXIS_LOCK_PX) return;
-      if (dy >= dx) {
-        touchPending = false;
-        return;
-      }
-      touchPending = false;
-      dragging = true;
-      strip.style.cursor = "grabbing";
-    }
-
-    if (!dragging) return;
-    var moveX = getClientX(e);
-    position = startPos + (moveX - startX);
-  }
-
-  function onUp() {
-    touchPending = false;
-    dragging = false;
-    if (!strip || !setWidth) return;
-    strip.style.cursor = "grab";
-    while (position < -setWidth) position += setWidth;
-    while (position > 0) position -= setWidth;
-  }
-
-  if (strip && setEl) {
-    setWidth = setEl.offsetWidth;
-    strip.style.cursor = "grab";
-    strip.style.willChange = "transform";
-    strip.addEventListener("mousedown", onDown);
-    strip.addEventListener("touchstart", onDown, { passive: true });
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("touchmove", onMove, { passive: true });
-    window.addEventListener("mouseup", onUp);
-    window.addEventListener("touchend", onUp);
-    window.addEventListener("touchcancel", onUp);
-
-    if (setWidth > 0) requestAnimationFrame(tick);
-    else
-      window.addEventListener("load", function () {
-        setWidth = setEl.offsetWidth;
-        requestAnimationFrame(tick);
+    document.querySelectorAll(".testimonials-strip").forEach(function (strip) {
+      window.initInfiniteStrip({
+        speed: 0.15,
+        strip: strip,
+        setSelector: ".testimonials-strip-set",
+        interactiveSelector: "[data-testimonial-open]",
       });
+    });
   }
 
   var data = window.ValyamatovskaTestimonialsData;
@@ -106,7 +20,7 @@
     return {
       modal: document.getElementById("testimonial-read-modal"),
       name: document.getElementById("testimonial-modal-name"),
-      quote: document.getElementById("testimonial-modal-quote")
+      quote: document.getElementById("testimonial-modal-quote"),
     };
   }
 
@@ -125,11 +39,16 @@
     if (!els.modal || !els.name || !els.quote || !data || !data[index]) return;
     var item = data[index];
     var lang = window.ValyamatovskaI18n ? window.ValyamatovskaI18n.getLang() : "bg";
-    var enItems = window.__I18N__ && window.__I18N__.en && window.__I18N__.en.home && window.__I18N__.en.home.testimonials && window.__I18N__.en.home.testimonials.items;
-    var enIndex = (item.sourceIndex !== undefined) ? item.sourceIndex : index;
-    var enItem = (lang === "en" && enItems && enItems[enIndex]) ? enItems[enIndex] : null;
-    els.name.textContent = (enItem && enItem.name) ? enItem.name : (item.name || "");
-    els.quote.textContent = (enItem && enItem.quote) ? enItem.quote : (item.quote || "");
+    var enItems =
+      window.__I18N__ &&
+      window.__I18N__.en &&
+      window.__I18N__.en.home &&
+      window.__I18N__.en.home.testimonials &&
+      window.__I18N__.en.home.testimonials.items;
+    var enIndex = item.sourceIndex !== undefined ? item.sourceIndex : index;
+    var enItem = lang === "en" && enItems && enItems[enIndex] ? enItems[enIndex] : null;
+    els.name.textContent = enItem && enItem.name ? enItem.name : item.name || "";
+    els.quote.textContent = enItem && enItem.quote ? enItem.quote : item.quote || "";
     previousFocus = document.activeElement;
     els.modal.hidden = false;
     els.modal.setAttribute("aria-hidden", "false");
@@ -178,6 +97,7 @@
   });
 
   function onReady() {
+    bootStrips();
     wireModalCloseOnce();
     updateExpandButtons();
   }
@@ -190,6 +110,7 @@
 
   window.addEventListener("load", updateExpandButtons);
   window.addEventListener("resize", updateExpandButtons);
+  document.addEventListener("valyamatovska:langchange", updateExpandButtons);
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(updateExpandButtons).catch(updateExpandButtons);
   }

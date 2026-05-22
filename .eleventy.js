@@ -12,6 +12,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/images/favicon.png": "favicon.ico" });
   eleventyConfig.addPassthroughCopy({
     "src/assets/js/i18n.js": "assets/js/i18n.js",
+    "src/assets/js/strip-scroll.js": "assets/js/strip-scroll.js",
     "src/assets/js/clients-strip.js": "assets/js/clients-strip.js",
   });
   // Watch data so navigation/content tweaks trigger rebuild
