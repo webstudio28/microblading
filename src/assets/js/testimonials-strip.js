@@ -14,6 +14,30 @@
     strip.classList.add("strip-native-scroll");
     var wrap = strip.closest(".testimonials-strip-wrapper");
     if (wrap) wrap.classList.add("strip-native-scroll");
+    wireNativeScrollClamp(strip);
+  }
+
+  function clampNativeScroll(strip) {
+    var max = Math.max(0, strip.scrollWidth - strip.clientWidth);
+    if (strip.scrollLeft < 0) {
+      strip.scrollLeft = 0;
+    } else if (strip.scrollLeft > max) {
+      strip.scrollLeft = max;
+    }
+  }
+
+  function wireNativeScrollClamp(strip) {
+    if (strip.dataset.nativeScrollClamp) return;
+    strip.dataset.nativeScrollClamp = "1";
+    strip.addEventListener("scroll", function () {
+      clampNativeScroll(strip);
+    }, { passive: true });
+    strip.addEventListener("touchend", function () {
+      clampNativeScroll(strip);
+    }, { passive: true });
+    window.addEventListener("resize", function () {
+      clampNativeScroll(strip);
+    });
   }
 
   function bootStrips() {

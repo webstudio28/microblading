@@ -2143,6 +2143,54 @@
 
   /* Mobile: native horizontal scroll — strip is the scroll container */
   @media (max-width: 767px) {
+    .testimonials-strip-wrapper {
+      overflow: hidden;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+
+    .testimonials-strip {
+      transform: none !important;
+      will-change: auto;
+      cursor: default;
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+      touch-action: pan-x pan-y;
+      user-select: auto;
+      -webkit-user-select: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      scroll-padding-left: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
+      scroll-padding-right: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
+    }
+
+    .testimonials-strip::-webkit-scrollbar {
+      display: none;
+    }
+
+    .testimonials-strip .testimonials-strip-set:not([aria-hidden="true"]) {
+      padding-left: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
+      padding-right: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
+    }
+
+    .testimonials-strip .testimonials-strip-set[aria-hidden="true"] {
+      display: none !important;
+    }
+
+    .testimonials-strip .testimonial-card {
+      flex: 0 0 clamp(11.5rem, 68vw, 14.5rem);
+      padding: 1rem 1rem 0.85rem;
+    }
+
+    .testimonials-strip .testimonial-card__quote {
+      font-size: 0.8125rem;
+      line-clamp: 8;
+      -webkit-line-clamp: 8;
+    }
+
     /* Wrapper: just a visual clip, not the scrollport */
     .clients-strip-wrapper.strip-native-scroll {
       overflow: hidden;
@@ -2194,6 +2242,7 @@
 
     .strip-native-scroll .testimonial-card__quote {
       font-size: 0.8125rem;
+      line-clamp: 8;
       -webkit-line-clamp: 8;
     }
   }
