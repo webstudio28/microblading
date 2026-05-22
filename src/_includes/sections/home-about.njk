@@ -1,4 +1,5 @@
 {% set a = home.about if home and home.about else {} %}
+{% from "macros/image.njk" import responsiveImg %}
 <section
   id="about"
   class="relative section-padding bg-gradient-to-br from-[#A48C77] to-[#C1AE9A]"
@@ -23,33 +24,30 @@
 
     {# Same photos as modal: 1 col mobile, 2 cols md–lg, 3 cols lg+ #}
     <div class="about-section__photos mx-auto grid w-full max-w-5xl grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3">
-      <img
-        src="{{ '/assets/images/za-men2.jpg' | url }}"
-        alt="За мен — снимка 1"
-        class="aspect-[3/4] w-full rounded-xl object-cover shadow-[0_8px_24px_rgba(0,0,0,0.12)]"
-        width="480"
-        height="640"
-        loading="lazy"
-        decoding="async"
-      >
-      <img
-        src="{{ '/assets/images/za-men1.jpg' | url }}"
-        alt="За мен — снимка 2"
-        class="hidden aspect-[3/4] w-full rounded-xl object-cover shadow-[0_8px_24px_rgba(0,0,0,0.12)] md:block"
-        width="480"
-        height="640"
-        loading="lazy"
-        decoding="async"
-      >
-      <img
-        src="{{ '/assets/images/za-men3.jpg' | url }}"
-        alt="За мен — снимка 3"
-        class="hidden aspect-[3/4] w-full rounded-xl object-cover shadow-[0_8px_24px_rgba(0,0,0,0.12)] lg:block"
-        width="480"
-        height="640"
-        loading="lazy"
-        decoding="async"
-      >
+      {{ responsiveImg('/assets/images/za-men2.jpg', {
+        alt: 'За мен — снимка 1',
+        class: 'aspect-[3/4] w-full rounded-xl object-cover shadow-[0_8px_24px_rgba(0,0,0,0.12)]',
+        width: 480,
+        height: 640,
+        maxWidth: 800,
+        sizes: '(min-width: 1024px) 320px, (min-width: 768px) 50vw, 100vw'
+      }) }}
+      {{ responsiveImg('/assets/images/za-men1.jpg', {
+        alt: 'За мен — снимка 2',
+        class: 'hidden aspect-[3/4] w-full rounded-xl object-cover shadow-[0_8px_24px_rgba(0,0,0,0.12)] md:block',
+        width: 480,
+        height: 640,
+        maxWidth: 800,
+        sizes: '(min-width: 1024px) 320px, 50vw'
+      }) }}
+      {{ responsiveImg('/assets/images/za-men3.jpg', {
+        alt: 'За мен — снимка 3',
+        class: 'hidden aspect-[3/4] w-full rounded-xl object-cover shadow-[0_8px_24px_rgba(0,0,0,0.12)] lg:block',
+        width: 480,
+        height: 640,
+        maxWidth: 800,
+        sizes: '(min-width: 1024px) 320px, 33vw'
+      }) }}
     </div>
 
     <div class="mx-auto mt-6 flex w-full max-w-3xl flex-col items-center text-center md:mt-8">
@@ -102,9 +100,9 @@
       {% endif %}
 
       <div class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
-        <img src="{{ '/assets/images/za-men1.jpg' | url }}" alt="За мен - снимка 1" class="about-modal-media aspect-[3/4] w-full cursor-pointer rounded-xl object-cover" width="480" height="640" loading="lazy" decoding="async" data-about-media-trigger data-about-media-type="image" data-about-media-src="{{ '/assets/images/za-men1.jpg' | url }}" />
-        <img src="{{ '/assets/images/za-men2.jpg' | url }}" alt="За мен - снимка 2" class="about-modal-media aspect-[3/4] w-full cursor-pointer rounded-xl object-cover" width="480" height="640" loading="lazy" decoding="async" data-about-media-trigger data-about-media-type="image" data-about-media-src="{{ '/assets/images/za-men2.jpg' | url }}" />
-        <img src="{{ '/assets/images/za-men3.jpg' | url }}" alt="За мен - снимка 3" class="about-modal-media aspect-[3/4] w-full cursor-pointer rounded-xl object-cover" width="480" height="640" loading="lazy" decoding="async" data-about-media-trigger data-about-media-type="image" data-about-media-src="{{ '/assets/images/za-men3.jpg' | url }}" />
+        {{ responsiveImg('/assets/images/za-men1.jpg', { alt: 'За мен - снимка 1', class: 'about-modal-media aspect-[3/4] w-full cursor-pointer rounded-xl object-cover', width: 480, height: 640, maxWidth: 520, sizes: '(min-width: 640px) 33vw, 50vw', attrs: 'data-about-media-trigger data-about-media-type="image" data-about-media-src="' ~ ('/assets/images/za-men1.jpg' | optGalleryUrl | url) ~ '"' }) }}
+        {{ responsiveImg('/assets/images/za-men2.jpg', { alt: 'За мен - снимка 2', class: 'about-modal-media aspect-[3/4] w-full cursor-pointer rounded-xl object-cover', width: 480, height: 640, maxWidth: 520, sizes: '(min-width: 640px) 33vw, 50vw', attrs: 'data-about-media-trigger data-about-media-type="image" data-about-media-src="' ~ ('/assets/images/za-men2.jpg' | optGalleryUrl | url) ~ '"' }) }}
+        {{ responsiveImg('/assets/images/za-men3.jpg', { alt: 'За мен - снимка 3', class: 'about-modal-media aspect-[3/4] w-full cursor-pointer rounded-xl object-cover', width: 480, height: 640, maxWidth: 520, sizes: '(min-width: 640px) 33vw, 50vw', attrs: 'data-about-media-trigger data-about-media-type="image" data-about-media-src="' ~ ('/assets/images/za-men3.jpg' | optGalleryUrl | url) ~ '"' }) }}
         <div class="about-modal-media relative aspect-[3/4] w-full cursor-pointer overflow-hidden rounded-xl" data-about-media-trigger data-about-media-type="video" data-about-media-src="{{ '/assets/images/about-me1.mp4' | url }}">
           <video src="{{ '/assets/images/about-me1.mp4' | url }}" class="h-full w-full object-cover" muted playsinline loop preload="metadata" aria-label="За мен — видео 1"></video>
           <span class="pointer-events-none absolute inset-0 flex items-center justify-center"><svg viewBox="0 0 56 56" fill="none" class="h-14 w-14"><circle cx="28" cy="28" r="26" fill="rgba(255,255,255,0.88)"/><path fill="#3a2415" d="M23 17v22l18-11-18-11Z"/></svg></span>

@@ -1,3 +1,4 @@
+{% from "macros/image.njk" import responsiveImg %}
 {% set headerCta = home.hero.ctaPrimary if home and home.hero and home.hero.ctaPrimary else { "label": "Запази час", "url": "https://studio24.bg/m/p16841", "external": true } %}
 {# pageNav: when set in page front matter, use isolated nav (no home page links) #}
 {% set activeNav = pageNav if pageNav else site.nav.header %}
@@ -10,13 +11,15 @@
       {% if pageNav %}
       <span class="shrink-0">
         {% if site and site.brand and site.brand.logo %}
-          <img
-            src="{{ site.brand.logo | url }}"
-            alt="{{ site.brand.logoAlt | default(site.brand.name) }}"
-            class="h-10 w-auto"
-            width="120" height="40"
-            fetchpriority="high"
-          >
+          {{ responsiveImg(site.brand.logo, {
+            alt: site.brand.logoAlt | default(site.brand.name),
+            class: "h-10 w-auto",
+            width: 120,
+            height: 40,
+            loading: "eager",
+            maxWidth: 280,
+            fetchpriority: "high"
+          }) }}
         {% else %}
           <span class="text-ink font-semibold text-lg">{{ site.brand.name | default("Валя Матовска") }}</span>
         {% endif %}
@@ -24,13 +27,15 @@
       {% else %}
       <a href="{{ '/' | url }}" class="shrink-0" aria-label="{% if site and site.brand %}{{ site.brand.logoAlt | default(site.brand.name) }}{% else %}Home{% endif %}">
         {% if site and site.brand and site.brand.logo %}
-          <img
-            src="{{ site.brand.logo | url }}"
-            alt="{{ site.brand.logoAlt | default(site.brand.name) }}"
-            class="h-10 w-auto"
-            width="120" height="40"
-            fetchpriority="high"
-          >
+          {{ responsiveImg(site.brand.logo, {
+            alt: site.brand.logoAlt | default(site.brand.name),
+            class: "h-10 w-auto",
+            width: 120,
+            height: 40,
+            loading: "eager",
+            maxWidth: 280,
+            fetchpriority: "high"
+          }) }}
         {% else %}
           <span class="text-ink font-semibold text-lg">{{ site.brand.name | default("Валя Матовска") }}</span>
         {% endif %}

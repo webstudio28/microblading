@@ -14,11 +14,34 @@
     strip.classList.add("strip-native-scroll");
     var wrap = strip.closest(".testimonials-strip-wrapper");
     if (wrap) wrap.classList.add("strip-native-scroll");
+    removeMobileCloneSet(strip);
+    forceNativeScrollStyles(strip);
     wireNativeScrollClamp(strip);
   }
 
+  function removeMobileCloneSet(strip) {
+    strip.querySelectorAll(".testimonials-strip-set[aria-hidden='true']").forEach(function (set) {
+      set.remove();
+    });
+  }
+
+  function forceNativeScrollStyles(strip) {
+    strip.style.transform = "none";
+    strip.style.willChange = "auto";
+    strip.style.cursor = "default";
+    strip.style.width = "100%";
+    strip.style.overflowX = "auto";
+    strip.style.overflowY = "hidden";
+  }
+
+  function getNativeMaxScroll(strip) {
+    var visibleSet = strip.querySelector(".testimonials-strip-set");
+    if (!visibleSet) return Math.max(0, strip.scrollWidth - strip.clientWidth);
+    return Math.max(0, Math.ceil(visibleSet.getBoundingClientRect().width - strip.clientWidth));
+  }
+
   function clampNativeScroll(strip) {
-    var max = Math.max(0, strip.scrollWidth - strip.clientWidth);
+    var max = getNativeMaxScroll(strip);
     if (strip.scrollLeft < 0) {
       strip.scrollLeft = 0;
     } else if (strip.scrollLeft > max) {
@@ -30,6 +53,11 @@
     if (strip.dataset.nativeScrollClamp) return;
     strip.dataset.nativeScrollClamp = "1";
     strip.addEventListener("scroll", function () {
+      window.requestAnimationFrame(function () {
+        clampNativeScroll(strip);
+      });
+    }, { passive: true });
+    strip.addEventListener("touchmove", function () {
       clampNativeScroll(strip);
     }, { passive: true });
     strip.addEventListener("touchend", function () {

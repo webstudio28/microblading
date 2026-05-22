@@ -8,7 +8,9 @@
     "start": "npm-run-all --parallel css:watch serve",
     "dev": "npm start",
     "serve": "eleventy --serve",
-    "build": "npm run css:build && eleventy",
+    "build": "npm-run-all optimize:images css:build build:site",
+    "optimize:images": "node scripts/optimize-images.js",
+    "build:site": "eleventy",
     "css:build": "tailwindcss -i ./src/assets/css/tailwind.css -o ./src/assets/css/styles.css --minify",
     "css:watch": "tailwindcss -i ./src/assets/css/tailwind.css -o ./src/assets/css/styles.css --watch",
     "deploy": "echo \"Use GitHub Actions instead\""
@@ -16,6 +18,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "npm-run-all": "^4.1.5",
+    "sharp": "^0.33.5",
     "tailwindcss": "^3.4.0"
   }
 }

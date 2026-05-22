@@ -1,4 +1,5 @@
 {% set h = home.hero if home and home.hero else {} %}
+{% set heroImage = h.image | default('/assets/images/hero-img.jpeg') %}
 <section class="hero-section section-padding" id="hero">
   <div class="container-custom">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-center">
@@ -19,14 +20,19 @@
             <picture>
               <source
                 media="(max-width: 767px)"
-                srcset="{{ '/assets/images/hero-img2-mobile.jpeg' | url }}"
+                srcset="{{ '/assets/images/hero-img2-mobile.jpeg' | imgSrcset(828) | url }}"
+                sizes="100vw"
               >
               <img
-                src="{{ h.image | default('/assets/images/hero-img.jpeg') | url }}"
+                src="{{ heroImage | optImg(1200) | url }}"
+                srcset="{{ heroImage | imgSrcset(1200) | url }}"
+                sizes="100vw"
                 alt="{{ h.imageAlt | default('Hero image') }}"
                 class="hero-photo"
                 width="460" height="540"
                 loading="eager"
+                decoding="async"
+                fetchpriority="high"
                 data-i18n-attr="alt:home.hero.imageAlt"
               >
             </picture>
@@ -64,14 +70,19 @@
           <picture>
             <source
               media="(max-width: 767px)"
-              srcset="{{ '/assets/images/hero-img-mobile.jpg' | url }}"
+              srcset="{{ '/assets/images/hero-img-mobile.jpg' | imgSrcset(828) | url }}"
+              sizes="100vw"
             >
             <img
-              src="{{ h.image | default('/assets/images/hero-img.jpeg') | url }}"
+              src="{{ heroImage | optImg(1200) | url }}"
+              srcset="{{ heroImage | imgSrcset(1200) | url }}"
+              sizes="(min-width: 1024px) 460px, 50vw"
               alt="{{ h.imageAlt | default('Hero image') }}"
               class="hero-photo"
               width="460" height="540"
               loading="eager"
+              decoding="async"
+              fetchpriority="high"
               data-i18n-attr="alt:home.hero.imageAlt"
             >
           </picture>

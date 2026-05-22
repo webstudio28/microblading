@@ -54,11 +54,15 @@ pageNav:
           <div class="flex w-full justify-center md:hidden">
             <div class="hero-photo-wrap w-full max-w-none">
               <img
-                src="{{ lpHeroMobile | url }}"
+                src="{{ lpHeroMobile | optImg(828) | url }}"
+                srcset="{{ lpHeroMobile | imgSrcset(828) | url }}"
+                sizes="100vw"
                 alt="{{ lpHeroAlt }}"
                 class="hero-photo"
                 width="460" height="540"
                 loading="eager"
+                decoding="async"
+                fetchpriority="high"
                 data-i18n-attr="alt:pages.mikrobleiding.hero.imageAlt"
               >
             </div>
@@ -82,11 +86,15 @@ pageNav:
         <div class="order-2 hidden justify-center md:flex lg:justify-end">
           <div class="hero-photo-wrap">
             <img
-              src="{{ lpHeroDesktop | url }}"
+              src="{{ lpHeroDesktop | optImg(1200) | url }}"
+              srcset="{{ lpHeroDesktop | imgSrcset(1200) | url }}"
+              sizes="(min-width: 1024px) 460px, 50vw"
               alt="{{ lpHeroAlt }}"
               class="hero-photo"
               width="460" height="540"
               loading="eager"
+              decoding="async"
+              fetchpriority="high"
               data-i18n-attr="alt:pages.mikrobleiding.hero.imageAlt"
             >
           </div>
@@ -396,7 +404,9 @@ pageNav:
 
       <div class="mx-auto grid max-w-4xl gap-8 md:grid-cols-[340px_1fr] md:items-start md:gap-12">
         <img
-          src="{{ '/assets/images/za-men2.jpg' | url }}"
+          src="{{ '/assets/images/za-men2.jpg' | optImg(800) | url }}"
+          srcset="{{ '/assets/images/za-men2.jpg' | imgSrcset(800) | url }}"
+          sizes="(min-width: 768px) 340px, 100vw"
           alt="Валя Матовска — специалист по микроблейдинг"
           class="aspect-[3/4] w-full rounded-2xl object-cover shadow-[0_8px_32px_rgba(0,0,0,0.18)]"
           width="340"
@@ -668,7 +678,7 @@ pageNav:
           </span>
           {% else %}
           <img
-            src="{{ item.src | url }}"
+            src="{{ item.src | optGalleryUrl | url }}"
             alt="{{ item.alt | default('Микроблейдинг снимка') }}"
             data-lp-mb-gallery-item
             data-lp-mb-gallery-index="{{ loop.index0 }}"

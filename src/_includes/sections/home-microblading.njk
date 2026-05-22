@@ -96,7 +96,7 @@
         </span>
         {% else %}
         <img
-          src="{{ item.src | url }}"
+          src="{{ item.src | optGalleryUrl | url }}"
           alt="{{ item.alt | default('Микроблейдинг снимка') }}"
           data-mb-gallery-item
           data-mb-gallery-index="{{ loop.index0 }}"

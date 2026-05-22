@@ -46,7 +46,7 @@
           <div class="client-card__visual">
             {% if baSingleImage %}
             <img
-              src="{{ client.image | url }}"
+              src="{{ client.image | optImg(800) | url }}"
               alt="{{ client.alt | default('Преди и след — резултат') }}"
               class="client-card__img"
               loading="lazy"
@@ -56,11 +56,11 @@
             >
             {% else %}
             <div class="client-card__half">
-              <img src="{{ client.beforeImage | url }}" alt="{{ client.name }} преди" class="client-card__img" loading="lazy" decoding="async" draggable="false">
+              <img src="{{ client.beforeImage | optImg(520) | url }}" alt="{{ client.name }} преди" class="client-card__img" loading="lazy" decoding="async" draggable="false">
               <span class="client-card__label" data-i18n="ui.before">Преди</span>
             </div>
             <div class="client-card__half">
-              <img src="{{ client.afterImage | url }}" alt="{{ client.name }} след" class="client-card__img" loading="lazy" decoding="async" draggable="false">
+              <img src="{{ client.afterImage | optImg(520) | url }}" alt="{{ client.name }} след" class="client-card__img" loading="lazy" decoding="async" draggable="false">
               <span class="client-card__label" data-i18n="ui.after">След</span>
             </div>
             {% endif %}
@@ -82,7 +82,7 @@
           <div class="client-card__visual">
             {% if baSingleImage %}
             <img
-              src="{{ client.image | url }}"
+              src="{{ client.image | optImg(800) | url }}"
               alt=""
               class="client-card__img"
               loading="lazy"
@@ -92,11 +92,11 @@
             >
             {% else %}
             <div class="client-card__half">
-              <img src="{{ client.beforeImage | url }}" alt="" class="client-card__img" loading="lazy" decoding="async" draggable="false">
+              <img src="{{ client.beforeImage | optImg(520) | url }}" alt="" class="client-card__img" loading="lazy" decoding="async" draggable="false">
               <span class="client-card__label" data-i18n="ui.before">Преди</span>
             </div>
             <div class="client-card__half">
-              <img src="{{ client.afterImage | url }}" alt="" class="client-card__img" loading="lazy" decoding="async" draggable="false">
+              <img src="{{ client.afterImage | optImg(520) | url }}" alt="" class="client-card__img" loading="lazy" decoding="async" draggable="false">
               <span class="client-card__label" data-i18n="ui.after">След</span>
             </div>
             {% endif %}

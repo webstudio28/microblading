@@ -1,0 +1,43 @@
+{# Responsive WebP image from optimize-images manifest. Pass asset path like /assets/images/foo.jpg #}
+{% macro responsiveImg(src, options) %}
+{% set o = options or {} %}
+{% set alt = o.alt | default("") %}
+{% set class = o.class | default("") %}
+{% set loading = o.loading | default("lazy") %}
+{% set decoding = o.decoding | default("async") %}
+{% set fetchpriority = o.fetchpriority %}
+{% set sizes = o.sizes | default("100vw") %}
+{% set maxWidth = o.maxWidth | default(0) %}
+{% set width = o.width %}
+{% set height = o.height %}
+{% set attrs = o.attrs | default("") %}
+{% set picture = src | imgPicture(maxWidth) %}
+{% if picture and picture.srcset %}
+<picture>
+  <source type="image/webp" srcset="{{ picture.srcset | url }}" sizes="{{ sizes }}" />
+  <img
+    src="{{ picture.fallback | url }}"
+    alt="{{ alt }}"
+    {% if class %}class="{{ class }}"{% endif %}
+    width="{{ width or picture.width }}"
+    height="{{ height or picture.height }}"
+    loading="{{ loading }}"
+    decoding="{{ decoding }}"
+    {% if fetchpriority %}fetchpriority="{{ fetchpriority }}"{% endif %}
+    {{ attrs | safe }}
+  />
+</picture>
+{% else %}
+<img
+  src="{{ src | url }}"
+  alt="{{ alt }}"
+  {% if class %}class="{{ class }}"{% endif %}
+  {% if width %}width="{{ width }}"{% endif %}
+  {% if height %}height="{{ height }}"{% endif %}
+  loading="{{ loading }}"
+  decoding="{{ decoding }}"
+  {% if fetchpriority %}fetchpriority="{{ fetchpriority }}"{% endif %}
+  {{ attrs | safe }}
+/>
+{% endif %}
+{% endmacro %}

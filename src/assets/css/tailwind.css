@@ -560,6 +560,25 @@
     background: transparent;
   }
 
+  /* Home: half vertical gap between before/after carousel and testimonials */
+  #clients.section-padding {
+    padding-bottom: calc(var(--section-padding-y) * 0.5);
+  }
+  #clients .clients-strip {
+    padding-bottom: 2.125rem;
+  }
+  #clients + #testimonials.section-padding {
+    padding-top: calc(var(--section-padding-y) * 0.5);
+  }
+  @media (min-width: 768px) {
+    #clients.section-padding {
+      padding-bottom: calc(var(--section-padding-y-md) * 0.5);
+    }
+    #clients + #testimonials.section-padding {
+      padding-top: calc(var(--section-padding-y-md) * 0.5);
+    }
+  }
+
   /* In-section modals (microblading "learn more"): same stacking behavior as .mb-section */
   #microblading,
   #lp-what {
@@ -2150,6 +2169,7 @@
     }
 
     .testimonials-strip {
+      display: block;
       transform: none !important;
       will-change: auto;
       cursor: default;
@@ -2172,6 +2192,8 @@
     }
 
     .testimonials-strip .testimonials-strip-set:not([aria-hidden="true"]) {
+      width: max-content;
+      width: -webkit-max-content;
       padding-left: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
       padding-right: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
     }
