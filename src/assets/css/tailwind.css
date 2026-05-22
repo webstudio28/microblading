@@ -1804,7 +1804,7 @@
     flex-shrink: 0;
     flex-wrap: nowrap;
     gap: 2.25rem;
-    padding-left: 1rem;
+    padding-left: 2.25rem;
   }
 
   /* ─────────────────────────────────────────────────────────────
@@ -1851,7 +1851,7 @@
     flex-shrink: 0;
     flex-wrap: nowrap;
     gap: 1.25rem;
-    padding-left: 1rem;
+    padding-left: 1.25rem;
   }
 
   .testimonial-card {
@@ -2129,7 +2129,7 @@
   @media (min-width: 1024px) {
     .clients-strip-set {
       gap: 5.5rem;
-      padding-left: 1.5rem;
+      padding-left: 5.5rem;
     }
 
     .client-card {
@@ -2141,47 +2141,47 @@
     }
   }
 
-  /* Mobile: native horizontal scroll (same touch + gutters as .mb-steps__viewport) */
+  /* Mobile: native horizontal scroll — strip is the scroll container */
   @media (max-width: 767px) {
-    .clients-strip-wrapper.strip-native-scroll,
-    .testimonials-strip-wrapper.strip-native-scroll {
-      overflow-x: auto;
-      overflow-y: visible;
-      -webkit-overflow-scrolling: touch;
-      touch-action: pan-x pan-y;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      scroll-padding-left: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
-      scroll-padding-right: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
+    /* Wrapper: just a visual clip, not the scrollport */
+    .clients-strip-wrapper.strip-native-scroll {
+      overflow: hidden;
     }
-
-    .clients-strip-wrapper.strip-native-scroll::-webkit-scrollbar,
-    .testimonials-strip-wrapper.strip-native-scroll::-webkit-scrollbar {
-      display: none;
-    }
-
     .testimonials-strip-wrapper.strip-native-scroll {
+      overflow: hidden;
       mask-image: none;
       -webkit-mask-image: none;
     }
 
+    /* Strip: becomes the scrollport */
     .strip-native-scroll.clients-strip,
     .strip-native-scroll.testimonials-strip {
       transform: none !important;
       will-change: auto;
       cursor: default;
-      overflow: visible;
-      touch-action: auto;
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-x pan-y;
       user-select: auto;
       -webkit-user-select: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .strip-native-scroll.clients-strip::-webkit-scrollbar,
+    .strip-native-scroll.testimonials-strip::-webkit-scrollbar {
+      display: none;
     }
 
+    /* Visible set: gutter padding so first and last card align with page content */
     .strip-native-scroll .clients-strip-set:not([aria-hidden="true"]),
     .strip-native-scroll .testimonials-strip-set:not([aria-hidden="true"]) {
       padding-left: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
       padding-right: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
     }
 
+    /* Hide the duplicate loop set */
     .strip-native-scroll .clients-strip-set[aria-hidden="true"],
     .strip-native-scroll .testimonials-strip-set[aria-hidden="true"] {
       display: none !important;
