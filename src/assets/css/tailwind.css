@@ -1791,6 +1791,8 @@
   }
   .clients-strip {
     display: flex;
+    flex-wrap: nowrap;
+    width: -webkit-max-content;
     width: max-content;
     padding: 0.5rem 0 4.25rem 0;
     scrollbar-width: none;
@@ -1802,6 +1804,7 @@
   .clients-strip-set {
     display: flex;
     flex-shrink: 0;
+    flex-wrap: nowrap;
     gap: 2.25rem;
     padding-left: 1rem;
   }
@@ -1830,6 +1833,8 @@
 
   .testimonials-strip {
     display: flex;
+    flex-wrap: nowrap;
+    width: -webkit-max-content;
     width: max-content;
     padding: 0.35rem 0 3.5rem;
     user-select: none;
@@ -1840,6 +1845,7 @@
   .testimonials-strip-set {
     display: flex;
     flex-shrink: 0;
+    flex-wrap: nowrap;
     gap: 1.25rem;
     padding-left: 1rem;
   }
@@ -2015,7 +2021,9 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    /* aspect-ratio for modern browsers; explicit min-height for iOS Safari fallback */
     aspect-ratio: 2 / 3.35;
+    min-height: clamp(26.38rem, 87vw, 30.57rem);
     overflow: hidden;
     background: #f0e9df;
     border-radius: 1.2rem;
@@ -2025,6 +2033,7 @@
   @media (min-width: 768px) {
     .client-card__visual {
       aspect-ratio: 4 / 5;
+      min-height: clamp(21rem, 40vw, 24rem);
     }
   }
 
@@ -2041,8 +2050,7 @@
 
   .client-card__half {
     position: relative;
-    flex: 1;
-    min-height: 0;
+    flex: 0 0 50%;
     overflow: hidden;
   }
 

@@ -156,14 +156,20 @@
       var active = resolveStrip();
       if (!active) return;
       attachToStrip(active);
-      if (setWidth === 0) {
-        window.addEventListener(
-          "load",
-          function () {
-            refreshMeasurements();
-          },
-          { once: true }
-        );
+      // Always re-measure after full page load — iOS Safari may not have
+      // resolved image/font dimensions yet at DOMContentLoaded.
+      window.addEventListener(
+        "load",
+        function () {
+          refreshMeasurements();
+        },
+        { once: true }
+      );
+      // Re-measure after webfonts settle (affects card widths for text strips).
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function () {
+          refreshMeasurements();
+        });
       }
     }
 
