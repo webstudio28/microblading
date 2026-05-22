@@ -1797,9 +1797,6 @@
     padding: 0.5rem 0 4.25rem 0;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: pan-y;
   }
   .clients-strip-set {
     display: flex;
@@ -1837,9 +1834,15 @@
     width: -webkit-max-content;
     width: max-content;
     padding: 0.35rem 0 3.5rem;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: pan-y;
+  }
+
+  @media (min-width: 768px) {
+    .clients-strip,
+    .testimonials-strip {
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: pan-y;
+    }
   }
 
   .testimonials-strip-set {
@@ -2134,6 +2137,56 @@
 
     .client-card--single {
       flex: 0 0 24rem;
+    }
+  }
+
+  /* Mobile: native horizontal scroll only (no JS drag / transform) */
+  @media (max-width: 767px) {
+    .clients-strip-wrapper.strip-native-scroll,
+    .testimonials-strip-wrapper.strip-native-scroll {
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+      touch-action: pan-x;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .clients-strip-wrapper.strip-native-scroll::-webkit-scrollbar,
+    .testimonials-strip-wrapper.strip-native-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .testimonials-strip-wrapper.strip-native-scroll {
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+
+    .strip-native-scroll.clients-strip,
+    .strip-native-scroll.testimonials-strip {
+      transform: none !important;
+      will-change: auto;
+      cursor: default;
+      overflow: visible;
+      touch-action: auto;
+      user-select: auto;
+      -webkit-user-select: auto;
+    }
+
+    .strip-native-scroll .clients-strip-set[aria-hidden="true"],
+    .strip-native-scroll .testimonials-strip-set[aria-hidden="true"] {
+      display: none !important;
+    }
+
+    .strip-native-scroll .testimonial-card {
+      flex: 0 0 clamp(11.5rem, 68vw, 14.5rem);
+      padding: 1rem 1rem 0.85rem;
+    }
+
+    .strip-native-scroll .testimonial-card__quote {
+      font-size: 0.8125rem;
+      -webkit-line-clamp: 8;
     }
   }
 
