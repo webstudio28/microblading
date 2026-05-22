@@ -2140,17 +2140,18 @@
     }
   }
 
-  /* Mobile: native horizontal scroll only (no JS drag / transform) */
+  /* Mobile: native horizontal scroll (same touch + gutters as .mb-steps__viewport) */
   @media (max-width: 767px) {
     .clients-strip-wrapper.strip-native-scroll,
     .testimonials-strip-wrapper.strip-native-scroll {
       overflow-x: auto;
-      overflow-y: hidden;
+      overflow-y: visible;
       -webkit-overflow-scrolling: touch;
-      overscroll-behavior-x: contain;
-      touch-action: pan-x;
+      touch-action: pan-x pan-y;
       scrollbar-width: none;
       -ms-overflow-style: none;
+      scroll-padding-left: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
+      scroll-padding-right: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
     }
 
     .clients-strip-wrapper.strip-native-scroll::-webkit-scrollbar,
@@ -2172,6 +2173,12 @@
       touch-action: auto;
       user-select: auto;
       -webkit-user-select: auto;
+    }
+
+    .strip-native-scroll .clients-strip-set:not([aria-hidden="true"]),
+    .strip-native-scroll .testimonials-strip-set:not([aria-hidden="true"]) {
+      padding-left: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
+      padding-right: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
     }
 
     .strip-native-scroll .clients-strip-set[aria-hidden="true"],
