@@ -115,6 +115,12 @@
       var x = getClientX(e);
       sampleVelocity(x);
       position = startPos + (x - startX);
+      // Wrap mid-drag so the user can never reach blank space past set 2.
+      // Also update startPos so the drag continues smoothly from the wrapped position.
+      if (setWidth > 0) {
+        while (position < -setWidth) { position += setWidth; startPos += setWidth; }
+        while (position > 0) { position -= setWidth; startPos -= setWidth; }
+      }
     }
 
     function onUp() {
