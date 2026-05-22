@@ -1620,8 +1620,9 @@
   .mb-info-modal__text {
     margin: 1rem 0 0;
     color: var(--color-muted);
-    line-height: 1.72;
+    line-height: 1.73;
     font-size: 1.02rem;
+    
   }
 
   .mb-gallery-modal {
