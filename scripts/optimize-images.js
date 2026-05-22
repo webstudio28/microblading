@@ -1,6 +1,8 @@
 /**
  * Generates WebP variants under src/assets/optimized/ and a manifest for Eleventy.
- * Run: node scripts/optimize-images.js
+ * Not part of `npm run build` — run only when source images change:
+ *   npm run optimize:images
+ * Then commit src/assets/optimized/ and src/_data/optimized-images.json.
  */
 const fs = require("fs");
 const path = require("path");

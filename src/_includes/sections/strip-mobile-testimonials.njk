@@ -1,0 +1,35 @@
+{#-
+  Required: items (array of { quote, name, sourceIndex? })
+  Optional: ariaLabel, ariaLabelI18n
+-#}
+{% set testimonialItems = items if items else [] %}
+{% if testimonialItems.length %}
+<div class="strip-mobile-only">
+  <div
+    class="mobile-scroll-strip mobile-scroll-strip--testimonials"
+    {% if ariaLabel %}aria-label="{{ ariaLabel }}"{% endif %}
+    {% if ariaLabelI18n %} data-i18n-attr="aria-label:{{ ariaLabelI18n }}"{% endif %}
+  >
+    {% for item in testimonialItems %}
+    {% set i18nIdx = item.sourceIndex if item.sourceIndex is defined else loop.index0 %}
+    <article class="testimonial-card" data-testimonial-index="{{ loop.index0 }}">
+      <div class="testimonial-card__stars" aria-hidden="true">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <p class="testimonial-card__quote" data-i18n="home.testimonials.items.{{ i18nIdx }}.quote">{{ item.quote }}</p>
+      <button
+        type="button"
+        class="testimonial-card__expand"
+        hidden
+        data-testimonial-open
+        data-testimonial-index="{{ loop.index0 }}"
+        data-i18n="ui.readFullReview"
+      >
+        Виж целия отзив
+      </button>
+      <p class="testimonial-card__name">– <span data-i18n="home.testimonials.items.{{ i18nIdx }}.name">{{ item.name }}</span></p>
+    </article>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

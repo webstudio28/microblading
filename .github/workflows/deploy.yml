@@ -25,7 +25,7 @@ jobs:
       - name: Build CSS
         run: npm run css:build
 
-      - name: Build
+      - name: Build site (uses committed optimized images; no Sharp pass)
         env:
           SITE_URL: ${{ secrets.SITE_URL }}
         run: |

@@ -422,7 +422,7 @@ pageNav:
       </header>
     </div>
 
-    <div class="testimonials-strip-wrapper">
+    <div class="strip-desktop-only testimonials-strip-wrapper">
       <div class="testimonials-strip" aria-label="Отзиви от клиенти — ламиниране">
         <div class="testimonials-strip-set">
           {% for item in lamTestimonials %}
@@ -466,6 +466,10 @@ pageNav:
         </div>
       </div>
     </div>
+
+    {% set items = lamTestimonials %}
+    {% set ariaLabel = "Отзиви от клиенти — ламиниране" %}
+    {% include "sections/strip-mobile-testimonials.njk" %}
   </section>
 
   <script>

@@ -1,0 +1,46 @@
+{#-
+  Required: baList (array)
+  Optional: baSingleImage, baAltI18nPrefix (default homeBeforeAfter)
+-#}
+{% set mobileBaList = baList if baList else [] %}
+{% set mobileBaAltKey = baAltKey | default(baAltI18nPrefix) | default("homeBeforeAfter") %}
+{% if mobileBaList.length %}
+<div class="strip-mobile-only">
+  <div class="mobile-scroll-strip mobile-scroll-strip--clients" role="list" aria-label="Преди и след">
+    {% for client in mobileBaList %}
+    {% set i18nIdx = client.i18nIndex if client.i18nIndex is defined else loop.index0 %}
+    <div class="client-card{% if baSingleImage %} client-card--single{% endif %}" role="listitem" data-client-id="{{ client.id }}">
+      <div class="client-card__visual">
+        {% if baSingleImage %}
+        <img
+          src="{{ client.image | optImg(800) | url }}"
+          alt="{{ client.alt | default('Преди и след — резултат') }}"
+          class="client-card__img"
+          loading="lazy"
+          decoding="async"
+          draggable="false"
+          data-i18n-attr="alt:{{ mobileBaAltKey }}.{{ i18nIdx }}.alt"
+        >
+        {% else %}
+        <div class="client-card__half">
+          <img src="{{ client.beforeImage | optImg(520) | url }}" alt="{{ client.name }} преди" class="client-card__img" loading="lazy" decoding="async" draggable="false">
+          <span class="client-card__label" data-i18n="ui.before">Преди</span>
+        </div>
+        <div class="client-card__half">
+          <img src="{{ client.afterImage | optImg(520) | url }}" alt="{{ client.name }} след" class="client-card__img" loading="lazy" decoding="async" draggable="false">
+          <span class="client-card__label" data-i18n="ui.after">След</span>
+        </div>
+        {% endif %}
+      </div>
+      {% if not baSingleImage and client.services and client.services.length %}
+      <p class="client-card__procedure" aria-label="Процедура">
+        {% for svc in client.services %}
+        <span class="client-card__procedure-item" data-i18n="clients.{{ i18nIdx }}.services.0">{{ svc }}</span>{% if not loop.last %}<span class="client-card__procedure-sep" aria-hidden="true">·</span>{% endif %}
+        {% endfor %}
+      </p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

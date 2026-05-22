@@ -1,0 +1,3673 @@
+{
+  "images": {
+    "images/about-me.jpg": [
+      {
+        "width": 360,
+        "height": 412,
+        "url": "/assets/optimized/about-me-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 595,
+        "url": "/assets/optimized/about-me-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 916,
+        "url": "/assets/optimized/about-me-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1373,
+        "url": "/assets/optimized/about-me-1200w.webp"
+      },
+      {
+        "width": 1384,
+        "height": 1584,
+        "url": "/assets/optimized/about-me-1384w.webp"
+      }
+    ],
+    "images/about-me1.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/about-me1-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/about-me1-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/about-me1-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/about-me1-1200w.webp"
+      }
+    ],
+    "images/about-me5.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/about-me5-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/about-me5-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/about-me5-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/about-me5-1200w.webp"
+      }
+    ],
+    "images/ba3-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/ba3-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/ba3-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/ba3-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/ba3-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/ba3-after-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after-new/before-after1.jpeg": [
+      {
+        "width": 360,
+        "height": 450,
+        "url": "/assets/optimized/before-after-new-before-after1-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 650,
+        "url": "/assets/optimized/before-after-new-before-after1-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1000,
+        "url": "/assets/optimized/before-after-new-before-after1-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1500,
+        "url": "/assets/optimized/before-after-new-before-after1-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 2000,
+        "url": "/assets/optimized/before-after-new-before-after1-1600w.webp"
+      },
+      {
+        "width": 1638,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-new-before-after1-1638w.webp"
+      }
+    ],
+    "images/before-after-new/before-after10.jpeg": [
+      {
+        "width": 360,
+        "height": 450,
+        "url": "/assets/optimized/before-after-new-before-after10-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 650,
+        "url": "/assets/optimized/before-after-new-before-after10-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1000,
+        "url": "/assets/optimized/before-after-new-before-after10-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1500,
+        "url": "/assets/optimized/before-after-new-before-after10-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 2000,
+        "url": "/assets/optimized/before-after-new-before-after10-1600w.webp"
+      },
+      {
+        "width": 1638,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-new-before-after10-1638w.webp"
+      }
+    ],
+    "images/before-after-new/before-after11.jpeg": [
+      {
+        "width": 360,
+        "height": 450,
+        "url": "/assets/optimized/before-after-new-before-after11-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 650,
+        "url": "/assets/optimized/before-after-new-before-after11-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1000,
+        "url": "/assets/optimized/before-after-new-before-after11-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1500,
+        "url": "/assets/optimized/before-after-new-before-after11-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 2000,
+        "url": "/assets/optimized/before-after-new-before-after11-1600w.webp"
+      },
+      {
+        "width": 1638,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-new-before-after11-1638w.webp"
+      }
+    ],
+    "images/before-after-new/before-after12.jpeg": [
+      {
+        "width": 360,
+        "height": 450,
+        "url": "/assets/optimized/before-after-new-before-after12-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 650,
+        "url": "/assets/optimized/before-after-new-before-after12-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1000,
+        "url": "/assets/optimized/before-after-new-before-after12-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1500,
+        "url": "/assets/optimized/before-after-new-before-after12-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 2000,
+        "url": "/assets/optimized/before-after-new-before-after12-1600w.webp"
+      },
+      {
+        "width": 1638,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-new-before-after12-1638w.webp"
+      }
+    ],
+    "images/before-after-new/before-after2.jpeg": [
+      {
+        "width": 360,
+        "height": 450,
+        "url": "/assets/optimized/before-after-new-before-after2-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 650,
+        "url": "/assets/optimized/before-after-new-before-after2-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1000,
+        "url": "/assets/optimized/before-after-new-before-after2-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1500,
+        "url": "/assets/optimized/before-after-new-before-after2-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 2000,
+        "url": "/assets/optimized/before-after-new-before-after2-1600w.webp"
+      },
+      {
+        "width": 1638,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-new-before-after2-1638w.webp"
+      }
+    ],
+    "images/before-after-new/before-after3.jpeg": [
+      {
+        "width": 360,
+        "height": 450,
+        "url": "/assets/optimized/before-after-new-before-after3-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 650,
+        "url": "/assets/optimized/before-after-new-before-after3-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1000,
+        "url": "/assets/optimized/before-after-new-before-after3-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1500,
+        "url": "/assets/optimized/before-after-new-before-after3-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 2000,
+        "url": "/assets/optimized/before-after-new-before-after3-1600w.webp"
+      },
+      {
+        "width": 1638,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-new-before-after3-1638w.webp"
+      }
+    ],
+    "images/before-after-new/before-after4.jpeg": [
+      {
+        "width": 360,
+        "height": 450,
+        "url": "/assets/optimized/before-after-new-before-after4-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 650,
+        "url": "/assets/optimized/before-after-new-before-after4-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1000,
+        "url": "/assets/optimized/before-after-new-before-after4-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1500,
+        "url": "/assets/optimized/before-after-new-before-after4-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 2000,
+        "url": "/assets/optimized/before-after-new-before-after4-1600w.webp"
+      },
+      {
+        "width": 1638,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-new-before-after4-1638w.webp"
+      }
+    ],
+    "images/before-after-new/before-after5.jpeg": [
+      {
+        "width": 360,
+        "height": 450,
+        "url": "/assets/optimized/before-after-new-before-after5-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 650,
+        "url": "/assets/optimized/before-after-new-before-after5-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1000,
+        "url": "/assets/optimized/before-after-new-before-after5-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1500,
+        "url": "/assets/optimized/before-after-new-before-after5-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 2000,
+        "url": "/assets/optimized/before-after-new-before-after5-1600w.webp"
+      },
+      {
+        "width": 1638,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-new-before-after5-1638w.webp"
+      }
+    ],
+    "images/before-after-new/before-after6.jpeg": [
+      {
+        "width": 360,
+        "height": 450,
+        "url": "/assets/optimized/before-after-new-before-after6-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 650,
+        "url": "/assets/optimized/before-after-new-before-after6-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1000,
+        "url": "/assets/optimized/before-after-new-before-after6-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1500,
+        "url": "/assets/optimized/before-after-new-before-after6-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 2000,
+        "url": "/assets/optimized/before-after-new-before-after6-1600w.webp"
+      },
+      {
+        "width": 1638,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-new-before-after6-1638w.webp"
+      }
+    ],
+    "images/before-after-new/before-after7.jpeg": [
+      {
+        "width": 360,
+        "height": 450,
+        "url": "/assets/optimized/before-after-new-before-after7-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 650,
+        "url": "/assets/optimized/before-after-new-before-after7-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1000,
+        "url": "/assets/optimized/before-after-new-before-after7-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1500,
+        "url": "/assets/optimized/before-after-new-before-after7-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 2000,
+        "url": "/assets/optimized/before-after-new-before-after7-1600w.webp"
+      },
+      {
+        "width": 1638,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-new-before-after7-1638w.webp"
+      }
+    ],
+    "images/before-after-new/before-after8.jpeg": [
+      {
+        "width": 360,
+        "height": 450,
+        "url": "/assets/optimized/before-after-new-before-after8-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 650,
+        "url": "/assets/optimized/before-after-new-before-after8-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1000,
+        "url": "/assets/optimized/before-after-new-before-after8-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1500,
+        "url": "/assets/optimized/before-after-new-before-after8-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 2000,
+        "url": "/assets/optimized/before-after-new-before-after8-1600w.webp"
+      },
+      {
+        "width": 1638,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-new-before-after8-1638w.webp"
+      }
+    ],
+    "images/before-after-new/before-after9.jpeg": [
+      {
+        "width": 360,
+        "height": 450,
+        "url": "/assets/optimized/before-after-new-before-after9-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 650,
+        "url": "/assets/optimized/before-after-new-before-after9-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1000,
+        "url": "/assets/optimized/before-after-new-before-after9-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1500,
+        "url": "/assets/optimized/before-after-new-before-after9-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 2000,
+        "url": "/assets/optimized/before-after-new-before-after9-1600w.webp"
+      },
+      {
+        "width": 1638,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-new-before-after9-1638w.webp"
+      }
+    ],
+    "images/before-after/ba1-after-laminirane-migli-vejdi.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba1-after-laminirane-migli-vejdi-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba1-after-laminirane-migli-vejdi-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba1-after-laminirane-migli-vejdi-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba1-after-laminirane-migli-vejdi-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba1-after-laminirane-migli-vejdi-1536w.webp"
+      }
+    ],
+    "images/before-after/ba1-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba1-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba1-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba1-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba1-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba1-after-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba1-before-laminirane-migli-vejdi - Copy.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba1-before-laminirane-migli-vejdi-copy-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba1-before-laminirane-migli-vejdi-copy-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba1-before-laminirane-migli-vejdi-copy-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba1-before-laminirane-migli-vejdi-copy-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba1-before-laminirane-migli-vejdi-copy-1536w.webp"
+      }
+    ],
+    "images/before-after/ba1-before-laminirane-migli-vejdi.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba1-before-laminirane-migli-vejdi-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba1-before-laminirane-migli-vejdi-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba1-before-laminirane-migli-vejdi-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba1-before-laminirane-migli-vejdi-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba1-before-laminirane-migli-vejdi-1536w.webp"
+      }
+    ],
+    "images/before-after/ba1-before-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba1-before-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba1-before-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba1-before-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba1-before-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba1-before-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba10-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba10-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba10-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba10-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba10-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba10-after-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba10-before-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba10-before-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba10-before-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba10-before-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba10-before-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba10-before-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba11-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba11-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba11-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba11-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba11-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba11-after-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba11-before-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba11-before-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba11-before-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba11-before-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba11-before-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba11-before-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba12-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba12-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba12-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba12-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba12-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba12-after-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba12-before-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba12-before-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba12-before-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba12-before-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba12-before-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba12-before-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba13-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 640,
+        "url": "/assets/optimized/before-after-ba13-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 924,
+        "url": "/assets/optimized/before-after-ba13-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1422,
+        "url": "/assets/optimized/before-after-ba13-after-microblading-800w.webp"
+      },
+      {
+        "width": 1152,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba13-after-microblading-1152w.webp"
+      }
+    ],
+    "images/before-after/ba13-before-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 640,
+        "url": "/assets/optimized/before-after-ba13-before-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 924,
+        "url": "/assets/optimized/before-after-ba13-before-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1422,
+        "url": "/assets/optimized/before-after-ba13-before-microblading-800w.webp"
+      },
+      {
+        "width": 1152,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba13-before-microblading-1152w.webp"
+      }
+    ],
+    "images/before-after/ba14-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba14-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba14-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba14-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba14-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba14-after-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba14-before-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba14-before-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba14-before-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba14-before-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba14-before-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba14-before-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba15-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba15-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba15-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba15-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba15-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba15-after-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba15-before-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba15-before-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba15-before-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba15-before-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba15-before-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba15-before-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba2-after-laminirane-i-boqdisvane-vejdi.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba2-after-laminirane-i-boqdisvane-vejdi-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba2-after-laminirane-i-boqdisvane-vejdi-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba2-after-laminirane-i-boqdisvane-vejdi-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba2-after-laminirane-i-boqdisvane-vejdi-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba2-after-laminirane-i-boqdisvane-vejdi-1536w.webp"
+      }
+    ],
+    "images/before-after/ba2-after-microblading-copy.jpeg": [
+      {
+        "width": 360,
+        "height": 270,
+        "url": "/assets/optimized/before-after-ba2-after-microblading-copy-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 390,
+        "url": "/assets/optimized/before-after-ba2-after-microblading-copy-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 600,
+        "url": "/assets/optimized/before-after-ba2-after-microblading-copy-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 900,
+        "url": "/assets/optimized/before-after-ba2-after-microblading-copy-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 1152,
+        "url": "/assets/optimized/before-after-ba2-after-microblading-copy-1536w.webp"
+      }
+    ],
+    "images/before-after/ba2-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 270,
+        "url": "/assets/optimized/before-after-ba2-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 390,
+        "url": "/assets/optimized/before-after-ba2-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 600,
+        "url": "/assets/optimized/before-after-ba2-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 900,
+        "url": "/assets/optimized/before-after-ba2-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "url": "/assets/optimized/before-after-ba2-after-microblading-1600w.webp"
+      },
+      {
+        "width": 1728,
+        "height": 1296,
+        "url": "/assets/optimized/before-after-ba2-after-microblading-1728w.webp"
+      }
+    ],
+    "images/before-after/ba2-before-laminirane-i-boqdisvane-vejdi.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba2-before-laminirane-i-boqdisvane-vejdi-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba2-before-laminirane-i-boqdisvane-vejdi-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba2-before-laminirane-i-boqdisvane-vejdi-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba2-before-laminirane-i-boqdisvane-vejdi-1200w.webp"
+      }
+    ],
+    "images/before-after/ba2-before-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba2-before-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba2-before-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba2-before-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba2-before-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba2-before-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba3-after-laminirane-vejdi-i-migli.jpeg": [
+      {
+        "width": 360,
+        "height": 780,
+        "url": "/assets/optimized/before-after-ba3-after-laminirane-vejdi-i-migli-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 1127,
+        "url": "/assets/optimized/before-after-ba3-after-laminirane-vejdi-i-migli-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1734,
+        "url": "/assets/optimized/before-after-ba3-after-laminirane-vejdi-i-migli-800w.webp"
+      },
+      {
+        "width": 945,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba3-after-laminirane-vejdi-i-migli-945w.webp"
+      }
+    ],
+    "images/before-after/ba3-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba3-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba3-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba3-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba3-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba3-after-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba3-before-laminirane-vejdi-i-migli.jpeg": [
+      {
+        "width": 360,
+        "height": 554,
+        "url": "/assets/optimized/before-after-ba3-before-laminirane-vejdi-i-migli-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 800,
+        "url": "/assets/optimized/before-after-ba3-before-laminirane-vejdi-i-migli-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1230,
+        "url": "/assets/optimized/before-after-ba3-before-laminirane-vejdi-i-migli-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1846,
+        "url": "/assets/optimized/before-after-ba3-before-laminirane-vejdi-i-migli-1200w.webp"
+      },
+      {
+        "width": 1290,
+        "height": 1984,
+        "url": "/assets/optimized/before-after-ba3-before-laminirane-vejdi-i-migli-1290w.webp"
+      }
+    ],
+    "images/before-after/ba3-before-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 419,
+        "url": "/assets/optimized/before-after-ba3-before-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 605,
+        "url": "/assets/optimized/before-after-ba3-before-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 930,
+        "url": "/assets/optimized/before-after-ba3-before-microblading-800w.webp"
+      },
+      {
+        "width": 1165,
+        "height": 1355,
+        "url": "/assets/optimized/before-after-ba3-before-microblading-1165w.webp"
+      }
+    ],
+    "images/before-after/ba4-after-laminirane-vejdi-i-migli.jpeg": [
+      {
+        "width": 360,
+        "height": 780,
+        "url": "/assets/optimized/before-after-ba4-after-laminirane-vejdi-i-migli-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 1127,
+        "url": "/assets/optimized/before-after-ba4-after-laminirane-vejdi-i-migli-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1734,
+        "url": "/assets/optimized/before-after-ba4-after-laminirane-vejdi-i-migli-800w.webp"
+      },
+      {
+        "width": 945,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba4-after-laminirane-vejdi-i-migli-945w.webp"
+      }
+    ],
+    "images/before-after/ba4-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 270,
+        "url": "/assets/optimized/before-after-ba4-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 390,
+        "url": "/assets/optimized/before-after-ba4-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 600,
+        "url": "/assets/optimized/before-after-ba4-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 900,
+        "url": "/assets/optimized/before-after-ba4-after-microblading-1200w.webp"
+      }
+    ],
+    "images/before-after/ba4-before-laminirane-vejdi-i-migli.jpeg": [
+      {
+        "width": 360,
+        "height": 780,
+        "url": "/assets/optimized/before-after-ba4-before-laminirane-vejdi-i-migli-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 1127,
+        "url": "/assets/optimized/before-after-ba4-before-laminirane-vejdi-i-migli-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1734,
+        "url": "/assets/optimized/before-after-ba4-before-laminirane-vejdi-i-migli-800w.webp"
+      },
+      {
+        "width": 945,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba4-before-laminirane-vejdi-i-migli-945w.webp"
+      }
+    ],
+    "images/before-after/ba4-before-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 502,
+        "url": "/assets/optimized/before-after-ba4-before-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 724,
+        "url": "/assets/optimized/before-after-ba4-before-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1114,
+        "url": "/assets/optimized/before-after-ba4-before-microblading-800w.webp"
+      },
+      {
+        "width": 1149,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba4-before-microblading-1149w.webp"
+      }
+    ],
+    "images/before-after/ba5-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba5-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba5-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba5-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba5-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba5-after-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba5-before-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba5-before-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba5-before-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba5-before-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba5-before-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba5-before-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba6-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba6-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba6-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba6-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba6-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba6-after-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba6-before-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba6-before-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba6-before-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba6-before-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba6-before-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba6-before-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba7-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba7-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba7-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba7-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba7-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba7-after-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba7-before-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba7-before-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba7-before-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba7-before-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba7-before-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba7-before-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba8-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba8-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba8-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba8-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba8-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba8-after-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba8-before-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba8-before-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba8-before-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba8-before-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba8-before-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba8-before-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba9-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba9-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba9-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba9-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba9-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba9-after-microblading-1536w.webp"
+      }
+    ],
+    "images/before-after/ba9-before-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/before-after-ba9-before-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/before-after-ba9-before-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/before-after-ba9-before-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/before-after-ba9-before-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/before-after-ba9-before-microblading-1536w.webp"
+      }
+    ],
+    "images/favicon.png": [
+      {
+        "width": 360,
+        "height": 337,
+        "url": "/assets/optimized/favicon-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 486,
+        "url": "/assets/optimized/favicon-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 748,
+        "url": "/assets/optimized/favicon-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1123,
+        "url": "/assets/optimized/favicon-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 1497,
+        "url": "/assets/optimized/favicon-1600w.webp"
+      },
+      {
+        "width": 1920,
+        "height": 1796,
+        "url": "/assets/optimized/favicon-1920w.webp"
+      }
+    ],
+    "images/gallery/home-lamination/ba1-after-laminirane-migli-vejdi.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-home-lamination-ba1-after-laminirane-migli-vejdi-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-home-lamination-ba1-after-laminirane-migli-vejdi-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-home-lamination-ba1-after-laminirane-migli-vejdi-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-lamination-ba1-after-laminirane-migli-vejdi-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-home-lamination-ba1-after-laminirane-migli-vejdi-1536w.webp"
+      }
+    ],
+    "images/gallery/home-lamination/ba3-after-laminirane-vejdi-i-migli.jpeg": [
+      {
+        "width": 360,
+        "height": 780,
+        "url": "/assets/optimized/gallery-home-lamination-ba3-after-laminirane-vejdi-i-migli-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 1127,
+        "url": "/assets/optimized/gallery-home-lamination-ba3-after-laminirane-vejdi-i-migli-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1734,
+        "url": "/assets/optimized/gallery-home-lamination-ba3-after-laminirane-vejdi-i-migli-800w.webp"
+      },
+      {
+        "width": 945,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-home-lamination-ba3-after-laminirane-vejdi-i-migli-945w.webp"
+      }
+    ],
+    "images/gallery/home-lamination/ba4-after-laminirane-vejdi-i-migli.jpeg": [
+      {
+        "width": 360,
+        "height": 780,
+        "url": "/assets/optimized/gallery-home-lamination-ba4-after-laminirane-vejdi-i-migli-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 1127,
+        "url": "/assets/optimized/gallery-home-lamination-ba4-after-laminirane-vejdi-i-migli-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1734,
+        "url": "/assets/optimized/gallery-home-lamination-ba4-after-laminirane-vejdi-i-migli-800w.webp"
+      },
+      {
+        "width": 945,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-home-lamination-ba4-after-laminirane-vejdi-i-migli-945w.webp"
+      }
+    ],
+    "images/gallery/home-lamination/laminirane1.jpg": [
+      {
+        "width": 360,
+        "height": 780,
+        "url": "/assets/optimized/gallery-home-lamination-laminirane1-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 1127,
+        "url": "/assets/optimized/gallery-home-lamination-laminirane1-520w.webp"
+      },
+      {
+        "width": 738,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-lamination-laminirane1-738w.webp"
+      }
+    ],
+    "images/gallery/home-lamination/laminirane2.jpg": [
+      {
+        "width": 360,
+        "height": 780,
+        "url": "/assets/optimized/gallery-home-lamination-laminirane2-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 1127,
+        "url": "/assets/optimized/gallery-home-lamination-laminirane2-520w.webp"
+      },
+      {
+        "width": 738,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-lamination-laminirane2-738w.webp"
+      }
+    ],
+    "images/gallery/home-lamination/laminirane5.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-home-lamination-laminirane5-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-home-lamination-laminirane5-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-home-lamination-laminirane5-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-lamination-laminirane5-1200w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/ba10-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-home-microblading-ba10-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-home-microblading-ba10-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-home-microblading-ba10-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-microblading-ba10-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-home-microblading-ba10-after-microblading-1536w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/ba12-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-home-microblading-ba12-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-home-microblading-ba12-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-home-microblading-ba12-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-microblading-ba12-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-home-microblading-ba12-after-microblading-1536w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/ba13-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 640,
+        "url": "/assets/optimized/gallery-home-microblading-ba13-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 924,
+        "url": "/assets/optimized/gallery-home-microblading-ba13-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1422,
+        "url": "/assets/optimized/gallery-home-microblading-ba13-after-microblading-800w.webp"
+      },
+      {
+        "width": 1152,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-home-microblading-ba13-after-microblading-1152w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/ba14-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-home-microblading-ba14-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-home-microblading-ba14-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-home-microblading-ba14-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-microblading-ba14-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-home-microblading-ba14-after-microblading-1536w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/ba15-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-home-microblading-ba15-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-home-microblading-ba15-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-home-microblading-ba15-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-microblading-ba15-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-home-microblading-ba15-after-microblading-1536w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/ba2-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 270,
+        "url": "/assets/optimized/gallery-home-microblading-ba2-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 390,
+        "url": "/assets/optimized/gallery-home-microblading-ba2-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 600,
+        "url": "/assets/optimized/gallery-home-microblading-ba2-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 900,
+        "url": "/assets/optimized/gallery-home-microblading-ba2-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "url": "/assets/optimized/gallery-home-microblading-ba2-after-microblading-1600w.webp"
+      },
+      {
+        "width": 1728,
+        "height": 1296,
+        "url": "/assets/optimized/gallery-home-microblading-ba2-after-microblading-1728w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/ba3-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-home-microblading-ba3-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-home-microblading-ba3-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-home-microblading-ba3-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-microblading-ba3-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-home-microblading-ba3-after-microblading-1536w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/ba4-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 270,
+        "url": "/assets/optimized/gallery-home-microblading-ba4-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 390,
+        "url": "/assets/optimized/gallery-home-microblading-ba4-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 600,
+        "url": "/assets/optimized/gallery-home-microblading-ba4-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 900,
+        "url": "/assets/optimized/gallery-home-microblading-ba4-after-microblading-1200w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/ba5-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-home-microblading-ba5-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-home-microblading-ba5-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-home-microblading-ba5-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-microblading-ba5-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-home-microblading-ba5-after-microblading-1536w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/ba7-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-home-microblading-ba7-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-home-microblading-ba7-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-home-microblading-ba7-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-microblading-ba7-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-home-microblading-ba7-after-microblading-1536w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/ba8-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-home-microblading-ba8-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-home-microblading-ba8-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-home-microblading-ba8-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-microblading-ba8-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-home-microblading-ba8-after-microblading-1536w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/ba9-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-home-microblading-ba9-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-home-microblading-ba9-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-home-microblading-ba9-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-microblading-ba9-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-home-microblading-ba9-after-microblading-1536w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/microblading1.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-home-microblading-microblading1-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-home-microblading-microblading1-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-home-microblading-microblading1-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-microblading-microblading1-1200w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/microblading10.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-home-microblading-microblading10-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-home-microblading-microblading10-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-home-microblading-microblading10-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-microblading-microblading10-1200w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/microblading11.jpg": [
+      {
+        "width": 360,
+        "height": 481,
+        "url": "/assets/optimized/gallery-home-microblading-microblading11-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 694,
+        "url": "/assets/optimized/gallery-home-microblading-microblading11-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1068,
+        "url": "/assets/optimized/gallery-home-microblading-microblading11-800w.webp"
+      },
+      {
+        "width": 1199,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-microblading-microblading11-1199w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/microblading12.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-home-microblading-microblading12-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-home-microblading-microblading12-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-home-microblading-microblading12-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-microblading-microblading12-1200w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/microblading13.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-home-microblading-microblading13-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-home-microblading-microblading13-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-home-microblading-microblading13-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-microblading-microblading13-1200w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/microblading14.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-home-microblading-microblading14-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-home-microblading-microblading14-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-home-microblading-microblading14-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-microblading-microblading14-1200w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/microblading2.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-home-microblading-microblading2-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-home-microblading-microblading2-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-home-microblading-microblading2-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-microblading-microblading2-1200w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/microblading6.jpeg": [
+      {
+        "width": 360,
+        "height": 640,
+        "url": "/assets/optimized/gallery-home-microblading-microblading6-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 924,
+        "url": "/assets/optimized/gallery-home-microblading-microblading6-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1422,
+        "url": "/assets/optimized/gallery-home-microblading-microblading6-800w.webp"
+      },
+      {
+        "width": 900,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-microblading-microblading6-900w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/microblading7.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-home-microblading-microblading7-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-home-microblading-microblading7-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-home-microblading-microblading7-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-microblading-microblading7-1200w.webp"
+      }
+    ],
+    "images/gallery/home-microblading/microblading8.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-home-microblading-microblading8-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-home-microblading-microblading8-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-home-microblading-microblading8-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-home-microblading-microblading8-1200w.webp"
+      }
+    ],
+    "images/gallery/lp-lamination/ba1-after-laminirane-migli-vejdi.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-lp-lamination-ba1-after-laminirane-migli-vejdi-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-lp-lamination-ba1-after-laminirane-migli-vejdi-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-lp-lamination-ba1-after-laminirane-migli-vejdi-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-lamination-ba1-after-laminirane-migli-vejdi-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-lp-lamination-ba1-after-laminirane-migli-vejdi-1536w.webp"
+      }
+    ],
+    "images/gallery/lp-lamination/ba3-after-laminirane-vejdi-i-migli.jpeg": [
+      {
+        "width": 360,
+        "height": 780,
+        "url": "/assets/optimized/gallery-lp-lamination-ba3-after-laminirane-vejdi-i-migli-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 1127,
+        "url": "/assets/optimized/gallery-lp-lamination-ba3-after-laminirane-vejdi-i-migli-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1734,
+        "url": "/assets/optimized/gallery-lp-lamination-ba3-after-laminirane-vejdi-i-migli-800w.webp"
+      },
+      {
+        "width": 945,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-lp-lamination-ba3-after-laminirane-vejdi-i-migli-945w.webp"
+      }
+    ],
+    "images/gallery/lp-lamination/ba4-after-laminirane-vejdi-i-migli.jpeg": [
+      {
+        "width": 360,
+        "height": 780,
+        "url": "/assets/optimized/gallery-lp-lamination-ba4-after-laminirane-vejdi-i-migli-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 1127,
+        "url": "/assets/optimized/gallery-lp-lamination-ba4-after-laminirane-vejdi-i-migli-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1734,
+        "url": "/assets/optimized/gallery-lp-lamination-ba4-after-laminirane-vejdi-i-migli-800w.webp"
+      },
+      {
+        "width": 945,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-lp-lamination-ba4-after-laminirane-vejdi-i-migli-945w.webp"
+      }
+    ],
+    "images/gallery/lp-lamination/laminirane1.jpg": [
+      {
+        "width": 360,
+        "height": 780,
+        "url": "/assets/optimized/gallery-lp-lamination-laminirane1-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 1127,
+        "url": "/assets/optimized/gallery-lp-lamination-laminirane1-520w.webp"
+      },
+      {
+        "width": 738,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-lamination-laminirane1-738w.webp"
+      }
+    ],
+    "images/gallery/lp-lamination/laminirane2.jpg": [
+      {
+        "width": 360,
+        "height": 780,
+        "url": "/assets/optimized/gallery-lp-lamination-laminirane2-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 1127,
+        "url": "/assets/optimized/gallery-lp-lamination-laminirane2-520w.webp"
+      },
+      {
+        "width": 738,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-lamination-laminirane2-738w.webp"
+      }
+    ],
+    "images/gallery/lp-lamination/laminirane5.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-lp-lamination-laminirane5-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-lp-lamination-laminirane5-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-lp-lamination-laminirane5-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-lamination-laminirane5-1200w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/ba10-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-lp-microblading-ba10-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-lp-microblading-ba10-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-lp-microblading-ba10-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-microblading-ba10-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-lp-microblading-ba10-after-microblading-1536w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/ba12-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-lp-microblading-ba12-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-lp-microblading-ba12-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-lp-microblading-ba12-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-microblading-ba12-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-lp-microblading-ba12-after-microblading-1536w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/ba13-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 640,
+        "url": "/assets/optimized/gallery-lp-microblading-ba13-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 924,
+        "url": "/assets/optimized/gallery-lp-microblading-ba13-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1422,
+        "url": "/assets/optimized/gallery-lp-microblading-ba13-after-microblading-800w.webp"
+      },
+      {
+        "width": 1152,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-lp-microblading-ba13-after-microblading-1152w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/ba14-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-lp-microblading-ba14-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-lp-microblading-ba14-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-lp-microblading-ba14-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-microblading-ba14-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-lp-microblading-ba14-after-microblading-1536w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/ba15-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-lp-microblading-ba15-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-lp-microblading-ba15-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-lp-microblading-ba15-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-microblading-ba15-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-lp-microblading-ba15-after-microblading-1536w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/ba2-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 270,
+        "url": "/assets/optimized/gallery-lp-microblading-ba2-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 390,
+        "url": "/assets/optimized/gallery-lp-microblading-ba2-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 600,
+        "url": "/assets/optimized/gallery-lp-microblading-ba2-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 900,
+        "url": "/assets/optimized/gallery-lp-microblading-ba2-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "url": "/assets/optimized/gallery-lp-microblading-ba2-after-microblading-1600w.webp"
+      },
+      {
+        "width": 1728,
+        "height": 1296,
+        "url": "/assets/optimized/gallery-lp-microblading-ba2-after-microblading-1728w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/ba3-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-lp-microblading-ba3-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-lp-microblading-ba3-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-lp-microblading-ba3-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-microblading-ba3-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-lp-microblading-ba3-after-microblading-1536w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/ba4-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 270,
+        "url": "/assets/optimized/gallery-lp-microblading-ba4-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 390,
+        "url": "/assets/optimized/gallery-lp-microblading-ba4-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 600,
+        "url": "/assets/optimized/gallery-lp-microblading-ba4-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 900,
+        "url": "/assets/optimized/gallery-lp-microblading-ba4-after-microblading-1200w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/ba5-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-lp-microblading-ba5-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-lp-microblading-ba5-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-lp-microblading-ba5-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-microblading-ba5-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-lp-microblading-ba5-after-microblading-1536w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/ba7-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-lp-microblading-ba7-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-lp-microblading-ba7-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-lp-microblading-ba7-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-microblading-ba7-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-lp-microblading-ba7-after-microblading-1536w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/ba8-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-lp-microblading-ba8-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-lp-microblading-ba8-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-lp-microblading-ba8-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-microblading-ba8-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-lp-microblading-ba8-after-microblading-1536w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/ba9-after-microblading.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-lp-microblading-ba9-after-microblading-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-lp-microblading-ba9-after-microblading-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-lp-microblading-ba9-after-microblading-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-microblading-ba9-after-microblading-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/gallery-lp-microblading-ba9-after-microblading-1536w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/microblading1.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading1-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading1-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading1-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading1-1200w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/microblading10.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading10-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading10-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading10-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading10-1200w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/microblading11.jpg": [
+      {
+        "width": 360,
+        "height": 481,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading11-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 694,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading11-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1068,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading11-800w.webp"
+      },
+      {
+        "width": 1199,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading11-1199w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/microblading12.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading12-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading12-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading12-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading12-1200w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/microblading13.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading13-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading13-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading13-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading13-1200w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/microblading14.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading14-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading14-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading14-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading14-1200w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/microblading2.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading2-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading2-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading2-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading2-1200w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/microblading6.jpeg": [
+      {
+        "width": 360,
+        "height": 640,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading6-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 924,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading6-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1422,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading6-800w.webp"
+      },
+      {
+        "width": 900,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading6-900w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/microblading7.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading7-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading7-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading7-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading7-1200w.webp"
+      }
+    ],
+    "images/gallery/lp-microblading/microblading8.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading8-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading8-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading8-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/gallery-lp-microblading-microblading8-1200w.webp"
+      }
+    ],
+    "images/hero-img-mobile.jpg": [
+      {
+        "width": 360,
+        "height": 240,
+        "url": "/assets/optimized/hero-img-mobile-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 347,
+        "url": "/assets/optimized/hero-img-mobile-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 534,
+        "url": "/assets/optimized/hero-img-mobile-800w.webp"
+      },
+      {
+        "width": 1153,
+        "height": 769,
+        "url": "/assets/optimized/hero-img-mobile-1153w.webp"
+      }
+    ],
+    "images/hero-img2-mobile.jpeg": [
+      {
+        "width": 360,
+        "height": 267,
+        "url": "/assets/optimized/hero-img2-mobile-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 385,
+        "url": "/assets/optimized/hero-img2-mobile-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 593,
+        "url": "/assets/optimized/hero-img2-mobile-800w.webp"
+      },
+      {
+        "width": 1066,
+        "height": 790,
+        "url": "/assets/optimized/hero-img2-mobile-1066w.webp"
+      }
+    ],
+    "images/hero-img2.jpeg": [
+      {
+        "width": 360,
+        "height": 367,
+        "url": "/assets/optimized/hero-img2-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 531,
+        "url": "/assets/optimized/hero-img2-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 817,
+        "url": "/assets/optimized/hero-img2-800w.webp"
+      },
+      {
+        "width": 1066,
+        "height": 1088,
+        "url": "/assets/optimized/hero-img2-1066w.webp"
+      }
+    ],
+    "images/laminirane1.jpg": [
+      {
+        "width": 360,
+        "height": 780,
+        "url": "/assets/optimized/laminirane1-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 1127,
+        "url": "/assets/optimized/laminirane1-520w.webp"
+      },
+      {
+        "width": 738,
+        "height": 1600,
+        "url": "/assets/optimized/laminirane1-738w.webp"
+      }
+    ],
+    "images/laminirane12.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/laminirane12-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/laminirane12-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/laminirane12-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/laminirane12-1200w.webp"
+      }
+    ],
+    "images/laminirane2.jpg": [
+      {
+        "width": 360,
+        "height": 780,
+        "url": "/assets/optimized/laminirane2-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 1127,
+        "url": "/assets/optimized/laminirane2-520w.webp"
+      },
+      {
+        "width": 738,
+        "height": 1600,
+        "url": "/assets/optimized/laminirane2-738w.webp"
+      }
+    ],
+    "images/laminirane5.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/laminirane5-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/laminirane5-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/laminirane5-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/laminirane5-1200w.webp"
+      }
+    ],
+    "images/landing-microblading/ba1.jpeg": [
+      {
+        "width": 360,
+        "height": 360,
+        "url": "/assets/optimized/landing-microblading-ba1-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 520,
+        "url": "/assets/optimized/landing-microblading-ba1-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 800,
+        "url": "/assets/optimized/landing-microblading-ba1-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1200,
+        "url": "/assets/optimized/landing-microblading-ba1-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 1600,
+        "url": "/assets/optimized/landing-microblading-ba1-1600w.webp"
+      }
+    ],
+    "images/landing-microblading/ba2.jpeg": [
+      {
+        "width": 360,
+        "height": 360,
+        "url": "/assets/optimized/landing-microblading-ba2-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 520,
+        "url": "/assets/optimized/landing-microblading-ba2-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 800,
+        "url": "/assets/optimized/landing-microblading-ba2-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1200,
+        "url": "/assets/optimized/landing-microblading-ba2-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 1600,
+        "url": "/assets/optimized/landing-microblading-ba2-1600w.webp"
+      }
+    ],
+    "images/landing-microblading/ba3.jpeg": [
+      {
+        "width": 360,
+        "height": 360,
+        "url": "/assets/optimized/landing-microblading-ba3-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 520,
+        "url": "/assets/optimized/landing-microblading-ba3-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 800,
+        "url": "/assets/optimized/landing-microblading-ba3-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1200,
+        "url": "/assets/optimized/landing-microblading-ba3-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 1600,
+        "url": "/assets/optimized/landing-microblading-ba3-1600w.webp"
+      }
+    ],
+    "images/landing-microblading/ba4.jpeg": [
+      {
+        "width": 360,
+        "height": 360,
+        "url": "/assets/optimized/landing-microblading-ba4-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 520,
+        "url": "/assets/optimized/landing-microblading-ba4-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 800,
+        "url": "/assets/optimized/landing-microblading-ba4-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1200,
+        "url": "/assets/optimized/landing-microblading-ba4-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 1600,
+        "url": "/assets/optimized/landing-microblading-ba4-1600w.webp"
+      }
+    ],
+    "images/landing-microblading/landing-hero-desktop.jpeg": [
+      {
+        "width": 360,
+        "height": 367,
+        "url": "/assets/optimized/landing-microblading-landing-hero-desktop-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 531,
+        "url": "/assets/optimized/landing-microblading-landing-hero-desktop-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 817,
+        "url": "/assets/optimized/landing-microblading-landing-hero-desktop-800w.webp"
+      },
+      {
+        "width": 1066,
+        "height": 1088,
+        "url": "/assets/optimized/landing-microblading-landing-hero-desktop-1066w.webp"
+      }
+    ],
+    "images/landing-microblading/landing-hero-desktop2353453456.jpeg": [
+      {
+        "width": 360,
+        "height": 381,
+        "url": "/assets/optimized/landing-microblading-landing-hero-desktop2353453456-360w.webp"
+      },
+      {
+        "width": 490,
+        "height": 518,
+        "url": "/assets/optimized/landing-microblading-landing-hero-desktop2353453456-490w.webp"
+      }
+    ],
+    "images/landing-microblading/landing-hero-mobile.jpeg": [
+      {
+        "width": 360,
+        "height": 267,
+        "url": "/assets/optimized/landing-microblading-landing-hero-mobile-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 385,
+        "url": "/assets/optimized/landing-microblading-landing-hero-mobile-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 593,
+        "url": "/assets/optimized/landing-microblading-landing-hero-mobile-800w.webp"
+      },
+      {
+        "width": 1066,
+        "height": 790,
+        "url": "/assets/optimized/landing-microblading-landing-hero-mobile-1066w.webp"
+      }
+    ],
+    "images/logo.png": [
+      {
+        "width": 360,
+        "height": 360,
+        "url": "/assets/optimized/logo-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 520,
+        "url": "/assets/optimized/logo-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 800,
+        "url": "/assets/optimized/logo-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1200,
+        "url": "/assets/optimized/logo-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 1600,
+        "url": "/assets/optimized/logo-1600w.webp"
+      },
+      {
+        "width": 1920,
+        "height": 1920,
+        "url": "/assets/optimized/logo-1920w.webp"
+      }
+    ],
+    "images/microblading1.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/microblading1-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/microblading1-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/microblading1-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/microblading1-1200w.webp"
+      }
+    ],
+    "images/microblading10.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/microblading10-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/microblading10-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/microblading10-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/microblading10-1200w.webp"
+      }
+    ],
+    "images/microblading11.jpg": [
+      {
+        "width": 360,
+        "height": 481,
+        "url": "/assets/optimized/microblading11-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 694,
+        "url": "/assets/optimized/microblading11-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1068,
+        "url": "/assets/optimized/microblading11-800w.webp"
+      },
+      {
+        "width": 1199,
+        "height": 1600,
+        "url": "/assets/optimized/microblading11-1199w.webp"
+      }
+    ],
+    "images/microblading12.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/microblading12-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/microblading12-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/microblading12-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/microblading12-1200w.webp"
+      }
+    ],
+    "images/microblading13.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/microblading13-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/microblading13-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/microblading13-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/microblading13-1200w.webp"
+      }
+    ],
+    "images/microblading14.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/microblading14-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/microblading14-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/microblading14-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/microblading14-1200w.webp"
+      }
+    ],
+    "images/microblading2.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/microblading2-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/microblading2-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/microblading2-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/microblading2-1200w.webp"
+      }
+    ],
+    "images/microblading6.jpeg": [
+      {
+        "width": 360,
+        "height": 640,
+        "url": "/assets/optimized/microblading6-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 924,
+        "url": "/assets/optimized/microblading6-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1422,
+        "url": "/assets/optimized/microblading6-800w.webp"
+      },
+      {
+        "width": 900,
+        "height": 1600,
+        "url": "/assets/optimized/microblading6-900w.webp"
+      }
+    ],
+    "images/microblading7.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/microblading7-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/microblading7-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/microblading7-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/microblading7-1200w.webp"
+      }
+    ],
+    "images/microblading8.jpeg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/microblading8-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/microblading8-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/microblading8-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/microblading8-1200w.webp"
+      }
+    ],
+    "images/site-bg.jpg": [
+      {
+        "width": 360,
+        "height": 641,
+        "url": "/assets/optimized/site-bg-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 924,
+        "url": "/assets/optimized/site-bg-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1422,
+        "url": "/assets/optimized/site-bg-800w.webp"
+      },
+      {
+        "width": 1125,
+        "height": 2000,
+        "url": "/assets/optimized/site-bg-1125w.webp"
+      }
+    ],
+    "images/za-men1 - Copy.jpg": [
+      {
+        "width": 360,
+        "height": 385,
+        "url": "/assets/optimized/za-men1-copy-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 557,
+        "url": "/assets/optimized/za-men1-copy-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 857,
+        "url": "/assets/optimized/za-men1-copy-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1286,
+        "url": "/assets/optimized/za-men1-copy-1200w.webp"
+      },
+      {
+        "width": 1246,
+        "height": 1335,
+        "url": "/assets/optimized/za-men1-copy-1246w.webp"
+      }
+    ],
+    "images/za-men1.jpg": [
+      {
+        "width": 360,
+        "height": 385,
+        "url": "/assets/optimized/za-men1-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 557,
+        "url": "/assets/optimized/za-men1-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 857,
+        "url": "/assets/optimized/za-men1-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1286,
+        "url": "/assets/optimized/za-men1-1200w.webp"
+      },
+      {
+        "width": 1246,
+        "height": 1335,
+        "url": "/assets/optimized/za-men1-1246w.webp"
+      }
+    ],
+    "images/za-men2.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/za-men2-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 694,
+        "url": "/assets/optimized/za-men2-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/za-men2-800w.webp"
+      },
+      {
+        "width": 971,
+        "height": 1295,
+        "url": "/assets/optimized/za-men2-971w.webp"
+      }
+    ],
+    "images/za-men3 - Copy.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/za-men3-copy-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/za-men3-copy-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/za-men3-copy-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/za-men3-copy-1200w.webp"
+      }
+    ],
+    "images/za-men3.jpg": [
+      {
+        "width": 360,
+        "height": 540,
+        "url": "/assets/optimized/za-men3-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 780,
+        "url": "/assets/optimized/za-men3-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1201,
+        "url": "/assets/optimized/za-men3-800w.webp"
+      },
+      {
+        "width": 1066,
+        "height": 1600,
+        "url": "/assets/optimized/za-men3-1066w.webp"
+      }
+    ],
+    "images/za-men4.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/za-men4-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/za-men4-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/za-men4-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/za-men4-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/za-men4-1536w.webp"
+      }
+    ],
+    "images/za-men5.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/za-men5-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/za-men5-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/za-men5-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/za-men5-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/za-men5-1536w.webp"
+      }
+    ],
+    "images/za-men6.jpg": [
+      {
+        "width": 360,
+        "height": 480,
+        "url": "/assets/optimized/za-men6-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 693,
+        "url": "/assets/optimized/za-men6-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 1067,
+        "url": "/assets/optimized/za-men6-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1600,
+        "url": "/assets/optimized/za-men6-1200w.webp"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "url": "/assets/optimized/za-men6-1536w.webp"
+      }
+    ]
+  }
+}

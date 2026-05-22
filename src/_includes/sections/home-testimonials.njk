@@ -20,7 +20,7 @@
     </header>
   </div>
 
-  <div class="testimonials-strip-wrapper">
+  <div class="strip-desktop-only testimonials-strip-wrapper">
     <div class="testimonials-strip" aria-label="Отзиви от клиенти" data-i18n-attr="aria-label:ui.reviewsFromClients">
       <div class="testimonials-strip-set">
         {% for item in items %}
@@ -66,6 +66,8 @@
       </div>
     </div>
   </div>
+
+  {% include "sections/strip-mobile-testimonials.njk" %}
 </section>
 
 <script>

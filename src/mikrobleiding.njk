@@ -492,7 +492,7 @@ pageNav:
       </header>
     </div>
 
-    <div class="testimonials-strip-wrapper">
+    <div class="strip-desktop-only testimonials-strip-wrapper">
       <div class="testimonials-strip" aria-label="Отзиви от клиенти — микроблейдинг">
         <div class="testimonials-strip-set">
           {% for item in mbTestimonials %}
@@ -538,6 +538,10 @@ pageNav:
         </div>
       </div>
     </div>
+
+    {% set items = mbTestimonials %}
+    {% set ariaLabel = "Отзиви от клиенти — микроблейдинг" %}
+    {% include "sections/strip-mobile-testimonials.njk" %}
   </section>
 
   <script>

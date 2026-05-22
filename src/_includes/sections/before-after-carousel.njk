@@ -36,7 +36,7 @@
     </header>
   </div>
 
-  <div class="clients-wrap" data-clients-wrap>
+  <div class="strip-desktop-only clients-wrap" data-clients-wrap>
     <div class="clients-strip-wrapper">
       <div class="clients-strip" role="list" data-clients-strip>
         <div class="clients-strip-set">
@@ -114,6 +114,8 @@
       </div>
     </div>
   </div>
+
+  {% include "sections/strip-mobile-before-after.njk" %}
 </section>
 {% elif baEmptyNote %}
 <section id="{{ baId }}" class="{{ baClass }}">

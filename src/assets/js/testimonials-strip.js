@@ -1,81 +1,9 @@
 (function () {
-  var DESKTOP_MQ = "(min-width: 768px)";
-
-  function resetStripInlineStyles(strip) {
-    strip.style.removeProperty("transform");
-    strip.style.removeProperty("will-change");
-    strip.style.removeProperty("cursor");
-    strip.classList.remove("strip-native-scroll");
-    var wrap = strip.closest(".testimonials-strip-wrapper");
-    if (wrap) wrap.classList.remove("strip-native-scroll");
-  }
-
-  function enableNativeScroll(strip) {
-    strip.classList.add("strip-native-scroll");
-    var wrap = strip.closest(".testimonials-strip-wrapper");
-    if (wrap) wrap.classList.add("strip-native-scroll");
-    removeMobileCloneSet(strip);
-    forceNativeScrollStyles(strip);
-    wireNativeScrollClamp(strip);
-  }
-
-  function removeMobileCloneSet(strip) {
-    strip.querySelectorAll(".testimonials-strip-set[aria-hidden='true']").forEach(function (set) {
-      set.remove();
-    });
-  }
-
-  function forceNativeScrollStyles(strip) {
-    strip.style.transform = "none";
-    strip.style.willChange = "auto";
-    strip.style.cursor = "default";
-    strip.style.width = "100%";
-    strip.style.overflowX = "auto";
-    strip.style.overflowY = "hidden";
-  }
-
-  function getNativeMaxScroll(strip) {
-    var visibleSet = strip.querySelector(".testimonials-strip-set");
-    if (!visibleSet) return Math.max(0, strip.scrollWidth - strip.clientWidth);
-    return Math.max(0, Math.ceil(visibleSet.getBoundingClientRect().width - strip.clientWidth));
-  }
-
-  function clampNativeScroll(strip) {
-    var max = getNativeMaxScroll(strip);
-    if (strip.scrollLeft < 0) {
-      strip.scrollLeft = 0;
-    } else if (strip.scrollLeft > max) {
-      strip.scrollLeft = max;
-    }
-  }
-
-  function wireNativeScrollClamp(strip) {
-    if (strip.dataset.nativeScrollClamp) return;
-    strip.dataset.nativeScrollClamp = "1";
-    strip.addEventListener("scroll", function () {
-      window.requestAnimationFrame(function () {
-        clampNativeScroll(strip);
-      });
-    }, { passive: true });
-    strip.addEventListener("touchmove", function () {
-      clampNativeScroll(strip);
-    }, { passive: true });
-    strip.addEventListener("touchend", function () {
-      clampNativeScroll(strip);
-    }, { passive: true });
-    window.addEventListener("resize", function () {
-      clampNativeScroll(strip);
-    });
-  }
-
   function bootStrips() {
-    document.querySelectorAll(".testimonials-strip").forEach(function (strip) {
-      resetStripInlineStyles(strip);
-      if (!window.matchMedia(DESKTOP_MQ).matches) {
-        enableNativeScroll(strip);
-        return;
-      }
-      if (!window.initInfiniteStrip || strip.dataset.infiniteStripInit) return;
+    if (!window.initInfiniteStrip) return;
+
+    document.querySelectorAll(".strip-desktop-only .testimonials-strip").forEach(function (strip) {
+      if (strip.dataset.infiniteStripInit) return;
       strip.dataset.infiniteStripInit = "1";
       window.initInfiniteStrip({
         speed: 0.15,
