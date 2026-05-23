@@ -18,10 +18,9 @@
       ScrollTrigger.config({ ignoreMobileResize: true });
     }
 
-    // Fire only when the section top enters the viewport from below.
-    // "top bottom" = fire the moment the element's top edge crosses the
-    // bottom of the viewport — guarantees the user has actually scrolled to it.
-    var SCROLL_START = "top bottom";
+    // Fire when the element is already 30% into the viewport from the bottom —
+    // user can clearly see the content when the animation starts.
+    var SCROLL_START = "top 70%";
 
     function scrollConfig(triggerEl, overrides) {
       return Object.assign(
@@ -35,12 +34,12 @@
       );
     }
 
-    // Only skip animation if the element is clearly on-screen (top third of
-    // the viewport). Anything in the lower 65% waits for the scroll trigger.
+    // Reveal immediately only if the element top is already above the trigger
+    // threshold (top 70% of viewport). Anything below that waits for scroll.
     function isAlreadyInView(el) {
       if (!el || !el.getBoundingClientRect) return false;
       var rect = el.getBoundingClientRect();
-      return rect.top >= 0 && rect.top < window.innerHeight * 0.35;
+      return rect.top >= 0 && rect.top < window.innerHeight * 0.7;
     }
 
     function revealNow(targets) {
@@ -82,7 +81,7 @@
       animateOnScroll(
         els,
         { opacity: 0, y: 32 },
-        { opacity: 1, y: 0, duration: 0.9, stagger: 0.18, ease: "power3.out" },
+        { opacity: 1, y: 0, duration: 1.35, stagger: 0.27, ease: "power3.out" },
         section
       );
     }
@@ -97,7 +96,7 @@
         animateOnScroll(
           mbBubbles,
           { opacity: 0, y: 16 },
-          { opacity: 1, y: 0, duration: 1.1, stagger: 0.06, ease: "power2.out" },
+          { opacity: 1, y: 0, duration: 1.65, stagger: 0.09, ease: "power2.out" },
           mbBubblesWrap || mbSection
         );
       }
@@ -113,7 +112,7 @@
         animateOnScroll(
           lamBubbles,
           { opacity: 0, y: 16 },
-          { opacity: 1, y: 0, duration: 1.1, stagger: 0.06, ease: "power2.out" },
+          { opacity: 1, y: 0, duration: 1.65, stagger: 0.09, ease: "power2.out" },
           lamBubblesWrap || lamSection
         );
       }
@@ -128,7 +127,7 @@
         animateOnScroll(
           steps,
           { opacity: 0, y: 28 },
-          { opacity: 1, y: 0, duration: 0.85, stagger: 0.22, ease: "power3.out" },
+          { opacity: 1, y: 0, duration: 1.28, stagger: 0.33, ease: "power3.out" },
           procSection
         );
       }
@@ -150,7 +149,7 @@
         animateOnScroll(
           aboutTitleEls,
           { opacity: 0, y: 32 },
-          { opacity: 1, y: 0, duration: 0.9, stagger: 0.18, ease: "power3.out" },
+          { opacity: 1, y: 0, duration: 1.35, stagger: 0.27, ease: "power3.out" },
           aboutSection
         );
       }
@@ -161,7 +160,7 @@
         animateOnScroll(
           aboutPhotos,
           { opacity: 0, y: 40 },
-          { opacity: 1, y: 0, duration: 0.9, stagger: 0.18, ease: "power3.out" },
+          { opacity: 1, y: 0, duration: 1.35, stagger: 0.27, ease: "power3.out" },
           photosWrap || aboutSection
         );
       }
@@ -171,7 +170,7 @@
         animateOnScroll(
           aboutBody,
           { opacity: 0, y: 24 },
-          { opacity: 1, y: 0, duration: 0.85, ease: "power3.out" },
+          { opacity: 1, y: 0, duration: 1.28, ease: "power3.out" },
           aboutBody
         );
       }
@@ -181,7 +180,7 @@
         animateOnScroll(
           aboutCta,
           { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
+          { opacity: 1, y: 0, duration: 1.05, ease: "power2.out" },
           aboutCta
         );
       }
@@ -202,7 +201,7 @@
         animateOnScroll(
           faqItems,
           { opacity: 0, y: 24 },
-          { opacity: 1, y: 0, duration: 0.75, stagger: 0.1, ease: "power2.out" },
+          { opacity: 1, y: 0, duration: 1.13, stagger: 0.15, ease: "power2.out" },
           faqSection
         );
       }
