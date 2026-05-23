@@ -37,6 +37,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* GSAP scroll animations — hidden until JS runs (see js-anim-ready in base.njk) */
+.js-anim-ready [data-anim="eyebrow"],
+.js-anim-ready [data-anim="title"],
+.js-anim-ready [data-anim="lead"],
+.js-anim-ready [data-anim="bubble"],
+.js-anim-ready [data-anim="step"],
+.js-anim-ready [data-anim="about-photo"],
+.js-anim-ready [data-anim="about-intro"],
+.js-anim-ready [data-anim="about-body"],
+.js-anim-ready [data-anim="about-cta"],
+.js-anim-ready [data-anim="faq-item"] {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-anim-ready [data-anim] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -508,6 +529,7 @@
     background-color: #e8d9cc;
     max-width: 460px;
     width: 100%;
+    transform: translateZ(0);
   }
   .hero-photo {
     @apply block w-full h-auto object-cover;

@@ -9,8 +9,8 @@
 >
   <div class="container-custom">
     <header class="mb-header mx-auto mb-8 text-center md:mb-10">
-      <span class="mb-eyebrow justify-center" data-i18n="home.faq.eyebrow">{{ f.eyebrow | default("Въпроси и отговори") }}</span>
-      <h2 id="faq-heading" class="mb-title mt-2 text-center" data-i18n="home.faq.title">
+      <span class="mb-eyebrow justify-center" data-i18n="home.faq.eyebrow" data-anim="eyebrow">{{ f.eyebrow | default("Въпроси и отговори") }}</span>
+      <h2 id="faq-heading" class="mb-title mt-2 text-center" data-i18n="home.faq.title" data-anim="title">
         {{ f.title | default("Често задавани въпроси") }}
       </h2>
       {% if f.pageLead %}
@@ -26,7 +26,7 @@
         <div class="faq-stack w-full">
           {% for item in items %}
           {% if loop.index0 < faqVisibleCount %}
-          <details class="faq-details">
+          <details class="faq-details" data-anim="faq-item">
             <summary class="faq-details__summary">
               <span class="faq-details__question" data-i18n="home.faq.items.{{ loop.index0 }}.question">{{ item.question }}</span>
               <span class="faq-details__chevron" aria-hidden="true">
@@ -51,7 +51,7 @@
           <div class="faq-stack faq-extra-inner w-full" data-faq-extra-inner>
             {% for item in items %}
             {% if loop.index0 >= faqVisibleCount %}
-            <details class="faq-details">
+            <details class="faq-details" data-anim="faq-item">
               <summary class="faq-details__summary">
                 <span class="faq-details__question" data-i18n="home.faq.items.{{ loop.index0 }}.question">{{ item.question }}</span>
                 <span class="faq-details__chevron" aria-hidden="true">

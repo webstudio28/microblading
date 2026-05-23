@@ -23,9 +23,9 @@
   <div class="container-custom relative">
     <header class="mb-header text-center mx-auto mb-10">
       {% if baEyebrow or baEyebrowI18n %}
-      <span class="mb-eyebrow justify-center"{% if baEyebrowI18n %} data-i18n="{{ baEyebrowI18n }}"{% endif %}>{{ baEyebrow }}</span>
+      <span class="mb-eyebrow justify-center"{% if baEyebrowI18n %} data-i18n="{{ baEyebrowI18n }}"{% endif %} data-anim="eyebrow">{{ baEyebrow }}</span>
       {% endif %}
-      <h2 id="{{ baHeading }}" class="mb-title text-center mt-2"{% if baTitleI18n %} data-i18n="{{ baTitleI18n }}"{% endif %}>
+      <h2 id="{{ baHeading }}" class="mb-title text-center mt-2"{% if baTitleI18n %} data-i18n="{{ baTitleI18n }}"{% endif %} data-anim="title">
         {{ baTitle | default("Преди / След") }}
       </h2>
       {% if baLead or baLeadI18n %}

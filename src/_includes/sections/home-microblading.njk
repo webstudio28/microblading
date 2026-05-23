@@ -9,15 +9,15 @@
 
     <header class="mb-header text-center mx-auto mb-5">
       {% if m.eyebrow %}
-      <span class="mb-eyebrow justify-center" data-i18n="home.microblading.eyebrow">{{ m.eyebrow }}</span>
+      <span class="mb-eyebrow justify-center" data-i18n="home.microblading.eyebrow" data-anim="eyebrow">{{ m.eyebrow }}</span>
       {% endif %}
 
-      <h2 id="microblading-heading" class="mb-title text-center mt-2" data-i18n="home.microblading.title">
+      <h2 id="microblading-heading" class="mb-title text-center mt-2" data-i18n="home.microblading.title" data-anim="title">
         {{ m.title | default("Микроблейдинг") }}
       </h2>
 
       {% if m.lead %}
-      <p class="mb-lead text-center mt-3" data-i18n="home.microblading.lead">{{ m.lead }}</p>
+      <p class="mb-lead text-center mt-3" data-i18n="home.microblading.lead" data-anim="lead">{{ m.lead }}</p>
       {% endif %}
 
       {% if m.sub %}
@@ -74,6 +74,7 @@
       <figure
         class="mb-bubble{% if item.src | isVideoPath %} mb-bubble--video{% endif %}"
         role="listitem"
+        data-anim="bubble"
         data-mb-gallery-trigger
         data-mb-gallery-index="{{ loop.index0 }}"
       >
