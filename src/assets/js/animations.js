@@ -93,11 +93,12 @@
       animateHeader(mbSection);
       var mbBubbles = mbSection.querySelectorAll('[data-anim="bubble"]');
       if (mbBubbles.length) {
+        var mbBubblesWrap = mbSection.querySelector("[data-mb-bubbles-wrap]") || mbSection.querySelector("[data-mb-bubbles]");
         animateOnScroll(
           mbBubbles,
-          { opacity: 0, y: 32 },
-          { opacity: 1, y: 0, duration: 0.75, stagger: 0.08, ease: "power2.out" },
-          mbSection.querySelector("[data-mb-bubbles]") || mbSection
+          { opacity: 0, y: 16 },
+          { opacity: 1, y: 0, duration: 1.1, stagger: 0.06, ease: "power2.out" },
+          mbBubblesWrap || mbSection
         );
       }
     }
@@ -108,11 +109,12 @@
       animateHeader(lamSection);
       var lamBubbles = lamSection.querySelectorAll('[data-anim="bubble"]');
       if (lamBubbles.length) {
+        var lamBubblesWrap = lamSection.querySelector("[data-lam-bubbles-wrap]") || lamSection.querySelector("[data-lam-bubbles]");
         animateOnScroll(
           lamBubbles,
-          { opacity: 0, y: 32 },
-          { opacity: 1, y: 0, duration: 0.75, stagger: 0.08, ease: "power2.out" },
-          lamSection.querySelector("[data-lam-bubbles]") || lamSection
+          { opacity: 0, y: 16 },
+          { opacity: 1, y: 0, duration: 1.1, stagger: 0.06, ease: "power2.out" },
+          lamBubblesWrap || lamSection
         );
       }
     }
