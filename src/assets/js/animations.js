@@ -1,6 +1,12 @@
 (function () {
   "use strict";
 
+  // No animations on mobile — remove the class so CSS never hides anything.
+  if (window.innerWidth < 1024) {
+    document.documentElement.classList.remove("js-anim-ready");
+    return;
+  }
+
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     document.documentElement.classList.remove("js-anim-ready");
     return;
