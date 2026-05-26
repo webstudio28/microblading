@@ -8,7 +8,7 @@ function uniqueClientIds(html) {
   ];
 }
 
-const mikro = fs.readFileSync("_site/mikrobleiding/index.html", "utf8");
+const mikro = fs.readFileSync("_site/microblading/index.html", "utf8");
 const lam = fs.readFileSync("_site/laminirane/index.html", "utf8");
 const home = fs.readFileSync("_site/index.html", "utf8");
 

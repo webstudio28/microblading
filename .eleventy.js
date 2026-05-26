@@ -122,7 +122,7 @@ module.exports = function (eleventyConfig) {
       .sort(function (a, b) {
         const rank = function (page) {
           if (page.url === "/" || page.url === "") return 0;
-          if (page.url === "/mikrobleiding/") return 1;
+          if (page.url === "/microblading/") return 1;
           if (page.url === "/laminirane/") return 2;
           return 3;
         };
