@@ -2930,6 +2930,70 @@
         "url": "/assets/optimized/hero-img2-1066w.webp"
       }
     ],
+    "images/laminirane-hero1.jpg": [
+      {
+        "width": 360,
+        "height": 360,
+        "url": "/assets/optimized/laminirane-hero1-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 520,
+        "url": "/assets/optimized/laminirane-hero1-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 800,
+        "url": "/assets/optimized/laminirane-hero1-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1200,
+        "url": "/assets/optimized/laminirane-hero1-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 1600,
+        "url": "/assets/optimized/laminirane-hero1-1600w.webp"
+      },
+      {
+        "width": 1920,
+        "height": 1920,
+        "url": "/assets/optimized/laminirane-hero1-1920w.webp"
+      }
+    ],
+    "images/laminirane-hero2.jpg": [
+      {
+        "width": 360,
+        "height": 360,
+        "url": "/assets/optimized/laminirane-hero2-360w.webp"
+      },
+      {
+        "width": 520,
+        "height": 520,
+        "url": "/assets/optimized/laminirane-hero2-520w.webp"
+      },
+      {
+        "width": 800,
+        "height": 800,
+        "url": "/assets/optimized/laminirane-hero2-800w.webp"
+      },
+      {
+        "width": 1200,
+        "height": 1200,
+        "url": "/assets/optimized/laminirane-hero2-1200w.webp"
+      },
+      {
+        "width": 1600,
+        "height": 1600,
+        "url": "/assets/optimized/laminirane-hero2-1600w.webp"
+      },
+      {
+        "width": 1920,
+        "height": 1920,
+        "url": "/assets/optimized/laminirane-hero2-1920w.webp"
+      }
+    ],
     "images/laminirane1.jpg": [
       {
         "width": 360,
